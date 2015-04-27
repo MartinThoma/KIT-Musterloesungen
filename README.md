@@ -7,4 +7,4 @@ genommen wird, in dem das Semester startet.
 
 | Fach            | Klausuren | TODOs |
 | --------------- | --------- | ----- |
-| Echtzeitsysteme | 5         | 192   |
+| Echtzeitsysteme | 5         | 164   |
