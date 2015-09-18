@@ -1,0 +1,94 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\begin{document}
+ \title{2013 SS}
+ \author{Martin Thoma}
+
+ \setcounter{section}{1}
+ \section*{Aufgabe 1}
+ \subsection*{Teilaufgabe 1}
+ \subsubsection*{1.1 a}
+  \begin{enumerate*}[label=(\arabic*)]
+      \item Schnelligkeit
+      \item Genauigkeit
+      \item Stabilität
+  \end{enumerate*}
+
+  \subsubsection*{1.1 b}
+  \begin{align}
+      X_1 &= G_1 \cdot G_2\\
+      X_2 &= G_3\\
+      X_3 &= G_4 + G_5
+  \end{align}
+
+  \subsubsection*{1.1 c}
+  \begin{align}
+      L(2 \ddot{x} + 3 \dot{x} - 4x) &= L(\dot{w} + w)\\
+      \Leftrightarrow 2 \cdot L(\ddot{x}) + 3 L(\dot{x}) - 4 L(x) &= L(\dot{w}) + L(w)\\
+      \overset{?}{\Leftrightarrow} 2 (s^2 X(s) - X(0) - x(0)) + 3(X(s) - x(0)) - 4 X(s) &= s W(s) - w(0) + W(s)\\
+      \Leftrightarrow X(s) (2s^2 - 1 - 2 X(0) - 2x(0)) + 3(X(s) - x(0) - 4 X(s)) &= W(s)(s+1) - w(0)
+  \end{align}
+
+  \underline{Annahme:} $x(0) = 0, X(0) = 0, w(0) = 0$ \todo{Ist das notwendig / gerechtfertigt?}
+
+  \begin{align}
+      X(s) (2s^2 - 1) &= W(s) (s+1)\\
+      \Leftrightarrow \frac{X(s)}{W(s)} &= \frac{s+1}{2s^2 - 1} = G(s)
+  \end{align}
+
+  \subsubsection*{1.1 d}
+  Hurwitz-Kriterium
+
+  \subsubsection*{1.1 e}
+  D-Glieder verbessern die Regelgeschwindigkeit
+
+  \subsection*{Teilaufgabe 2}
+  \subsubsection*{1.2 a}
+  \begin{itemize}
+      \item Einmaliger Hardware-Entwicklungsaufwand, dann sind parametrisierte
+            Systemänderungen per Software möglich.
+      \item Realisierung komplexer Reglerstrukturen
+  \end{itemize}
+
+  \subsubsection*{1.2 b}
+  TODO
+
+  \subsubsection*{1.2 c}
+  TODO
+
+  \subsubsection*{1.2 d}
+  \textbf{Differenzialgleichung (DGL):} $2 \ddot{x}(t) + 3 \dot{x}(t) - x(t) = w(t)$\\
+  \textbf{Differenzengleichung}:
+  \begin{align}
+      2 \frac{x(k) - 2x(k-1) + x(k-2)}{T_A^2} + 3 \frac{x(k) - x(k-1)}{T_A} - x(k) &= w(k)\\
+      x(k) (\frac{2}{T_A^2 + \frac{3}{T_A} - 1}) + x(k-1)(-\frac{2}{T_A^2} - \frac{3}{T_A}) + \frac{2}{T_A^2} x(k-2) &= w(k)
+  \end{align}
+
+  \textbf{Z-Transformierte}
+  \[X(z) (\frac{2}{T_A^2} + \frac{3}{T_A} - 1 + z^{-1} (- \frac{2}{T_A^2} - \frac{3}{T_A} + z^{-2} \frac{2}{T_A^2})) = W(z)\]
+
+  \subsubsection*{1.2 e}
+  Z-Transformierte der DGL:
+  \begin{align}
+      (z^{-1} + 1) X(z) &= W(z) + Z(-w_{k+1})\\
+      \overset{Linksverschiebung}{\Leftrightarrow} (z^{-1} + 1) X(z) &= W(z) - z(W(z) - w_0 z^0)\\
+      &= W(z)- z W(z)\\
+      &= W(z) (1-z)\\
+      \Leftrightarrow \frac{X(z)}{W(z)} &= \frac{1-z}{1+z^{-1}}
+  \end{align}
+
+  \subsubsection*{1.2 f}
+  Für die Polstellen $p_1 = 0.7$ und $p_2 = -0.25$ gilt: $|p_1| < 1$ und $|p_2| < 1$
+  $\Rightarrow$ Es ist stabil.
+
+  \[G(z) = \frac{(z+0.5)(z+1.5)}{(z-0.7) (z+0.25)}\]
+\end{document}
