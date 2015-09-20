@@ -6,6 +6,12 @@
 \usepackage[inline]{enumitem}
 \usepackage[colorinlistoftodos]{todonotes}
 
+\usepackage{listings}% http://ctan.org/pkg/listings
+\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
+
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
@@ -101,4 +107,42 @@
   $\Rightarrow$ Es ist stabil.
 
   \[G(z) = \frac{(z+0.5)(z+1.5)}{(z-0.7) (z+0.25)}\]
+
+  \section*{Aufgabe 4}
+
+  \subsection*{Teilaufgabe 2}
+  \subsubsection*{4.2 a}
+  Anzahl Gatter: $2$
+  \begin{lstlisting}
+            +---+
+E0.2 +-----O+   |
+            | & +--+
+E0.1 +------+   |  |  +----+
+            +---+  +--+    |
+                      | $\geq$1 +------+ A1.0
+E0.3 +---------------O+    |
+                      +----+
+  \end{lstlisting}
+
+  \subsubsection*{4.2 b}
+  \begin{lstlisting}
+     E0.2      E0.1        A1.0
+     |  /|     |   |       |- -|
++----| / |-----|   |---+---|   |----+
+     |/  |     |   |   |   |- -|
+                       |
+           E0.3        |
+           |  /|       |
++----------| / |-------+
+           |/  |
+  \end{lstlisting}
+  \subsubsection*{4.2 c}
+  A1.0 $:=$ ((E0.1 $\&\texttt{NOT}$ E0.2)  \texttt{ORNOT} E0.3)
+
+  \subsubsection*{4.2 d}
+  \begin{itemize}
+	\item Einlesen der Sensorsignale in Eingangsspeicher
+	\item Aufrufen des Automatisierungsprogramms; Abarbeiten der Anweisungen
+	\item Eingangssignale mit internen Zuständen und Ausgängen zu Ausgangssignalen verknüpfen
+  \end{itemize}
 \end{document}
