@@ -5,6 +5,9 @@
 \usepackage{graphicx}
 \usepackage[inline]{enumitem}
 \usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
 \usepackage[colorinlistoftodos]{todonotes}
 
 \usepackage{listings}% http://ctan.org/pkg/listings
@@ -17,10 +20,12 @@
 \setcounter{tocdepth}{2}
 
 \begin{document}
+ \selectlanguage{ngerman}
  \title{2013 SS}
  \author{Martin Thoma}
 
  \setcounter{section}{1}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \section*{Aufgabe 1}
  \subsection*{Teilaufgabe 1.1}
  \subsubsection*{1.1 a}
@@ -142,11 +147,11 @@
 
   \subsubsection*{2.1 b}
   Folgende Techniken beschleunigen die Programmausführung in Mikroprozessoren:
-  \begin{enumerate}
+  \begin{enumerate*}[label=(\arabic*)]
       \item Pipelining erhöht Befehlsdurchsatz
       \item Superskalare Prozessoren
       \item TODO
-  \end{enumerate}
+  \end{enumerate*}
 
   Sie sind im Bezug auf Echtzeitfähigkeit schlecht geeignet, da die \textbf{WCET}
   (worst case execution time) wichtig ist. Diese ist mit komplexeren Systemen
@@ -173,8 +178,17 @@
 
   \subsection*{Teilaufgabe 2.2}
   \subsubsection*{Teilaufgabe 2.2 a}
-  TODO: Bild Operationsverstärker
+  \begin{figure}[h]
+      \centering
+      \includegraphics*[width=0.5\linewidth, keepaspectratio]{op-verstaerker.png}
+      \caption{Quelle: \href{https://commons.wikimedia.org/wiki/File:Op-amp_symbol.svg}{commons.wikimedia.org/wiki/File:Op-amp\_symbol.svg}}
+      \label{fig:operationsverstaerker}
+  \end{figure}
 
+  In \cref{fig:operationsverstaerker} ist ein Operationsverstäker mit dem
+  invertierenden Eingang $V_{-}$, dem nicht-invertierendem Eingang $V_{+}$,
+  sowie der positiven und negativen Versorgungsspannung ($V_{S+}$ und $V_{S-}$)
+  und der Ausgangsspannung $V_{\text{out}}$ dargestellt.\\
   \begin{enumerate*}[label=(\roman*)]
       \item Eingangswiderstand $\rightarrow \infty$
       \item Ausgangswiderstand $\rightarrow 0$
