@@ -4,7 +4,8 @@
 \usepackage{amssymb,amsmath}
 \usepackage{graphicx}
 \usepackage[inline]{enumitem}
-\usepackage{siunitx}
+\setlist{noitemsep}
+\usepackage[binary-units=true]{siunitx}
 \usepackage{hyperref}
 \usepackage{parskip}
 \usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
@@ -280,19 +281,32 @@
   \section*{Aufgabe 4}
   \subsection*{Teilaufgabe 4.1}
   \subsubsection*{Teilaufgabe 4.1 a}
-  TODO
+  \begin{enumerate*}[label=(\arabic*)]
+      \item Elementare Taskverwaltung
+      \item Interprozesskommunikation
+      \item Synchronisation
+  \end{enumerate*}
 
   \subsubsection*{Teilaufgabe 4.1 b}
-  TODO
+  RT-Linux \todo{Ist das ein Betriebssystemaufsatz? Was ist ein Betriebssystemaufsatz?}
 
   \subsubsection*{Teilaufgabe 4.1 c}
-  TODO
+  TODO: Ablauf Sperrsynchronisation / Reihenfolgensynchronisation
 
   \subsubsection*{Teilaufgabe 4.1 d}
-  TODO
+  Middleware ist Software oberhalb des Betriebssystems. Sie sorgt in
+  heterogenen und/oder verteilten Systemen für Transparenz.
 
   \subsubsection*{Teilaufgabe 4.1 e}
-  TODO
+  \begin{itemize}
+      \item $\SI{32}{\bit}\text{Prozessor} \Rightarrow$ Logische
+            Adresse ist \SI{32}{\bit} lang.
+      \item $\SI{1}{\giga\byte}=2^{30}\text{ Byte} \Rightarrow$ Physikalische
+            Adresse ist \SI{30}{\bit} lang.
+      \item $\SI{4}{\kilo\byte}=2^{12}\text{ Byte} \Rightarrow$ Beide Offsets
+            sind \SI{12}{\bit}
+      \item[$\Rightarrow$] \SI{20}{\bit} Seitenadresse, \SI{18}{\bit} Basisadresse
+  \end{itemize}
 
   \subsection*{Teilaufgabe 4.2}
   \subsubsection*{4.2 a}
