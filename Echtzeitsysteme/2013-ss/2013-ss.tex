@@ -134,14 +134,11 @@
   \section*{Aufgabe 2}
   \subsection*{Teilaufgabe 2.1}
   \subsubsection*{2.1 a}
-  \todo{Wurde das in der Vorlesung gesagt? Steht das in den Folien?}
+  %\todo{Wurde das in der Vorlesung gesagt? Steht das in den Folien?}
   \begin{itemize}
-      \item Was ist der gewöhnliche Einsatz von flüchtigem Speicher für Mikrocontroller?
-            Schreiblesespeicher, RAM (TODO?)
-      \item Was ist der gewöhnliche Einsatz von nicht-flüchtigem Speicher für Mikrocontroller?
-            Festwertspeicher, ROM (TODO?)
-      \item Was nimmt eine Mittelstellung zwischen flüchtigem und nicht-flüchtigem Speicher ein?
-            Wiederbeschreibbarer Nichtflüchtiger Speicher (TODO?)
+      \item Datenspeicher
+      \item Programm- und Konstantenspeicher
+      \item nonvolatile RAM            
       \item Wie kann nichtflüchtiger Speicher weiter unterschieden werden?
             \textbf{Einmal beschreibbar / Wiederbeschreibbar}
   \end{itemize}
@@ -150,22 +147,26 @@
   Folgende Techniken beschleunigen die Programmausführung in Mikroprozessoren:
   \begin{enumerate*}[label=(\arabic*)]
       \item Pipelining erhöht Befehlsdurchsatz
-      \item Superskalare Prozessoren
-      \item TODO
+      \item Spekulation
+      \item Speicherhierarchien
   \end{enumerate*}
-
-  Sie sind im Bezug auf Echtzeitfähigkeit schlecht geeignet, da die \textbf{WCET}
-  (worst case execution time) wichtig ist. Diese ist mit komplexeren Systemen
-  schwerer zu berechnen. (TODO: Ist das die gewünschte Argumentation?)
+  
+  Kennzahlen und Argumentation (je weiter best und worst case auseinanderliegen, desto weniger echtzeitfähig):
+  \begin{itemize}
+  	\item ohne Pipeline: best = worst = 15 Taktzyklen - echtzeitfähig
+	\item einfache Pipeline: best = worst = 12 Taktzyklen - echtzeitfähig
+	\item Pipeline + Spekulation: best = 9, worst = 15 - weniger echtzeitfähig
+	\item Pipeline + Cache + Spekulation: best = 5, worst = 15 - noch weniger echtzeitfähig
+  \end{itemize}
 
   \subsubsection*{2.1 c}
   Zur Wahrung der Echzeitfähgikeit von System mit mehr als einem Busmaster
   müssen folgende Eigenschaften erfüllt sein:
   \begin{enumerate}
-      \item Prioritäten: TODO
-      \item Preemtion: TODO
-      \item Unterbrechbarkeit von Blocktransfers: TODO
-      \item Busmonitor: TODO
+      \item Prioritäten: Jedem Busmaster muss eindeutig eine Priorität zugeordnet werden.
+      \item Preemtion: Verlangt ein Busmaster mit höherer Priorität den Bus, so wird der mit niederer Priorität unterbrochen.
+      \item Unterbrechbarkeit von Blocktransfers: Zur Vermeidung von Prioritäteninversion müssen Blocktransfers, d.h. Datentransfers in langen Blücken unterbrochen werden können.
+      \item Busmonitor: Dient der Überwachung der Buszuteilungsregeln. Überschreiten ein Master das ihm zugeteilte Zeitkontingent, so muss der Busmonitor dies feststellen und Gegenmaßnahmen (z.B. Bus Error) einleiten.
   \end{enumerate}
 
   \subsubsection*{2.1 d}
