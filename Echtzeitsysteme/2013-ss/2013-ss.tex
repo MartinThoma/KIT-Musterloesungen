@@ -4,6 +4,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{graphicx}
 \usepackage[inline]{enumitem}
+\usepackage{siunitx}
 \usepackage[colorinlistoftodos]{todonotes}
 
 \usepackage{listings}% http://ctan.org/pkg/listings
@@ -21,7 +22,7 @@
 
  \setcounter{section}{1}
  \section*{Aufgabe 1}
- \subsection*{Teilaufgabe 1}
+ \subsection*{Teilaufgabe 1.1}
  \subsubsection*{1.1 a}
   \begin{enumerate*}[label=(\arabic*)]
       \item Schnelligkeit
@@ -55,9 +56,21 @@
   Hurwitz-Kriterium
 
   \subsubsection*{1.1 e}
-  D-Glieder verbessern die Regelgeschwindigkeit
+  \begin{itemize}
+      \item Das D-Glied \textbf{differenziert} die \textbf{Regeldifferenz}.
+      \item Durch Betrachtung der Änderung des Signals wird ein zukünftiger
+            Trend berücksichtigt. Die D-Reglerstrategie ist: Je stärker
+            die Änderung der Regelabweichung ist, desto stärker muss das
+            Stellsignal verändert werden.
+      \item D-Glieder \textbf{verbessern} gewöhnlich die
+            \textbf{Regelgeschwindigkeit} und die dynamische Regelabweichung.
+      \item D-Gleider verstärken besonders hochfrequente (verrauschte)
+            Anteile des Eingangssignals. Dies erhöht die Neigung zu
+            Schwingungen.
+  \end{itemize}
 
-  \subsection*{Teilaufgabe 2}
+
+  \subsection*{Teilaufgabe 1.2}
   \subsubsection*{1.2 a}
   \begin{itemize}
       \item Einmaliger Hardware-Entwicklungsaufwand, dann sind parametrisierte
@@ -106,11 +119,168 @@
   Für die Polstellen $p_1 = 0.7$ und $p_2 = -0.25$ gilt: $|p_1| < 1$ und $|p_2| < 1$
   $\Rightarrow$ Es ist stabil.
 
+  Eine mögliche zugehörige Übertragungsfunktion ist:
   \[G(z) = \frac{(z+0.5)(z+1.5)}{(z-0.7) (z+0.25)}\]
+  Diese kann mit beliebigen, von 0 verschiedenen, Konstanten multipliziert
+  werden und würde immer noch im selben Pol-Nullstellendiagramm resultieren.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \section*{Aufgabe 2}
+  \subsection*{Teilaufgabe 2.1}
+  \subsubsection*{2.1 a}
+  \todo{Wurde das in der Vorlesung gesagt? Steht das in den Folien?}
+  \begin{itemize}
+      \item Was ist der gewöhnliche Einsatz von flüchtigem Speicher für Mikrocontroller?
+            Schreiblesespeicher, RAM (TODO?)
+      \item Was ist der gewöhnliche Einsatz von nicht-flüchtigem Speicher für Mikrocontroller?
+            Festwertspeicher, ROM (TODO?)
+      \item Was nimmt eine Mittelstellung zwischen flüchtigem und nicht-flüchtigem Speicher ein?
+            Wiederbeschreibbarer Nichtflüchtiger Speicher (TODO?)
+      \item Wie kann nichtflüchtiger Speicher weiter unterschieden werden?
+            \textbf{Einmal beschreibbar / Wiederbeschreibbar}
+  \end{itemize}
+
+  \subsubsection*{2.1 b}
+  Folgende Techniken beschleunigen die Programmausführung in Mikroprozessoren:
+  \begin{enumerate}
+      \item Pipelining erhöht Befehlsdurchsatz
+      \item Superskalare Prozessoren
+      \item TODO
+  \end{enumerate}
+
+  Sie sind im Bezug auf Echtzeitfähigkeit schlecht geeignet, da die \textbf{WCET}
+  (worst case execution time) wichtig ist. Diese ist mit komplexeren Systemen
+  schwerer zu berechnen. (TODO: Ist das die gewünschte Argumentation?)
+
+  \subsubsection*{2.1 c}
+  Zur Wahrung der Echzeitfähgikeit von System mit mehr als einem Busmaster
+  müssen folgende Eigenschaften erfüllt sein:
+  \begin{enumerate}
+      \item Prioritäten: TODO
+      \item Preemtion: TODO
+      \item Unterbrechbarkeit von Blocktransfers: TODO
+      \item Busmonitor: TODO
+  \end{enumerate}
+
+  \subsubsection*{2.1 d}
+  Der PCI-Bus ist Echtzeitfähig,
+  Synchron (Takt: \SIrange[range-phrase = --]{33}{66}{\mega\hertz}),
+  hat einen gemultiplexten Adress- und Datenbus und erlaubt Burst-Transfers.
+
+  \subsubsection*{2.1 e}
+  Da die PCI-Bridge wie ein normales PCI-Device behandelt wird, können
+  PCI-Bussysteme hierarchisch kaskadiert werden.
+
+  \subsection*{Teilaufgabe 2.2}
+  \subsubsection*{Teilaufgabe 2.2 a}
+  TODO: Bild Operationsverstärker
+
+  \begin{enumerate*}[label=(\roman*)]
+      \item Eingangswiderstand $\rightarrow \infty$
+      \item Ausgangswiderstand $\rightarrow 0$
+      \item Verstärkung $\rightarrow \infty$
+  \end{enumerate*}
+
+  \subsubsection*{Teilaufgabe 2.2 b}
+  TODO: Bild
+
+  \subsubsection*{Teilaufgabe 2.2 c}
+  TODO
+
+  \subsubsection*{Teilaufgabe 2.2 d}
+  TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \section*{Aufgabe 3}
+  \subsection*{Teilaufgabe 3.1}
+  \subsubsection*{Teilaufgabe 3.1 a}
+  \begin{enumerate*}[label=(\arabic*)]
+      \item TODO
+      \item TODO
+      \item TODO
+  \end{enumerate*}
+
+  \subsubsection*{Teilaufgabe 3.1 b}
+  TODO
+
+  \subsubsection*{Teilaufgabe 3.1 c}
+  Dekodiertes Signal: 0011 1010 10
+
+  \subsubsection*{Teilaufgabe 3.1 d}
+  \begin{enumerate*}[label=(l\arabic*)]
+      \item 2
+      \item 3
+      \item 4
+      \item 2
+      \item 3
+      \item sendet
+      \item 5
+  \end{enumerate*}
+
+  \subsubsection*{Teilaufgabe 3.1 e}
+  TODO
+
+  \subsection*{Teilaufgabe 3.2}
+  \subsubsection*{Teilaufgabe 3.2 a}
+  Asynchrone und Synchrone Programmierung.
+  Synchrone Programmierung wird für rein zeitbasierte Systeme eingesetzt.
+
+  TODO: Vorteil / Nachteil?
+
+
+  \subsubsection*{Teilaufgabe 3.2 b}
+  Ein Schedulingverfahren heißt \textit{optimal}, wenn es einen gültigen
+  Schedule findet, falls dieser exisitert.
+
+  \begin{itemize}
+      \item Optimal auf Einprozessorsystemen\todo{also nicht Mehrprozessorsysteme?}: GPS (Guaranteed Percentage Scheduling),
+            LLF (Least Laxity First),
+            EDF (Earliest Deadline First)
+      \item Nicht optimal: FPP (Fixed Priority Preemptive) bei $H_n > n \cdot (2^{\frac{1}{n}} - 1)$,
+            FPN (Fixed Priority Non-Preemtpive)
+  \end{itemize}
+
+
+  \subsubsection*{Teilaufgabe 3.2 c}
+  Nicht-Echtzeitsysteme: Logische Korrektheit
+
+  Echtzeitsysteme: Zusätzlich Zeitliche Korrektheit
+
+
+  \subsubsection*{Teilaufgabe 3.2 d}
+  TODO
+
+  \subsubsection*{Teilaufgabe 3.2 e}
+  \begin{enumerate*}[label=(\arabic*)]
+      \item TODO
+      \item TODO
+  \end{enumerate*}
+
+  \subsubsection*{Teilaufgabe 3.2 f}
+  \begin{enumerate*}[label=(\arabic*)]
+      \item Gleichzeitigkeit
+      \item Verfügbarkeit
+  \end{enumerate*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \section*{Aufgabe 4}
+  \subsection*{Teilaufgabe 4.1}
+  \subsubsection*{Teilaufgabe 4.1 a}
+  TODO
 
-  \subsection*{Teilaufgabe 2}
+  \subsubsection*{Teilaufgabe 4.1 b}
+  TODO
+
+  \subsubsection*{Teilaufgabe 4.1 c}
+  TODO
+
+  \subsubsection*{Teilaufgabe 4.1 d}
+  TODO
+
+  \subsubsection*{Teilaufgabe 4.1 e}
+  TODO
+
+  \subsection*{Teilaufgabe 4.2}
   \subsubsection*{4.2 a}
   Anzahl Gatter: $2$
   \begin{lstlisting}
@@ -137,7 +307,7 @@ E0.3 +---------------O+    |
            |/  |
   \end{lstlisting}
   \subsubsection*{4.2 c}
-  A1.0 $:=$ ((E0.1 $\&\texttt{NOT}$ E0.2)  \texttt{ORNOT} E0.3)
+  A1.0 $:=$ ((E0.1 $\&\texttt{NOT}$ E0.2)  \texttt{OR NOT} E0.3)
 
   \subsubsection*{4.2 d}
   \begin{itemize}
