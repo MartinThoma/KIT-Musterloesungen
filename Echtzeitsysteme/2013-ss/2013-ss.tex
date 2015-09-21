@@ -198,13 +198,33 @@
   \end{enumerate*}
 
   \subsubsection*{Teilaufgabe 2.2 b}
-  TODO: Bild
+  Für nichtinvertierende Operationsverstärker gilt: $U_a = \frac{(R_e + R_n)}{R_e} U_e$
+  das Verhältnis soll $1,75 = \frac{7}{4}$ sein. Somit könnte $R_e = 4$ und $R_n = 3$ sein.
+
+  Zeichne also einen nichtinvertierenden Operationsverstärker mit 3 Widerständen (für $R_n$) in der Rückführung und 4 Widerstände für $R_e$.
 
   \subsubsection*{Teilaufgabe 2.2 c}
-  TODO
-
+  Differenzierer. TODO Zeichnung
+  
+  Berechnung der Kapazität des Kondensators:
+  \begin{itemize}
+	\item Von $0 - 1s$ gilt $U_e = 2t$
+	\item Von $1 - 2s$ gilt $U_e = 2$
+	\item Von $2 - 3s$ gilt $U_e = -2t$  
+  \end{itemize}
+  
+  aus $U_a = - R_n C \frac{d U_e}{dt}$ folgt (Punkt 2 und 3 nur zur Verifizierung des Ergebnisses):
+  \begin{itemize}
+  	\item $-1 = 1 k \Omega C \frac{d 2 t}{dt} \Rightarrow -1 = 2 k \Omega C \Rightarrow C = - \frac{1}{2} 10^{-3} F$
+  	\item $0 = 1 k \Omega C \frac{d 2}{dt} \Rightarrow 0 = 0 k \Omega C$
+  	\item $1 = 1 k \Omega C \frac{d -2 t}{dt} \Rightarrow 1 = -2 k \Omega C \Rightarrow C = - \frac{1}{2} 10^{-3} F$  	
+  \end{itemize}
+  
   \subsubsection*{Teilaufgabe 2.2 d}
-  TODO
+  Zunächst wird die Eingangspannung $n_1$ Takte lang integriert.
+  Anschließend wird die negative Referenzspannung solange aufintegriert bis $U_i = 0$.
+  Dabei wird die benötigte Anzahl an Takten $n_2$ gemessen.
+  Schließlich gilt: $U_e = \frac{n_1}{n_2} U_{ref}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \section*{Aufgabe 3}
