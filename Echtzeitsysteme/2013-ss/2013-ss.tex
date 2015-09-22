@@ -230,14 +230,16 @@
   \section*{Aufgabe 3}
   \subsection*{Teilaufgabe 3.1}
   \subsubsection*{Teilaufgabe 3.1 a}
-  \begin{enumerate*}[label=(\arabic*)]
-      \item TODO
-      \item TODO
-      \item TODO
-  \end{enumerate*}
+  \begin{itemize}
+      \item Token-Passing
+	  \item Polling
+	  \item CSMA/CD
+	  \item CSMA/CA
+	  \item TDMA
+  \end{itemize}
 
   \subsubsection*{Teilaufgabe 3.1 b}
-  Maximale MMAT bei Token Passing: TODO
+  Maximale MMAT bei Token Passing: Anzahl der Teilnehmer + maximale Ausführungszeit jedes Teilnehmers
 
   \subsubsection*{Teilaufgabe 3.1 c}
   Dekodiertes Signal: 0011 1010 10
@@ -269,7 +271,11 @@
           \item Rechtzeitigkeit und Gleichzeitigkeit können leicht garantiert
                 werden.
       \end{itemize}
-      \item Nachteil Synchroner Programmierung: Nicht ereignisbasiert\todo{also: nicht asynchron?}
+      \item Nachteil Synchroner Programmierung:
+      \begin{itemize}
+      	  \item keine Behandlung aperiodischer Ereignisse vorgesehen
+      	  \item geringe Flexibilität gegenüber Änderungen der Aufgabenstruktur
+      \end{itemize}
   \end{itemize}
 
 
@@ -293,12 +299,16 @@
 
 
   \subsubsection*{Teilaufgabe 3.2 d}
-  TODO
+  $H_1 = 3/12 = 1/4 = 25\%$ \\
+  $H_2 = 7/14 = 1/2 = 50\%$ \\
+  $H_3 = 5/25 = 1/5 = 20\%$ \\
+  $H_{ges} = 95\% > 78\% = 3 (n^{1/3} - 1)$, somit kann nicht garantiert werden, dass FPP ein Schedule findet
+
 
   \subsubsection*{Teilaufgabe 3.2 e}
   \begin{enumerate*}[label=(\arabic*)]
-      \item TODO
-      \item TODO
+      \item Eingabedaten rechtzeitig holen \\
+      \item Ausgabedaten rechtzeitig berechnen und zur Verfügung stellen
   \end{enumerate*}
 
   \subsubsection*{Teilaufgabe 3.2 f}
@@ -318,7 +328,7 @@
   \end{enumerate*}
 
   \subsubsection*{Teilaufgabe 4.1 b}
-  RT-Linux \todo{Ist das ein Betriebssystemaufsatz? Was ist ein Betriebssystemaufsatz?}
+  RT-Linux \todo{Ist das ein Betriebssystemaufsatz? Was ist ein Betriebssystemaufsatz?} %ja, ich würde sagen das ist ein Echtzeit-BA
 
   \subsubsection*{Teilaufgabe 4.1 c}
   TODO: Ablauf Sperrsynchronisation / Reihenfolgensynchronisation
