@@ -58,13 +58,12 @@ Das Erlangsche Verlustmodell mit $K=100$ hat folgende Intensitätsmatrix $Q$:
 
 
 \subsection*{Teilaufgabe 6d}
-Es seien $X_1, \dots, X_n$ exponentialverteilte Zufallsvariablen mit $X_i \sim Exp(\lambda_i)$.
+Es seien $X_1, \dots, X_n$ exponentialverteilte Zufallsvariablen mit $X_i \sim \operatorname{Exp}(\lambda_i)$.
 Dann gilt:
-\[\min\Set{X_1, \dots, X_n} \sim Exp(\sum_{i=1}^n \lambda_i)\]
+\[\min\Set{X_1, \dots, X_n} \sim \operatorname{Exp}(\sum_{i=1}^n \lambda_i)\]
 
 Daher gilt für die Zufallsvariable $Y := $ \enquote{Dauer bis der erste von 100 Leuten geht}:
-\[Y \sim Exp(100 \cdot \mu)\]
+\[Y \sim \operatorname{Exp}(100 \cdot \mu)\]
 
-Es folgt:
-\[\mathbb{E}(Exp(100 \cdot \frac{1}{50})) = \frac{1}{2}\]
+Es folgt $\mathbb{E}(Y) = \frac{1}{2}$.
 \end{document}
