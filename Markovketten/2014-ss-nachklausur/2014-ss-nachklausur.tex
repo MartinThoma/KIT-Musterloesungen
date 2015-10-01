@@ -8,6 +8,8 @@
 \usepackage[binary-units=true]{siunitx}
 \usepackage{hyperref}
 \usepackage{parskip}
+\usepackage{braket}         % needed for \Set
+\usepackage{csquotes}         % needed for \enquote
 \usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
 \usepackage[colorinlistoftodos]{todonotes}
 
@@ -44,9 +46,23 @@ Sei $K=100$ die Kapazität.
 \end{align}
 
 \subsection*{Teilaufgabe 6c}
-TODO
+\[\begin{pmatrix}
+- \lambda & \lambda &0 & 0 & \dots & 0\\
+\mu & -(\mu+\lambda) & \lambda &0 & \dots & 0\\
+0 & 2 \mu & -(2\mu+\lambda) & \lambda & & 0\\
+\vdots & \vdots & & & &\\
+0 & 0 &0 & & & 100 \mu & -100\mu
+\end{pmatrix} \in \mathbb{R}^{101 \times 101}\]
+
 
 \subsection*{Teilaufgabe 6d}
+Es seien $X_1, \dots, X_n$ exponentialverteilte Zufallsvariablen mit $X_i \sim Exp(\lambda_i)$.
+Dann gilt:
+\[\min\Set{X_1, \dots, X_n} \sim Exp(\sum_{i=1}^n \lambda_i)\]
 
+Daher gilt für die Zufallsvariable $Y := $ \enquote{Dauer bis der erste von 100 Leuten geht}:
+\[Y \sim Exp(100 \cdot \mu)\]
+
+Es folgt:
 \[\mathbb{E}(Exp(100 \cdot \frac{1}{50})) = \frac{1}{2}\]
 \end{document}
