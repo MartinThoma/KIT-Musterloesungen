@@ -46,12 +46,14 @@ Sei $K=100$ die Kapazität.
 \end{align}
 
 \subsection*{Teilaufgabe 6c}
-\[\begin{pmatrix}
-- \lambda & \lambda &0 & 0 & \dots & 0\\
-\mu & -(\mu+\lambda) & \lambda &0 & \dots & 0\\
-0 & 2 \mu & -(2\mu+\lambda) & \lambda & & 0\\
-\vdots & \vdots & & & &\\
-0 & 0 &0 & & & 100 \mu & -100\mu
+Das Erlangsche Verlustmodell mit $K=100$ hat folgende Intensitätsmatrix $Q$:
+\[Q = \begin{pmatrix}
+- \lambda &        \lambda &               0 & 0       & \dots   & 0\\
+      \mu & -(\mu+\lambda) &         \lambda & 0       & \dots   & 0\\
+        0 &          2 \mu & -(2\mu+\lambda) & \lambda & \ddots  & \vdots\\
+   \vdots &  \ddots        &          \ddots &         & \ddots  & 0\\
+   \vdots &                &          \ddots &         &         & \lambda\\
+        0 &              0 &           \dots & 0       & 100 \mu & -100\mu
 \end{pmatrix} \in \mathbb{R}^{101 \times 101}\]
 
 
