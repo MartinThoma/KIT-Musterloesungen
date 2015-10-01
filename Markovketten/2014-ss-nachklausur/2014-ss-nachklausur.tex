@@ -1,0 +1,52 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\setlist{noitemsep}
+\usepackage[binary-units=true]{siunitx}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{listings}% http://ctan.org/pkg/listings
+\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\begin{document}
+ \selectlanguage{ngerman}
+ \title{2013 SS}
+ \author{Martin Thoma}
+
+ \setcounter{section}{1}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \section*{Aufgabe 6}
+ \subsection*{Teilaufgabe 6a}
+Es handelt sich um ein M/M/100/$\infty$ Warteschlangenmodell, wenn man davon
+ausgeht, dass die Personen vor der Diskothek warten, falls diese zu voll ist.
+
+Wenn man davon ausgeht, dass die Leute nicht warten, handelt es sich um ein
+M/M/100/100 Warteschlangenmodell.
+
+\subsection*{Teilaufgabe 6b}
+Sei $K=100$ die Kapazität.
+\begin{align}
+    \lambda_i &= \lambda \text{ für } i=0, 1, \dots, K-1\\
+    \mu_i     &= \begin{cases}\mu \cdot i &\text{für } i=0, 1, \dots, K\\
+                              0           &\text{für } K+1, K+2, \dots \end{cases}
+\end{align}
+
+\subsection*{Teilaufgabe 6c}
+TODO
+
+\subsection*{Teilaufgabe 6d}
+
+\[\mathbb{E}(Exp(100 \cdot \frac{1}{50})) = \frac{1}{2}\]
+\end{document}
