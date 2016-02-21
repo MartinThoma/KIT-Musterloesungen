@@ -39,11 +39,11 @@ TODO
 \subsection*{Teilaufgabe 2a}
 
 \begin{itemize}
-    \item RGB: Displays
+    \item RGB: LCD/CRT-Displays
     \item CMYK: Drucker
     \item HSV: TODO
     \item HSI: TODO
-    \item XYZ: TODO
+    \item XYZ Color Space: Farbraum für Konversion zwischen Farbräumen
     \item Lab-Farbraum: TODO
 \end{itemize}
 
@@ -53,9 +53,46 @@ TODO
 \subsection*{Teilaufgabe 2c}
 TODO
 
-\section*{Aufgabe 3}
+\section*{Aufgabe 3: Transformationen}
 \subsection*{Teilaufgabe 3a}
-TODO
+Transformationen mit homogenen Koordianten laufen Grundsätzlich nach folgendem Schema ab:
+\[\begin{pmatrix}\tilde{x}\\ \tilde{y} \\ 1\end{pmatrix} \gets T \cdot \begin{pmatrix}x\\ y \\ 1\end{pmatrix}\]
+
+Die Transformationsmatrix $T$ für die Translation von homogenen Koordinaten ist von der Form
+
+\[T = \begin{pmatrix}1 & 0 & \Delta x\\0 & 1 & \Delta y\\0 & 0 & 1\end{pmatrix}\]
+
+Die Transformationsmatrix $R$ für eine Rotation um den Punkt $c = (c_x, c_y)$ um den Winkel $\alpha$ ist
+
+\[R_{\alpha, c} = \begin{pmatrix}          1 &            0 & c_x\\          0 &           1 & c_y\\0 & 0 & 1\end{pmatrix} \cdot
+  \begin{pmatrix}\cos \alpha & -\sin \alpha &   0\\\sin \alpha & \cos \alpha &   0\\0 & 0 & 1\end{pmatrix} \cdot
+  \begin{pmatrix}          1 &            0 &-c_x\\          0 &           1 &-c_y\\0 & 0 & 1\end{pmatrix}\]
+
+Die Idee ist nun, zuerst eine Rotation um $90^\circ$ gegen den Urzeigersinn
+um $(0, 0)$ zu machen (Matrix $R$). Dann wird das Rechteck in Richtung der $x$-Achse um
+die hälfte gestaucht (Matrix $S$) und schließlich um $0.5$ nach links verschoben (Matrix $T$):
+
+\begin{align}
+    R &= \begin{pmatrix}\cos 90 & -\sin 90 &   0\\\sin 90 & \cos 90 &   0\\0 & 0 & 1\end{pmatrix}
+       = \begin{pmatrix}0 & -1 &   0\\1 & 0 &   0\\0 & 0 & 1\end{pmatrix}\\
+    S &= \begin{pmatrix}0.5 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{pmatrix}\\
+    T &= \begin{pmatrix}1 & 0 & -0.5\\0 & 1 & 0\\0 & 0 & 1\end{pmatrix}\\
+    M &= T \cdot S \cdot R\\
+      &= \begin{pmatrix}0 & -0.5 & -0.5\\1 & 0 & 0\\0 & 0 & 1\end{pmatrix}
+\end{align}
+
+Zur Kontrolle:
+
+\begin{align}
+    M \cdot \begin{pmatrix}0\\0\\1\end{pmatrix} &= \begin{pmatrix}-0.5\\0\\1\end{pmatrix}
+    & M \cdot \begin{pmatrix}1\\0\\1\end{pmatrix} &= \begin{pmatrix}-0.5\\1\\1\end{pmatrix}\\
+    M \cdot \begin{pmatrix}1\\1\\1\end{pmatrix} &= \begin{pmatrix}-1\\1\\1\end{pmatrix}
+    & M \cdot \begin{pmatrix}0\\1\\1\end{pmatrix} &= \begin{pmatrix}-1\\0\\1\end{pmatrix}
+\end{align}
+
+
+
+
 \subsection*{Teilaufgabe 3b}
 TODO
 \subsection*{Teilaufgabe 3c}
