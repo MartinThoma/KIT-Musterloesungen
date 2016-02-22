@@ -224,15 +224,32 @@ Gouraud-Shading im Vergleich zu Phong-Shading
 
 \section*{Aufgabe 6: Texturen und Texturfilterung}
 \subsection*{Teilaufgabe 6a}
-TODO
+vgl. geometrische Interpretation (Kaptiel 2, Folie 43)
+
+\begin{align}
+    \lambda_1 &= \frac{A_\Delta(S, P_2, P_3)}{A_\Delta(P_1, P_2, P_3)}\\
+    \lambda_2 &= \frac{A_\Delta(P_1, S, P_3)}{A_\Delta(P_1, P_2, P_3)}\\
+    \lambda_3 &= \frac{A_\Delta(P1, P_2, S)}{A_\Delta(P_1, P_2, P_3)}\\
+\end{align}
+
+
 \subsection*{Teilaufgabe 6b}
-TODO
+\[T_S = \sum_{i=1}^3 \lambda_i T_i\]
+
 \subsection*{Teilaufgabe 6c}
-TODO
+\begin{itemize}
+    \item Aliasing-Artefakte durch Unterabtastung (Kapitel 4, Folie 45): Beispiel TODO
+    \item TODO: Beispiel TODO
+\end{itemize}
+
 \subsection*{Teilaufgabe 6d}
 TODO
+
 \subsection*{Teilaufgabe 6e}
-TODO
+Unter trilinearer Texturfilterung versteht man eine bilineare Interpolation
+der Stufe $n$, eine bilineare Interpolation der Stufe $n+1$ und dann eine
+lineare Interpolation dieser beiden Farben.
+
 \subsection*{Teilaufgabe 6f}
 TODO
 
