@@ -174,7 +174,9 @@ Kaptiel 2, Folie 96.
 
 
 \subsection*{Teilaufgabe 4b}
-TODO
+Die spekulare Komponente im Phong Beleuchtungsmodell lautet
+\[I_s = k_s \cdot I_L \cdot \cos^n \alpha = k_s \cdot I_L (\mathbf{r}_l \cdot \mathbf{v})^n\]
+
 \subsection*{Teilaufgabe 4c}
 \begin{enumerate}
     \item[(i)] Wie verändert sich das Glanzlicht, wenn $e$ größer wird?
@@ -186,9 +188,29 @@ TODO
 
 \section*{Aufgabe 5: Dreiecke und Schattierung}
 \subsection*{Teilaufgabe 5a}
-TODO
+Drei Punkte $P_1, P_2, P_3$ definieren eine Ebene. Diese Ebene ist eine Menge
+von Punkten
+
+\[\{x \in \mathbb{R}^3 | x \text{ liegt auf der Ebene von } P_1, P_2, P_3\} = \{x \in \mathbb{R}^3 = n \cdot x = d\}\]
+
+Es gilt also folgendes Gleichungssystem zu lösen:
+
+\begin{align}
+    \|n\| &= 1\\
+    n_x \cdot P_{1, x} + n_y \cdot P_{1, y} + n_z \cdot P_{1, z} &= d\\
+    n_x \cdot P_{2, x} + n_y \cdot P_{2, y} + n_z \cdot P_{2, z} &= d\\
+    n_x \cdot P_{3, x} + n_y \cdot P_{3, y} + n_z \cdot P_{3, z} &= d
+\end{align}
+
 \subsection*{Teilaufgabe 5b}
-TODO
+Die Normalen der Vertices eines Dreiecksnetzes können wie folgt berechnet werden:
+
+\begin{enumerate}
+    \item Berechne Normale jedes Dreiecks
+    \item Für jeden Vertex wird nun die Summe der Normalen der angrenzenden Dreiecke gebildet.
+    \item Die Vertex-Normalen werden normalisiert, indem sie durch ihre Länge geteilt werden.
+\end{enumerate}
+
 \subsection*{Teilaufgabe 5c}
 TODO
 

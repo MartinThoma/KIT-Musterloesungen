@@ -71,7 +71,7 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>10. Nachklausur 2015</td>
             <td>Draft - keine Aufgabe gelöst</td>
-            <td>35</td>
+            <td>30</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
