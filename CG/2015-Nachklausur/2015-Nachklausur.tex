@@ -138,7 +138,25 @@ Es wird zuerst eine Translation um $-\mathbf{e}$ durchgeführt und dann
 eine Transformation in das Kamera-Koordiantensystem durchgeführt. Die Basis
 des Kamera-Koordinatensystems ist $\mathbf{u}, \mathbf{v}, \mathbf{w}$.
 
-TODO
+Das Verschieben ist einfach die Matrix
+
+\[T = \begin{pmatrix}
+1 & 0 & 0 & e_x\\
+0 & 1 & 0 & e_y\\
+0 & 0 & 1 & e_z\\
+0 & 0 & 0 & 1\end{pmatrix}\]
+
+nun muss noch rotiert werden:
+
+\[R = \begin{pmatrix}
+u_x & u_y & u_z & 0\\
+v_x & v_y & v_z & 0\\
+w_x & w_y & w_z & 0\\
+0 & 0 & 0 & 1\end{pmatrix}\]
+
+Die Gesamttrasformationsmatrix ist also $V = R \cdot T$.
+
+(vgl. \texttt{03\_ Transformationen und homogene Koordinaten.pdf}, Folie 50)
 
 \section*{Aufgabe 4: Phong-Beleuchtungsmodell}
 \subsection*{Teilaufgabe 4a}
