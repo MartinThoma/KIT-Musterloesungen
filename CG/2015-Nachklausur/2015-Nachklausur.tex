@@ -29,7 +29,7 @@
 
 \setcounter{section}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Aufgabe 1}
+\section*{Aufgabe 1: Raytracing}
 \subsection*{Teilaufgabe 1a}
 Phong-Beleuchtungsmodell anwenden:
 
@@ -62,7 +62,7 @@ Auch:
 \subsection*{Teilaufgabe 1b}
 TODO
 
-\section*{Aufgabe 2}
+\section*{Aufgabe 2: Farben und Spektren}
 \subsection*{Teilaufgabe 2a}
 
 \begin{itemize}
@@ -78,7 +78,10 @@ TODO
 TODO
 
 \subsection*{Teilaufgabe 2c}
-TODO
+Metamerismus ist das Phänomen, dass unterschiedliche Spektren gleich aussehen
+können. Dies ist wichtig für Monitore, da sie aufgrund dieses Phänomens mit nur
+3~Farben den gleichen Farbeindruck erwecken können wie mit einem komplexeren
+Spektrum.
 
 \section*{Aufgabe 3: Transformationen}
 \subsection*{Teilaufgabe 3a}
@@ -122,10 +125,22 @@ Zur Kontrolle:
 
 \subsection*{Teilaufgabe 3b}
 TODO
+
 \subsection*{Teilaufgabe 3c}
+Die Transformation von Welt- in Kamerakoordinaten wird auch
+\textit{Kameratransformation} genannt. Die virtuelle Kamera ist durch die
+Position $\mathbf{e}$ und die negative Blickrichtung $\mathbf{w}$ definiert.
+Mithilfe des Up-Vektors $\mathbf{up}$ ergibt sich
+
+\[\mathbf{u} = \mathbf{up} \times \mathbf{w} \;\;\;\;\; \mathbf{v} = \mathbf{w} \times \mathbf{u}\]
+
+Es wird zuerst eine Translation um $-\mathbf{e}$ durchgeführt und dann
+eine Transformation in das Kamera-Koordiantensystem durchgeführt. Die Basis
+des Kamera-Koordinatensystems ist $\mathbf{u}, \mathbf{v}, \mathbf{w}$.
+
 TODO
 
-\section*{Aufgabe 4}
+\section*{Aufgabe 4: Phong-Beleuchtungsmodell}
 \subsection*{Teilaufgabe 4a}
 TODO
 \subsection*{Teilaufgabe 4b}
@@ -138,7 +153,8 @@ TODO
     \item[$\Rightarrow$] TODO
 \end{enumerate}
 
-\section*{Aufgabe 5}
+
+\section*{Aufgabe 5: Dreiecke und Schattierung}
 \subsection*{Teilaufgabe 5a}
 TODO
 \subsection*{Teilaufgabe 5b}
@@ -153,7 +169,8 @@ Gouraud-Shading im Vergleich zu Phong-Shading
     \item Nachteil: Schlechtere Ergebnisse
 \end{itemize}
 
-\section*{Aufgabe 6}
+
+\section*{Aufgabe 6: Texturen und Texturfilterung}
 \subsection*{Teilaufgabe 6a}
 TODO
 \subsection*{Teilaufgabe 6b}
@@ -167,10 +184,11 @@ TODO
 \subsection*{Teilaufgabe 6f}
 TODO
 
-\section*{Aufgabe 7}
+
+\section*{Aufgabe 7: Projektionen}
 TODO
 
-\section*{Aufgabe 8}
+\section*{Aufgabe 8: Beschleunigungsstrukturen}
 \subsection*{Teilaufgabe 8a}
 TODO
 \subsection*{Teilaufgabe 8b}
@@ -193,13 +211,13 @@ TODO
     \item[$\Rightarrow$] Falsch. Es könnte einen Schnitt geben, der näher zur Kamera ist (TODO: Beispiel in Folien raussuchen.)
 \end{itemize}
 
-\section*{Aufgabe 9}
+\section*{Aufgabe 9: Instancing (GLSL)}
 TODO
 
-\section*{Aufgabe 10}
+\section*{Aufgabe 10: Normal Mapping in Objektkoordinaten (GLSL)}
 TODO
 
-\section*{Aufgabe 11}
+\section*{Aufgabe 11: Bézier-Kurven und Bézier-Splines}
 \subsection*{Teilaufgabe 11a}
 TODO
 \subsection*{Teilaufgabe 11b}
