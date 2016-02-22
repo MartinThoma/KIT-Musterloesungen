@@ -229,7 +229,7 @@ vgl. geometrische Interpretation (Kaptiel 2, Folie 43)
 \begin{align}
     \lambda_1 &= \frac{A_\Delta(S, P_2, P_3)}{A_\Delta(P_1, P_2, P_3)}\\
     \lambda_2 &= \frac{A_\Delta(P_1, S, P_3)}{A_\Delta(P_1, P_2, P_3)}\\
-    \lambda_3 &= \frac{A_\Delta(P1, P_2, S)}{A_\Delta(P_1, P_2, P_3)}\\
+    \lambda_3 &= \frac{A_\Delta(P1, P_2, S)}{A_\Delta(P_1, P_2, P_3)}
 \end{align}
 
 
@@ -251,7 +251,29 @@ der Stufe $n$, eine bilineare Interpolation der Stufe $n+1$ und dann eine
 lineare Interpolation dieser beiden Farben.
 
 \subsection*{Teilaufgabe 6f}
-TODO
+\begin{itemize}
+    \item \texttt{GL\_TEXTURE\_MAG\_FILTER}: The texture magnification function
+    is used when the pixel being textured maps to an area less than or equal to
+    one texture element. It sets the texture magnification function to either
+    \texttt{GL\_NEAREST} or \texttt{GL\_LINEAR}. \texttt{GL\_NEAREST} is
+    generally faster than
+    \texttt{GL\_LINEAR}, but it can produce textured images with sharper edges
+    because the transition between texture elements is not as smooth. The
+    initial value of \texttt{GL\_TEXTURE\_MAG\_FILTER} is \texttt{GL\_LINEAR}.\\
+    Quelle: \href{https://www.talisman.org/opengl-1.1/Reference/glTexParameter.html}{www.talisman.org/opengl-1.1/Reference/glTexParameter.html}
+    \item \texttt{GL\_TEXTURE\_MIN\_FILTER}: The texture minifying function is used whenever the pixel being textured maps to an area greater than one texture element. There are six defined minifying functions. Two of them use the nearest one or nearest four texture elements to compute the texture value. The other four use mipmaps. [...]\\
+    Quelle: \href{https://www.talisman.org/opengl-1.1/Reference/glTexParameter.html}{www.talisman.org/opengl-1.1/Reference/glTexParameter.html}
+\end{itemize}
+
+Bilineare Filterung (Kaptiel 4, Folie 38):
+
+\begin{align}
+    a &= \frac{3}{8} - \frac{1}{4} = \frac{1}{8}\\
+    b &= \frac{1}{2} - \frac{1}{4} = \frac{1}{4}\\
+    t_{12} &= t_1 + a(t_2 - t_1) = 16 + \frac{1}{8} \cdot (-16) = 14\\
+    t_{34} &= (1-a) t_3 + a t_4 = \frac{7}{8} \cdot 0 + \frac{1}{8} \cdot 32 = 4\\
+    t &= (1-b) t_{12} + b t_{34} = \frac{3}{4} \cdot 14 + \frac{1}{4} \cdot 4 = 10.5 + 1 = 11.5
+\end{align}
 
 
 \section*{Aufgabe 7: Projektionen}
