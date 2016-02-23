@@ -10,6 +10,7 @@
 \usepackage{parskip}
 \usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage{nicefrac}
 
 \usepackage{listings}% http://ctan.org/pkg/listings
 \lstset{
@@ -165,7 +166,7 @@ Die Gesamttrasformationsmatrix ist also $V = R \cdot T$.
     \centering
     \includegraphics*[width=0.8\linewidth, keepaspectratio]{reflection-angles.png}
     \caption{Situationsskizze. $r_l$ ist senkrecht auf $L$ in $P$.}
-    \label{fig:your-reference}
+    \label{fig:situation-4a}
 \end{figure}
 
 \[\mathbf{r}_l = 2 \cdot \mathbf{n} \cdot (\mathbf{n} \cdot \mathbf{l}) - \mathbf{l}\]
@@ -275,13 +276,124 @@ Bilineare Filterung (Kaptiel 4, Folie 38):
     t &= (1-b) t_{12} + b t_{34} = \frac{3}{4} \cdot 14 + \frac{1}{4} \cdot 4 = 10.5 + 1 = 11.5
 \end{align}
 
-
+\clearpage
 \section*{Aufgabe 7: Projektionen}
-TODO
+Wir müssen eine Matrix $M \in \mathbb{R}^{3 \times 3}$ finden, welche die
+Projektion von Punkten $P \in [0, \infty)^2$ auf den Unterraum
+$\{P \in [0, \infty)^2 | P_x + P_y = 1\}$ transformiert.
+
+Die Homogenen Koordinaten $(x, y, z)$ entsprechen den 2D-Koordinaten
+$(\frac{x}{z}, \frac{y}{z})$.
+
+% Eine homogene Matrix hat in der letzten Zeile immer $(0, 0, 1)$ stehen. Damit
+% bleiben noch 6~Parameter zu finden.
+\goodbreak
+Es gilt, dass alle Punkte auf der $x$-Achse auf (1, 0) abgebildet werden:\nobreak
+\begin{align}
+    m_{1,1} \cdot x_1 + m_{1,2} \cdot 0 + m_{1,3} \cdot 1 &= m_{3,1} \cdot x_1 + m_{3,2} \cdot 0 + m_{3,3} \cdot 1 \;\;\; \forall x_1 \in [0, \infty) \label{eq:x-1}\\
+    m_{2,1} \cdot x_1 + m_{2,2} \cdot 0 + m_{2,3} \cdot 1 &= 0 \;\;\; \forall x_1 \in [0, \infty)
+\end{align}
+
+Daraus folgt: $m_{2,1} = 0, m_{2,3} = 0$. Außerdem lässt sich \cref{eq:x-1}
+vereinfachen:
+
+\begin{align}
+    m_{1,1} \cdot x_1 +  m_{1,3} &= m_{3,1} \cdot x_1 + m_{3,3} \;\;\; \forall x_1 \in [0, \infty)\\
+    (m_{1,1} - m_{3,1}) \cdot x_1 + (m_{1,3} - m_{3,3}) &= 0 \;\;\; \forall x_1 \in [0, \infty)\label{eq:x-1.1}
+\end{align}
+
+Daher gilt:
+
+\begin{itemize}
+    \item $m_{1,1} = m_{3,1}$
+    \item $m_{1,3} = m_{3,3}$
+\end{itemize}
+
+Bisher wissen wir:\nobreak
+\[M = \begin{pmatrix}            m_{1,1} & m_{1,2} & m_{3,3}\\
+                                       0 & m_{2,2} & 0\\
+                                 m_{1,1} & m_{3,2} & m_{3,3}\end{pmatrix}\]
+
+\goodbreak
+Des weiteren gilt, dass alle Punkte auf der $y$-Achse auf (0, 1) abgebildet werden:\nobreak
+\begin{align}
+    m_{1,1} \cdot 0 + m_{1,2} \cdot x_2 + m_{1,3} \cdot 1 &= 0 \;\;\; \forall x_2 \in [0, \infty)\\
+    m_{2,1} \cdot 0 + m_{2,2} \cdot x_2 + m_{2,3} \cdot 1 &= m_{3,1} \cdot 0 + m_{3,2} \cdot x_2 + m_{3,3} \cdot 1 \;\;\; \forall x_2 \in [0, \infty)
+\end{align}
+
+Wie zuvor, folgt: $m_{1,2} = m_{1,3} = 0$. Es verbleiben 3~Parameter.
+\goodbreak
+Bisher wissen wir:\nobreak
+\[M = \begin{pmatrix}      m_{1,1} &       0 & 0\\
+                                 0 & m_{2,2} & 0\\
+                           m_{1,1} & m_{3,2} & 0\end{pmatrix}\]
+
+Es gilt, dass alle Punkte auf der Diagonalen auf $(\nicefrac{1}{2}, \nicefrac{1}{2})$
+abgebildet werden:
+
+\begin{align}
+    m_{1,1} \cdot x &= \nicefrac{1}{2} \cdot (m_{1,1} x + m_{3,2} x) \;\;\; \forall x \in [0, \infty)\\
+    m_{2,2} \cdot x &= \nicefrac{1}{2} \cdot (m_{1,1} x + m_{3,2} x) \;\;\; \forall x \in [0, \infty)
+\end{align}
+
+Für $x \neq 0$ kann man hier beide Gleichungen jeweils durch $x$ teilen und erhält:
+
+\begin{align}
+    m_{1,1} &= m_{3,2} \;\;\; \forall x \in (0, \infty)\\
+    m_{2,2} &= \nicefrac{1}{2} \cdot (m_{1,1} + m_{3,2}) \;\;\; \forall x \in (0, \infty)\label{eq:m22}\\
+    \overset{\ref{eq:m22}}{\Rightarrow} m_{2,2} &= m_{1,1}
+\end{align}
+
+Bisher wissen wir:\nobreak
+\[M = \begin{pmatrix}      m_{1,1} &       0 & 0\\
+                                 0 & m_{1,1} & 0\\
+                           m_{1,1} & m_{1,1} & 0\end{pmatrix}\]
+
+Nun gilt für die Transformation:
+
+\begin{align}
+    T(\begin{pmatrix}x\\y\end{pmatrix}) &= M \cdot \begin{pmatrix}x\\y\\1\end{pmatrix}\\
+      &= \begin{pmatrix}m_{1,1} \cdot x\\m_{1,1} \cdot y\\m_{1,1} \cdot (x+y)\end{pmatrix}\\
+      &= \begin{pmatrix}\frac{x}{x+y}\\\frac{y}{x+y}\end{pmatrix}
+\end{align}
+
+Die Konkrete Wahl von $m_{1,1}$ ist also egal, solange $m_{1,1} \neq 0$. Wähle
+oBdA $m_{1,1} = 1$ und daher:
+
+\[M = \begin{pmatrix}      1 & 0 & 0\\
+                           0 & 1 & 0\\
+                           1 & 1 & 0\end{pmatrix}\]
+
+Für den Punkt (2,1) gilt also:
+
+\[\begin{pmatrix}1 & 0 & 0\\
+                 0 & 1 & 0\\
+                 1 & 1 & 0\end{pmatrix} \cdot \begin{pmatrix}2\\1\\1\end{pmatrix}_H = \begin{pmatrix}2\\1\\3\end{pmatrix}_H = \begin{pmatrix}\nicefrac{2}{3}\\\nicefrac{1}{3}\end{pmatrix}\]
+
 
 \section*{Aufgabe 8: Beschleunigungsstrukturen}
 \subsection*{Teilaufgabe 8a}
+Um Schnitttests zu beschleunigen, kann man den Raum durch ein Gitter in Zellen
+unterteilen. Für jede Zelle nimmt man die AABB des Objekts um zu bestimmen,
+ob ein Objekt in der Zelle ist. Wenn man dann den Schnittest macht, schaut man
+zuerst welche Zellen der Strahl traversiert. Für jede Zelle schaut man ob dort
+Objekte sind und macht den Schnittest mit den Objekten. Nun kann ein Objekt in
+mehreren Zellen sein, aber den Schnitttest macht man nur das erste mal. Dannach
+speichert man sich, dass der Schnitttest des Strahls mit dem Objekt bereits
+gemacht wurde. Dieses Speichern nennt man \textit{mailboxing} (vgl. Kapitel~5, Folie~56).
+
+Die Schnitttests sind in \cref{fig:schnitttests} dargestellt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=0.8\linewidth, keepaspectratio]{schnittests.png}
+    \caption{Alle durchgeführten Schnitttests.}
+    \label{fig:schnitttests}
+\end{figure}
+
 TODO
+
+
 \subsection*{Teilaufgabe 8b}
 \begin{itemize}
     \item[1] Der Baum einer Hüllkörperhierarchie ist immer balanciert.
