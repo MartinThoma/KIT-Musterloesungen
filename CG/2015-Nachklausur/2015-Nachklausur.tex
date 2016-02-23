@@ -11,6 +11,7 @@
 \usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{nicefrac}
+\usepackage{csquotes}
 
 \usepackage{listings}% http://ctan.org/pkg/listings
 \lstset{
@@ -447,11 +448,15 @@ Die Anzahl der Schnittests ist:
     \item[4] Ein kD-Baum braucht spezielle Vorkehrungen, um redundante Schnitttests mit demselben Dreieck auszuschliessen.
     \item[$\Rightarrow$] TODO
     \item[5] Ein Verfahren zur Erzeugung eines kD-Baumes erzeugt auch gültige BSP-Bäume.
-    \item[$\Rightarrow$] TODO
+    \item[$\Rightarrow$] Richtig. kD-Bäume sind spezialfälle von BSP-Bäumen.
     \item[6] Reguläre uniforme Gitter leiden nicht unter dem Teapot-in-a-Stadium Problem.
-    \item[$\Rightarrow$] TODO
-    \item[7] Die Komplexität der Bestimmung eines Schnittpunktes in einem BSP-Baum mit n Primitiven liegt im Optimalfall in $\mathcal{O}(\log n)$.
-    \item[$\Rightarrow$] TODO
+    \item[$\Rightarrow$] Falsch. Das \enquote{Teapot-in-a-Stadium} Problem bezeichnet
+    das Problem, dass Resourcen bei regulären Gittern verschwendet werden weil
+    die meisten Zellen leer sind und einige wenige die gesamte Komplexität
+    beinhalten. Ein riesiges Objekt (das Stadium) und ein deutlich kleineres,
+    aber komplexes Objekt (Teapot) rufen es hervor.
+    \item[7] Die Komplexität der Bestimmung eines Schnittpunktes in einem BSP-Baum mit $n$ Primitiven liegt im Optimalfall in $\mathcal{O}(\log n)$.
+    \item[$\Rightarrow$] Richtig. Im Optimalfall ist der BSP-Baum balanciert.
     \item[8] Das Traversieren einer Hüllkörperhierarchie kann abgebrochen werden sobald ein Schnittpunkt gefunden wurde.
     \item[$\Rightarrow$] Falsch. Es könnte einen Schnitt geben, der näher zur Kamera ist (TODO: Beispiel in Folien raussuchen.)
 \end{itemize}
