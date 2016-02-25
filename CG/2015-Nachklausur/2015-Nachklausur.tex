@@ -465,7 +465,40 @@ TODO
 
 \section*{Aufgabe 11: Bézier-Kurven und Bézier-Splines}
 \subsection*{Teilaufgabe 11a}
-TODO
+Damit ein Bézier-Spline, welcher aus $C^2$-stetig ist, muss er $C^0$ und $C^1$ stetig sein.
+Für $C^0$-Stetigkeit muss nur $\mathbf{b}_3 = \mathbf{c}_0$ gelten.
+
+Für $C^1$-Stetigkeit muss $\mathbf{b}_3 - \mathbf{b}_2 = \mathbf{c}_1 - \mathbf{c}_0$ gelten. Das heißt:
+
+\begin{align}
+    \mathbf{b}_3 - \mathbf{b}_2 &\overset{!}{=} \mathbf{c}_1 - \mathbf{c}_0\\
+    \begin{pmatrix}7\\8\end{pmatrix} - \begin{pmatrix}5\\9\end{pmatrix}
+    &\overset{!}{=}
+    \mathbf{c}_1 - \begin{pmatrix}7\\8\end{pmatrix}\\
+    \Leftrightarrow \mathbf{c}_1 &\overset{!}{=} \begin{pmatrix}9\\7\end{pmatrix}
+\end{align}
+
+Für $C^2$-Stetigkeit muss zusätzlich noch folgende Bedingung gelten:
+
+\begin{align}
+    \mathbf{b}_{2} + (\mathbf{b}_{2} - \mathbf{b}_{1}) &\overset{!}{=} \mathbf{c}_{1} + (\mathbf{c}_{1} - \mathbf{c}_{2})\\
+    \begin{pmatrix}5\\9\end{pmatrix} + \left (\begin{pmatrix}5\\9\end{pmatrix} - \begin{pmatrix}3\\9\end{pmatrix} \right )
+    &\overset{!}{=}
+    \begin{pmatrix}9\\7\end{pmatrix} + \left (\begin{pmatrix}9\\7\end{pmatrix} - \mathbf{c}_{2} \right)\\
+    \Leftrightarrow \begin{pmatrix}7\\9\end{pmatrix} &\overset{!}{=} \begin{pmatrix}18\\14\end{pmatrix} - \mathbf{c}_{2}\\
+    \Leftrightarrow \mathbf{c}_{2} &\overset{!}{=} \begin{pmatrix}11\\5\end{pmatrix}
+\end{align}
+
+Das sieht dann wie folgt aus:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=0.8\linewidth, keepaspectratio]{11a.png}
+    \caption{Ergebnisspline. TODO: Ich glaube $c_2$ ist falsch.}
+    \label{fig:situation-11a}
+\end{figure}
+
+
 \subsection*{Teilaufgabe 11b}
 Bézierkurven sind immer:
 
