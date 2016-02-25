@@ -1,0 +1,146 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\setlist{noitemsep}
+\usepackage[binary-units=true]{siunitx}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{nicefrac}
+\usepackage{csquotes}
+
+\usepackage{minted} % needed for the inclusion of source code
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\usepackage{microtype}
+
+\begin{document}
+\selectlanguage{ngerman}
+\title{2015 Hauptklausur (WS 2014/15)}
+\author{Martin Thoma}
+
+\setcounter{section}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 1: Raytracing}
+\subsection*{Teilaufgabe 1a}
+TODO
+\subsection*{Teilaufgabe 1b}
+TODO
+\subsection*{Teilaufgabe 1c}
+TODO
+\subsection*{Teilaufgabe 1d}
+\begin{enumerate}
+    \item \textbf{Ray generation}: Erzeuge Sichtstrahlen durch jeden Pixel.
+    \item \textbf{Ray intersection}: Schnittberechnung; also: Finde Objekt
+          welches den Strahl schneidet und am nahesten zur Kamera ist.
+    \item \textbf{Shading}: Schattierung / Beleuchtungsberechnung.
+\end{enumerate}
+
+\section*{Aufgabe 2: Farben}
+\subsection*{Teilaufgabe 2a}
+\textit{Wie nennt man die Funktionen, mit denen man Tristimulus-Werte zu einem gegebenen Spektrum berechnen kann?}
+
+Color Matching Funktionen?
+
+\subsection*{Teilaufgabe 2b}
+\begin{itemize}
+    \item \textit{Es gibt eine lineare Abbildung zwischen den Farbräumen XYZ und xyY.}
+    \item[$\rightarrow$] TODO
+    \item \textit{Es gibt eine lineare Abbildung zwischen den Farbräumen RGB und XYZ.}
+    \item[$\rightarrow$] TODO
+    \item \textit{Die subjektiv empfundene Stärke von Sinneseindrücken ist proportional zur Intensität des physikalischen Reizes.}
+    \item[$\rightarrow$] TODO
+\end{itemize}
+
+
+\subsection*{Teilaufgabe 2c}
+\textit{Welche Information beinhalten die x- und y-Komponenten einer Farbdarstellung im CIE-xyY-Farbraum zusammengenommen?}
+TODO
+
+\subsection*{Teilaufgabe 2d}
+TODO
+
+\section*{Aufgabe 3: Homogene Koordinaten}
+\subsection*{Teilaufgabe 3a}
+TODO
+\subsection*{Teilaufgabe 3b}
+TODO
+\subsection*{Teilaufgabe 3c}
+TODO
+
+\section*{Aufgabe 4: Transformationen}
+\subsection*{Teilaufgabe 4a}
+TODO
+\subsection*{Teilaufgabe 4b}
+TODO
+
+\section*{Aufgabe 5: Beschleunigungsstrukturen und Hüllkörper}
+\subsection*{Teilaufgabe 5a}
+TODO
+\subsection*{Teilaufgabe 5b}
+TODO
+\subsection*{Teilaufgabe 5c}
+TODO
+
+\section*{Aufgabe 6: Texturen}
+\subsection*{Teilaufgabe 6a}
+TODO
+\subsection*{Teilaufgabe 6b}
+TODO
+
+\section*{Aufgabe 7: Beleuchtung}
+\subsection*{Teilaufgabe 7a}
+TODO
+\subsection*{Teilaufgabe 7b}
+TODO
+\subsection*{Teilaufgabe 7c}
+TODO
+\subsection*{Teilaufgabe 7d}
+TODO
+\subsection*{Teilaufgabe 7e}
+TODO
+\subsection*{Teilaufgabe 7f}
+TODO
+
+\section*{Aufgabe 8: Partikeleffekte und OpenGL-Blending}
+\subsection*{Teilaufgabe 8a}
+TODO
+\subsection*{Teilaufgabe 8b}
+TODO
+\subsection*{Teilaufgabe 8c}
+TODO
+\subsection*{Teilaufgabe 8d}
+TODO
+
+\section*{Aufgabe 9: OpenGL}
+TODO
+
+\section*{Aufgabe 10: Reflexionen in OpenGL}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
+
+\section*{Aufgabe 11: GLSL-Hatching}
+\subsection*{Teilaufgabe 11a}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
+\subsection*{Teilaufgabe 11b}
+TODO
+
+\section*{Aufgabe 12: Bézierkurven}
+\subsection*{Teilaufgabe 12a}
+TODO
+\subsection*{Teilaufgabe 12b}
+TODO
+\subsection*{Teilaufgabe 12c}
+\begin{enumerate}
+    \item Ja
+    \item Ja
+    \item Nein, da die Kurve nicht innerhalb der konvexen Hülle der
+          Kontrollpunkte ist.
+\end{enumerate}
+
+\end{document}
