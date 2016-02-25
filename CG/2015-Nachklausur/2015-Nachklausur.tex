@@ -467,7 +467,23 @@ TODO
 \subsection*{Teilaufgabe 11a}
 TODO
 \subsection*{Teilaufgabe 11b}
-TODO
+Bézierkurven sind immer:
 
+\begin{itemize}
+    \item \textbf{Wertebereich}: Bézierkurven liegen innerhalb der konvexen
+          Hülle, die durch die 4~Kontrollpunkte gebildet werden.
+    \item \textbf{Endpunktinterpolation}: Bézierkurven beginnen immer beim
+          ersten Kontrollpunkt und enden beim letzten Kontrollpunkt.
+    \item \textbf{Variationsredukion}: Eine Bézierkurve $F$ wackelt nicht stärker
+          als ihr Kontrollpolygon $B$ ($\sharp (H \cap F) \leq \sharp (H \cap B)$).
+\end{itemize}
+
+Die ersten zwei Eigenschaften gelten für alle 3 dargestellten Kurven, die
+dritte ist bei der dritten Kurve jedoch verletzt. Also ist die dritte Kurve
+mit den dargestellten Kontrollpunkten keine Bézierkurve.
+
+Begründung: Legt man eine Hyperebene $H$ (Gerade) so, dass sie kurz über dem
+zweiten Kontrollpunkt und leicht unter dem zweiten Kontrollpunkt liegt, so
+schneidet $H$ das Kontrollpolygon genau 1~mal, aber 3~mal die Bézierkurve.
 
 \end{document}
