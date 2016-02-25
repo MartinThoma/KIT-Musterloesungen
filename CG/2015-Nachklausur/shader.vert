@@ -13,5 +13,7 @@ void main(void)
     vec3 data = texelFetch(treeInstanceData, gl_InstanceID, 0);
 
     // Aufgabe beginnt hier:
-    gl_Position = TODO;
+    // wpos = TODO;
+    // wnrm = TODO;
+    gl_Position = VP * vec4(POS, 1);
 }
