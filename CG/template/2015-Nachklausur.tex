@@ -10,12 +10,10 @@
 \usepackage{parskip}
 \usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage{nicefrac}
+\usepackage{csquotes}
 
-\usepackage{listings}% http://ctan.org/pkg/listings
-\lstset{
-  basicstyle=\ttfamily,
-  mathescape
-}
+\usepackage{minted} % needed for the inclusion of source code
 
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
@@ -60,7 +58,7 @@ TODO
 TODO
 
 \section*{Aufgabe 11}
-TODO
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
 
 
 \end{document}
