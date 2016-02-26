@@ -75,19 +75,53 @@ Normalen bei einem Dreiecksnetz notwendig sind! Gehen Sie dabei davon aus, dass 
 die Vertex-Positionen und die Topologie des Netzes gegeben sind!}
 TODO
 
-\section*{Aufgabe 3}
+\clearpage
+\section*{Aufgabe 3: Farben und Farbwahrnehmung}
 \subsection*{Teilaufgabe 3a}
-TODO
+\subsubsection*{Teilaufgabe 3a (I)}
+\textit{Wie berechnet man die Sensorantwort $a$ für ein Spektrum $S(\lambda)$?}
+\[a(S(\lambda)) = \int_\lambda E(\lambda) \cdot S(\lambda) \mathrm{d} \lambda \]
+
+\subsubsection*{Teilaufgabe 3a (II)}
+Unter einem \textit{Metamerismus} versteht man das Phänomen, das
+unterschiedliche Spektren den selben Farbeindruck vermitteln können. Es muss
+also
+\[a_1 = a_2\]
+gelten, damit $S_1(\lambda)$ und $S_2(\lambda)$ bzgl. der gegebenen Kamera
+Metamere sind.
+
 \subsection*{Teilaufgabe 3b}
+\begin{enumerate}
+    \item Das HSV-Farbmodell trennt Farbton von Helligkeit.
+    \item[$\Rightarrow$] Richtig (\textit{H}ue (Farbton), \textit{S}aturation (Sättigung),
+                         \textit{V}alue (Hellwert)).
+    \item Der Farbeindruck einer additiv gemischten Farbe hängt nicht vom Farbeindruck der Ausgangsfarben ab.
+    \item[$\Rightarrow$] TODO
+    \item Farbige Flächen werden unabhängig von ihrer Umgebung vom menschlichen Auge immer gleich wahrgenommen.
+    \item[$\Rightarrow$] Falsch. (TODO: Welche Folie?)
+    \item Der Machsche Bandeffekt ist vor allem bei Phong-Shading ein Problem.
+    \item[$\Rightarrow$] TODO
+\end{enumerate}
+
+\clearpage
+\section*{Aufgabe 4: Bézier-Kurven}
+\subsection*{Teilaufgabe 4a}
+\textit{Gegeben sei die Bézier-Kurve $\mathbf{b}(u) = \sum_{i=0}^3 \mathbf{b}_i B_i^3(u)$ mit den Kontrollpunkten $\mathbf{b}_i$, wobei
+$u \in [0, 1]$ und $B_i^3$ das $i$-te Bernstein-Polynom vom Grad 3 ist.}
+
+\subsubsection*{Teilaufgabe 4a (I)}
+\textit{Werten Sie die Bézier-Kurve zeichnerisch mit dem de-Casteljau-Algorithmus
+an der Stelle $u = \nicefrac{1}{3}$ aus! Markieren Sie den Punkt $\mathbf{b}(\nicefrac{1}{3})$!}
+
 TODO
 
-\section*{Aufgabe 4}
-\subsection*{Teilaufgabe 4a}
+\subsubsection*{Teilaufgabe 4a (II)}
 TODO
+
 \subsection*{Teilaufgabe 4b}
 TODO
 
-\section*{Aufgabe 5}
+\section*{Aufgabe 5: Transformationen}
 TODO
 
 \section*{Aufgabe 6: Texturierung}
