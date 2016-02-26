@@ -22,14 +22,19 @@
 
 \begin{document}
 \selectlanguage{ngerman}
-\title{2015 Nachklausur (WS 2014/15)}
-\author{Martin Thoma}
+\title{2014 Nachklausur (WS 2013/14)}
 
 \setcounter{section}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Aufgabe 1}
+\section*{Aufgabe 1: Das Phong-Beleuchtungsmodell}
 \subsection*{Teilaufgabe 1a}
-TODO
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
+    \caption{Skizze zu Aufgabe 1}
+    \label{fig:1a}
+\end{figure}
+
 \subsection*{Teilaufgabe 1b}
 TODO
 \subsection*{Teilaufgabe 1c}
@@ -43,12 +48,31 @@ TODO
 
 \section*{Aufgabe 2: Raytracing}
 \subsection*{Teilaufgabe 2a}
-TODO
+\begin{itemize}
+    \item Anstelle einen Punkt für einen Pixel abzutasten, tastet man
+          $k^2$ mal in äquidistanten Intervallen ab.
+    \item Aliasing wird dadurch verringert.
+\end{itemize}
+
 \subsection*{Teilaufgabe 2b}
-TODO
+\begin{itemize}
+    \item Maximale Rekursionstiefe erreicht
+    \item Rekursion bis der Beitrag zur Farbe vernachlässigbar wird
+\end{itemize}
+
 \subsection*{Teilaufgabe 2c}
+
+\textit{Was ist der Unterschied zwischen Distributed Raytracing und Whitted-Style Raytracing?}
 TODO
+
+\textit{Welchen Lichttransport kann man durch Distributed Raytracing berechnen, den
+Whitted-Style Raytracing nicht erfassen kann?}
+TODO
+
 \subsection*{Teilaufgabe 2d}
+\textit{Nennen Sie kurz und stichpunktartig die zwei Schritte, die zur Berechnung von Vertex-
+Normalen bei einem Dreiecksnetz notwendig sind! Gehen Sie dabei davon aus, dass nur
+die Vertex-Positionen und die Topologie des Netzes gegeben sind!}
 TODO
 
 \section*{Aufgabe 3}
