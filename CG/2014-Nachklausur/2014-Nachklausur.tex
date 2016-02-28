@@ -12,6 +12,7 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{nicefrac}
 \usepackage{csquotes}
+\usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 
 \usepackage{minted} % needed for the inclusion of source code
 
@@ -247,16 +248,50 @@ Terminator (Reflektion auf dem Terminator im Film, vgl. Kapitel~4, Folie~97)
 Das Environment ist unendlich weit weg (also: nur die Richtung $r$ wird verwendet,
 nicht jedoch der Ausgangspunkt $P$).
 
+\subsubsection*{Teilaufgabe 7b (IV)}
+\textit{Was bzw. welcher Effekt kann mit vorgefilterten Environment-Maps nicht korrekt dargestellt werden?}
+
+Selbstverschattung
+
 
 \section*{Aufgabe 8: Hierarchische Datenstrukturen}
 \subsection*{Teilaufgabe 8a}
-TODO
+
+Reihenfolge der Schnittests:
+
+A B 14 15 A C 5 6 11
+
 \subsection*{Teilaufgabe 8b}
-TODO
+\begin{enumerate}
+    \item räumliches Mittel (Spatial Median)
+    \item[$\rightarrow$] Nein, da $B$ nicht in der Mitte liegt
+    \item Objektmittel (Object Median)
+    \item[$\rightarrow$] Nein, da $B$ genau 8~Objekte auf der einen Seite und
+                         nur 2~Objekte auf der anderen Seite hat.
+    \item Kostenfunktion (Surface Area Heuristic)
+    \item[$\rightarrow$] Ja.
+\end{enumerate}
+
 \subsection*{Teilaufgabe 8c}
-TODO
+\textit{Nennen Sie jeweils eine Stärke und eine Schwäche der Aufteilung mittels Kostenfunktion (Surface Area Heuristic)!}
+
+\begin{itemize}
+    \item[Vorteil] Gut konstruierte kD-Bäume können deutlich schneller sein als schlecht konstruierte
+    \item[Nachteil] Konstruktion aufwendig
+\end{itemize}
+
+
 \subsection*{Teilaufgabe 8d}
-TODO
+\begin{table}[H]
+    \begin{tabular}{p{4cm}p{2.2cm}p{2.2cm}p{2.2cm}p{2.2cm}}\toprule
+    Aussage                                                                 & BVH             & Octree               & kD-Baum               & Gitter               \\\midrule
+    Datenstruktur wird an Geometrie angepasst                               & Ja (Hüllkörper) & Ja (Rekursionstiefe) & Ja (wo Ebenen liegen) & Ja (Rekursionstiefe) \\
+    Raum wird immer achsen\-parallel unterteilt                               & Nein            & Ja                   & Ja                    & Ja                   \\
+    Datenstruktur ist Binär\-baum                                             & Nein            & Nein                 & Ja                    & Nein                 \\
+    Speicherplatz der Daten\-struktur ist abhängig von der Anzahl der Primive & Ja              & Ja                   & Ja                    & Ja                   \\
+    Bei der Konstruktuion kann die SAH sinnvoll eingesetz werden            & Nein            & Nein                 & Ja                    & Nein                 \\\bottomrule
+    \end{tabular}
+\end{table}
 
 \section*{Aufgabe 9: Rasterisierung und OpenGL}
 TODO
