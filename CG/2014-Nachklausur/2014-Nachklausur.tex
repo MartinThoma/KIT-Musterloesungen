@@ -207,9 +207,42 @@ wie folgt:
 
 \section*{Aufgabe 7: Cube-Maps und Environment-Mapping}
 \subsection*{Teilaufgabe 7a}
+\subsubsection*{Teilaufgabe 7a (I)}
+\textit{Wie wird die Cube-Map-Seite bestimmt, auf die zugegriffen wird? Welche ist es für $\mathbf{r}$?}
+Es wird die betragsmäßig größte Komponente gewählt. Diese bestimmt ob es
+oben/unten oder links/rechts oder vorne/hinten wird. Das Vorzeichen bestimmt
+dann per Konvention die konkrete Fläche.
+
+Im vorliegenden Fall ist $|r_z|$ am größten, also ist es Fläche~1.
+
+\subsubsection*{Teilaufgabe 7a (II)}
+\textit{Berechnen Sie die Texturkoordinaten des Zugriffs auf der für $\mathbf{r}$ ausgewählten Cube-Map-Seite!}
+
+\begin{align}
+    s &= \nicefrac{1}{2} + \frac{r_x}{2 \cdot r_z} = \frac{1}{4}\\
+    t &= \nicefrac{1}{2} + \frac{r_y}{2 \cdot r_z} = \frac{3}{4}
+\end{align}
+
+\subsubsection*{Teilaufgabe 7a (III)}
+\textit{Nennen Sie einen Vorteil von Cube-Maps gegenüber Sphere-Maps!}
+
 TODO
+
 \subsection*{Teilaufgabe 7b}
+\subsubsection*{Teilaufgabe 7b (I)}
+\textit{Was wird in einer Environment-Map gespeichert?}
+
+Ein Bild der Umgebung in einer Textur.
+
+\subsubsection*{Teilaufgabe 7b (II)}
+\textit{Nennen Sie ein Anwendungsbeispiel für Environment-Maps!}
 TODO
+
+\subsubsection*{Teilaufgabe 7b (III)}
+\textit{Welche grundlegende Annahme wird bei Environment-Mapping gemacht?}
+Das Environment ist unendlich weit weg (also: nur die Richtung $r$ wird verwendet,
+nicht jedoch der Ausgangspunkt $P$).
+
 
 \section*{Aufgabe 8: Hierarchische Datenstrukturen}
 \subsection*{Teilaufgabe 8a}
