@@ -58,20 +58,20 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>8. Nachklausur 2014</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>Draft</td>
+            <td>27</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>9. Hauptklausur 2015</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>Draft</td>
+            <td>33</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>10. Nachklausur 2015</td>
-            <td>Draft - keine Aufgabe gelöst</td>
-            <td>18</td>
+            <td>Draft</td>
+            <td>16</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
