@@ -65,13 +65,13 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>9. Hauptklausur 2015</td>
             <td>Draft</td>
-            <td>33</td>
+            <td>32</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>10. Nachklausur 2015</td>
             <td>Draft</td>
-            <td>16</td>
+            <td>14</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
