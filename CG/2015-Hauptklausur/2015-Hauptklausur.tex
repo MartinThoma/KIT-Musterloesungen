@@ -126,9 +126,19 @@ TODO
 
 \section*{Aufgabe 11: GLSL-Hatching}
 \subsection*{Teilaufgabe 11a}
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
+
+\[
+	\left(1 - \frac{x - x_1}{x_2 - x_1}\right) y_1 + \frac{x - x_1}{x_2 - x_1} y_2
+\]
+
+oder
+
+\[
+	y_1 + \frac{y_2 - y_1}{x_2 - x_1} (x - x_1)
+\]
+
 \subsection*{Teilaufgabe 11b}
-TODO
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{hatching.frag}
 
 \section*{Aufgabe 12: Bézierkurven}
 \subsection*{Teilaufgabe 12a}
