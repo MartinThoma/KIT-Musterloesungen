@@ -136,17 +136,74 @@ Siehe Nachklausur 2015, Aufgabe 11b für eine detailierte Erklärung.
 \end{enumerate}
 
 \section*{Aufgabe 5: Transformationen}
-TODO
+% Gesucht ist eine homogene Matrix $M \in \mathbb{R}^{4 \times 4}$, für die gilt:
+
+% \begin{align}
+%     M \cdot \begin{pmatrix}-2\\1\\-1\\1\end{pmatrix} &= \begin{pmatrix}0\\0\\0\\c\end{pmatrix}\\
+
+% \end{align}
+
+Der Basiswechsel ist eine Verschiebung um $\begin{pmatrix}2\\-1\\1\end{pmatrix}$
+und dann eine Rotation um $180^\circ$ um die $x$-Achse. Daher:
+
+\begin{align}
+    M &= \overbrace{\begin{pmatrix}1 & 0 & 0 & 0\\
+                        0 & \cos 180^\circ & -\sin 180^\circ & 0\\
+                        0 & \sin 180^\circ & \cos 180^\circ  & 0\\
+                        0 &              0 &              0  & 1\end{pmatrix}}^{\text{Rotation}}
+         \cdot
+         \overbrace{
+         \begin{pmatrix}1 & 0 & 0 & 2\\
+                        0 & 1 & 0 & -1\\
+                        0 & 0 & 1 & 1\\
+                        0 & 0 & 0 & 1\end{pmatrix}}^{\text{Translation}}\\
+    M &= \begin{pmatrix}1 &  0 &  0 & 0\\
+                        0 & -1 &  0 & 0\\
+                        0 &  0 & -1 & 0\\
+                        0 &  0 &  0 & 1\end{pmatrix}
+         \cdot
+         \begin{pmatrix}1 & 0 & 0 & 2\\
+                        0 & 1 & 0 & -1\\
+                        0 & 0 & 1 & 1\\
+                        0 & 0 & 0 & 1\end{pmatrix}\\
+    M &= \begin{pmatrix}1 &  0 &  0 & 2\\
+                        0 & -1 &  0 & 1\\
+                        0 &  0 & -1 & -1\\
+                        0 &  0 &  0 & 1\end{pmatrix}
+\end{align}
 
 \section*{Aufgabe 6: Texturierung}
 \subsection*{Teilaufgabe 6a}
-TODO
+\begin{align}
+    \lambda_A &= \frac{A_\Delta(P,B,C)}{A_\Delta(A,B,C)} = \frac{3}{6}
+    &\lambda_B &= \frac{A_\Delta(P,A,C)}{A_\Delta(A,B,C)} = \frac{1}{6}
+    &\lambda_C &= \frac{A_\Delta(P,A,B)}{A_\Delta(A,B,C)} = \frac{2}{6}
+\end{align}
+
+\begin{equation}
+\begin{pmatrix}u\\v\end{pmatrix} = \lambda_A \cdot \begin{pmatrix}4\\0\end{pmatrix} + \lambda_B \cdot \begin{pmatrix}12\\6\end{pmatrix} + \lambda_C \cdot \begin{pmatrix}0\\12\end{pmatrix} = \begin{pmatrix}4\\5\end{pmatrix}
+\end{equation}
+
+
 \subsection*{Teilaufgabe 6b}
+Siehe Kapitel~4, Folie~56
+
 TODO
+
+
 \subsection*{Teilaufgabe 6c}
+\textit{Welchen Vorteil haben Summed-Area-Tables gegenüber Mipmaps bei der Texturfilterung?}
 TODO
+
 \subsection*{Teilaufgabe 6d}
-TODO
+Das Interpolationsschema heißt \textit{Bilineare Interpolation} und funktionert
+wie folgt:
+
+\begin{align}
+    t_{12} &= (1-a) \cdot t_1 + a \cdot t_2\\
+    t_{23} &= (1-a) \cdot t_3 + a \cdot t_4\\
+    t      &= (1-b) \cdot t_{12} + b \cdot t_{23}
+\end{align}
 
 \section*{Aufgabe 7: Cube-Maps und Environment-Mapping}
 \subsection*{Teilaufgabe 7a}
