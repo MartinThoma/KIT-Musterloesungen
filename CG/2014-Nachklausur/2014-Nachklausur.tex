@@ -233,6 +233,7 @@ Vorteile von Cube-Maps gegenüber Sphere-Maps (\href{https://en.wikipedia.org/wi
     \item[$\Rightarrow$] Besser für Echtzeit-Rendering geeignet.
 \end{itemize}
 
+
 \subsection*{Teilaufgabe 7b}
 \subsubsection*{Teilaufgabe 7b (I)}
 \textit{Was wird in einer Environment-Map gespeichert?}
@@ -311,11 +312,34 @@ A B 14 15 A C 5 6 11
 
 \section*{Aufgabe 10: Tiefenpuffer und Transparenz}
 \subsection*{Teilaufgabe 10a}
-TODO
+\textit{In welcher Reihenfolge müssen die drei Funktionen aufgerufen werden, um
+eine korrekte Darstellung des Hauses zu erhalten?}
+
+\begin{enumerate}
+    \item Lösche Tiefenpuffer
+    \item Zeichne Wände
+    \item Zeichne Fenster
+\end{enumerate}
+
 \subsection*{Teilaufgabe 10b}
-TODO
+
+\begin{table}[H]
+    \begin{tabular}{lllll}
+    \toprule
+    Sortierung     & keine & vorne nach hinten & hinten nach vorne & Begründung \\\midrule
+    ZeichneWände   & TODO  & TODO              & TODO              & TODO       \\
+    ZeichneFenster & TODO  & TODO              & TODO              & TODO       \\\bottomrule
+    \end{tabular}
+\end{table}
+
 \subsection*{Teilaufgabe 10c}
-TODO
+\begin{table}[H]
+    \begin{tabular}{lllllll}\toprule
+    Sortierung     & Tiefentest & EQUAL & LESS & GREATER & Tiefe schreiben & Blending \\\midrule
+    ZeichneWände   & TODO       & TODO  & TODO & TODO    & TODO            & TODO    \\
+    ZeichneFenster & TODO       & TODO  & TODO & TODO    & TODO            & TODO   \\\bottomrule
+    \end{tabular}
+\end{table}
 
 \section*{Aufgabe 11: Phong-Shading und Phong-Beleuchtungsmodell}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.vert]{glsl}{shader.vert}
