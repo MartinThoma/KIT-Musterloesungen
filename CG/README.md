@@ -52,8 +52,8 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>7. Hauptklausur 2014</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>Draft</td>
+            <td>Many</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
