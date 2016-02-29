@@ -22,6 +22,7 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
+\usepackage{wasysym}
 \usepackage{microtype}
 
 \begin{document}
@@ -42,8 +43,57 @@
 \subsection*{Teilaufgabe 1b}
 Alles auf der Purple line. Also insbesondere \textcolor{magenta}{\textbf{Magenta}}.
 
-\section*{Aufgabe 2}
-TODO
+\subsection*{Teilaufgabe 1c}
+\begin{align}
+    x &= \frac{X}{X + Y + Z}\\
+    y &= \frac{Y}{X + Y + Z}
+\end{align}
+
+\subsection*{Teilaufgabe 1d}
+$(2) < (3) < (1)$, also\\
+RGB $<$ Raum aller Farben die durch 100 monochromatische Leuchtdioden darstellbar sind $<$ XYZ
+
+\subsection*{Teilaufgabe 1e}
+\begin{table}
+    \begin{tabular}{p{6cm}ccp{5cm}}\toprule
+    Aussage  & Wahr & Falsch & Begründung \\\midrule
+    Den Weißpunkt eines Farbraums bezeichnet man auch als Tristimulus\-wert. & $\square$ & \CheckedBox & Die RGB-Werte sind die Tristimulus-Werte. Der Weißpunkt heißt pblicherweise $D[\text{Zahl}]$, wobei die Zahl die Temperatur angibt. D65 hat eine Farbtemperatur von ca. 6504K.\\
+    Die subjektiv empfundene Stärke von Sinneseindrücken ist proportional zum Logarithmus ihrer Intensität. & \CheckedBox &  $\square$    & ~          \\
+    Jeder Farbeindruck für den Menschen kann mit drei Grundgrößen beschrieben werden. & $\square$ & \CheckedBox & vgl. 1 (b) \\\bottomrule
+    \end{tabular}
+\end{table}
+
+\section*{Aufgabe 2: Whitted-Style Raytracing}
+\subsection*{Teilaufgabe 2a-d}
+Siehe \cref{fig:2a}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=0.8\linewidth, keepaspectratio]{2a.png}
+    \caption{Aufgabe 2a-d; $n_1 = 1, n_2 = 1.5$}
+    \label{fig:2a}
+\end{figure}
+
+\subsection*{Teilaufgabe 2e}
+\begin{align}
+    \eta_i \sin \theta_i &= \eta_t \sin \theta_t\\
+    1 \cdot \frac{4}{10} &= 1.5 \sin \theta_t\\
+    \Leftrightarrow \sin \theta_t = \frac{4}{15} = \frac{2}{7.5}
+\end{align}
+
+\subsection*{Teilaufgabe 2f}
+\begin{align}
+    I_s    &= k_s \cdot I_L \cdot \cos^n \alpha\\
+    \alpha &= r_L \cdot v
+\end{align}
+
+wobei $k_s$ ein Materialparameter und $I_L$ die intensität der Lichtquelle ist.
+$n$ wird der Phong-Exponent genannt (TODO: woher kommt der?)
+
+\subsection*{Teilaufgabe 2g}
+Snellsches Brechungsgesetz
+
+\[\eta_i \sin \theta_i = \eta_t \sin \theta_t\]
 
 \section*{Aufgabe 3}
 TODO
