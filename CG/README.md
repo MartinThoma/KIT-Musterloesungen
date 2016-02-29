@@ -53,7 +53,7 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>7. Hauptklausur 2014</td>
             <td>Draft</td>
-            <td>Many</td>
+            <td>18</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
