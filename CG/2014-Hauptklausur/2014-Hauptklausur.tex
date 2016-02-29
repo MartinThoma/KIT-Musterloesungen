@@ -192,11 +192,34 @@ Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic b
 Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & $\square$ & $\square$ & $\square$ & \CheckedBox \\\bottomrule
 \end{tabular}
 
-\section*{Aufgabe 7}
-TODO
+\section*{Aufgabe 7: Rasterisierung und OpenGL}
+\subsection*{Teilaufgabe 7a}
+\begin{tabular}{p{8cm}llp{4cm}}\toprule
+    Aussage & Wahr & Falsch & Begründung / Quelle \\\midrule
+    In der OpenGL-Pipeline wird View Frustum Clipping vor\\der perspektivischen Division durchgeführt.                                    & ~    & ~      & ~                   \\
+    Vertex-Shader können auf Texturen zugreifen.                                                                                          & ~    & ~      & ~                   \\
+    Bei Gouraud-Shading muss man die Normale im Fragment-Shader erneut normalisieren.                                                     & ~    & ~      & ~                   \\
+    Gouraud-Shading mit dem Phong-Beleuchtungsmodell kann\\im Geometry-Shader implementiert werden.                                       & ~    & ~      & ~                   \\
+    Phong-Shading kann man alleine mit einem Vertex-Shader\\und einem Geometry-Shader implementieren; letzterer gibt\\dann die Farbe aus. & ~    & ~      & ~                   \\
+    Bei beliebig feiner Tessellierung ist kein Unterschied zwi-\\schen Gouraud- und Phong-Shading erkennbar.                              & ~    & ~      & ~                   \\
+    Selbst wenn der Tiefentest für ein Fragment fehlschlägt, kann\\der Stencil-Puffer verändert werden.                                   & ~    & ~      & ~                   \\
+    Instanziierung von Geometrie kann man sowohl mit dem\\Vertex- als auch dem Geometry-Shader durchführen.                               & ~    & ~      & ~                   \\\bottomrule
+\end{tabular}
 
-\section*{Aufgabe 8}
-TODO
+\subsection*{Teilaufgabe 7b}
+\textit{Warum zieht man das Tiefenpuffer-Verfahren (Z-Buffering) dem Sortieren von Dreiecken vor? Nennen Sie drei Gründe!}
+
+\begin{itemize}
+    \item Dreiecke können nicht sortierbar sein (wenn ein Dreieck ein andere schneidet)
+    \item TODO
+    \item TODO
+\end{itemize}
+
+\section*{Aufgabe 8: OpenGL-Primitive}
+\begin{itemize}
+    \item[(a)] \texttt{GL\_TRIANGLE\_STRIP}: Ganz links ist (1), (2) ist rechts unten davon, (3) ist rechts oben von (1). Dann im Zick-Zack-Muster weiter.
+    \item[(b)] \texttt{GL\_TRIANGLE\_FAN}: Der mittlere Knoten ist (1), dann wird von ganz links gegen den Uhrzeigersinn nummeriert.
+\end{itemize}
 
 \section*{Aufgabe 9}
 TODO
