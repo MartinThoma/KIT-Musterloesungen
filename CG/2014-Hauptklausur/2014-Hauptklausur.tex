@@ -153,8 +153,44 @@ TODO
 \subsection*{Teilaufgabe 5b}
 TODO
 
-\section*{Aufgabe 6}
-TODO
+\section*{Aufgabe 6: Hierarchische Datenstrukturen}
+\subsection*{Teilaufgabe 6a}
+\includegraphics*[width=0.8\linewidth, keepaspectratio]{6a.png}
+
+\subsection*{Teilaufgabe 6b}
+Inklusive Schnittests der AABB Hüllkörper:
+
+\begin{enumerate}
+    \item 1
+    \item 1.1
+    \item 1.1.1
+    \item 5, 6
+    \item 1.1.2
+    \item 1.2
+    \item 1.2.1
+    \item 3, 7
+    \item 1.2.2
+    \item 4, 8
+\end{enumerate}
+
+\subsection*{Teilaufgabe 6c}
+\begin{tabular}{p{8cm}ccp{5cm}}\toprule
+Aussage & Wahr & Falsch & Begründung \\\midrule
+Beim Traversieren eines kD-Baums müssen immer beide Kinder in Betracht gezogen werden. & $\square$  & \CheckedBox & vgl. Folie 103\\
+Das Traversieren einer Hüllkörperhierarchie mit achsenparallelen Boxen (Bounding Volume Hierarchy, BVH) erfordert Mailboxing, um mehrfache Schnitttests mit einem Dreieck zu verhindern. & \CheckedBox & $\square$     & ~          \\
+Der Speicheraufwand einer BVH hängt logarithmisch von der Anzahl der Primitive ab. & \CheckedBox & $\square$      & ~          \\
+kD-Bäume sind eine Verallgemeinerung von BSP-Bäumen. & $\square$    & \CheckedBox & Es ist genau anders herum. kD-Bäume müssen Achsenparallele Trennebenen haben, BSP-Bäume jedoch nicht. \\
+BSP-Bäume sind adaptiv und leiden nicht unter dem \enquote{Teapot in a Stadium}-Problem. & \CheckedBox    & $\square$      & ~          \\
+\end{tabular}
+
+\subsection*{Teilaufgabe 6d}
+\begin{tabular}{p{8cm}cccc}\toprule
+Aussage  & BVH & Octree & kD-Baum & Gitter \\\midrule
+Die Datenstruktur partitioniert den Raum. & $\square$   & \CheckedBox & \CheckedBox & \CheckedBox \\
+Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive. & $\square$ & $\square$ & $\square$ & $\square$ \\
+Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird. & $\square$ & $\square$ & \CheckedBox & $\square$ \\
+Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & $\square$ & $\square$ & $\square$ & \CheckedBox \\\bottomrule
+\end{tabular}
 
 \section*{Aufgabe 7}
 TODO
