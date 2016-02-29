@@ -240,9 +240,26 @@ Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie glei
 \texttt{glBlendFunc(TODO, TODO)}
 
 
-\section*{Aufgabe 10}
-TODO
+\section*{Aufgabe 10: Bézier-Kurven und Bézier-Splines}
+\subsection*{Teilaufgabe 10a}
 
+\begin{itemize}
+    \item Bézier-Kurven liegen innerhalb der konvexen Hülle ihrer Kontrollpunkte.
+    \item $c_0 c_1$ ist Tangential an die Bezierkurve am Anfang.
+    \item $c_2 c_3$ ist Tangential an die Bezierkurve am Ende.
+    \item \textbf{Wertebereich}: Bézierkurven liegen innerhalb der konvexen
+          Hülle, die durch die 4~Kontrollpunkte gebildet werden.
+    \item \textbf{Endpunktinterpolation}: Bézierkurven beginnen immer beim
+          ersten Kontrollpunkt und enden beim letzten Kontrollpunkt.
+    \item \textbf{Variationsredukion}: Eine Bézierkurve $F$ wackelt nicht stärker
+          als ihr Kontrollpolygon $B$ ($\sharp (H \cap F) \leq \sharp (H \cap B)$).
+\end{itemize}
+
+\clearpage
+\subsection*{Teilaufgabe 10b}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.vert]{glsl}{shader.vert}
+
+\clearpage
 \section*{Aufgabe 11: Wasseroberfläche mit GLSL}
 \subsection*{Teilaufgabe 11a}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
