@@ -210,7 +210,15 @@ Die Normalen der Vertices eines Dreiecksnetzes können wie folgt berechnet werde
 \end{enumerate}
 
 \subsection*{Teilaufgabe 5c}
-TODO
+Gouraud-Shading berechnet die Werte (z.B. Farbe) an den Eckpunkten der Dreiecke
+und interpoliert die Werte im inneren der Dreieck mithilfe der Eckpunktwerte.
+
+Phong-Shading nutzt die normalen an den Eckpunkten zur interpolation von
+Normalen innerhalb des Dreiecks. Diese werden für weitere Beleuchtungsberechnungen
+verwendet.
+
+Insbesondere bei Glanzlichtern kann dies einen Unterschied machen. Beim
+Gouraud-Shading können Glanzlichter verloren gehen.
 
 \subsection*{Teilaufgabe 5d}
 Gouraud-Shading im Vergleich zu Phong-Shading
