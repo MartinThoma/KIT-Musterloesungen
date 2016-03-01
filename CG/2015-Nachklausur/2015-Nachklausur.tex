@@ -66,7 +66,7 @@ TODO
 \begin{itemize}
     \item RGB: LCD/CRT-Displays
     \item CMYK: Drucker
-    \item HSV: TODO
+    \item HSV: Comuter Vision
     \item HSI: TODO
     \item XYZ Color Space: Farbraum für Konversion zwischen Farbräumen
     \item Lab-Farbraum: TODO
@@ -139,9 +139,9 @@ des Kamera-Koordinatensystems ist $\mathbf{u}, \mathbf{v}, \mathbf{w}$.
 Das Verschieben ist einfach die Matrix
 
 \[T = \begin{pmatrix}
-1 & 0 & 0 & e_x\\
-0 & 1 & 0 & e_y\\
-0 & 0 & 1 & e_z\\
+1 & 0 & 0 & -e_x\\
+0 & 1 & 0 & -e_y\\
+0 & 0 & 1 & -e_z\\
 0 & 0 & 0 & 1\end{pmatrix}\]
 
 nun muss noch rotiert werden:
