@@ -291,17 +291,35 @@ Ein Vertex-Shader transformiert einen Vertex und verarbeitet dessen Attribute
 \end{itemize}
 
 
-\section*{Aufgabe 10}
+\section*{Aufgabe 10: Bézierkurven}
 \subsection*{Teilaufgabe 10a}
-TODO
+\textit{Wie nennt man den Algorithmus zur rekursiven Auswertung von
+Bézierkurven, der auch eine grafische Repräsentation hat?}
 
+Algorithmus von De Casteljau.
+
+\clearpage
 \subsection*{Teilaufgabe 10b}
-TODO
+\textit{Zählen Sie vier wichtige Eigenschaften von Bézierkurven, die Sie in der
+Vorlesung kennengelernt haben, auf.}
+
+\begin{itemize}
+    \item \textbf{Tangentenbedingung}:
+          $c_0 c_1$ ist Tangential an die Bezierkurve am Anfang,
+          $c_2 c_3$ ist Tangential an die Bezierkurve am Ende.
+    \item \textbf{Wertebereich}: Bézierkurven liegen innerhalb der konvexen
+          Hülle, die durch die 4~Kontrollpunkte gebildet werden.
+    \item \textbf{Endpunktinterpolation}: Bézierkurven beginnen immer beim
+          ersten Kontrollpunkt und enden beim letzten Kontrollpunkt.
+    \item \textbf{Variationsredukion}: Eine Bézierkurve $F$ wackelt nicht stärker
+          als ihr Kontrollpolygon $B$ ($\sharp (H \cap F) \leq \sharp (H \cap B)$).
+    \item \textbf{Affine Invarianz}
+\end{itemize}
 
 \subsection*{Teilaufgabe 10c}
 \begin{figure}[h]
     \centering
-    \includegraphics*[width=0.8\linewidth, keepaspectratio]{10c.png}
+    \includegraphics*[width=0.7\linewidth, keepaspectratio]{10c-bezier.png}
     \caption{Skizze zu Aufgabe 10c}
     \label{fig:10c}
 \end{figure}
