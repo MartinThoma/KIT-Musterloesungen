@@ -156,8 +156,24 @@ Parametrisierung einen Vorteil oder Nachteil.}\\
           abgetastet werden.
 \end{itemize}
 
-\section*{Aufgabe 5}
-TODO
+\section*{Aufgabe 5: Räumliche Datenstrukturen}
+\subsection*{Teilaufgabe 5a}
+\textit{Begründen Sie, warum und wofür räumliche Datenstrukturen für
+Ray-Tracing von komplexen Szenen besonders wichtig sind!}
+
+Zur Beschleunigung der Schnittpunktberechnung bei Szenen mit vielen Objekten /
+Primitiven.
+
+\subsection*{Teilaufgabe 5b}
+\begin{tabular}{p{8cm}llll}\toprule
+Aussage                                                                                                 & BVH           & Octree           & Gitter           & BSP \\\midrule
+Der Aufbau-Algorithmus ist adaptiv und passt die Datenstruktur deshalb automatisch an die Geometrie an. & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox   \\
+Die Datenstruktur wird durch einen Binärbaum repräsentiert.                                             & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\
+Objekte werden bei der Traversierung potentiell mehrfach von demselben Strahl geschnitten.              & $\square$     & $\square$        & \CheckedBox      & $\square$     \\
+Bei der Traversierung wird leerer Raum effizient übersprungen.                                          & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox  \\
+Der Raum wird durch die Datenstruktur immer achsenparallel unterteilt.                                  & $\square$     & \CheckedBox      & \CheckedBox      & $\square$   \\
+Bei der Konstruktion kann die Surface-Area-Heuristik sinnvoll eingesetzt werden.                        & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\\bottomrule
+\end{tabular}
 
 \section*{Aufgabe 6}
 TODO
