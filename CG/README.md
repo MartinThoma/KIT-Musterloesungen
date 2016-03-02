@@ -8,7 +8,7 @@ abfotografieren hilft ja auch schon.
     <thead>
         <tr>
             <th>Klausur</th>
-            <th>Satus</th>
+            <th>Status</th>
             <th>TODOs</th>
             <th>Korrekturleser</th>
         </tr>
@@ -16,8 +16,8 @@ abfotografieren hilft ja auch schon.
     <tbody>
         <tr>
             <td>1. Hauptklausur 2011</td>
-            <td>Draft</td>
-            <td>1</td>
+            <td>Completed, but not checked</td>
+            <td>0</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
