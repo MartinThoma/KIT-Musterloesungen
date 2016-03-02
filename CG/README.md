@@ -16,8 +16,8 @@ abfotografieren hilft ja auch schon.
     <tbody>
         <tr>
             <td>1. Hauptklausur 2011</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>Draft</td>
+            <td>Many</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
