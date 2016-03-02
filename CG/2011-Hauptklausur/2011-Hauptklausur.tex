@@ -16,7 +16,7 @@
 \usepackage{minted} % needed for the inclusion of source code
 
 % for \begin{enumerate}[label=(\Alph*)], see http://tex.stackexchange.com/a/129960/5645
-\usepackage{enumitem}
+\usepackage[inline]{enumitem}
 
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
@@ -85,18 +85,45 @@ von Rauschfunktionen für Texturen.
 
 \textit{Was sind wichtige Eigenschaften dieser Rauschtexturen?}
 
-\begin{itemize}
+\begin{enumerate*}[label=(\arabic*)]
     \item Reproduzierbarkeit
     \item Keine sichtbare Periodizität
-\end{itemize}
+\end{enumerate*}
 
 \textit{Geben Sie eine einfache Möglichkeit an, um 2D-Rauschtexturen zu berechnen.}
 
 Rauschtexturen können anhand eines 2D-Gitters mit Zufallswerten und
 interpolation berechnet werden.
 
-\section*{Aufgabe 3}
-TODO
+\section*{Aufgabe 3: Ray-Tracing}
+\subsection*{Teilaufgabe 3a}
+\textit{Nennen Sie die vier Arten von Strahlen, die beim
+Whitted-Style-Ray-Tracing auftreten können. Welche dieser Strahlen benötigen
+zur Berechnung Rekursion?}
+
+\begin{enumerate*}[label=(\arabic*)]
+    \item Primärstrahlen
+    \item Reflektionsstrahlen (rekursiv)
+    \item Transmissionsstrahlen (rekursiv)
+    \item Schattenstrahlen
+\end{enumerate*}
+
+\clearpage
+\subsection*{Teilaufgabe 3b}
+\textit{Nennen Sie die zwei Abbruchkriterien für die Rekursion, die Sie in der
+Vorlesung kennengelernt haben! Welchen Vorteil haben die Kriterien jeweils?}
+\begin{enumerate}[label=(\arabic*)]
+    \item \textbf{Maximale Rekursionstiefe}: Ist einfach zu implementieren
+    \item \textbf{Schwellwertunterschreitung} (der Zusätzliche Beitrag
+    unterschreitet einen vorgegebenen Schwellwert): Ist adaptiv
+\end{enumerate}
+
+\subsection*{Teilaufgabe 3c}
+\textit{In welchem Fall ist keine (weitere) Rekursion notwendig, nachdem ein
+Schnittpunkt gefunden wurde?}
+
+Schnittpunkt mit einer Lichtquelle
+
 
 \section*{Aufgabe 4}
 TODO
