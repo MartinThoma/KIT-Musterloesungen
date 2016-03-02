@@ -268,15 +268,16 @@ Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie glei
 \subsection*{Teilaufgabe 10a}
 
 \begin{itemize}
-    \item Bézier-Kurven liegen innerhalb der konvexen Hülle ihrer Kontrollpunkte.
-    \item $c_0 c_1$ ist Tangential an die Bezierkurve am Anfang.
-    \item $c_2 c_3$ ist Tangential an die Bezierkurve am Ende.
+    \item \textbf{Tangentenbedingung}:
+          $c_0 c_1$ ist Tangential an die Bezierkurve am Anfang,
+          $c_2 c_3$ ist Tangential an die Bezierkurve am Ende.
     \item \textbf{Wertebereich}: Bézierkurven liegen innerhalb der konvexen
           Hülle, die durch die 4~Kontrollpunkte gebildet werden.
     \item \textbf{Endpunktinterpolation}: Bézierkurven beginnen immer beim
           ersten Kontrollpunkt und enden beim letzten Kontrollpunkt.
     \item \textbf{Variationsredukion}: Eine Bézierkurve $F$ wackelt nicht stärker
           als ihr Kontrollpolygon $B$ ($\sharp (H \cap F) \leq \sharp (H \cap B)$).
+    \item \textbf{Affine Invarianz}
 \end{itemize}
 
 \clearpage
