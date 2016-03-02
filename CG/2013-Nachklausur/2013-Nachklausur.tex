@@ -186,8 +186,29 @@ Ein kD-Baum eignet sich für das genannte Szenario besser, da bei Verwendung
 eines Gitters mehr als die Hälfte des raumes leer ist. Der Großteil der
 Geometrie befindet sich links unten.
 
-\section*{Aufgabe 6}
-TODO
+\section*{Aufgabe 6: Rauschen und Turbulenz}
+\subsection*{Teilaufgabe 6a}
+\textit{Welche der Funktionen ist eine Rauschfunktion (value noise)?}
+$\gamma(t)$
+
+\subsection*{Teilaufgabe 6b}
+\textit{Welche der Funktionen ist eine Turbulenzfunktion? Wie kann man eine Turbulenz-
+funktion aus einer Rauschfunktion wie der aus Aufgabe a) erzeugen? Geben Sie eine
+Formel an!}
+
+$\delta(t)$ wird erzeugt durch spektrale Synthese (vgl. Folie~14):
+
+\[\text{turbulence}(x) = \sum{k}^n (\nicefrac{1}{2})^k \cdot n(2^k \cdot x)\]
+
+\subsection*{Teilaufgabe 6c}
+\textit{Welche zwei der Funktionen sind weder Rausch- noch Turbulenzfunktionen?
+Nennen Sie jeweils eine Eigenschaft von Rauschfunktionen, die nicht erfüllt
+wird.}
+
+\begin{itemize}
+    \item[$\alpha$] Eine Rauschfunktion darf nicht sichtbar periodisch sein
+    \item[$\beta$] Räumliche Korrelation ist verletzt
+\end{itemize}
 
 \section*{Aufgabe 7}
 TODO
