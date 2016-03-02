@@ -135,8 +135,53 @@ kann man Fälle konstruieren, wo adaptives Supersampling immer fehlschlägt.
     \lambda_C &= \frac{A_\Delta(P,A,B)}{A_\Delta(A,B,C)} = \frac{3}{7.5} = \frac{6}{15}
 \end{align}
 
-\section*{Aufgabe 4}
+\section*{Aufgabe 4: Texturen}
+\subsection*{Teilaufgabe 4a}
+\textit{Wie wird aus einer Textur eine Mip-Map-Pyramide erstellt?}
+
 TODO
+
+\textit{Wie hoch ist der zusätzliche Speicherbedarf?}
+
+Der zustätzliche Speicherbedarf $z$ ist $\approx \nicefrac{1}{3}$ der ursprünglichen
+Texturgröße.
+
+Beweis:
+
+Es gilt:
+\[z = \sum_{i=1}^\infty \left (\frac{1}{4} \right )^i\]
+
+Dies ist eine geometrische Reihe. Die Summe der ersten $n$ Terme ist
+
+\[\frac{1- (\nicefrac{1}{4})^n}{1 - \nicefrac{1}{4}}\]
+
+daher gilt:
+
+\[\lim_{n \rightarrow \infty} = 1 - \frac{1}{1 - \nicefrac{1}{4}} = \nicefrac{1}{3}\]
+
+\subsection*{Teilaufgabe 4b}
+\textit{Welche Probleme bei der Texturfilterung im Fall der Verkleinerung (Texture Minification) löst Mip-Mapping?}
+
+Mip-Mapping verringert Aliasing-Effekte.
+
+\textit{Welche Probleme bei der Texturfilterung im Fall der Verkleinerung löst Mip-Mapping nicht?}
+
+Verwaschenes aussehen bei länglichem Footprint, da Mip-Map isotrop (TODO: erklären, ausformulieren).
+
+\subsection*{Teilaufgabe 4c}
+\textit{Wofür verwendet man Environment Mapping?}
+
+TODO
+
+\textit{Was speichert eine Environment Map?}
+
+TODO
+
+\textit{Welche vereinfachenden Annahmen werden bei der Anwendung getroffen?}
+
+Der Betrachter ist sehr weit von der Umgebung entfernt, sodass die Position
+keine Rolle spielt und ausschließlich die Blickrichtung wichtig ist.
+
 
 \section*{Aufgabe 5}
 TODO
