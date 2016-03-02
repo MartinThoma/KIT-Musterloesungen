@@ -235,8 +235,16 @@ Die ermittelte normale kann eine Länge $\neq 1$ aufweisen.
 Ja. Man kann die Dreiecksnormale für die Berechnung des Diffusanteils pro Pixel
 verwenden.
 
-\section*{Aufgabe 8}
-TODO
+\section*{Aufgabe 8: Rasterisierung}
+\begin{tabular}{p{11cm}ll}\toprule
+Aussage                                                                                                                  & Wahr           & Falsch \\\midrule
+Sichtbarkeit wird vor der Rasterisierung berechnet.                                                                      & $\square$      & \CheckedBox      \\
+Opake Primitive können mit korrekter Verdeckungsberechnung rasterisiert werden, ohne vorher explizit sortiert zu werden. & \CheckedBox    & $\square$        \\
+Der Tiefenwert (z-Wert) kann mit Hilfe von baryzentrischen Koordinaten korrekt im Bildraum interpoliert werden.          & \CheckedBox    & $\square$        \\
+Der Tiefenwert, der im Tiefenpuffer gespeichert wird, hängt von den Abständen der Near- und Far-Plane zur Kamera ab.     & \CheckedBox    & $\square$        \\
+Transparente Oberflächen können ohne vorherige Sortierung korrekt dargestellt werden.                                    & $\square$      & \CheckedBox      \\
+In OpenGL wird der Tiefentest vor den Alpha- und Stenciltests durchgeführt.                                              & $\square$      & \CheckedBox      \\\bottomrule
+\end{tabular}
 
 \section*{Aufgabe 9}
 TODO
