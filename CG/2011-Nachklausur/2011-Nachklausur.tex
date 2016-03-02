@@ -106,8 +106,34 @@ Einsatzgebiete:
     \item Die Grafik rechts unten ist (3)
 \end{itemize}
 
-\section*{Aufgabe 3}
-TODO
+\section*{Aufgabe 3: Supersampling und Baryzentrische Koordinaten}
+\subsection*{Teilaufgabe 3a}
+\textit{Was ist adaptives Supersampling?}
+
+Beim adaptiven Supersampling wird durch zwei benachbarte Pixel jeweils ein
+Strahl geschossen. Ist die Differenz der Pixelwerte über einem Schwellwert, so
+schießt man weitere Strahlen zwischen den beiden Pixeln. Dies wiederholt man
+so lange, bis man unter dem Schwellwert ist.
+
+\textit{Was ist stochastisches Supersampling mit Stratifikation?}
+
+Beim stochastischen Supersampling wird jeder Pixel in ein Gitter unterteilt
+und durch jeden Gitterpunkt wird mit einer gewissen Wahrscheinlichkeit ein
+Strahl geschossen.
+
+\textit{Was sind die Unterschiede zwischen adaptivem Supersampling und stochastischem
+Supersampling mit Stratifikation?}
+
+Adaptives Supersampling schießt nur bei Bedarf weitere Strahlen. Allerdings
+kann man Fälle konstruieren, wo adaptives Supersampling immer fehlschlägt.
+
+\subsection*{Teilaufgabe 3b}
+
+\begin{align}
+    \lambda_A &= \frac{A_\Delta(P,B,C)}{A_\Delta(A,B,C)} = \frac{2}{7.5} = \frac{4}{15}\\
+    \lambda_B &= \frac{A_\Delta(P,A,C)}{A_\Delta(A,B,C)} = \frac{2.5}{7.5} = \frac{5}{15}\\
+    \lambda_C &= \frac{A_\Delta(P,A,B)}{A_\Delta(A,B,C)} = \frac{3}{7.5} = \frac{6}{15}
+\end{align}
 
 \section*{Aufgabe 4}
 TODO
