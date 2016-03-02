@@ -23,7 +23,7 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>2. Nachklausur 2011</td>
             <td>Draft</td>
-            <td>Many</td>
+            <td>22</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -40,8 +40,8 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>5. Hauptklausur 2013</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>Draft</td>
+            <td>14</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -53,13 +53,13 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>7. Hauptklausur 2014</td>
             <td>Draft</td>
-            <td>18</td>
+            <td>16</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>8. Nachklausur 2014</td>
             <td>Draft</td>
-            <td>29</td>
+            <td>24</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -71,7 +71,7 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>10. Nachklausur 2015</td>
             <td>Draft</td>
-            <td>14</td>
+            <td>12</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
