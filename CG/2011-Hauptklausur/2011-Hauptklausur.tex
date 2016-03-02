@@ -125,8 +125,36 @@ Schnittpunkt gefunden wurde?}
 Schnittpunkt mit einer Lichtquelle
 
 
-\section*{Aufgabe 4}
-TODO
+\section*{Aufgabe 4: Texturen}
+\subsection*{Teilaufgabe 4a}
+\textit{Was versteht man unter Magnification und Minification bei der Texturierung? Nennen
+und erläutern Sie kurz je eine Möglichkeit, wie Sie den hierbei auftretenden Artefakten
+begegnen können.}
+
+\begin{itemize}
+    \item \textbf{Magnification}: Ein Texel wird auf viele Pixel abgebildet.
+    \begin{itemize}
+        \item Problem: Bild ist unschaft
+        \item Lösung: Bilineare Interpolation
+    \end{itemize}
+    \item \textbf{Minification}: Viele Texel werden auf einen Pixel abgebildet.
+    \begin{itemize}
+        \item Problem: Aliasing durch Überabtastung
+        \item Lösung: Supersampling oder Vorfilterung (z.B. Mipmaps, ripemaps)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Teilaufgabe 4b}
+\textit{Nennen Sie zwei Parametrisierungen für Environment Maps und für jede angegebene
+Parametrisierung einen Vorteil oder Nachteil.}\\
+\begin{itemize}
+    \item \textbf{Sphere-Map} hat den Nachteil, dass am Rand eine Singularität
+          ist.
+    \item \textbf{Cube-Map} hat den Vorteil, sie bei korrekter Filterung
+          Nahtlos ist.
+    \item \textbf{LatLong-Map} hat den Nachteil, dass die Pole ungleichmäßig
+          abgetastet werden.
+\end{itemize}
 
 \section*{Aufgabe 5}
 TODO
