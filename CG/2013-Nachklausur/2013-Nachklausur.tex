@@ -65,19 +65,75 @@ $\theta = \arcsin \frac{\eta_1}{\eta_0}$
 \end{itemize}
 
 \subsection*{Teilaufgabe 2b}
-\begin{table}
-    \begin{tabular}{p{12cm}ll}\toprule
-    Aussage                                                                                                                                                           & Wahr           & Falsch \\\midrule
-    Von den drei Grundfarben der additiven Farbmischung sind Menschen gegenüber blau in der Regel am unempfindlichsten.                                               & \CheckedBox    & $\square$        \\
-    Es gibt keine zwei unterschiedlichen Lichtspektren im sichtbaren Bereich, die der Mensch als dieselbe Farbe wahrnimmt.                                            & $\square$      & \CheckedBox      \\
-    Genau drei Grundgrößen reichen (nach Graßmann) aus, um einen menschlichen Farbeindruck zu beschreiben.                                                            & \CheckedBox    & $\square$        \\
-    Es entspricht nicht der menschlichen Farbempfindlichkeit, wenn die Helligkeit (Luminanz) einer Farbe als das arithmetische Mittel der RGB-Anteile berechnet wird. & \CheckedBox    & $\square$        \\
-    Gammakorrektur mit dem Parameter $\gamma$ wird üblicherweise durch die Abbildung $L'=\gamma^L$ beschrieben.                                                       & $\square$      & \CheckedBox      \\\bottomrule
-    \end{tabular}
-\end{table}
+\begin{tabular}{p{12cm}ll}\toprule
+Aussage                                                                                                                                                           & Wahr           & Falsch \\\midrule
+Von den drei Grundfarben der additiven Farbmischung sind Menschen gegenüber blau in der Regel am unempfindlichsten.                                               & \CheckedBox    & $\square$        \\
+Es gibt keine zwei unterschiedlichen Lichtspektren im sichtbaren Bereich, die der Mensch als dieselbe Farbe wahrnimmt.                                            & $\square$      & \CheckedBox      \\
+Genau drei Grundgrößen reichen (nach Graßmann) aus, um einen menschlichen Farbeindruck zu beschreiben.                                                            & \CheckedBox    & $\square$        \\
+Es entspricht nicht der menschlichen Farbempfindlichkeit, wenn die Helligkeit (Luminanz) einer Farbe als das arithmetische Mittel der RGB-Anteile berechnet wird. & \CheckedBox    & $\square$        \\
+Gammakorrektur mit dem Parameter $\gamma$ wird üblicherweise durch die Abbildung $L'=\gamma^L$ beschrieben.                                                       & $\square$      & \CheckedBox      \\\bottomrule
+\end{tabular}
 
-\section*{Aufgabe 3}
-TODO
+\section*{Aufgabe 3: Transformationen}
+\subsection*{Teilaufgabe 3a}
+Homogene Koordinaten
+\[M = \begin{pmatrix}1 & 0 & 2\\
+                     0 & 2 & 1\\
+                     0 & 0 & 1\end{pmatrix}\]
+
+\subsection*{Teilaufgabe 3b}
+\textit{Geben Sie zeichnerisch ein einfaches Beispiel an, das deutlich zeigt,
+dass man die Normalen eines Primitivs im Allgemeinen nicht mit derselben Matrix
+transformieren kann wie die Vertizes. Um was für eine Art Transformation
+handelt es sich dabei?}
+
+Normale auf Kreis; Skalierung in $x$-Richtung.
+
+\subsection*{Teilaufgabe 3c}
+\textit{Um Normalen korrekt von Objekt- in Kamerakoordinaten zu transformieren, verwendet man die\dots}
+\begin{itemize}
+    \item \CheckedBox inverstransponierte Model-View-Matrix.
+    \item $\square$ dehomogenisierte Model-View-Matrix.
+    \item $\square$ inverse Projektionsmatrix.
+\end{itemize}
+
+\textit{Die Matrix $\begin{pmatrix}1 & 0 & 2\\
+                     0 & 1 & 2\\
+                     0 & 0 & 1\end{pmatrix}$ ist eine\dots}
+\begin{itemize}
+    \item \CheckedBox Translationsmatrix in homogenen 2D-Koordinaten.
+    \item $\square$ Translationsmatrix in homogenen 3D-Koordinaten.
+    \item $\square$ Rotationsmatrix in $\mathbb{R}^{3 \times 3}$.
+\end{itemize}
+
+\textit{Die Matrix $\begin{pmatrix}1 & 0\\
+                     0 & 1\end{pmatrix}$ beschreibt eine\dots}
+\begin{itemize}
+    \item $\square$ Rotation.
+    \item \CheckedBox Spiegelung an der ersten Winkelhalbierenden.
+    \item $\square$ nichtlineare Abbildung.
+\end{itemize}
+
+Matrixmultiplikation ist stets kommutativ, wenn\dots
+\begin{itemize}
+    \item \CheckedBox nur Skalierungsmatrizen multipliziert werden.
+    \item $\square$ nur Scherungsmatrizen multipliziert werden.
+    \item \CheckedBox nur Rotationsmatrizen multipliziert werden.
+\end{itemize}
+
+Beweis für 2D-Rotationsmatrizen:
+
+\begin{align}
+    \begin{pmatrix}\cos \alpha & -\sin \alpha\\
+                   \sin \alpha & \cos \alpha\end{pmatrix} \cdot
+    \begin{pmatrix}\cos \beta & -\sin \beta\\
+                   \sin \beta & \cos \beta\end{pmatrix}
+    &= \begin{pmatrix}\cos \alpha \cos \beta - \sin  \alpha \sin \beta & -\cos \alpha \sin \beta - \sin \alpha \cos \beta\\
+                      \sin \alpha \cos \beta + \cos \alpha \sin \beta  & -\sin \alpha \sin \beta + \cos \alpha \cos \beta\end{pmatrix}\\
+    &=\begin{pmatrix}\cos \beta & -\sin \beta\\
+                   \sin \beta & \cos \beta\end{pmatrix} \cdot \begin{pmatrix}\cos \alpha & -\sin \alpha\\
+                   \sin \alpha & \cos \alpha\end{pmatrix}
+\end{align}
 
 \section*{Aufgabe 4}
 TODO
