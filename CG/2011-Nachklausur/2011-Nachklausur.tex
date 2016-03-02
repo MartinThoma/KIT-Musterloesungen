@@ -74,9 +74,37 @@ Ein normalisierter Filterkernel hat als Summe der Element den Wert~1.
 
 Die Helligkeit des Bildes ändert sich nicht.
 
+\clearpage
+\section*{Aufgabe 2: Prozedurale Modelle}
+\subsection*{Teilaufgabe 2a}
+\textit{Was sind Turbulenzfunktionen und wie können Sie aus Noise-Funktionen gebildet werden?}
 
-\section*{Aufgabe 2}
-TODO
+Eine Turbulenzfunktion summiert $k$ Oktaven mehrerer Noise-Funktionen $n$ auf:
+
+\[\text{turbulence}(x) = \sum_k \left (\frac{1}{2} \right )^k \cdot n(2^k \cdot x)\]
+
+Einsatzgebiete:
+
+\begin{itemize}
+    \item Natürliche Oberflächen
+    \item Feuer
+\end{itemize}
+
+\subsection*{Teilaufgabe 2b: Kontext-Freie Lindenmayer-Systeme}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $F \;\;\;\rightarrow\;\;\;F [+F][-F]\;\;\;\rightarrow\;\;\;F [+F [+F][-F]] [-F [+F][-F]]$
+    \item $F \;\;\;\rightarrow\;\;\;F[+F]\;\;\;\rightarrow\;\;\;F[+F][+F[+F]]$
+    \item $F \;\;\;\rightarrow\;\;\;F [f - F] fF\;\;\;\rightarrow\;\;\;F [f - F] fF [f - F [f - F] fF] fF [f - F] fF$
+\end{enumerate}
+
+\subsection*{Teilaufgabe 2c: Turtle-Grafiken}
+
+\begin{itemize}
+    \item Die Grafik links oben ist (1)
+    \item Die Grafik in der Mitte, unten ist (2)
+    \item Die Grafik rechts unten ist (3)
+\end{itemize}
 
 \section*{Aufgabe 3}
 TODO
