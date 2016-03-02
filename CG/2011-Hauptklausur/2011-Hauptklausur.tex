@@ -246,8 +246,50 @@ Transparente Oberflächen können ohne vorherige Sortierung korrekt dargestellt 
 In OpenGL wird der Tiefentest vor den Alpha- und Stenciltests durchgeführt.                                              & $\square$      & \CheckedBox      \\\bottomrule
 \end{tabular}
 
-\section*{Aufgabe 9}
-TODO
+
+\section*{Aufgabe 9: OpenGL}
+\subsection*{Teilaufgabe 9a}
+\textit{Welchen Vorteil haben Dreiecksstreifen (\texttt{GL\_TRIANGLE\_STRIP})
+im Vergleich zu isolierten Dreiecken (\texttt{GL\_TRIANGLES})?}\\
+Beim Triangle-Strip werden die Vertices für mehrere Dreiecke verwendet. Es muss
+also weniger gespeichert werden.
+
+\subsection*{Teilaufgabe 9b}
+\textit{Was versteht man unter einem Indexed Face Set? Welche Optimierung bei
+der Geometrieverarbeitung wird dadurch erst ermöglicht?}\\
+Liste von Indices für die Vertices in einem Polygonmesh. Die Vertices werden
+also indirekt referenziert. Dadurch wird die Verwendung eines Vertexcache
+ermöglicht.
+
+\subsection*{Teilaufgabe 9c}
+\textit{Was versteht man bei OpenGL unter \enquote{Blending}? Nennen Sie eine
+wichtige Anwendung wofür es eingesetzt werden kann!}\\
+Blending bezeichnet die Farbkombination (z.B. Überlagerung) von erzeugten
+Fragmenten und Pixeln im Framebuffer. Dadurch lassen sich semi-transparente
+Objekte darstellen.
+
+\subsection*{Teilaufgabe 9d}
+\textit{Geben Sie zwei kommutative Blending-Einstellungen mittels OpenGL-Befehlen an.
+Gehen Sie dabei davon aus, dass als Blending-Verknüpfungsoperation die Addition
+eingestellt ist.}\\
+
+\begin{itemize}
+    \item \texttt{glBlendFunc(GL\_ONE, GL\_ONE)}
+    \item \texttt{glBlendFunc(GL\_ZERO, GL\_ZERO)}
+\end{itemize}
+
+\subsection*{Teilaufgabe 9e}
+\textit{Erläutern Sie die Aufgaben eines Vertex-Shaders bzw. Vertex-Programms
+und welche Ein- und Ausgabedaten zur Verfügung stehen und erzeugt werden müssen
+bzw. können!}\\
+Ein Vertex-Shader transformiert einen Vertex und verarbeitet dessen Attribute
+(Position, Normale, \dots).
+
+\begin{itemize}
+    \item Input: \texttt{gl\_Vertex}, Matrizen (MVP-Matrix)
+    \item Output: \texttt{gl\_Position}, \texttt{gl\_Normal}
+\end{itemize}
+
 
 \section*{Aufgabe 10}
 \subsection*{Teilaufgabe 10a}
