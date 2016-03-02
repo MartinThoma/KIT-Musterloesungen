@@ -54,7 +54,7 @@ Aussage                                                  & RGB & CMY & HSV & CIE
 Der Farbraum ist additiv.                                & \CheckedBox & $\square$   & $\square$   & $\square$ \\
 Der Farbraum ist subtraktiv.                             & $\square$   & \CheckedBox & $\square$   & $\square$ \\
 Der Farbraum ist multiplikativ.                          & $\square$   & \CheckedBox & $\square$   & $\square$ \\
-Der Farbraum trennt Luminanz von Chrominanz.             & $\square$   & $\square$   & \CheckedBox & $\square$ \\
+Der Farbraum trennt Luminanz von Chrominanz.             & $\square$   & $\square$   & \CheckedBox & \CheckedBox \\
 Der Farbraum kann alle sichtbaren Farben repräsentieren. & $\square$   & $\square$   & ~           & \CheckedBox       \\
 Der Farbraum wird nativ auf Peripheriegeräten verwendet. & \CheckedBox & \CheckedBox & $\square$   & $\square$ \\\bottomrule
 \end{tabular}
@@ -121,8 +121,12 @@ Vorlesung kennengelernt haben! Welchen Vorteil haben die Kriterien jeweils?}
 \textit{In welchem Fall ist keine (weitere) Rekursion notwendig, nachdem ein
 Schnittpunkt gefunden wurde?}
 
-Schnittpunkt mit einer Lichtquelle
-
+\begin{enumerate*}[label=(\arabic*)]
+    \item Schnittpunkt mit einer Lichtquelle
+    \item Rekursionsabbruchbedingung erreicht
+    \item Schnittpunkt hinter Kamera
+    \item Näherer Schnittpunkt existiert
+\end{enumerate*}
 
 \section*{Aufgabe 4: Texturen}
 \subsection*{Teilaufgabe 4a}
@@ -131,12 +135,12 @@ und erläutern Sie kurz je eine Möglichkeit, wie Sie den hierbei auftretenden A
 begegnen können.}
 
 \begin{itemize}
-    \item \textbf{Magnification}: Ein Texel wird auf viele Pixel abgebildet.
+    \item \textbf{Magnification}: Wenige Texel werden auf viele Pixel abgebildet.
     \begin{itemize}
         \item Problem: Bild ist unschaft
         \item Lösung: Bilineare Interpolation
     \end{itemize}
-    \item \textbf{Minification}: Viele Texel werden auf einen Pixel abgebildet.
+    \item \textbf{Minification}: Viele Texel werden auf wenige Pixel abgebildet.
     \begin{itemize}
         \item Problem: Aliasing durch Überabtastung
         \item Lösung: Supersampling oder Vorfilterung (z.B. Mipmaps, ripemaps)
@@ -147,8 +151,12 @@ begegnen können.}
 \textit{Nennen Sie zwei Parametrisierungen für Environment Maps und für jede angegebene
 Parametrisierung einen Vorteil oder Nachteil.}\\
 \begin{itemize}
-    \item \textbf{Sphere-Map} hat den Nachteil, dass am Rand eine Singularität
-          ist.
+    \item \textbf{Sphere-Map}
+    \begin{itemize}
+        \item[-] Singularität am Rand
+        \item[+] Mit Kamera, Chromkugel und Photoshop kann sie recht einfach
+                 aufgenommen / erstellt werden
+    \end{itemize}
     \item \textbf{Cube-Map} hat den Vorteil, sie bei korrekter Filterung
           Nahtlos ist.
     \item \textbf{LatLong-Map} hat den Nachteil, dass die Pole ungleichmäßig
@@ -168,7 +176,7 @@ Primitiven.
 Aussage                                                                                                 & BVH           & Octree           & Gitter           & BSP \\\midrule
 Der Aufbau-Algorithmus ist adaptiv und passt die Datenstruktur deshalb automatisch an die Geometrie an. & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox   \\
 Die Datenstruktur wird durch einen Binärbaum repräsentiert.                                             & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\
-Objekte werden bei der Traversierung potentiell mehrfach von demselben Strahl geschnitten.              & $\square$     & $\square$        & \CheckedBox      & $\square$     \\
+Objekte werden bei der Traversierung potentiell mehrfach von demselben Strahl geschnitten.              & $\square$     & \CheckedBox      & \CheckedBox      & $\square$     \\
 Bei der Traversierung wird leerer Raum effizient übersprungen.                                          & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox  \\
 Der Raum wird durch die Datenstruktur immer achsenparallel unterteilt.                                  & $\square$     & \CheckedBox      & \CheckedBox      & $\square$   \\
 Bei der Konstruktion kann die Surface-Area-Heuristik sinnvoll eingesetzt werden.                        & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\\bottomrule
@@ -190,7 +198,9 @@ Clipping-Algorithmus potenziell geschnitten?}
 \textit{Wovon hängt es ab, mit welchen Kanten die Strecke tatsächlich
 geschnitten wird?}
 
-TODO
+Welche Kanten tatsächlich geschnitten werden hängt von der Reihenfolge der
+Schnitte ab.
+
 
 \subsection*{Teilaufgabe 6b}
 
@@ -221,7 +231,8 @@ Wird in der Fixed-Function-Pipeline von OpenGL unterstützt.                    
 \subsection*{Teilaufgabe 7b}
 \textit{Wie werden Normalenvektoren beim Phong-Shading interpoliert?}
 
-Linear mit baryzentrischen Koordinaten.
+Normalen werden im linear Verhältnis des Abstands zu den Eckpunkten berechnet
+(Baryzentrische Koordinaten).
 
 \textit{Warum muss im Allgemeinen nach der Interpolation erneut normalisiert werden?}
 
@@ -282,11 +293,11 @@ eingestellt ist.}\\
 und welche Ein- und Ausgabedaten zur Verfügung stehen und erzeugt werden müssen
 bzw. können!}\\
 Ein Vertex-Shader transformiert einen Vertex und verarbeitet dessen Attribute
-(Position, Normale, \dots).
+(Position, Normale, Farbe/Texturkoordinate, \dots).
 
 \begin{itemize}
     \item Input: \texttt{gl\_Vertex}, Matrizen (MVP-Matrix)
-    \item Output: \texttt{gl\_Position}, \texttt{gl\_Normal}
+    \item Output: \texttt{gl\_Position} nach MVP-Transformation, \texttt{gl\_Normal}
 \end{itemize}
 
 
