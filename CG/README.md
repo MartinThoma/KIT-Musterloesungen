@@ -46,8 +46,8 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>6. Nachklausur 2013</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>Draft</td>
+            <td>Many</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
