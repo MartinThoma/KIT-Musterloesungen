@@ -210,8 +210,33 @@ wird.}
     \item[$\beta$] Räumliche Korrelation ist verletzt
 \end{itemize}
 
-\section*{Aufgabe 7}
-TODO
+\section*{Aufgabe 7: Interpolation}
+\subsection*{Teilaufgabe 7a}
+\textit{Wie berechnet man die baryzentrische Koordinate $\lambda_2$ des Punktes $\mathbf{x}$ bezüglich des
+abgebildeten Rechtecks?}
+
+\[\lambda_2 = \frac{\square(\mathbf{x}, \mathbf{x}_4)}{\square(\mathbf{x}_1, \mathbf{x}_3)}\]
+
+\subsection*{Teilaufgabe 7b}
+\textit{Berechnen Sie anhand der in der Zeichnung angegeben Längen die 4 baryzentrischen
+Koordinaten des Punktes $\mathbf{x}$ mit der Formel aus Aufgabenteil a). Nutzen Sie dann
+die baryzentrischen Koordinaten, um anzugeben, wie der interpolierte Farbwert $\mathbf{c}$ am
+Punkt $\mathbf{x}$ berechnet wird.}
+
+\begin{align}
+    \lambda_1 &= \nicefrac{2}{9}  & \lambda_2 &= \nicefrac{1}{9}\\
+    \lambda_3 &= \nicefrac{2}{9}  & \lambda_4 &= \nicefrac{4}{9}
+\end{align}
+
+\[c = \nicefrac{2}{9} \cdot c_1 + \nicefrac{1}{9} \cdot c_2 + \nicefrac{2}{9} \cdot c_3 + \nicefrac{4}{9} \cdot c_4\]
+
+\subsection*{Teilaufgabe 7c}
+\begin{align}
+    \lambda_1^\Delta &= \nicefrac{1}{3}  & \lambda_3^\Delta &= \nicefrac{1}{3}\\
+    \lambda_4^\Delta &= \nicefrac{1}{3}
+\end{align}
+
+\[c' = \nicefrac{1}{3} \cdot c_1 + \nicefrac{1}{3} \cdot c_3 + \nicefrac{1}{3} \cdot c_4 \neq c\]
 
 \section*{Aufgabe 8}
 TODO
