@@ -165,8 +165,26 @@ Die Grundidee ist die Darstellung einer Umgebung mit nur geringem Aufwand.
 Die Umgebung ist weit genug entfernt, sodass die Position keine Rolle spielt
 und nur die Richtung genommen werden muss.
 
-\section*{Aufgabe 5}
-TODO
+\section*{Aufgabe 5: Räumliche Datenstrukturen}
+\subsection*{Teilaufgabe 5a}
+\begin{tabular}{p{9cm}llll}\toprule
+Aussage                                                                                                                    & BVH & Octree & kD-Baum & Gitter \\\midrule
+Die Raumunterteilung kann mit Hilfe der Surface Area Heuristic durchgeführt werden.                                        & \CheckedBox   & $\square$        & \CheckedBox       & $\square$        \\
+Die Anzahl der Schnitttests mit Primitiven kann durch Mailboxing weiter reduziert werden.                                  & \CheckedBox   & \CheckedBox      & $\square$         & \CheckedBox      \\
+Die Raumunterteilung ist geschickt für Szenen mit einer Geometrie, die dem sogenannten Teapot-in-a-Stadium-Problem ähnelt. & \CheckedBox   & \CheckedBox      & \CheckedBox       & $\square$        \\
+Der Datenstruktur liegt ein Binärbaum zugrunde.                                                                            & \CheckedBox   & $\square$        & \CheckedBox       & $\square$        \\\bottomrule
+\end{tabular}
+\subsection*{Teilaufgabe 5b}
+\includegraphics*[width=0.8\linewidth, keepaspectratio]{5b.png}
+
+\subsection*{Teilaufgabe 5c}
+\textit{Sie wollen in der obigen Szene Raytracing durchführen und dies mit einer räumlichen
+Datenstuktur beschleunigen. Ist dafür ein regelmäßiges Gitter oder ein kD-Baum besser
+geeignet? Begründen Sie Ihre Entscheidung!}
+
+Ein kD-Baum eignet sich für das genannte Szenario besser, da bei Verwendung
+eines Gitters mehr als die Hälfte des raumes leer ist. Der Großteil der
+Geometrie befindet sich links unten.
 
 \section*{Aufgabe 6}
 TODO
