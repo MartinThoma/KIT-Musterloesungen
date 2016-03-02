@@ -175,8 +175,37 @@ Der Raum wird durch die Datenstruktur immer achsenparallel unterteilt.          
 Bei der Konstruktion kann die Surface-Area-Heuristik sinnvoll eingesetzt werden.                        & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\\bottomrule
 \end{tabular}
 
-\section*{Aufgabe 6}
+\section*{Aufgabe 6: Clipping}
+\subsection*{Teilaufgabe 6a}
+\textit{Mit welchen Kanten der Clipping-Region wird die Strecke $\overline{P_{1}P_{2}}$ beim Cohen-Sutherland-
+Clipping-Algorithmus potenziell geschnitten?}
+
+\begin{enumerate}
+    \item Outcode($P_1$): 1010; Outcode($P_2$): 0100
+    \item Outcode($P_1$) $|$ Outcode($P_2$) $ = 1110 \neq 0000 \Rightarrow$ kein trivial accept.
+    \item Outcode($P_1$) \& Outcode($P_2$) $ = 0000 \Rightarrow$ kein trivial reject.
+    \item Es werden potentiell die linke (10xx), untere (xx10) und rechte
+          (01xx) Kante geschnitten, da die entsprechenden Optcodes gesetzt sind
+\end{enumerate}
+
+\textit{Wovon hängt es ab, mit welchen Kanten die Strecke tatsächlich
+geschnitten wird?}
+
 TODO
+
+\subsection*{Teilaufgabe 6b}
+
+\textit{In welchen Fällen kann der Algorithmus ausschließlich anhand der Outcodes eine
+beliebige Strecke $\overline{AB}$ eliminieren?}
+
+In den \textit{trivial accept} und \textit{trivial reject} Fällen kann der
+Alglorithmus ausschlieslich anhand der Optcodes eine Strecke eliminieren.
+
+\textit{Welche Bitoperation wird mit den Outcodes hierzu durchgeführt?}\\
+
+Bit-weises und (\&) für trivial reject und bit-weises oder ($|$) für trivial
+accept.
+
 
 \section*{Aufgabe 7}
 TODO
