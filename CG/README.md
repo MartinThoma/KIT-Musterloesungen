@@ -22,8 +22,8 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>2. Nachklausur 2011</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>Draft</td>
+            <td>Many</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
