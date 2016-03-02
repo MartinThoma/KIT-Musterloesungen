@@ -272,12 +272,31 @@ Zwischen 2 und 3, da die Rasterisierung nur für Dreiecke erfolgen soll, die
 im Viewfrustum liegen.
 
 \section*{Aufgabe 8}
-TODO
+\subsection*{Teilaufgabe 8a}
+\begin{tabular}{p{8cm}p{1.5cm}p{1.5cm}p{1.5cm}}\toprule
+Operation                          & Vertex-Shader & Fragment-Shader & Weder noch \\\midrule
+Model-View-Transformation anwenden & $\square$     & $\square$       & $\square$ TODO\\ % \CheckedBox
+Tiefentest                         & $\square$     & $\square$       & $\square$ TODO\\
+Texturierung                       & $\square$     & $\square$       & $\square$ TODO\\
+Projektionstransformation anwenden & $\square$     & $\square$       & $\square$ TODO\\
+Beleuchtungsberechnung             & $\square$     & $\square$       & $\square$ TODO\\
+Clipping                           & $\square$     & $\square$       & $\square$ TODO\\\bottomrule
+\end{tabular}
+
+\subsection*{Teilaufgabe 8b}
+\begin{itemize}
+    \item \texttt{attribute}: Attribut eines Vertex; nur für Vertex-Shader; z.B. Farbe oder Normale
+    \item \texttt{uniform}: Bei jedem Shader-Aufruf gleich (also insbesondere für jeden Vertex gleich); read-only; z.B. Transformationsmatrix
+    \item \texttt{varying}: weitergegebene/interpolierte Werte (schreiben in einem Shader, lesen im darauffolgenden Shader)
+\end{itemize}
+
+\subsection*{Teilaufgabe 8c}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.vert]{glsl}{shader.vert}
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
+
 
 \section*{Aufgabe 9}
 TODO
-
-% \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
-
 
 \end{document}
