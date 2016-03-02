@@ -21,6 +21,7 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
+\usepackage{wasysym}  % For \CheckedBox
 \usepackage{microtype}
 
 % \begin{figure}[h]
@@ -184,10 +185,64 @@ keine Rolle spielt und ausschließlich die Blickrichtung wichtig ist.
 
 
 \section*{Aufgabe 5: $\alpha$-Clipping}
---- Wurde anscheinend aus dem prüfungsrelevanten Stoff entfernt ---
+\subsection*{Teilaufgabe 5a}
+
+\begin{align}
+    \text{WEC}_{x_\text{min}}(P_0) &= -3-0 =-3 & \text{WEC}_{x_\text{min}}(P_1) &= 6-0 =6\\
+    \text{WEC}_{x_\text{max}}(P_0) &= 10+3 =13 & \text{WEC}_{x_\text{max}}(P_1) &= 6-6 =0\\
+    \text{WEC}_{y_\text{min}}(P_0) &= 4-0 = 4 & \text{WEC}_{y_\text{min}}(P_1) &= -2-0 =-2\\
+    \text{WEC}_{y_\text{max}}(P_0) &= 6-4 = 2 & \text{WEC}_{y_\text{max}}(P_1) &= 6+2 =8
+\end{align}
+
+\goodbreak
+\subsection*{Teilaufgabe 5b}
+\textit{Wenn Sie alleine die WEC betrachten, welche Kanten des Viewports werden dann potenziell geschnitten? Begründen Sie Ihre Antwort mit Hilfe der Outcodes!}\\
+Da für $\text{WEC}_{x_\text{min}}(P_0) < 0$ und $\text{WEC}_{y_\text{min}}(P_1) < 0$
+ist der Outcode $x_\text{min}(P_0) = 1$ und Outcode $y_\text{min}(P_1) = 1$.
+Daraus folgt, dass $x_\text{min}$ und $y_\text{min}$ auf Schnitt getestet
+werden müssen. (TODO: Stimmt das?)
+
+\subsection*{Teilaufgabe 5c}
+\begin{align}
+    a_{max} &= 1,\;\;\; a_{min} = 0\\
+    a_{min} &= \max(a_{min}, a_s) = \nicefrac{1}{3}\\
+    a_s &= \frac{\text{WEC}_{y_\text{min}}(P_1)}{\text{WEC}_{y_\text{min}}(P_0) - \text{WEC}_{y_\text{min}}(P_1)} = \nicefrac{4}{6} = \nicefrac{2}{3}\\
+    a_{max} &= \min(a_{max}, a_s) = \nicefrac{2}{3}\\
+\end{align}
+
+Das neue Liniensegment ist somit $(P_0 + \nicefrac{1}{3} \cdot (P_1- P_0), P_1 - \nicefrac{2}{3} \cdot (P_1- P_0))$.
 
 \section*{Aufgabe 6}
+\subsection*{Teilaufgabe 6a}
+\textit{Was ist der Unterschied zwischen Gouraud- und Phong-Shading bei der Schattierung eines Dreiecks mit einem Rasterisierungsverfahren?}
+
 TODO
+
+\subsection*{Teilaufgabe 6b}
+\textit{Was versteht man unter einem Accumulation-Buffer, wie Sie ihn von OpenGL kennen?}
+
+Der Accumulation-Buffer ist ein Zwischenspeicher zur Kombination mehrerer
+Redineringschritte.
+
+\textit{Nennen Sie zwei Beispiele für Effekte, die sich mit einem Accumulation-Buffer erreichen lassen!}
+
+\begin{itemize}
+    \item Bewegungsunschärfe
+    \item TODO
+\end{itemize}
+
+\subsection*{Teilaufgabe 6c}
+
+\begin{tabular}{p{8cm}ccp{4cm}}\toprule
+Aussage & Wahr & Falsch & Begründung \\\midrule
+T-Vertices können bei Phong-Shading Artefakte verursachen. & \CheckedBox & $\square$ & TODO: Wirklich? \\
+Z-Fighting kann durch die Repräsentation der Tiefenwerte mit beschränkter Genauigkeit im Tiefenpuffer entstehen. & \CheckedBox & $\square$ & TODO: Wirklich?          \\
+Je feiner eine Oberfläche tesselliert wird, umso geringer werden die Unterschiede zwischen Gouraud- und Phong-Shading. & \CheckedBox & $\square$ & TODO: Wirklich?          \\
+Bei der Rasterisierung ist eine perspektivisch korrekte Abbildung der Textur aufwendiger als eine affine, da pro Pixel eine zusätzliche Division benötigt wird. & $\square$ & $\square$ & TODO          \\
+Der Scissor-Test dient dazu, durchsichtige Teile einer Oberfläche gemäß einer Textur wegzuschneiden. & $\square$ & \CheckedBox & Dient dazu Teile auserhalb des Rechtecks wegzuschneiden (vgl. OpenGL Teil 2, Folie 103) \\
+Screendoor-Transparency stellt transparente Objekte mittels Blending dar. & $\square$ & $\square$ & TODO \\\bottomrule
+\end{tabular}
+
 
 \section*{Aufgabe 7}
 TODO
