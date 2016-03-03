@@ -28,8 +28,8 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>3. Hauptklausur 2012</td>
-            <td>Template</td>
-            <td>All</td>
+            <td>Draft</td>
+            <td>5</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
