@@ -31,17 +31,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Aufgabe 1: Wahrnehmung und Farbräume}
 \subsection*{Teilaufgabe 1a}
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
-%     \caption{Whatever}
-%     \label{fig:1a}
-% \end{figure}
-\textit{Eine Grafikkarte ist an ein Anzeigegerät mit einem Gamma-Wert von 2.0 angeschlossen
-und muss eine entsprechende Gamma-Korrektur durchführen.
-Berechnen Sie den Intensitätswert , den die Grafikkarte an das Anzeigegerät senden muss, um eine Ausgabe
-mit der Hälfte der Maximalintensität zu erreichen. (Der Wertebereich der Koeffzienten
-reicht von 0 bis zur Maximalintensität 1.0 .)}
+\textit{Eine Grafikkarte ist an ein Anzeigegerät mit einem Gamma-Wert von 2.0
+angeschlossen und muss eine entsprechende Gamma-Korrektur durchführen.
+Berechnen Sie den Intensitätswert , den die Grafikkarte an das Anzeigegerät
+senden muss, um eine Ausgabe mit der Hälfte der Maximalintensität zu erreichen.
+(Der Wertebereich der Koeffzienten reicht von 0 bis zur
+ Maximalintensität~1.0.)}
 
 Es gilt
 
@@ -179,8 +174,39 @@ erzeugt hat, die nur noch aus einem Texel besteht.
     c   &= (1-t) \cdot c'' + t \cdot c'
 \end{align}
 
-\section*{Aufgabe 5}
-TODO
+\section*{Aufgabe 5: Hierarchische Datenstrukturen}
+\subsection*{Teilaufgabe 5a}
+\textit{Nennen Sie vier Arten von Hüllkörpern (bounding volumes), die Sie in
+der Vorlesung kennengelernt haben, und sortieren Sie sie danach, wie eng sie
+den in der Darstellung gegebenen Zylinder umschließen können.}
+
+\begin{enumerate*}[label=(\Alph*)]
+    \item Zylinder
+    \item Slabs
+    \item AABB
+    \item Sphäre
+\end{enumerate*}
+
+
+\subsection*{Teilaufgabe 5b}
+\textit{Für welche Datenstrukturen stimmt folgende Aussage? Begründen Sie.}
+
+\enquote{Der erste während der Traversierung gefundene Schnittpunkt ist
+zugleich der nächste Schnittpunkt zum Ursprung des Strahls.}
+
+\textbf{Octree}: Falsch. Da keine Reihenfolge festgelegt ist in der der Baum
+                 traversiert wird.
+
+\textbf{BVH}: Falsch.
+
+\textbf{kD-Baum}: Wahr. Die Traversierungsreihenfolge des Schnittalgorithmus
+                  ist so festgelegt, dass immer die naheste Ebene zuerst
+                  betrachtet wird.
+
+                  Die Traversierungsreihenfolge ist also von vorne nach hinten.
+
+\subsection*{Teilaufgabe 5c}
+\includegraphics*[width=\linewidth, keepaspectratio]{5c.png}
 
 \section*{Aufgabe 6}
 TODO
