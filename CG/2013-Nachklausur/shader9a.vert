@@ -6,7 +6,9 @@ uniform mat4 M;     // Model-Matrix.
 uniform mat4 V;     // View-Matrix.
 uniform mat4 P;     // Projection-Matrix.
 
-void main(void){
-    // Solution is here:
-    // TODO
+void main(void) {
+	posWorld = M * position;
+	normal = transpose(inverse(M)) * normal;
+
+	gl_Position = P * (V * posWorld);
 }
