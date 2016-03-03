@@ -276,13 +276,30 @@ Neues Liniensegment:
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader8b.frag]{glsl}{shader8b.frag}
 
 \clearpage
-\section*{Aufgabe 9}
+\section*{Aufgabe 9: Bézierkurven und Béziersplines}
 \subsection*{Teilaufgabe 9a}
-TODO
+\textit{Nennen Sie drei wichtige Eigenschaften der Bézierkurven, die Sie in der Vorlesung
+kennengelernt haben.}
+
+\begin{itemize}
+    \item \textbf{Tangentenbedingung}:
+          $c_0 c_1$ ist Tangential an die Bezierkurve am Anfang,
+          $c_2 c_3$ ist Tangential an die Bezierkurve am Ende.
+    \item \textbf{Wertebereich}: Bézierkurven liegen innerhalb der konvexen
+          Hülle, die durch die 4~Kontrollpunkte gebildet werden.
+    \item \textbf{Endpunktinterpolation}: Bézierkurven beginnen immer beim
+          ersten Kontrollpunkt und enden beim letzten Kontrollpunkt.
+    \item \textbf{Variationsredukion}: Eine Bézierkurve $F$ wackelt nicht stärker
+          als ihr Kontrollpolygon $B$ ($\sharp (H \cap F) \leq \sharp (H \cap B)$).
+    \item \textbf{Affine Invarianz}
+\end{itemize}
+
 \subsection*{Teilaufgabe 9b}
-TODO
+\includegraphics*[width=\linewidth, keepaspectratio]{9b-bezier.png}
+
 \subsection*{Teilaufgabe 9c}
-TODO
+Damit es immer noch ein Spline ist, müssen die Punkte $b_1, b_2, b_3, c_1, c_2$
+angepasst werden.
 
 
 \end{document}
