@@ -29,18 +29,43 @@
 
 \setcounter{section}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Aufgabe 1}
+\section*{Aufgabe 1: Wahrnehmung und Farbräume}
 \subsection*{Teilaufgabe 1a}
-\begin{figure}[h]
-    \centering
-    \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
-    \caption{Whatever}
-    \label{fig:1a}
-\end{figure}
-TODO
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
+%     \caption{Whatever}
+%     \label{fig:1a}
+% \end{figure}
+\textit{Eine Grafikkarte ist an ein Anzeigegerät mit einem Gamma-Wert von 2.0 angeschlossen
+und muss eine entsprechende Gamma-Korrektur durchführen.
+Berechnen Sie den Intensitätswert , den die Grafikkarte an das Anzeigegerät senden muss, um eine Ausgabe
+mit der Hälfte der Maximalintensität zu erreichen. (Der Wertebereich der Koeffzienten
+reicht von 0 bis zur Maximalintensität 1.0 .)}
+
+Es gilt
+
+\[I_{\text{out}} = I_{\text{in}}^\gamma\]
+
+für $I_{\text{out}} = \nicefrac{1}{2}$ und $\gamma = 2$ muss also gelten:
+
+\[I_{\text{in}} = \frac{1}{\sqrt{2}}\]
+
 
 \subsection*{Teilaufgabe 1b}
-TODO
+\textit{Sie haben ein Bild im RGB-Farbraum gegeben und wollen den Helligkeitskontrast erhöhen. In welchen der in der Vorlesung vorgestellten Farbräume wandeln Sie es um,
+um diese Kontrasterhöhung möglichst einfach durchführen zu können? Welche Berechnung(en) führen Sie dazu auf den Koeffizienten dieses Farbraums aus?}
+
+HSV (oder HSI, HSL). Dann wird einfach der V-Wert (I-Wert, L-Wert) erhöht.
+
+\subsection*{Teilaufgabe 1c}
+\begin{tabular}{cp{8cm}llp{4cm}}\toprule
+\# & Aussage                                                                                                     & Wahr           & Falsch           & Begründung            \\\midrule
+ 1 & Um den Farbeindruck für einen Menschen eindeutig zu beschreiben, genügt ein Farbmodell mit 3 Koeffizienten. & \CheckedBox    & $\square$        & Graßmansche Gesetze   \\
+ 2 & Durch diese 3 Koeffizienten ist dann das Spektrum ebenso eindeutig festgelegt.                              & $\square$      & \CheckedBox      & Metamerie             \\
+ 3 & Der RGB-Einheitswürfel enthält alle sichtbaren Farben.                                                      & $\square$      & \CheckedBox      & Magenta / Purple-Line \\
+ 4 & Der RGB-Einheitswürfel enthält Farben, die sich im CIE XYZ-Farbmodell nicht darstellen lassen.              & $\square$      & \CheckedBox      & Es ist umgekehrt  \\\bottomrule
+\end{tabular}
 
 \section*{Aufgabe 2}
 TODO
