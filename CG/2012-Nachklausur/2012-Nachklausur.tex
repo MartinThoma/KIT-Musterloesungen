@@ -13,6 +13,8 @@
 \usepackage{csquotes}  % for \enquote{what you want to quote}
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 \usepackage{minted} % needed for the inclusion of source code
+\usepackage{tikz}
+\usetikzlibrary{calc}
 
 % for \begin{enumerate}[label=(\Alph*)], see http://tex.stackexchange.com/a/129960/5645
 \usepackage{enumitem}
@@ -31,16 +33,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Aufgabe 1}
 \subsection*{Teilaufgabe 1a}
-\begin{figure}[h]
-    \centering
-    \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
-    \caption{Whatever}
-    \label{fig:1a}
-\end{figure}
-TODO
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
+%     \caption{Whatever}
+%     \label{fig:1a}
+% \end{figure}
+% TODO
+\begin{enumerate}
+    \item Lichtvektor L
+    \item Normale N
+    \item View-Vekto V
+    \item Reflektiertes Lich $R_L$
+\end{enumerate}
+
 
 \subsection*{Teilaufgabe 1b}
-TODO
+\begin{itemize}
+    \item Diffus und Spekular ändern sich, da die diffuse Komponente von der Lichtrichtung abhängig ist und die spekulare Komponente vom Winkel des View-Vektors zum reflektierten Lichtvektor abhängig ist.
+    \item Die spekulare Komponente ändert sich weil sie vom Winkel des View-Vektors zum reflektierten Lichtvektor abhängig ist.
+    \item Imperfekte Spiegelung: je größer der Phong-Exponent desto genauer die Spiegelung, heißt der Spekulare Lichtfleck wird kleiner aber dafür intensiver
+    \item Bei Gouraud-Shading wird die Farbe an den Vertices berechnet und dazwischen interpoliert. Dadurch können Glanzlichter verloren gehen, die in der Mitte von Primitiven liegen. Bei kleineren Primitiven ist die Wahrscheinlichkeit, dass dies passiert geringer. Außerdem ergibt die Interpolation genauere Ergebnisse, da die Vertices näher an den Punkten liegen, für die interpoliert wird
+\end{itemize}
 
 \subsection*{Teilaufgabe 1c}
 TODO
@@ -49,51 +63,168 @@ TODO
 TODO
 
 \section*{Aufgabe 2}
-TODO
+\subsection*{Teilaufgabe 2a}
+\begin{itemize}
+    \item $0.5 * 0,2 + (1-0,5)*0,4 = 0,3$
+    \item $0,3$
+    \item erfordert Tiefensortierung. Im allgemeinen ist Blending nicht
+          kommutativ
+\end{itemize}
+
+\subsection*{Teilaufgabe 2b}
+Der Tiefenalgorithmus sieht nicht, dass der Zaun an manchen Stellen
+durchsichtig ist und zeichnet deswegen Objekte die dahinter liegen nicht. Mit
+Alpha-Testing werden dahinterliegende Objekte gezeichnet
+
+\subsection*{Teilaufgabe 2c}
+Rufe DrawScene auf, Setze Source- und Destination-Faktor auf die 1/Anzahl
+Lichtquellen, verschiebe Lichtquelle, Rufe DrawScene auf (Blending der
+Ergebnisse), setze Source auf 2/Anzahl, verschiebe Lichtquelle, Rufe DrawScene
+auf (Blending der Ergebnisse) usw bis alle Lichtquellen durch sind
 
 \section*{Aufgabe 3}
 \subsection*{Teilaufgabe 3a}
-TODO
+\begin{itemize}
+\item löst das Aliasing-Problem bei Minification
+\item Man berechnet Mipmap-Stufen, indem die Höhe und Breite der Textur jeweils halbiert wird
+\item Zugriff auf die Textur: Texelgröße(n) $\leq$ Größe des Pixelfootprints auf der Textur < Texelgröße(n+1)
+\end{itemize}
+
 \subsection*{Teilaufgabe 3b}
-TODO
+Darstellung reflektierender Objekte mit Spiegelung von Umgebung ohne
+geometrische Repräsentation. Annahme: nur Richtung des Strahls wird
+berücksichtigt, man geht davon aus, dass die Umgebung relativ weit weg ist
+
 \subsection*{Teilaufgabe 3c}
-TODO
+\begin{tikzpicture}
+\draw[->] (-0.5,0) -- (1.5,0);
+\draw[->] (0,-0.5) -- (0,1.5);
+\draw[fill=black] (0.5, 0) -- (1,0) -- (1,0.5) -- (0.5,0.5) -- cycle;
+\draw[fill=black] (0,0.5) -- (0.5,0.5) -- (0.5,1) -- (0,1) -- cycle;
+\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+\end{tikzpicture}
 
 \section*{Aufgabe 4}
 \subsection*{Teilaufgabe 4a}
-TODO
-\subsection*{Teilaufgabe 4b}
-TODO
-\subsection*{Teilaufgabe 4c}
-TODO
-\subsection*{Teilaufgabe 4d}
-TODO
+ % \includegraphics[scale=0.5]{BVH.png}
 
+ \begin{tikzpicture}[level/.style={sibling distance=10em/#1},
+  every node/.style = {shape=rectangle,
+    draw, align=center}]]
+  \node{}
+    child { node[fill=red] {}
+      child { node[fill=yellow] {}
+          child { node {3} }
+          child { node {4} } }
+      child {node[fill=blue!50!green!40] {}
+          child { node {1} }
+          child { node {2}} }}
+    child { node[fill=blue] {}
+      child { node[fill=green!50!black] {}
+        child { node[] {6} }
+        child { node {8} } }
+      child { node[fill=violet] {}
+        child{ node {7} }
+        child{node {5} }} };
+ \end{tikzpicture}
+
+\subsection*{Teilaufgabe 4b}
+Ziel: Bounding Boxes mit möglichst geringem Volumen
+
+Die Wahrscheinlichkeit dafür dass man ein Primitiv trifft, wenn man die
+Bounding Box getroffen hat, soll groß werden. Konstruktion bezieht
+Kostenfunktion (Kosten für Schnitt mit Knoten) mit ein, damit die Kosten
+minimiert werden. Surface Area der Primitive soll einen großen Anteil der
+Bounding Box ausmachen. Eingeflossene Größen: Primitiv-Flächeninhalt, Surfache
+Area der Box, Kosten der Traversierung eines Knotens im Verhältnis zu Kosren
+eines Strahl-Primitiv-Tests
+
+\subsection*{Teilaufgabe 4c}
+Suboptimal, wenn es Stellen gibt, an denen wenige Primitive liegen und welche
+mit vielen Primitiven auf wenig Raum $\rightarrow$ es gib Boxen mit viel leerem
+Raum drin. Median ist gleich gut wie SAH wenn Primitive gleichmäßig verteilt
+sind.
+
+\subsection*{Teilaufgabe 4d}
+Erster Schnittpunkt mit einem Primitiv wird an Gitterzellen weitergegeben.
+Vorteil: man muss das gleiche Objekt nicht mehrfach schneiden.
+
+\clearpage
 \section*{Aufgabe 5}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader5.frag]{glsl}{shader5.frag}
 
 \section*{Aufgabe 6}
 \subsection*{Teilaufgabe 6a}
-TODO
+Polygone, die man nur von hinten sieht, werden nicht gezeichnet. Wird zur
+Beschleunigung verwendet, weil man dann weniger Polygone zeichnen muss.
+
 \subsection*{Teilaufgabe 6b}
-TODO
+Ergebnisse der letzten Verarbeiteten Vertices werden gecacht. Nur sinnvoll,
+wenn Vertices mehrfach verwendet werden, z.B. durch Indizierung. Pipelinestufe:
+Primitive Assembly
+
 \subsection*{Teilaufgabe 6c}
-TODO
+über Indizes
+
 \subsection*{Teilaufgabe 6d}
-TODO
+Triangle Strips brauchen weniger Platz, weil sich Dreiecke Vertices teilen (n+2
+statt $3n$ Vertices)
+
 \subsection*{Teilaufgabe 6e}
-TODO
+Vertex Shader holt Textur, ordnet den Vertices Punkte auf den Texturen zu.
+Fragment Shader berechnet anhand dessen die Texturierung der Primitive
+
 \subsection*{Teilaufgabe 6f}
-TODO
+\begin{tabular}{|c|c|c|}\hline
+    Aussage & Wahr & Falsch \\\hline
+    \hline
+    Vertex Shader kann Vertices löschen und generieren & & X \\
+    \hline
+    Vertex Shader kann Transformieren & X & \\
+    \hline
+    Sichtrichtung entlang negativer Y-Achse & & X \\
+    \hline
+    mehrere Shader in einem Zeichenvorgang & & X \\
+    \hline
+    inkonsistente Interpolation bei T-Vertices & X & \\
+    \hline
+\end{tabular}
+
+
 \subsection*{Teilaufgabe 6g}
-TODO
+\begin{enumerate}
+    \item B V
+    \item F V
+    \item E V
+    \item A N
+    \item C N
+    \item D F
+\end{enumerate}
 
 \section*{Aufgabe 7}
 \subsection*{Teilaufgabe 7a}
-TODO
+
+\begin{tikzpicture}
+\draw (0,0) node[circle, draw]{} -- (2,2) node[circle, draw]{} -- (3.5,0) node[circle, draw]{} -- (6,-2) node[circle,draw]{} -- (9,1) node[circle,draw]{};
+\draw ($(0,0)!0.5!(2,2)$) -- ($(2,2)!0.5!(3.5,0)$) node[midway,circle, draw,label = $a(\frac{1}{2})$] {};
+\draw ($(3.5,0)!0.5!(6,-2)$)  -- ($(6,-2)!0.5!(9,1)$) node[midway,circle, draw,label = $b(\frac{1}{2})$] {};
+\end{tikzpicture}
+
+Tangenten an den Randpunkten zeigen auf den nächsten Punkt. 2fach stetig diffbar (runde Kurve, keine Ecken, keine Unterbrechungen). Kurve liegt innerhalb der konvexen Hülle der Kontrollpunkte.
+
 \subsection*{Teilaufgabe 7b}
-TODO
+
+\begin{itemize}
+    \item $a_3: C^1$. Begründung: $a_3 - a_2 = b_1 - b_0$, aber $a_2 + (a_2-a_1) \neq b_1 + (b_1 - b_2)$
+    \item $c_0: C^0$. Begründung: $b_3-b_2 \neq c_1 - c_0$
+\end{itemize}
+
 \subsection*{Teilaufgabe 7c}
-TODO
+\begin{enumerate}
+    \item bilden eine Basis des Polynomraumes
+    \item Rekursionsformel: \[B^n_i(u) = u \cdot B^{n-1}_{i-1} + (1-u) \cdot B^{n-1}_{i} \]
+    \item symmetrisch
+    \item positiv ($\geq 0$) auf [0,1]
+\end{enumerate}
 
 \end{document}
