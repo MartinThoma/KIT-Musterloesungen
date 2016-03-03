@@ -13,6 +13,7 @@
 \usepackage{csquotes}  % for \enquote{what you want to quote}
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 \usepackage{minted} % needed for the inclusion of source code
+\usepackage{mdframed}
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
@@ -33,34 +34,61 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Aufgabe 1}
 \subsection*{Teilaufgabe 1a}
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
-%     \caption{Whatever}
-%     \label{fig:1a}
-% \end{figure}
-% TODO
+\textit{Welche 4 Vektoren werden benötigt, um die reflektierte Farbe an einem Vertex bzw.
+Oberflächenpunkt mit dem Phong-Beleuchtungsmodell zu berechnen? Illustrieren
+Sie Ihre Antwort mit einer Skizze, die den Oberflächenpunkt, die Betrachter-
+und die Lichtquellenposition beinhaltet.}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
+    \caption{Whatever}
+    \label{fig:1a}
+\end{figure}
+
 \begin{enumerate}
-    \item Lichtvektor L
-    \item Normale N
-    \item View-Vekto V
-    \item Reflektiertes Lich $R_L$
+    \item Lichtvektor $L$
+    \item Normale $N$
+    \item View-Vektor $V$
+    \item Reflektiertes Licht $R_L$
 \end{enumerate}
 
 
 \subsection*{Teilaufgabe 1b}
+Beim Phong-Beleuchtungsmodell setzt sich das reflektierte Licht aus 3~Komponenten
+zusammen: ambient, diffus und spekular.
+
+\begin{mdframed}
+Das Phong-Beleuchtungsmodell lautet:
+\[I = \overbrace{k_a \cdot I_L}^{\text{ambient}} + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}} + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}\]
+\end{mdframed}
+
+Erläutern Sie kurz, welche dieser Komponenten ihren Wert aus welchem Grund ändert
+bzw. ändern, wenn:
+
 \begin{itemize}
-    \item Diffus und Spekular ändern sich, da die diffuse Komponente von der Lichtrichtung abhängig ist und die spekulare Komponente vom Winkel des View-Vektors zum reflektierten Lichtvektor abhängig ist.
-    \item Die spekulare Komponente ändert sich weil sie vom Winkel des View-Vektors zum reflektierten Lichtvektor abhängig ist.
-    \item Imperfekte Spiegelung: je größer der Phong-Exponent desto genauer die Spiegelung, heißt der Spekulare Lichtfleck wird kleiner aber dafür intensiver
-    \item Bei Gouraud-Shading wird die Farbe an den Vertices berechnet und dazwischen interpoliert. Dadurch können Glanzlichter verloren gehen, die in der Mitte von Primitiven liegen. Bei kleineren Primitiven ist die Wahrscheinlichkeit, dass dies passiert geringer. Außerdem ergibt die Interpolation genauere Ergebnisse, da die Vertices näher an den Punkten liegen, für die interpoliert wird
+    \item \textit{der Vertex verschoben wird, aber die Lichtquelle- und
+          Betrachterposition unverändert bleibt?}
+    \item[$\Rightarrow$] Diffus und Spekular ändern sich, da die diffuse
+    Komponente von der Lichtrichtung abhängig ist und die spekulare Komponente
+    vom Winkel des View-Vektors zum reflektierten Lichtvektor abhängig ist.
+    \item \textit{sich die Betrachterposition ändert, aber Lichtquelle und Vertex unverändert bleiben?}
+    \item[$\Rightarrow$] Die spekulare Komponente ändert sich weil sie vom Winkel des View-Vektors zum reflektierten Lichtvektor abhängig ist.
 \end{itemize}
 
 \subsection*{Teilaufgabe 1c}
-TODO
+\textit{Welche Aufgabe hat der Phong-Exponent? Welche Auswirkungen hat es, wenn sein
+Wert größer bzw. kleiner gewählt wird?}
+Imperfekte Spiegelung: Je größer der Phong-Exponent desto genauer die Spiegelung, heißt der spekulare Lichtfleck wird kleiner aber dafür intensiver.
 
 \subsection*{Teilaufgabe 1d}
-TODO
+\textit{Warum verbessert eine Unterteilung von Primitiven in kleinere die Darstellungsqualität, wenn Gouraud-Shading verwendet wird?}
+
+Bei Gouraud-Shading wird die Farbe an den Vertices berechnet und dazwischen
+interpoliert. Dadurch können Glanzlichter verloren gehen, die in der Mitte von
+Primitiven liegen. Bei kleineren Primitiven ist die Wahrscheinlichkeit, dass
+dies passiert geringer. Außerdem ergibt die Interpolation genauere Ergebnisse,
+da die Vertices näher an den Punkten liegen, für die interpoliert wird
 
 \section*{Aufgabe 2}
 \subsection*{Teilaufgabe 2a}
