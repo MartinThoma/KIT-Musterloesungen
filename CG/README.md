@@ -34,8 +34,8 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>4. Nachklausur 2012</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>Template</td>
+            <td>All</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
