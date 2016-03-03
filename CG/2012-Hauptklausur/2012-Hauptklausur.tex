@@ -208,8 +208,57 @@ zugleich der nächste Schnittpunkt zum Ursprung des Strahls.}
 \subsection*{Teilaufgabe 5c}
 \includegraphics*[width=\linewidth, keepaspectratio]{5c.png}
 
-\section*{Aufgabe 6}
-TODO
+\section*{Aufgabe 6: Projektive Transformationen und Clipping}
+\subsection*{Teilaufgabe 6a}
+\textit{Transformieren Sie die Vertizes $P_1$ , $P_2$
+in homogene Clip-Koordinaten, und geben Sie die homogenen Koordinaten der
+transformierten Punkte an.}
+
+\begin{align}
+      P_{1h} &= M_{proj} \begin{pmatrix}2\\6\\1\end{pmatrix} = \begin{pmatrix}2\\-2\\6\end{pmatrix}
+    & P_{2h} &= M_{proj} \begin{pmatrix}8\\4\\1\end{pmatrix} = \begin{pmatrix}8\\-8\\4\end{pmatrix}
+\end{align}
+
+\subsection*{Teilaufgabe 6b}
+\textit{Als nächstes müssen Sie die \enquote{window edge coordinates} der
+projizierten Punkte in Clip- Koordinaten berechnen. Welche Kanten müssen
+potentiell auf Schnitt mit der Strecke überprüft werden?}
+
+\begin{align}
+    WEC_{x=w}(P_1)  &= 4     & WEC_{x=w}(P_2)  &= -4\\
+    WEC_{x=-w}(P_1) &= 8     & WEC_{x=-w}(P_2) &= 12\\
+    WEC_{z=w}(P_1)  &= 8     & WEC_{z=w}(P_2)  &= 12\\
+    WEC_{z=-w}(P_1) &= 4     & WEC_{z=-w}(P_2) &= -4\\
+    WEC_{x=w}       &= w - x & WEC_{x=-w}      &= w + x
+\end{align}
+
+$\Rightarrow$ Untere rechte Kante überprüfen
+
+\subsection*{Teilaufgabe 6c}
+\textit{Wenden Sie nun $\alpha$-Clipping an. Geben Sie ebenfalls die Endpunkte
+$P_1$ und $P_2$ der Teilstrecke in der Sichtpyramide in normalisierten
+Device-Koordinaten an.}
+
+\begin{align}
+    a_{\text{min}} = 0\;\;\; a_{\text{max}} = 1\\
+    a_1 = \frac{WEC_{x=w}(P_1)}{WEC_{x=w}(P_1) - WEC_{x=w}(P_2)} = \frac{4}{4 - (-4)} = 0.5\\
+    \Rightarrow a_{\text{max}} = \min(a_{\text{max}}, a_1) = 0.5 \text{ (weil Optcode } P_2 \text{ gesetzt)}\\
+    a_2 = \frac{WEC_{z=-w}(P_1)}{WEC_{z=-w}(P_1) - WEC_{z=-w}(P_2)} = \frac{4}{4 - (-4)} = 0.5\\
+    \Rightarrow a_{\text{max}} = \min(a_{\text{max}}, a_2) = 0.5 \text{ (weil Optcode } P_2 \text{ gesetzt)}\\
+\end{align}
+
+Neues Liniensegment:
+
+\begin{align}
+    (P_1 + a_{\text{min}} \cdot (P_2 - P_1)&, P_1 + a_{\text{max}} \cdot (P_2 - P_1))\\
+  = ((2, -2, 6)&, (2, -2, 6) + 0.5 \cdot (6, -10, 2))\\
+  = ((2, -2, 6)&, (5, -7, 5))
+\end{align}
+
+\begin{align}
+    P_1' &= (\nicefrac{1}{3}, -\nicefrac{1}{3}) & P_2' &= (1, -\nicefrac{7}{5})
+\end{align}
+
 
 \section*{Aufgabe 7}
 TODO
