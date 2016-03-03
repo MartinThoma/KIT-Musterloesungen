@@ -5,19 +5,18 @@ vec3 determineIntersection(in vec3 P, in vec3 r, out int index)
     // der entsprechenden Seitenfläche gesetzt werden.
 
     bool intersects = false;
-    float t, t_min;
-    int index_min, index;
+    float t_min;
 
-    for (int i=0; i<= 5; i++) {
-        if (intersect(i, P, r, &t)) {
+    for (int i = 0; i<= 5; i++) {
+		float t;
+        if (intersect(i, P, r, t) && t > 0.) {
             if (!intersects || t < t_min) {
                 t_min = t;
-                index_min = i;
+                index = i;
                 intersects = true;
             }
         }
     }
 
-    index = index_min;
-    return t_min;
+    return P + t_min * r;
 }

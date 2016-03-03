@@ -5,7 +5,8 @@ uniform vec3 p;    // Der Aufpunkt der Clip-Ebene, in Kamerakoordinaten.
 
 bool clip() {
     // Solution starts here:
-    // TODO
+	vec3 toVertex = posCamera - p;
+	return dot(N, toVertex) < 0.;
 }
 
 void main() {

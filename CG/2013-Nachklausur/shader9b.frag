@@ -5,11 +5,20 @@ uniform vec3 lightWorld; // Position der Lichtquelle in Weltkoordinaten.
 uniform float pi;        // Der Wert der Konstante Pi.
 
 vec4 toonShade(int c) {
-    ...
+    // ...
 }
 
 void main(void)
 {
-    // Solution is here:
-    // TODO
+	vec3 l = normalize(lightWorld - posWorld);
+	float theta = acos(dot(l, normWorld));
+	int c;
+	if (theta < pi / 6.) {
+		c = 0;
+	} else if (theta < pi / 3.) {
+		c = 1;
+	} else {
+		c = 2;
+	}
+	color = toonShader(c);
 }

@@ -12,7 +12,7 @@ out vec3 P_k; // Vertex-Position in Kamerakoordinaten
 out vec3 n_k; // Vertex-Normale in Kamerakoordinaten
 
 void main() {
-    // P_k = TODO;
-    // n_k = TODO;
-    // gl_Position = TODO;
+    P_k = matMV * P;
+    n_k = matN * n_k;
+    gl_Position = matP * P_k;
 }

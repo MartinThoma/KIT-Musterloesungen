@@ -6,6 +6,6 @@ uniform mat4 V; // Die View-Matrix.
 uniform mat4 P; // Die Projection-Matrix.
 
 void main() {
-    // Solution goes here
-    // TODO
+	posCamera = V * (M * position);
+	gl_Position = P * posCamera;
 }
