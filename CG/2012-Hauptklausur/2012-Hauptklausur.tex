@@ -104,8 +104,45 @@ TODO: Unterschied zwischen Raycasting und Raytracing?
 4  & Constructive Solid Geometry ist eine Technik zum Modellieren von Festkörpern, bei der Objekte durch boolesche Operatoren kombiniert werden.                                                                   & \CheckedBox    & $\square$        & ~          \\\bottomrule
 \end{tabular}
 
-\section*{Aufgabe 3}
-TODO
+\section*{Aufgabe 3: Transformationen}
+\subsection*{Teilaufgabe 3a}
+\textit{Um welchen Typ Transformation handelt es sich dabei?}
+
+TODO (Basiswechsel?)
+
+\textit{Nennen Sie die effizienteste Methode, die Inverse dieser Transformation zu finden.}
+
+Man kann leicht feststellen, dass $u \times v = u \times w = v \times w = 0$.
+Es handelt sich also um eine Orthogonalmatrix. Die inverse $M^{-1}$ einer
+Orthogonalmatrix $M$ ist gleich ihrer Transponierten $M^T$: $M^{-1} = M^T$.
+
+\subsection*{Teilaufgabe 3b}
+\textit{Nennen Sie zwei Gründe für die Verwendung hierarchischer Modellierung.}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item Anordnung von objekten in hierarchischen Gruppen
+    \item Anwendung von Transformationen auf ganze Objektgruppen
+    \item Natürliche Beschreibung eines Objekts / einer Szene
+\end{enumerate}
+
+\textit{Welche Datenstruktur haben Sie in der Vorlesung kennengelernt, die dabei hilft,
+Transformationen beim Traversieren des Szenengraphen zu verwalten?}
+
+Matrixstack
+
+
+
+\subsection*{Teilaufgabe 3c}
+(Homogene 2D-Matrizen)
+
+\textit{Nennen Sie jeweils, um welche Transformation es sich handelt und wie deren Parameter sind.}
+
+\begin{enumerate}[label=(\Alph*)]
+    \item Rotation um $45^\circ$ gegen den Urzeigersinn.
+    \item Translation um 2.5 in Richtung der $y$-Achse.
+    \item Spiegelung an der $y$-Achse.
+    \item Scherung um~1 in Richtung der $x$-Achse.
+\end{enumerate}
 
 \section*{Aufgabe 4}
 TODO
