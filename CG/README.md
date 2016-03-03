@@ -34,32 +34,32 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>4. Nachklausur 2012</td>
-            <td>Draft</td>
-            <td>3</td>
+            <td>Completed, but not checked</td>
+            <td>0</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>5. Hauptklausur 2013</td>
             <td>Draft</td>
-            <td>13</td>
+            <td>11</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>6. Nachklausur 2013</td>
             <td>Draft</td>
-            <td>5</td>
+            <td>1</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>7. Hauptklausur 2014</td>
             <td>Draft</td>
-            <td>15</td>
+            <td>14</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>8. Nachklausur 2014</td>
             <td>Draft</td>
-            <td>23</td>
+            <td>20</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
