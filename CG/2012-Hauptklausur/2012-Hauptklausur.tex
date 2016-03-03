@@ -67,8 +67,42 @@ HSV (oder HSI, HSL). Dann wird einfach der V-Wert (I-Wert, L-Wert) erhöht.
  4 & Der RGB-Einheitswürfel enthält Farben, die sich im CIE XYZ-Farbmodell nicht darstellen lassen.              & $\square$      & \CheckedBox      & Es ist umgekehrt  \\\bottomrule
 \end{tabular}
 
-\section*{Aufgabe 2}
-TODO
+\section*{Aufgabe 2: Raytracing und prozedurale Modelle}
+\subsection*{Teilaufgabe 2a}
+\begin{enumerate}[label=(\arabic*)]
+    \item Schattenstrahl zu Lichtquelle verschießen um Verschattung zu testen
+    \item Grundfarbwert anhand eines Beleuchtungsmodells (z.B. Phong) bestimmen
+    \item Reflektionsstrahl verschießen und ermittelten Farbwert auf Farbwert
+          im Punkt addieren.
+    \item Refraktionsstrahl verschießen.
+\end{enumerate}
+
+\subsection*{Teilaufgabe 2b}
+\textit{Was ist der konzeptuelle Unterschied zwischen Raymarching und
+Raycasting bzw. Raytracing? Nennen Sie einen Anwendungsfall, bei dem Sie
+Raymarching verwenden würden, und begründen Sie, warum Sie für diesen Fall
+Raytracing können}
+
+Bei \textbf{Raymarching} wird durch jeden Pixel ein Strahl geschossen und mit
+einer bestimmten Größe \enquote{abmarschiert}. Im Gegensatz zu Raytracing
+werden keine Sekundärstrahlen verschossen.
+
+Raymarching wird zur Verarbeitung von Volumendaten (Nebel, Wolken, \dots)
+eingesetzt, wobei Raytracing und Raycasting für Oberflächen verwendet wird.
+
+\textbf{Anwendungsfall für Raymarching}: Hypertextures. Die Berechnung mittels
+Raytracing wäre zu aufwendig, da es sehr viele Sekundärstrahlen gäbe.
+
+TODO: Unterschied zwischen Raycasting und Raytracing?
+
+\subsection*{Teilaufgabe 2c}
+\begin{tabular}{cp{8cm}llp{4cm}}\toprule
+\# & Aussage                                                                                                                                                                                                       & Wahr & Falsch & Begründung \\\midrule
+1  & Prozedurale Modelle erlauben eine kompakte Beschreibung von Texturen oder Objekten, aber die Resultate sind oft nur schwer zu kontrollieren.                                                                  & \CheckedBox    & $\square$        & ~          \\
+2  & Eine ideale Noise-Funktion sollte weder bandbegrenzt sein noch räumliche Korrelationen aufweisen, um erkennbare Periodizitäten und monotone Strukturen zu vermeiden.                                          & $\square$      & \CheckedBox      & ~          \\
+3  & Um Turbulenz-Texturen zu erstellen, werden immer höhere Oktaven von Noise-Texturen aufsummiert und dabei immer stärker gewichtet, damit die Resultate so weit wie möglich gegen Weißes Rauschen konvergieren. & $\square$      & \CheckedBox      & ~          \\
+4  & Constructive Solid Geometry ist eine Technik zum Modellieren von Festkörpern, bei der Objekte durch boolesche Operatoren kombiniert werden.                                                                   & \CheckedBox    & $\square$        & ~          \\\bottomrule
+\end{tabular}
 
 \section*{Aufgabe 3}
 TODO
