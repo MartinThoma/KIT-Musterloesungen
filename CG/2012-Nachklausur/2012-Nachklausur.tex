@@ -14,6 +14,7 @@
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 \usepackage{minted} % needed for the inclusion of source code
 \usepackage{mdframed}
+\usepackage{mathtools}
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
@@ -32,7 +33,7 @@
 
 \setcounter{section}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Aufgabe 1}
+\section*{Aufgabe 1: Beleuchtung}
 \subsection*{Teilaufgabe 1a}
 \textit{Welche 4 Vektoren werden benötigt, um die reflektierte Farbe an einem Vertex bzw.
 Oberflächenpunkt mit dem Phong-Beleuchtungsmodell zu berechnen? Illustrieren
@@ -60,7 +61,9 @@ zusammen: ambient, diffus und spekular.
 
 \begin{mdframed}
 Das Phong-Beleuchtungsmodell lautet:
-\[I = \overbrace{k_a \cdot I_L}^{\text{ambient}} + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}} + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}\]
+\[I = \overbrace{k_a \cdot I_L}^{\texttt{ambient}}
+    + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}}
+    + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}\]
 \end{mdframed}
 
 Erläutern Sie kurz, welche dieser Komponenten ihren Wert aus welchem Grund ändert
@@ -90,25 +93,38 @@ Primitiven liegen. Bei kleineren Primitiven ist die Wahrscheinlichkeit, dass
 dies passiert geringer. Außerdem ergibt die Interpolation genauere Ergebnisse,
 da die Vertices näher an den Punkten liegen, für die interpoliert wird
 
-\section*{Aufgabe 2}
+\section*{Aufgabe 2: Blending}
 \subsection*{Teilaufgabe 2a}
-\begin{itemize}
-    \item $0.5 \cdot 0,2 + (1-0,5) \cdot 0,4 = 0,3$
-    \item $0,3$
-    \item erfordert Tiefensortierung. Im allgemeinen ist Blending nicht
-          kommutativ
-\end{itemize}
+\begin{enumerate}[label=(\Roman*)]
+    \item $\overbrace{0.5}^{\mathclap{\text{SRC\_ALPHA}}} \cdot 0.2 + \underbrace{(1-0.5)}_{\mathclap{\text{1-SRC\_ALPHA}}} \cdot 0.4 = 0.3$
+    \item Auch $0.3$, der der Alpha-Wert $0.5$ ist.
+    \item \textit{Welche Konsequenzen hat dies für das Zeichnen von sich
+                  überlappenden semi-transparenten Objekten?}\\
+          Erfordert Tiefensortierung. Im allgemeinen ist Blending nicht
+          kommutativ.
+\end{enumerate}
 
 \subsection*{Teilaufgabe 2b}
+\textit{Ein Zaun wird mit OpenGL gezeichnet, indem ein \texttt{GL\_QUAD}
+-Primitiv mit einer Textur gezeichnet wird, die den Wert~1 enthält, wo sich
+Lücken im Zaun befinden, und sonst den Wert 0 enthält. Warum sollte man in
+diesem Fall Alpha-Testing statt Blending verwenden?}
+
 Der Tiefenalgorithmus sieht nicht, dass der Zaun an manchen Stellen
 durchsichtig ist und zeichnet deswegen Objekte die dahinter liegen nicht. Mit
-Alpha-Testing werden dahinterliegende Objekte gezeichnet
+Alpha-Testing werden dahinterliegende Objekte gezeichnet.
 
 \subsection*{Teilaufgabe 2c}
-Rufe DrawScene auf, Setze Source- und Destination-Faktor auf die 1/Anzahl
-Lichtquellen, verschiebe Lichtquelle, Rufe DrawScene auf (Blending der
-Ergebnisse), setze Source auf 2/Anzahl, verschiebe Lichtquelle, Rufe DrawScene
-auf (Blending der Ergebnisse) usw bis alle Lichtquellen durch sind
+\begin{itemize}
+    \item Rufe \texttt{DrawScene} auf, Setze Source- und Destination-Faktor auf
+          1/Anzahl Lichtquellen,
+    \item verschiebe Lichtquelle
+    \item Rufe \texttt{DrawScene} auf (Blending der Ergebnisse)
+    \item setze Source auf 2/Anzahl
+    \item verschiebe Lichtquelle
+    \item Rufe DrawScene auf (Blending der Ergebnisse)
+    \item usw. bis alle Lichtquellen durch sind
+\end{itemize}
 
 \section*{Aufgabe 3}
 \subsection*{Teilaufgabe 3a}
