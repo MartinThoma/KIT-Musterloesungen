@@ -144,8 +144,40 @@ Matrixstack
     \item Scherung um~1 in Richtung der $x$-Achse.
 \end{enumerate}
 
-\section*{Aufgabe 4}
-TODO
+
+\section*{Aufgabe 4: Texturen}
+\subsection*{Teilaufgabe 4a}
+\textit{Was ist eine Environment-Map?}
+
+Eine Environment-Map ist eine Textur zur Darstellung der Umgebung.
+
+\textit{Wofür wird sie eingesetzt?}
+
+Durch eine Environment-Map kann die Reflektion/Beleuchtung eines Objekts
+bestimmt werden, ohne aufwendiges Ray-Tracing zu betreiben.
+
+\textit{Welche Annahmen trifft man dabei?}
+
+Die Umgebung ist weit genug entfernt, sodass die Position keine Rolle spielt.
+Es wird nur die Blickrichtung verwendet.
+
+\subsection*{Teilaufgabe 4b}
+\textit{Welches Problem beim Texture-Mapping löst Mip-Mapping? Erklären Sie kurz die Idee!}
+
+Mip-Mapping ist eine Vorfilterung der Textur um Aliasing-Artefakten vorzubeugen.
+Aliasing tritt durch Unterabtastung des Bildsignals auf.
+
+Man erzeugt Mip-Maps durch \enquote{zusammenfassen} von jeweilse $2 \times 2$
+Texeln. Es werden solange neue Mip-Map-Stufen generiert, bis man eine Mip-Map
+erzeugt hat, die nur noch aus einem Texel besteht.
+
+\subsection*{Teilaufgabe 4c: Bilineare Interpolation}
+
+\begin{align}
+    c'  &= (1-s) \cdot c_{01} + s \cdot c_{11}\\
+    c'' &= (1-s) \cdot c_{00} + s \cdot c_{10}\\
+    c   &= (1-t) \cdot c'' + t \cdot c'
+\end{align}
 
 \section*{Aufgabe 5}
 TODO
