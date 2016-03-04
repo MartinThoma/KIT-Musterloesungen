@@ -46,11 +46,9 @@ Es seien n Dreiecke gegeben.
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
     </tr>
     <tr>
         <td>Adaptive Gitter</td>
-        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -59,14 +57,12 @@ Es seien n Dreiecke gegeben.
     <tr>
         <td>kD-B&auml;ume</td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td>O(log n)</td>
         <td></td>
         <td></td>
     </tr>
     <tr>
         <td>BSP-Bäume</td>
-        <td></td>
         <td></td>
         <td></td>
         <td></td>
