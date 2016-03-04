@@ -163,11 +163,11 @@ TODO
 TODO
 
 \subsection*{Teilaufgabe 4d}
-\begin{tabular}{p{6cm}ccp{5cm}}\toprule
-Aussage  & Wahr & Falsch & Begründung \\\midrule
-Texturkoordinaten müssen sich immer im Intervall $[0; 1]$ befinden. & $\square$ & $\square$ & ~ \\
-Texturkoordinaten können als Attribute der Eckpunkte (Vertizes) übergeben werden und werden als solche interpoliert.  & $\square$    & $\square$      & ~          \\
-Texturkoordinaten müssen für die Darstellung wie Eckpunktkoordinaten der Model-View-Transformation unterzogen werden. & $\square$    & $\square$      & ~          \\\bottomrule
+\begin{tabular}{cp{6cm}ccp{5cm}}\toprule
+\# & Aussage  & Wahr & Falsch & Begründung \\\midrule
+ 1 & Texturkoordinaten müssen sich immer im Intervall $[0; 1]$ befinden. & $\square$ & $\square$ & ~ \\
+ 2 & Texturkoordinaten können als Attribute der Eckpunkte (Vertizes) übergeben werden und werden als solche interpoliert.  & $\square$    & $\square$      & ~          \\
+ 3 & Texturkoordinaten müssen für die Darstellung wie Eckpunktkoordinaten der Model-View-Transformation unterzogen werden. & $\square$    & $\square$      & ~          \\\bottomrule
 \end{tabular}
 
 
@@ -198,36 +198,36 @@ Inklusive Schnittests der AABB Hüllkörper:
 \end{enumerate}
 
 \subsection*{Teilaufgabe 6c}
-\begin{tabular}{p{8cm}ccp{5cm}}\toprule
-Aussage & Wahr & Falsch & Begründung \\\midrule
-Beim Traversieren eines kD-Baums müssen immer beide Kinder in Betracht gezogen werden. & $\square$  & \CheckedBox & vgl. Folie 103\\
-Das Traversieren einer Hüllkörperhierarchie mit achsenparallelen Boxen (Bounding Volume Hierarchy, BVH) erfordert Mailboxing, um mehrfache Schnitttests mit einem Dreieck zu verhindern. & \CheckedBox & $\square$     & ~          \\
-Der Speicheraufwand einer BVH hängt logarithmisch von der Anzahl der Primitive ab. & \CheckedBox & $\square$      & ~          \\
-kD-Bäume sind eine Verallgemeinerung von BSP-Bäumen. & $\square$    & \CheckedBox & Es ist genau anders herum. kD-Bäume müssen Achsenparallele Trennebenen haben, BSP-Bäume jedoch nicht. \\
-BSP-Bäume sind adaptiv und leiden nicht unter dem \enquote{Teapot in a Stadium}-Problem. & \CheckedBox    & $\square$      & ~          \\
+\begin{tabular}{cp{8cm}ccp{5cm}}\toprule
+\# & Aussage & Wahr & Falsch & Begründung \\\midrule
+ 1 & Beim Traversieren eines kD-Baums müssen immer beide Kinder in Betracht gezogen werden. & $\square$  & \CheckedBox & vgl. Folie 103\\
+ 2 & Das Traversieren einer Hüllkörperhierarchie mit achsenparallelen Boxen (Bounding Volume Hierarchy, BVH) erfordert Mailboxing, um mehrfache Schnitttests mit einem Dreieck zu verhindern. & \CheckedBox & $\square$     & ~          \\
+ 3 & Der Speicheraufwand einer BVH hängt logarithmisch von der Anzahl der Primitive ab. & \CheckedBox & $\square$      & ~          \\
+ 4 & kD-Bäume sind eine Verallgemeinerung von BSP-Bäumen. & $\square$    & \CheckedBox & Es ist genau anders herum. kD-Bäume müssen Achsenparallele Trennebenen haben, BSP-Bäume jedoch nicht. \\
+ 5 & BSP-Bäume sind adaptiv und leiden nicht unter dem \enquote{Teapot in a Stadium}-Problem. & \CheckedBox    & $\square$      & ~          \\
 \end{tabular}
 
 \subsection*{Teilaufgabe 6d}
-\begin{tabular}{p{8cm}cccc}\toprule
-Aussage  & BVH & Octree & kD-Baum & Gitter \\\midrule
-Die Datenstruktur partitioniert den Raum. & $\square$   & \CheckedBox & \CheckedBox & \CheckedBox \\
-Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive. & $\square$ & $\square$ & $\square$ & $\square$ \\
-Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird. & $\square$ & $\square$ & \CheckedBox & $\square$ \\
-Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & $\square$ & $\square$ & $\square$ & \CheckedBox \\\bottomrule
+\begin{tabular}{cp{8cm}cccc}\toprule
+\# & Aussage  & BVH & Octree & kD-Baum & Gitter \\\midrule
+ 1 & Die Datenstruktur partitioniert den Raum. & $\square$   & \CheckedBox & \CheckedBox & \CheckedBox \\
+ 2 & Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive. & $\square$ & $\square$ & $\square$ & $\square$ \\
+ 3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird. & $\square$ & $\square$ & \CheckedBox & $\square$ \\
+ 4 & Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & $\square$ & $\square$ & $\square$ & \CheckedBox \\\bottomrule
 \end{tabular}
 
 \section*{Aufgabe 7: Rasterisierung und OpenGL}
 \subsection*{Teilaufgabe 7a}
-\begin{tabular}{p{8cm}llp{4cm}}\toprule
-    Aussage & Wahr & Falsch & Begründung / Quelle \\\midrule
-    In der OpenGL-Pipeline wird View Frustum Clipping vor\\der perspektivischen Division durchgeführt.                                    & ~    & ~      & ~                   \\
-    Vertex-Shader können auf Texturen zugreifen.                                                                                          & ~    & ~      & ~                   \\
-    Bei Gouraud-Shading muss man die Normale im Fragment-Shader erneut normalisieren.                                                     & ~    & ~      & ~                   \\
-    Gouraud-Shading mit dem Phong-Beleuchtungsmodell kann\\im Geometry-Shader implementiert werden.                                       & ~    & ~      & ~                   \\
-    Phong-Shading kann man alleine mit einem Vertex-Shader\\und einem Geometry-Shader implementieren; letzterer gibt\\dann die Farbe aus. & ~    & ~      & ~                   \\
-    Bei beliebig feiner Tessellierung ist kein Unterschied zwi-\\schen Gouraud- und Phong-Shading erkennbar.                              & ~    & ~      & ~                   \\
-    Selbst wenn der Tiefentest für ein Fragment fehlschlägt, kann\\der Stencil-Puffer verändert werden.                                   & ~    & ~      & ~                   \\
-    Instanziierung von Geometrie kann man sowohl mit dem\\Vertex- als auch dem Geometry-Shader durchführen.                               & ~    & ~      & ~                   \\\bottomrule
+\begin{tabular}{cp{8cm}llp{4cm}}\toprule
+\# & Aussage & Wahr & Falsch & Begründung / Quelle \\\midrule
+ 1 & In der OpenGL-Pipeline wird View Frustum Clipping vor\\der perspektivischen Division durchgeführt.                                    & ~    & ~      & ~                   \\
+ 2 & Vertex-Shader können auf Texturen zugreifen.                                                                                          & ~    & ~      & ~                   \\
+ 3 & Bei Gouraud-Shading muss man die Normale im Fragment-Shader erneut normalisieren.                                                     & ~    & ~      & ~                   \\
+ 4 & Gouraud-Shading mit dem Phong-Beleuchtungsmodell kann\\im Geometry-Shader implementiert werden.                                       & ~    & ~      & ~                   \\
+ 5 & Phong-Shading kann man alleine mit einem Vertex-Shader\\und einem Geometry-Shader implementieren; letzterer gibt\\dann die Farbe aus. & ~    & ~      & ~                   \\
+ 6 & Bei beliebig feiner Tessellierung ist kein Unterschied zwi-\\schen Gouraud- und Phong-Shading erkennbar.                              & ~    & ~      & ~                   \\
+ 7 & Selbst wenn der Tiefentest für ein Fragment fehlschlägt, kann\\der Stencil-Puffer verändert werden.                                   & ~    & ~      & ~                   \\
+ 8 & Instanziierung von Geometrie kann man sowohl mit dem\\Vertex- als auch dem Geometry-Shader durchführen.                               & ~    & ~      & ~                   \\\bottomrule
 \end{tabular}
 
 \subsection*{Teilaufgabe 7b}
