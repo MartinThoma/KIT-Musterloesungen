@@ -209,12 +209,13 @@ Inklusive Schnittests der AABB Hüllkörper:
 
 \subsection*{Teilaufgabe 6d}
 \begin{tabular}{cp{8cm}cccc}\toprule
-\# & Aussage                                                                                                                                          & BVH         & Octree      & kD-Baum     & Gitter \\\midrule
+\# & Aussage                                                                                                                                          & BVH         & Octree      & kD-Baum     & Gitter    \\\midrule
  1 & Die Datenstruktur partitioniert den Raum.                                                                                                        & $\square$   & \CheckedBox & \CheckedBox & \CheckedBox \\
  2 & Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive.                                                             & $\square$   & $\square$   & $\square$   & $\square$ \\
- 3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird.                              & \CheckedBox & $\square$   & \CheckedBox & $\square$ \\
+ 3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird.\footnotemark                 & \CheckedBox & $\square$   & \CheckedBox & $\square$ \\
  4 & Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & $\square$   & $\square$   & $\square$   & \CheckedBox \\\bottomrule
 \end{tabular}
+\footnotetext{vgl. \texttt{05\_ Raumliche Datenstrukturen.pdf}, Folie 98}
 
 \section*{Aufgabe 7: Rasterisierung und OpenGL}
 \subsection*{Teilaufgabe 7a}
