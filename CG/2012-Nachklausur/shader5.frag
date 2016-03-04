@@ -7,11 +7,11 @@ int main() {
     vec3 pos;
     vec3 normal;
     for (i=0; i < 10; i++) {
-        vec2 isec = intersectRS(eye, dir, vec3(spheres[i]), spheres[i].z);
+        vec2 isec = intersectRS(eye, dir, spheres[i].xyz, spheres[i].w);
         if (isec.x < t && isec.x > 0) {
             t = isec.x;
             pos = eye + t * dir;
-            normal = normalize(pos - vec3(spheres[i]);
+            normal = normalize(pos - spheres[i].xyz);
         }
     }
     if (t != -1) {

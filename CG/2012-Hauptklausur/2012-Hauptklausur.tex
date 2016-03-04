@@ -240,19 +240,19 @@ $P_1$ und $P_2$ der Teilstrecke in der Sichtpyramide in normalisierten
 Device-Koordinaten an.}
 
 \begin{align}
-    a_{\text{min}} = 0\;\;\; a_{\text{max}} = 1\\
-    a_1 = \frac{WEC_{x=w}(P_1)}{WEC_{x=w}(P_1) - WEC_{x=w}(P_2)} = \frac{4}{4 - (-4)} = 0.5\\
-    \Rightarrow a_{\text{max}} = \min(a_{\text{max}}, a_1) = 0.5 \text{ (weil Optcode } P_2 \text{ gesetzt)}\\
-    a_2 = \frac{WEC_{z=-w}(P_1)}{WEC_{z=-w}(P_1) - WEC_{z=-w}(P_2)} = \frac{4}{4 - (-4)} = 0.5\\
-    \Rightarrow a_{\text{max}} = \min(a_{\text{max}}, a_2) = 0.5 \text{ (weil Optcode } P_2 \text{ gesetzt)}\\
+    a_{\text{min}} &= 0\;\;\; a_{\text{max}} = 1\\
+    a_1 &= \frac{WEC_{x=w}(P_1)}{WEC_{x=w}(P_1) - WEC_{x=w}(P_2)} = \frac{4}{4 - (-4)} = 0.5\\
+    \Rightarrow a_{\text{max}} &= \min(a_{\text{max}}, a_1) = 0.5 \text{ (weil Optcode } P_2 \text{ gesetzt)}\\
+    a_2 &= \frac{WEC_{z=-w}(P_1)}{WEC_{z=-w}(P_1) - WEC_{z=-w}(P_2)} = \frac{4}{4 - (-4)} = 0.5\\
+    \Rightarrow a_{\text{max}} &= \min(a_{\text{max}}, a_2) = 0.5 \text{ (weil Optcode } P_2 \text{ gesetzt)}
 \end{align}
 
 Neues Liniensegment:
 
 \begin{align}
-    (P_1 + a_{\text{min}} \cdot (P_2 - P_1)&, P_1 + a_{\text{max}} \cdot (P_2 - P_1))\\
-  = ((2, -2, 6)&, (2, -2, 6) + 0.5 \cdot (6, -10, 2))\\
-  = ((2, -2, 6)&, (5, -7, 5))
+    (P_1 + a_{\text{min}} \cdot (P_2 - P_1)&,\;\;\; P_1 + a_{\text{max}} \cdot (P_2 - P_1))\\
+  = ((2, -2, 6)&,\;\;\; (2, -2, 6) + 0.5 \cdot (6, -10, 2))\\
+  = ((2, -2, 6)&,\;\;\; (5, -7, 5))
 \end{align}
 
 \begin{align}
