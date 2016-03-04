@@ -118,11 +118,10 @@ Matrixmultiplikation ist stets kommutativ, wenn\dots
 \begin{itemize}
     \item \CheckedBox nur Skalierungsmatrizen multipliziert werden.
     \item $\square$ nur Scherungsmatrizen multipliziert werden.
-    \item \CheckedBox nur Rotationsmatrizen multipliziert werden.
+    \item $\square$ nur Rotationsmatrizen multipliziert werden.
 \end{itemize}
 
-Beweis für 2D-Rotationsmatrizen:
-
+2D-Rotationsmatrizen sind kommutativ:
 \begin{align}
     \begin{pmatrix}\cos \alpha & -\sin \alpha\\
                    \sin \alpha & \cos \alpha\end{pmatrix} \cdot
@@ -133,6 +132,20 @@ Beweis für 2D-Rotationsmatrizen:
     &=\begin{pmatrix}\cos \beta & -\sin \beta\\
                    \sin \beta & \cos \beta\end{pmatrix} \cdot \begin{pmatrix}\cos \alpha & -\sin \alpha\\
                    \sin \alpha & \cos \alpha\end{pmatrix}
+\end{align}
+
+3D-Rotationsmatrizen nicht:
+\begin{align}
+R_x(\pi) \cdot R_z(\pi)
+&= \begin{pmatrix}1 & 0 & 0\\ 0 & 0 & 1\\0 & -1 & 0\end{pmatrix} \cdot
+  \begin{pmatrix}0 & 1 & 0\\-1 & 0 & 0\\0 &  0 & 1\end{pmatrix} \\
+ &=
+  \begin{pmatrix}0 & 1 & 0\\ 0 & 0 & 1\\1 &  0 & 0\end{pmatrix} \neq
+  \begin{pmatrix}0 & 0 & 1\\-1 & 0 & 0\\0 & -1 & 0\end{pmatrix} \\
+ &=
+  \begin{pmatrix}0 & 1 & 0\\-1 & 0 & 0\\0 &  0 & 1\end{pmatrix} \cdot
+  \begin{pmatrix}1 & 0 & 0\\ 0 & 0 & 1\\0 & -1 & 0\end{pmatrix} \\
+ &= R_z(\pi) \cdot R_x(\pi)
 \end{align}
 
 \section*{Aufgabe 4: Texturen und Texture-Mapping}
