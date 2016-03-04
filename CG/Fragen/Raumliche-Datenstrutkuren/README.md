@@ -17,13 +17,13 @@ Es seien n Dreiecke gegeben.
     <tr>
         <td>Liste der Primitive</td>
         <td>O(n)</td>
-        <td colspan="7" style="text-align: center;">O(n)</td>
+        <td colspan="3" style="text-align: center;">O(n)</td>
         <td>O(1)</td>
     </tr>
     <tr>
         <td>BVH mit AABBs und SAH</td>
         <td rowspan="3">O(n)</td>
-        <td rowspan="3">O(n)<br/>Alle Dreieck sind identisch</td>
+        <td rowspan="7">O(n)<br/>Alle Dreieck sind identisch</td>
         <td>O(log n)</td>
         <td></td>
         <td>O(n log^2 n)</td>
