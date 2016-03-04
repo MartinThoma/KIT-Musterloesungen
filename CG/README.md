@@ -65,7 +65,7 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>9. Hauptklausur 2015</td>
             <td>Draft</td>
-            <td>31</td>
+            <td>23</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
