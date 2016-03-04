@@ -23,7 +23,7 @@ Es seien n Dreiecke gegeben.
     <tr>
         <td>BVH mit AABBs und SAH</td>
         <td rowspan="3">O(n)</td>
-        <td rowspan="7">O(n)<br/>Alle Dreieck sind identisch</td>
+        <td rowspan="3">O(n)<br/>Alle Dreieck haben die gleichen bounding box</td>
         <td>O(log n)</td>
         <td></td>
         <td>O(n log^2 n)</td>
@@ -42,6 +42,7 @@ Es seien n Dreiecke gegeben.
     </tr>
     <tr>
         <td>Reguläre Gitter</td>
+        <td rowspan="4">O(n)<br/>O(n)<br/>Alle Dreieck sind identisch</td>
         <td></td>
         <td></td>
         <td></td>
