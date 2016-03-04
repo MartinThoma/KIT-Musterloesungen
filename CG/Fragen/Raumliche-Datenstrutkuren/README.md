@@ -21,9 +21,21 @@ Es seien n Dreiecke gegeben.
         <td>O(1)</td>
     </tr>
     <tr>
-        <td>BVH mit AABBs</td>
-        <td>O(n)</td>
+        <td>BVH mit AABBs und SAH</td>
+        <td rowspan="3">O(n)</td>
+        <td rowspan="3">O(n)<br/>Alle Dreieck sind identisch</td>
+        <td>O(log n)</td>
         <td></td>
+        <td>O(n log^2 n)</td>
+    </tr>
+    <tr>
+        <td>BVH mit AABBs und Object median</td>
+        <td>O(log n)</td>
+        <td></td>
+        <td>O(n log^2 n)</td>
+    </tr>
+    <tr>
+        <td>BVH mit AABBs und spatial median</td>
         <td>O(log n)</td>
         <td></td>
         <td>O(n log^2 n)</td>
