@@ -42,8 +42,8 @@ Es seien n Dreiecke gegeben.
     </tr>
     <tr>
         <td>Reguläre Gitter</td>
-        <td rowspan="4">O(n)<br/>O(n)<br/>Alle Dreieck sind identisch</td>
         <td></td>
+        <td rowspan="4">O(n)<br/>O(n)<br/>Alle Dreieck sind identisch</td>
         <td></td>
         <td></td>
         <td></td>
