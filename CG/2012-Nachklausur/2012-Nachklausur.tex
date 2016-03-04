@@ -289,7 +289,7 @@ Fragment Shader berechnet anhand dessen die Texturierung der Primitive
     \item D F
 \end{enumerate}
 
-\section*{Aufgabe 7}
+\section*{Aufgabe 7: Bézierkurven und Bézier-Splines}
 \subsection*{Teilaufgabe 7a}
 
 \begin{tikzpicture}
@@ -302,10 +302,19 @@ Tangenten an den Randpunkten zeigen auf den nächsten Punkt. 2fach stetig diffba
 
 \subsection*{Teilaufgabe 7b}
 
-\begin{itemize}
-    \item $a_3: C^1$. Begründung: $a_3 - a_2 = b_1 - b_0$, aber $a_2 + (a_2-a_1) \neq b_1 + (b_1 - b_2)$
-    \item $c_0: C^0$. Begründung: $b_3-b_2 \neq c_1 - c_0$
-\end{itemize}
+\begin{enumerate}[label=(\Roman*)]
+    \item $a_3: C^1$. Begründung:
+          \begin{itemize}
+              \item $C^0$, da $a_3 = b_0$
+              \item $C^1$, da $a_3 - a_2 = b_1 - b_0$
+              \item Nicht $C^2$, da $a_3 - a_2 = b_1 - b_0$, aber $a_2 + (a_2-a_1) \neq b_1 + (b_1 - b_2)$
+          \end{itemize}
+    \item $c_0: C^0$. Begründung:
+          \begin{itemize}
+              \item $C^0$, da $b_3 = c_0$
+              \item Nicht $C^1$, da $b_3-b_2 \neq c_1 - c_0$
+          \end{itemize}
+\end{enumerate}
 
 \subsection*{Teilaufgabe 7c}
 \begin{enumerate}
