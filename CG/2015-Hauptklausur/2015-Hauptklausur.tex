@@ -45,39 +45,122 @@ TODO
 \subsection*{Teilaufgabe 2a}
 \textit{Wie nennt man die Funktionen, mit denen man Tristimulus-Werte zu einem gegebenen Spektrum berechnen kann?}
 
-Color Matching Funktionen?
+Color Matching Funktionen
 
 \subsection*{Teilaufgabe 2b}
 \begin{itemize}
     \item \textit{Es gibt eine lineare Abbildung zwischen den Farbräumen XYZ und xyY.}
-    \item[$\rightarrow$] TODO
+    \item[$\rightarrow$] Falsch, da bei der Umrechnung durch $X + Y + Z$ dividiert wird.
     \item \textit{Es gibt eine lineare Abbildung zwischen den Farbräumen RGB und XYZ.}
-    \item[$\rightarrow$] TODO
+    \item[$\rightarrow$] Korrekt, der Farbraum wurden konstruiert, um eine möglichst einfache Umrechnung zu ermöglichen.
     \item \textit{Die subjektiv empfundene Stärke von Sinneseindrücken ist proportional zur Intensität des physikalischen Reizes.}
-    \item[$\rightarrow$] TODO
+    \item[$\rightarrow$] Falsch, es besteht ein logarithmischer Zusammenhang.
 \end{itemize}
-
 
 \subsection*{Teilaufgabe 2c}
 \textit{Welche Information beinhalten die x- und y-Komponenten einer Farbdarstellung im CIE-xyY-Farbraum zusammengenommen?}
-TODO
+
+Sie beschreiben die Farbe (Chromatizität) unabhängig von der Intensität.
 
 \subsection*{Teilaufgabe 2d}
-TODO
+\textit{Ein RGB-Eingabebild wird in den CIE-xyY-Farbraum transformiert. Um Speicher zu
+sparen werden die x- und y-Komponenten in geringerer Auflösung gespeichert, während
+die Auflösung der Y-Komponente beibehalten wird.}
+
+\textit{Warum ist dieses Vorgehen im Hinblick auf einen menschlichen Betrachter deutlich
+besser, als die Auflösung der RGB-Komponenten zu reduzieren?}
+
+Die Kontrastsentitivität für Chrominanz (Farbe) ist vor allem im hochfrequenten Bereich deutlich geringer als für Luminanz, daher kann man den Chrominanz-Anteil (xy-Werte) in geringerer Auflösung speichern (was dem Weglassen hoher Frequenzen entspricht), ohne dass mit den Augen ein großer Unterschied erkennbar ist.
 
 \section*{Aufgabe 3: Homogene Koordinaten}
+\textit{Beim Raytracing soll ein in Weltkoordinaten definierter Strahl mit einem Objekt in dessen
+lokalen Koordinatensystem geschnitten werden. Die affine Transformation von lokalen in
+Weltkoordinaten ist durch die homogene Transformationsmatrix $M \in \mathbb{R}^{4\times 4}$ gegeben.}
 \subsection*{Teilaufgabe 3a}
-TODO
+\textit{Mit welcher Matrix kann der Strahl von Weltkoordinaten in lokale Koordinaten trans-
+formiert werden?}
+
+Mit der Matrix $M^{-1}$, da diese die inverse Transformation von Punkten aus \textit{lokalen} in \textit{Weltkoordinaten} darstellt.
 \subsection*{Teilaufgabe 3b}
-TODO
+\textit{Der Strahl $\mathbf{R}(t) = \mathbf{E} + t \mathbf{d}, (\mathbf{E}, \mathbf{d} \in \mathbb{R}^3 )$ soll mit der Matrix aus der Teilaufgabe a) in das
+lokale Koordinatensystem transformiert werden. Geben Sie dazu den transformierten
+Punkt $\mathbf{E'}$ und die transformierte Richtung $\textbf{d'}$ an!}
+
+Zur Vereinfachung geht man zu erweiterten Koordinaten $\begin{pmatrix}
+\mathbf{E}\\1
+\end{pmatrix}$ und $\begin{pmatrix}
+\mathbf{d}\\0
+\end{pmatrix}$ über (1 für Punkte, 0 für Richtungen, da diese Differenzen zweier Punkte darstellen).
+
+Damit erhält man $\begin{pmatrix}
+\mathbf{E'}\\1
+\end{pmatrix} = M^{-1} \begin{pmatrix}
+\mathbf{E}\\1
+\end{pmatrix}$ und $\begin{pmatrix}
+\mathbf{d'}\\0
+\end{pmatrix} = M^{-1} \begin{pmatrix}
+\mathbf{d}\\0
+\end{pmatrix}$
 \subsection*{Teilaufgabe 3c}
-TODO
+\textit{Gegeben sei nun}
+$$M=\begin{pmatrix}0&0 &-1&5&\\
+1&0 &0&0\\
+0&-1&0 &0\\
+0&0 &0 &1\\
+\end{pmatrix}$$
+\textit{Berechnen Sie für diese Werte die Matrix aus Aufgabe a)!}
+
+Invertiere die Matrix: $$\left(\begin{array}{cccc|cccc}
+0&0 &-1&5&1&0&0&0\\
+1&0 &0&0&0&1&0&0\\
+0&-1&0 &0&0&0&1&0\\
+0&0 &0 &1&0&0&0&1\\
+\end{array}\right)\longrightarrow\cdots\longrightarrow\left(\begin{array}{cccc|cccc}
+1&0 &0&0&0&1&0&0\\
+0&1&0 &0&0&0&-1&0\\
+0&0 &1&0&-1&0&0&5\\
+0&0 &0 &1&0&0&0&1\\
+\end{array}\right)$$
+
+Allgemein gilt für eine Matrix der Form $M = \begin{pmatrix}
+A&t\\0&1\end{pmatrix}$: $M^{-1} = \begin{pmatrix}
+A^{-1}&-A^{-1}t\\0&1
+\end{pmatrix}$
 
 \section*{Aufgabe 4: Transformationen}
 \subsection*{Teilaufgabe 4a}
 TODO
 \subsection*{Teilaufgabe 4b}
+\textit{Die folgende Abbildung zeigt ein Quadrat in 2D vor (links) und nach einer Scherung
+(rechts).}
+
 TODO
+
+\begin{itemize}
+\item[i)] \textit{Geben Sie die Transformationsmatrix $M\in \mathbb{R}^{2\times 2}$ an, die die Scherung beschreibt!}
+
+Die Scherung hat zur Folge, dass beim Erhöhen der x-Koordinate um eine Einheit die y-Koordinate um eine Einheit verringert wird. Damit hat die Matrix die Form
+$$M=\begin{pmatrix}
+1&0\\-1&1
+\end{pmatrix}$$
+\item[ii)] \textit{Wie berechnet man allgemein die Matrix $N \in \mathbb{R}^{2\times 2}$ an, die zur Transformation
+der Normalen verwendet werden muss? Bestimmen Sie diese Matrix!}
+
+$$N = (M^{-1})^\top = \left(\begin{pmatrix}
+1&0\\-1&1
+\end{pmatrix}^{-1}\right)^{\top} = \begin{pmatrix}
+1&0\\1&1
+\end{pmatrix}^{\top} = \begin{pmatrix}
+1&1\\0&1
+\end{pmatrix}$$
+
+\item[iii)] \textit{Berechnen Sie mithilfe von $N$ die transformierte Normale $\mathbf{n'}$ zur in der Abbildung
+eingezeichneten Normalen $\mathbf{n}$!}
+
+$$\mathbf{n'} = \frac{N\mathbf{n}}{||N\mathbf{n}||} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+1\\1
+\end{pmatrix}$$
+\end{itemize}
 
 \section*{Aufgabe 5: Beschleunigungsstrukturen und Hüllkörper}
 \subsection*{Teilaufgabe 5a}
