@@ -221,7 +221,7 @@ Inklusive Schnittests der AABB Hüllkörper:
 \begin{tabular}{cp{8cm}cccc}\toprule
 \# & Aussage                                                                                                                                          & BVH         & Octree      & kD-Baum     & Gitter    \\\midrule
  1 & Die Datenstruktur partitioniert den Raum.                                                                                                        & $\square$   & \CheckedBox & \CheckedBox & \CheckedBox \\
- 2 & Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive.                                                             & $\square$   & $\square$   & $\square$   & $\square$ \\
+ 2 & Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive.                                                             & $\square$   & $\square$   & $\square$   & \CheckedBox \\
  3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird.\footnotemark                 & \CheckedBox & $\square$   & \CheckedBox & $\square$ \\
  4 & Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & $\square$   & $\square$   & $\square$   & \CheckedBox \\\bottomrule
 \end{tabular}
