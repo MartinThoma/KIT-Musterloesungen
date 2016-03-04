@@ -17,7 +17,7 @@ Es seien n Dreiecke gegeben.
     <tr>
         <td>Liste der Primitive</td>
         <td>O(n)</td>
-        <td colspan="3" style="text-align: center;">O(n)</td>
+        <td colspan="7" style="text-align: center;">O(n)</td>
         <td>O(1)</td>
     </tr>
     <tr>
@@ -38,7 +38,7 @@ Es seien n Dreiecke gegeben.
         <td>BVH mit AABBs und spatial median</td>
         <td>O(log n)</td>
         <td></td>
-        <td>O(n log^2 n)</td>
+        <td>O(n log n)</td>
     </tr>
     <tr>
         <td>Reguläre Gitter</td>
