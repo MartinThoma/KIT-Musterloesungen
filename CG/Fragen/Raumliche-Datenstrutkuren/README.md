@@ -43,7 +43,7 @@ Es seien n Dreiecke gegeben.
     <tr>
         <td>Reguläre Gitter</td>
         <td></td>
-        <td rowspan="4">O(n)<br/>Alle Dreieck sind identisch</td>
+        <td rowspan="5">O(n)<br/>Alle Dreieck sind identisch</td>
         <td></td>
         <td></td>
         <td></td>
@@ -64,6 +64,13 @@ Es seien n Dreiecke gegeben.
     </tr>
     <tr>
         <td>BSP-Bäume</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Octree</td>
         <td></td>
         <td></td>
         <td></td>
