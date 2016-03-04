@@ -17,7 +17,7 @@ Es seien n Dreiecke gegeben.
     <tr>
         <td>Liste der Primitive</td>
         <td>O(n)</td>
-        <td colspan="3">O(n)</td>
+        <td colspan="3" style="text-align: center;">O(n)</td>
         <td>O(1)</td>
     </tr>
     <tr>
