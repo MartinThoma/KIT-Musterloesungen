@@ -99,8 +99,18 @@ da die Vertices näher an den Punkten liegen, für die interpoliert wird
 \section*{Aufgabe 2: Blending}
 \subsection*{Teilaufgabe 2a}
 \begin{enumerate}[label=(\Roman*)]
-    \item $\overbrace{0.5}^{\mathclap{\text{SRC\_ALPHA}}} \cdot 0.2 + \underbrace{(1-0.5)}_{\mathclap{\text{1-SRC\_ALPHA}}} \cdot 0.4 = 0.3$
-    \item Auch $0.3$, der der Alpha-Wert $0.5$ ist.
+    \item
+    \begin{itemize}
+        \item Rot-Wert nach (1): $1$
+        \item Rot-Wert nach (2): $\overbrace{0.5}^{\mathclap{\text{SRC\_ALPHA}}} \cdot 0.2 + \underbrace{(1-0.5)}_{\mathclap{\text{1-SRC\_ALPHA}}} \cdot 1.0 = 0.6$
+        \item Rot-Wert nach (3): $0.5\cdot0.4+0.5\cdot0.6=0.5$
+    \end{itemize}
+    \item
+    \begin{itemize}
+        \item Rot-Wert nach (1): $1$
+        \item Rot-Wert nach (2): $0.5\cdot0.4+0.5\cdot1.0=0.7$
+        \item Rot-Wert nach (3): $0.5\cdot0.2+0.5\cdot0.7=0.45$
+    \end{itemize}
     \item \textit{Welche Konsequenzen hat dies für das Zeichnen von sich
                   überlappenden semi-transparenten Objekten?}\\
           Erfordert Tiefensortierung. Im allgemeinen ist Blending nicht
