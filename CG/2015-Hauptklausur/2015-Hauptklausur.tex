@@ -28,11 +28,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Aufgabe 1: Raytracing}
 \subsection*{Teilaufgabe 1a}
+\textit{Zeichnen Sie in der folgenden Szene mit Liniensegmenten einen möglichst einfachen
+Lichtpfad von der Kamera zur Punktlichtquelle ein, der zwar in der geometrischen
+Optik auftreten kann, jedoch nicht mit Whitted-Style Raytracing erzeugt werden kann!}
+\includegraphics*[width=\linewidth, keepaspectratio]{1a.png}
 TODO
+
 \subsection*{Teilaufgabe 1b}
+\textit{Begründen Sie kurz, warum der Pfad nicht mit Whitted-Style Raytracing
+erzeugt werden kann!}
+
 TODO
+
 \subsection*{Teilaufgabe 1c}
+\textit{In der folgenden Abbildung sind zwei Primärstrahlen gegeben. Führen Sie
+mit diesen zeichnerisch Whitted-Style Raytracing durch! Kennzeichnen Sie
+Reflexionsstrahlen mit \enquote{R}, Transmissionsstrahlen mit \enquote{T} und
+Schattenstrahlen mit \enquote{S}!}
+
+\includegraphics*[width=\linewidth, keepaspectratio]{1c.png}
+
 TODO
+
 \subsection*{Teilaufgabe 1d}
 \begin{enumerate}
     \item \textbf{Ray generation}: Erzeuge Sichtstrahlen durch jeden Pixel.
@@ -50,7 +67,7 @@ Color Matching Funktionen
 \subsection*{Teilaufgabe 2b}
 \begin{itemize}
     \item \textit{Es gibt eine lineare Abbildung zwischen den Farbräumen XYZ und xyY.}
-    \item[$\rightarrow$] Falsch, da bei der Umrechnung durch $X + Y + Z$ dividiert wird.
+    \item[$\rightarrow$] Falsch, da bei der Umrechnung durch $X + Y + Z$ dividiert wird ($x = \frac{X}{X+Y+Z}$, $y = \frac{y}{X+Y+Z}$)
     \item \textit{Es gibt eine lineare Abbildung zwischen den Farbräumen RGB und XYZ.}
     \item[$\rightarrow$] Korrekt, der Farbraum wurden konstruiert, um eine möglichst einfache Umrechnung zu ermöglichen.
     \item \textit{Die subjektiv empfundene Stärke von Sinneseindrücken ist proportional zur Intensität des physikalischen Reizes.}
@@ -58,14 +75,14 @@ Color Matching Funktionen
 \end{itemize}
 
 \subsection*{Teilaufgabe 2c}
-\textit{Welche Information beinhalten die x- und y-Komponenten einer Farbdarstellung im CIE-xyY-Farbraum zusammengenommen?}
+\textit{Welche Information beinhalten die $x$- und $y$-Komponenten einer Farbdarstellung im CIE-$xyY$-Farbraum zusammengenommen?}
 
 Sie beschreiben die Farbe (Chromatizität) unabhängig von der Intensität.
 
 \subsection*{Teilaufgabe 2d}
-\textit{Ein RGB-Eingabebild wird in den CIE-xyY-Farbraum transformiert. Um Speicher zu
-sparen werden die x- und y-Komponenten in geringerer Auflösung gespeichert, während
-die Auflösung der Y-Komponente beibehalten wird.}
+\textit{Ein RGB-Eingabebild wird in den CIE-$xyY$-Farbraum transformiert. Um Speicher zu
+sparen werden die $x$- und $y$-Komponenten in geringerer Auflösung gespeichert, während
+die Auflösung der $Y$-Komponente beibehalten wird.}
 
 \textit{Warum ist dieses Vorgehen im Hinblick auf einen menschlichen Betrachter deutlich
 besser, als die Auflösung der RGB-Komponenten zu reduzieren?}
@@ -127,14 +144,32 @@ A&t\\0&1\end{pmatrix}$: $M^{-1} = \begin{pmatrix}
 A^{-1}&-A^{-1}t\\0&1
 \end{pmatrix}$
 
+\clearpage
 \section*{Aufgabe 4: Transformationen}
 \subsection*{Teilaufgabe 4a}
+\textit{Gegeben sei folgendes Liniensegment $(\mathbf{p}_0 , \mathbf{p}_1)$ im
+Clip-Space:}
+
+\[\mathbf{p}_0 = \begin{pmatrix}-1\\1\\5\\10\end{pmatrix},\;\;\;
+  \mathbf{p}_1 = \begin{pmatrix}0.5\\-0.5\\15\\5\end{pmatrix}\]
+
+\subsubsection*{Teilaufgabe 4a (i)}
+\textit{Wie lauten die Normalized Device Coordinates der Punkte $\mathbf{p}_0$
+und $\mathbf{p}_0$?}
+
 TODO
+
+\subsubsection*{Teilaufgabe 4a (ii)}
+\textit{Warum sollte man dieses Liniensegment vor der Normalisierungstransformation
+(Dehomogenisierung) clippen?}
+
+TODO
+
 \subsection*{Teilaufgabe 4b}
 \textit{Die folgende Abbildung zeigt ein Quadrat in 2D vor (links) und nach einer Scherung
 (rechts).}
 
-TODO
+\includegraphics*[width=0.5\linewidth, keepaspectratio]{4b.png}
 
 \begin{itemize}
 \item[i)] \textit{Geben Sie die Transformationsmatrix $M\in \mathbb{R}^{2\times 2}$ an, die die Scherung beschreibt!}
@@ -164,7 +199,12 @@ $$\mathbf{n'} = \frac{N\mathbf{n}}{||N\mathbf{n}||} = \frac{1}{\sqrt{2}}\begin{p
 
 \section*{Aufgabe 5: Beschleunigungsstrukturen und Hüllkörper}
 \subsection*{Teilaufgabe 5a}
+\includegraphics*[width=\linewidth, keepaspectratio]{5a.png}
+\textit{Welche der beiden Hierarchien kann von einem Raytracer effizienter
+durchlaufen werden? Begründen Sie dies in Stichpunkten!}
+
 TODO
+
 \subsection*{Teilaufgabe 5b}
 TODO
 \subsection*{Teilaufgabe 5c}
