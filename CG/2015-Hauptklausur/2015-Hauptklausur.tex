@@ -178,17 +178,31 @@ TODO
 
 \section*{Aufgabe 7: Beleuchtung}
 \subsection*{Teilaufgabe 7a}
-TODO
+$\mathbf{P} = \lambda_1 \mathbf{P}_1 + \lambda_2 \mathbf{P}_2 + \lambda_3 \mathbf{P}_3$, wobei $\lambda_1 + \lambda_2 + \lambda_3 = 1$
+und $\lambda_1, \lambda_2, \lambda_3 \geq 0$
+
 \subsection*{Teilaufgabe 7b}
-TODO
+\begin{itemize}
+    \item berechne $I_i = k_d I_L (\mathbf{n}_i \cdot normalize(\mathbf{L}-\mathbf{P}_i))$ für $i = 1,2,3$
+    \item interpoliere $I = \lambda_1 I_1 + \lambda_2 I_2 + \lambda_3 I_3$
+    \item Bemerkung: $normalize(\mathbf{x}) = \frac{\mathbf{x}}{||\mathbf{x}||}$
+\end{itemize}
+
 \subsection*{Teilaufgabe 7c}
-TODO
+\begin{itemize}
+    \item interpoliere $\mathbf{n} = normalize(\lambda_1 \mathbf{n}_1 + \lambda_2 \mathbf{n}_2 + \lambda_3 \mathbf{n}_3)$
+    \item berechne $I = k_d I_L (\mathbf{n} \cdot normalize(\mathbf{L}-\mathbf{P}))$
+\end{itemize}
+
 \subsection*{Teilaufgabe 7d}
-TODO
+In den Eckpunkten. Allgemein gilt im $i$-ten Eckpunkt: $\lambda_i = 1$ sowie $\lambda_j = 0 \, (\forall j \neq i)$.
+Somit sind die Berechnungen in diesen Punkten äquivalent, wie man leicht aus den obrigen Formeln entnehmen kann.
+
 \subsection*{Teilaufgabe 7e}
-TODO
+Im rechten Fall wird mehr Licht zum betrachter reflektiert.
+
 \subsection*{Teilaufgabe 7f}
-TODO
+Fresnel-Effekt
 
 \section*{Aufgabe 8: Partikeleffekte und OpenGL-Blending}
 \subsection*{Teilaufgabe 8a}
