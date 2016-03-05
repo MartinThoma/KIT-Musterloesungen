@@ -12,6 +12,11 @@ int main() {
             t = isec.x;
             pos = eye + t * dir;
             normal = normalize(pos - spheres[i].xyz);
+        } else if (isec.y < t && isec.y > 0) {
+            // Strahl startet innerhalb der Kugel
+            t = isec.y;
+            pos = eye + t * dir;
+            normal = normailize(pos - spheres[i].xyz);
         }
     }
     if (t != -1) {
