@@ -284,15 +284,15 @@ und $\lambda_1, \lambda_2, \lambda_3 \geq 0$
 
 \subsection*{Teilaufgabe 7b}
 \begin{itemize}
-    \item berechne $I_i = k_d I_L (\mathbf{n}_i \cdot normalize(\mathbf{L}-\mathbf{P}_i))$ für $i = 1,2,3$
-    \item interpoliere $I = \lambda_1 I_1 + \lambda_2 I_2 + \lambda_3 I_3$
-    \item Bemerkung: $normalize(\mathbf{x}) = \frac{\mathbf{x}}{||\mathbf{x}||}$
+    \item Berechne $I_i = k_d I_L (\mathbf{n}_i \cdot \text{normalize}(\mathbf{L}-\mathbf{P}_i))$ für $i = 1,2,3$
+    \item Interpoliere $I = \lambda_1 I_1 + \lambda_2 I_2 + \lambda_3 I_3$
+    \item Bemerkung: $\text{normalize}(\mathbf{x}) = \frac{\mathbf{x}}{||\mathbf{x}||}$
 \end{itemize}
 
 \subsection*{Teilaufgabe 7c}
 \begin{itemize}
-    \item interpoliere $\mathbf{n} = normalize(\lambda_1 \mathbf{n}_1 + \lambda_2 \mathbf{n}_2 + \lambda_3 \mathbf{n}_3)$
-    \item berechne $I = k_d I_L (\mathbf{n} \cdot normalize(\mathbf{L}-\mathbf{P}))$
+    \item Interpoliere $\mathbf{n} = \text{normalize}(\lambda_1 \mathbf{n}_1 + \lambda_2 \mathbf{n}_2 + \lambda_3 \mathbf{n}_3)$
+    \item Berechne $I = k_d I_L (\mathbf{n} \cdot \text{normalize}(\mathbf{L}-\mathbf{P}))$
 \end{itemize}
 
 \subsection*{Teilaufgabe 7d}
@@ -305,18 +305,73 @@ Im rechten Fall wird mehr Licht zum betrachter reflektiert.
 \subsection*{Teilaufgabe 7f}
 Fresnel-Effekt
 
+\clearpage
 \section*{Aufgabe 8: Partikeleffekte und OpenGL-Blending}
 \subsection*{Teilaufgabe 8a}
-TODO
+\textit{Zunächst werden nur Feuerpartikel gerendert. Konfigurieren Sie OpenGL
+so, dass die Feuerpartikel Licht in Richtung des Betrachters emittieren!}
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=8a.cpp]{cpp}{8a.cpp}
+
 \subsection*{Teilaufgabe 8b}
-TODO
-\subsection*{Teilaufgabe 8c}
-TODO
-\subsection*{Teilaufgabe 8d}
+\textit{Warum ist der Tiefentest aktiviert? Warum ist Schreiben in den
+Tiefenpuffer deaktiviert?}
+
 TODO
 
+\subsection*{Teilaufgabe 8c}
+\textit{Zunächst werden nur Feuerpartikel gerendert. Konfigurieren Sie OpenGL
+so, dass die Feuerpartikel Licht in Richtung des Betrachters emittieren!}
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=8a.cpp]{cpp}{8c.cpp}
+\clearpage
+\subsection*{Teilaufgabe 8d}
+\textit{Ihnen fällt auf, dass sich Rauch und Feuer nicht korrekt zusammenfügen, wenn Sie erst
+Feuerpartikel wie in Aufgabe a) und dann Rauchpartikel wie in Aufgabe c) rendern.
+Welche Schritte müssen Sie vornehmen, um das Problem zu beheben?}
+
+Den Renderablauf verändern:\\
+\begin{tabular}{cl}
+ $\square$ \CheckedBox TODO & Zuerst die Rauchpartikel zeichnen, dann die Feuerpartikel.       \\
+ $\square$ \CheckedBox TODO & \texttt{glDepthFunc(GL\_GREATER)}: Zeichenreihenfolge umkehren.           \\
+ $\square$ \CheckedBox TODO & Rauchpartikel front-to-back sortieren.                           \\
+ $\square$ \CheckedBox TODO & Feuerpartikel und Rauchpartikel zusammen sortieren und zeichnen. \\
+\end{tabular}
+
+OpenGL Blending-Konfigurationen:\\
+\begin{tabular}{cl}
+ $\square$ \CheckedBox TODO & \verb+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)+\\
+ $\square$ \CheckedBox TODO & \verb+glBlendFunc(GL_FUNC_ADD, GL_ONE)+\\
+ $\square$ \CheckedBox TODO & \verb+glBlendFunc(GL_ONE_MINUS_DST_ALPHA, GL_SRC_ALPHA)+\\
+ $\square$ \CheckedBox TODO & \verb+glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA)+\\
+\end{tabular}
+
+Den Fragment-Shader verändern:\\
+\begin{tabular}{cl}
+ $\square$ \CheckedBox TODO & Alpha-Ausgabewert von Feuerpartikeln auf (1 - Texel-Alpha) setzen.\\
+ $\square$ \CheckedBox TODO & Alpha-Ausgabewert von Feuerpartikeln auf 1 setzen.\\
+ $\square$ \CheckedBox TODO & Alpha-Ausgabewert von Feuerpartikeln auf 0 setzen.\\
+ $\square$ \CheckedBox TODO & Ausgabewerte unverändert beibehalten.\\
+\end{tabular}
+
+Vertex-Attribute hinzufügen:\\
+\begin{tabular}{cl}
+ $\square$ \CheckedBox TODO & zur feingranularen Anpassung der OpenGL Blending-Konfiguration,\\
+ $\square$ \CheckedBox TODO & zur Unterscheidung von Feuer- und Rauchpartikeln,\\
+ $\square$ \CheckedBox TODO & zur Einstellung der Zeichenebene.\\
+\end{tabular}
+
 \section*{Aufgabe 9: OpenGL}
-TODO
+\begin{tabular}{cp{10cm}ll}\toprule
+\# & Aussage                                                                                             & Wahr      & Falsch \\\midrule
+1  & Die Dehomogenisierung wird in der OpenGL-Pipeline nach dem Fragment-Shader durchgeführt.            & TODO      & TODO      \\
+2  & Die Pipeline-Stufe \enquote{Primitive Assembly} ist programmierbar.                                 & $\square$ & \CheckedBox \\
+3  & Clipping am Sichtvolumen wird von der OpenGL-Pipeline vor dem Fragment-Shader durchgeführt.         & TODO      & TODO\\
+4  & Shader-Programme können den Zustand des OpenGL-Zustandsautomaten (State Machine) verändern.         & TODO      & TODO\\
+5  & Die Beleuchtungsberechnung muss im Fragment-Shader immer in Kamera-Koordinaten durchgeführt werden. & TODO      & TODO\\
+6  & Texturen können ausschließlich im Fragment-Shader gelesen werden.                                   & TODO      & TODO\\\bottomrule
+\end{tabular}
+
 
 \section*{Aufgabe 10: Reflexionen in OpenGL}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
@@ -334,15 +389,23 @@ oder
 	y_1 + \frac{y_2 - y_1}{x_2 - x_1} (x - x_1)
 \]
 
+\clearpage
 \subsection*{Teilaufgabe 11b}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{hatching.frag}
 
 \section*{Aufgabe 12: Bézierkurven}
 \subsection*{Teilaufgabe 12a}
+\textit{Was versteht man unter affiner Invarianz bei Bézierkurven?}
+
 TODO
+
 \subsection*{Teilaufgabe 12b}
 TODO
+
 \subsection*{Teilaufgabe 12c}
+\textit{Geben Sie an, ob es sich bei den folgenden Kurven mit gegebenem
+Kontrollpolygon um Bézierkurven handelt! Begründen Sie jeweils kurz Ihre
+Antwort, falls es sich nicht um eine Bézierkurve handelt!}
 \begin{enumerate}
     \item Ja
     \item Ja
