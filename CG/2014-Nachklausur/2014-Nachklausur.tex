@@ -335,11 +335,12 @@ A B 14 15 A C 5 6 11
 \begin{tabular}{p{4cm}p{2.2cm}p{2.2cm}p{2.2cm}p{2.2cm}}\toprule
 Aussage                                                                 & BVH             & Octree               & kD-Baum               & Gitter               \\\midrule
 Datenstruktur wird an Geometrie angepasst                               & Ja (Hüllkörper) & Ja (Rekursionstiefe) & Ja (wo Ebenen liegen) & Ja (Rekursionstiefe) \\
-Raum wird immer achsen\-parallel unterteilt                               & Nein            & Ja                   & Ja                    & Ja                   \\
-Datenstruktur ist Binär\-baum                                             & Nein            & Nein                 & Ja                    & Nein                 \\
-Speicherplatz der Daten\-struktur ist abhängig von der Anzahl der Primive & Ja              & Ja                   & Ja                    & Ja                   \\
-Bei der Konstruktuion kann die SAH sinnvoll eingesetz werden            & Ja\footnotemark            & Nein                 & Ja                    & Nein                 \\\bottomrule
+Raum wird immer achsen\-parallel unterteilt                             & Nein            & Ja                   & Ja                    & Ja                   \\
+Datenstruktur ist Binär\-baum\footnotemark                              & Nein            & Nein                 & Ja                    & Nein                 \\
+Speicherplatz der Daten\-struktur ist abhängig von der Anzahl der Primive & Ja            & Ja                   & Ja                    & Ja                   \\
+Bei der Konstruktuion kann die SAH sinnvoll eingesetz werden            & Ja\footnotemark & Nein                 & Ja                    & Nein                 \\\bottomrule
 \end{tabular}
+\footnotetext{Üblicherweise ist ein BVH ein Binärbaum, muss aber nicht so sein.}
 \footnotetext{Foliensatz 5 Folie 98}
 
 \section*{Aufgabe 9: Rasterisierung und OpenGL}
