@@ -34,14 +34,18 @@
 \textit{Zeichnen Sie in der folgenden Szene mit Liniensegmenten einen möglichst einfachen
 Lichtpfad von der Kamera zur Punktlichtquelle ein, der zwar in der geometrischen
 Optik auftreten kann, jedoch nicht mit Whitted-Style Raytracing erzeugt werden kann!}
-\includegraphics*[width=\linewidth, keepaspectratio]{1a.png}
-TODO
+\includegraphics*[width=\linewidth, keepaspectratio]{1a.jpg}
 
 \subsection*{Teilaufgabe 1b}
 \textit{Begründen Sie kurz, warum der Pfad nicht mit Whitted-Style Raytracing
 erzeugt werden kann!}
 
-TODO
+Whitted-Style sendet nur von Kamera Strahlen aus und verfolgt Schatten-,
+Transmission und Reflektionsstrahlen als Sekundärstrahlen. Da aber von der
+Kamera aus verfolgt wird, kann (in diesem Fall) kein Strahl die Rückseite (aus
+Sicht der Kamera) der diffusen Fläche treffen $\Rightarrow$ die indirekte
+Beleuchtung die durch diffuses Abstrahlen von der Rückseite der diffusen Fläche
+erfolgt, kann mit Whitted-Style Raytracing nicht verfolgt werden.
 
 \subsection*{Teilaufgabe 1c}
 \textit{In der folgenden Abbildung sind zwei Primärstrahlen gegeben. Führen Sie
@@ -49,9 +53,7 @@ mit diesen zeichnerisch Whitted-Style Raytracing durch! Kennzeichnen Sie
 Reflexionsstrahlen mit \enquote{R}, Transmissionsstrahlen mit \enquote{T} und
 Schattenstrahlen mit \enquote{S}!}
 
-\includegraphics*[width=\linewidth, keepaspectratio]{1c.png}
-
-TODO
+\includegraphics*[width=\linewidth, keepaspectratio]{1c.jpg}
 
 \subsection*{Teilaufgabe 1d}
 \begin{enumerate}
