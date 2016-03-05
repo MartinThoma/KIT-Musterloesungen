@@ -36,20 +36,45 @@
 \end{figure}
 
 \subsection*{Teilaufgabe 1b}
+\textit{Geben Sie mit Hilfe der benannten Vektoren die Formel an, mit der die
+Farbe der Oberfläche im Punkt $P_1$ bestimmt werden kann! Unterstreichen Sie
+dabei die Vektoren, die normiert sein müssen!}
 
 \[I = \sum_{i=1}^2 \overbrace{k_a \cdot I_{L_i}}^{=0} + k_d \cdot I_{L_i} \cdot (\underbrace{N \cdot L_{i}}_{\cos \Theta({L_i})}) + \overbrace{k_s \cdot I_{L_i} \cdot (R_{L_i} \cdot V)^n}^{=0}\]
 
+Normalisierte Vektoren:
+
+\begin{itemize}
+    \item TODO: Welche Vektoren müssen normalisiert sein? Nicht alle?
+\end{itemize}
+
+
 \subsection*{Teilaufgabe 1c}
+\textit{Welche der beiden Lichtquellen trägt mehr zur Intensität der Oberfläche
+an $P_1$ bei?}
+
 $L_1$ trägt mehr zur Intensität $I$ von $P_1$ bei, weil $\cos \Theta(L_1)$ größer
 ist als  $\cos \Theta(L_2)$.
 
 \subsection*{Teilaufgabe 1d}
+\textit{Wie verändert sich die Intensität von $P_1$, wenn er statt von $A_1$
+nun von $A_2$ betrachtet wird?}
+
 $I$ ändert sich nicht, weil keiner der Terme die zu $I$ in diesem Fall beitragen
 vom $A_1$ bzw. $A_2$ abhängig ist.
 
 \subsection*{Teilaufgabe 1e}
+\textit{Es soll nun die Farbe des Punktes $P_2$ bestimmt werden. Dieser
+befindet sich auf der glänzenden Oberfläche. Zeichnen Sie für $P_2$ die
+Vektoren ein, die zur Bestimmung seiner Farbe benötigt werden! Beschränken Sie
+sich dabei auf die Vektoren für $L_1$.}
+
 TODO
+
 \subsection*{Teilaufgabe 1f}
+\textit{Wie verändert sich die Intensität von $P_2$, wenn er statt von $A_1$
+von $A_2$ betrachtet wird? Begründen Sie Ihre Antwort kurz!}
+
 TODO
 
 \section*{Aufgabe 2: Raytracing}
@@ -89,6 +114,7 @@ Siehe Kapitel~2 (Raytracing), Folie 147ff:
 \textit{Nennen Sie kurz und stichpunktartig die zwei Schritte, die zur Berechnung von Vertex-
 Normalen bei einem Dreiecksnetz notwendig sind! Gehen Sie dabei davon aus, dass nur
 die Vertex-Positionen und die Topologie des Netzes gegeben sind!}
+
 TODO
 
 \clearpage
@@ -203,6 +229,14 @@ und dann eine Rotation um $180^\circ$ um die $x$-Achse. Daher:
 
 \subsection*{Teilaufgabe 6b}
 Siehe Kapitel~4, Folie~56
+
+\textit{Gegeben ist eine Textur mit $8\times8$ Texeln und 4 Mipmap-Stufen sowie ein
+Pixel-Footprint und dessen Mittelpunkt (siehe Abbildung). Kreuzen Sie in der
+Mipmap-Pyramide die Texel an, die für eine trilineare Interpolation zur
+Bestimmung des Farbwertes verwendet werden! Begründen Sie kurz Ihre Wahl der
+Mipmap-Stufen!}
+
+\includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
 
 TODO
 
