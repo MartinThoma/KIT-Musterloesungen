@@ -277,11 +277,11 @@ lineare Interpolation dieser beiden Farben.
 Bilineare Filterung (Kaptiel 4, Folie 38):
 
 \begin{align}
-    a &= \frac{3}{8} - \frac{1}{4} = \frac{1}{8}\\
-    b &= \frac{1}{2} - \frac{1}{4} = \frac{1}{4}\\
-    t_{12} &= t_1 + a(t_2 - t_1) = 16 + \frac{1}{8} \cdot (-16) = 14\\
-    t_{34} &= (1-a) t_3 + a t_4 = \frac{7}{8} \cdot 0 + \frac{1}{8} \cdot 32 = 4\\
-    t &= (1-b) t_{12} + b t_{34} = \frac{3}{4} \cdot 14 + \frac{1}{4} \cdot 4 = 10.5 + 1 = 11.5
+    a &= \frac{\frac{3}{8} - \frac{1}{4}}{\nicefrac{1}{2}} = \frac{1}{4}\\
+    b &= \frac{\frac{1}{2} - \frac{1}{4}}{\nicefrac{1}{2}} = \frac{1}{2}\\
+    t_{12} &= t_1 + a(t_2 - t_1) = 16 + \frac{1}{4} \cdot (-16) = 12\\
+    t_{34} &= (1-a) t_3 + a t_4 = \frac{7}{8} \cdot 0 + \frac{1}{4} \cdot 32 = 8\\
+    t &= (1-b) t_{12} + b t_{34} = \frac{1}{2} \cdot 12 + \frac{1}{2} \cdot 4 = 8
 \end{align}
 
 \clearpage
