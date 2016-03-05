@@ -232,10 +232,51 @@ TODO: Bitte kontrollieren!
 
 \section*{Aufgabe 6: Texturen}
 \subsection*{Teilaufgabe 6a}
-TODO
-\subsection*{Teilaufgabe 6b}
-TODO
 
+\begin{tabular}{cp{8cm}lll}\toprule
+\#   & Aussage                                                                                                                                                                        & Wahr         & Falsch      & Kommentar \\\midrule
+I1   & Das Filtern von Texturen wird üblicherweise bei der Minification und der Magnification angewandt, um Aliasing-Artefakte zu vermeiden                                           & $\square$    & \CheckedBox & Nur Magnification \\
+I2   & Das Filtern von Texturen benötigt bei Verfahren ohne Vorfilterung mehr Zugriffe auf den Texturspeicher als einfaches Auslesen.                                                 & TODO         & TODO        & ~         \\
+II1  & Mipmapping bekämpft das Aliasing-Problem bei der Unterabtastung von Texturen.                                                                                                  & \CheckedBox  & $\square$   & ~         \\
+II2  & Mipmapping berücksichtigt anisotrope Footprints.                                                                                                                               & TODO         & TODO        & ~         \\
+III1 & Bei Einsatz von Summed-Area-Tables kann man mit nur vier Texturzugriffen die Summe über eine kreisförmige Fläche berechnen.                                                   & $\square$    & \CheckedBox & ~         \\
+III2 & Bei Einsatz von Summed-Area-Tables benötigt man im Allgemeinen mehr Bits zur Repräsentation der enthaltenen Werte als bei gewöhnlichen Texturen mit dem gleichen Wertebereich. & \CheckedBox  & $\square$   & ~         \\\bottomrule
+\end{tabular}
+
+\clearpage
+\subsection*{Teilaufgabe 6b}
+\textit{Eine Textur wird mit einem trilinearen Filter abgetastet. Die folgende Abbildung zeigt
+den Pixel-Footprint im $(s, t)$-Texturraum $(s, t \in [0, 1])$ und rechts
+daneben die Textur:}
+
+\includegraphics*[width=0.8\linewidth, keepaspectratio]{6b.png}
+
+\textit{Welche Mipmap-Stufen werden für die trilineare Interpolation verwendet, wenn die
+Textur eine Auflösung von $2048\times1024$ hat? (Mipmap-Stufe 0 hat die größte Auflösung).
+Begründen Sie Ihre Antwort!}
+
+Texturgröße:
+\begin{align}
+    0.005 \cdot 2048 &= 10.24\\
+    0.01 \cdot 1024 &= 10.24\\
+    \Rightarrow 10.24 \cdot 10.24 &= 104.8576
+\end{align}
+
+Stufen:
+\begin{enumerate}
+    \item $1024 \times 512$
+    \item $512 \times 256$
+    \item $256 \times 128$
+    \item $128 \times 64$
+    \item $64 \times 32$
+    \item $32 \times 16$
+    \item $16 \times 8 = 128$
+    \item $8 \times 4 = 32$
+\end{enumerate}
+
+Es werden also die Stufen 7 und 8 verwendet.
+
+\clearpage
 \section*{Aufgabe 7: Beleuchtung}
 \subsection*{Teilaufgabe 7a}
 $\mathbf{P} = \lambda_1 \mathbf{P}_1 + \lambda_2 \mathbf{P}_2 + \lambda_3 \mathbf{P}_3$, wobei $\lambda_1 + \lambda_2 + \lambda_3 = 1$
