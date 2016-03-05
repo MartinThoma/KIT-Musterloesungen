@@ -71,7 +71,7 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>10. Nachklausur 2015</td>
             <td>Draft</td>
-            <td>11</td>
+            <td>9</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
