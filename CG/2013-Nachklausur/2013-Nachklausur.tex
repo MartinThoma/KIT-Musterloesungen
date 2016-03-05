@@ -152,6 +152,17 @@ R_x(\frac{3}{2}\pi) \cdot R_z(\frac{3}{2}\pi)
 \subsection*{Teilaufgabe 4a}
 \textit{Skizzieren Sie hier die Ausgabe}
 
+Für die $t$-Koordinate ist \texttt{GL\_CLAMP} eingestellt. Das bedeutet, dass
+nach oben die letzte Texel-Reihe einfach wiederholt wird und nach unten die
+erste Texel-Reihe wiederholt wird.
+
+Für die $s$-Koordinate ist \texttt{GL\_REPEAT} eingestellt. Das bedeutet, dass
+nach rechts und links die komplette Textur nochmals hinkopiert wird. Man kann
+also die $s$-Koordinaten \enquote{modulo 1} rechnen. Damit ergibt sich
+äquivalent
+
+TODO: Bild einfügen (momentan scheint ein Fehler drin zu sein?)
+
 Wie Beispiellösung, nur anstelle von \enquote{C} kommt B und anstelle von \enquote{A}
 kommt D.
 
@@ -329,7 +340,7 @@ Kurve & Ja           & Nein           & Begründung                             
 1     & $\square$    & \CheckedBox    & Kurve verlässt konvexe Hülle der Kontrollpunkte \\
 2     & \CheckedBox  & $\square$      & ~                                               \\
 3     & $\square$    & \CheckedBox    & Tangentenkriterium verletzt                     \\
-4     & $\square$    & $\square$      & Variationsreduktion verletzt? (TODO)            \\\bottomrule
+4     & \CheckedBox  & $\square$      &                                                 \\\bottomrule
 \end{tabular}
 
 \end{document}
