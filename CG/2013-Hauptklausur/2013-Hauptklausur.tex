@@ -138,11 +138,34 @@ Korrekt sind:
     \item erhält die Parallelität von Linien (bei den anderen beiden ist die Scherung ein Gegenbeispiel)
 \end{enumerate}
 
-\section*{Aufgabe 4}
+\section*{Aufgabe 4: Texturen und Texture-Mapping}
 \subsection*{Teilaufgabe 4a}
-TODO
+\textit{Was versteht man unter Mip-Mapping? Welches Problem beim Texture Mapping soll
+damit gelöst werden und wann tritt dieses Problem auf? Wie erzeugt man Mip-Maps?}
+
+Mip-Mapping ist eine Vorverarbeitung der Textur, um das \textbf{Aliasing}-Problem
+bei \textbf{Minification} zu behandeln.
+
+Es werden kleiner skalierte, vorverarbeitete Versionen der Textur erstellt
+(Stufe $i$: um Faktor $2^i$ pro Achse kleiner).
+
 \subsection*{Teilaufgabe 4b}
-TODO
+\textit{Was versteht man unter einer Environment Map? Nennen Sie eine Anwendung
+von Environment Mapping. Wie wird auf die Environment Map zugegriffen und
+welche vereinfachende Annahme wird dabei gemacht?}
+
+\underline{Was:} Eine Environment-Map ist eine Textur zur Darstellung der Umgebung.
+
+\underline{Anwendung:} Durch eine Environment-Map kann die
+Reflektion/Beleuchtung eines Objekts bestimmt werden, ohne aufwendiges
+Ray-Tracing zu betreiben.
+
+Konkret: Spiegelungen auf \enquote{flüssigem} Terminator (vgl. Folien)
+
+\underline{Annahme:} Die Umgebung ist weit genug entfernt, sodass die Position
+keine Rolle spielt. Es wird nur die Blickrichtung verwendet. Man bestimmt für
+Cube-Maps also die Richtung (die Fläche des Würfels) und greift nur
+entsprechend dieser auf die Textur der betreffenden Würfelfläche zu.
 
 \section*{Aufgabe 5}
 \subsection*{Teilaufgabe 5a}
