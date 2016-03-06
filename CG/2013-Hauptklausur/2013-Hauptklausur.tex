@@ -167,11 +167,22 @@ keine Rolle spielt. Es wird nur die Blickrichtung verwendet. Man bestimmt für
 Cube-Maps also die Richtung (die Fläche des Würfels) und greift nur
 entsprechend dieser auf die Textur der betreffenden Würfelfläche zu.
 
-\section*{Aufgabe 5}
+\section*{Aufgabe 5: Räumliche Datenstrukturen}
 \subsection*{Teilaufgabe 5a}
-TODO
-\subsection*{Teilaufgabe 5a}
-TODO
+\begin{tabular}{cp{8cm}llll}\toprule
+\#& Aussage                                                                                                                                                                                                & BVH     & Octree & kD-Baum & Gitter \\\midrule
+1 & Die Struktur eignet sich gut in Fällen, in denen Primitive gehäuft auftreten und große Leerräume zwischen den Häufungen existieren.                                                                    & x       & x      & ~       & ~      \\
+2 & In einer Hierarchieebene können sich die Zellen der Struktur überlappen.                                                                                                                               & ~       & ~      & ~       & ~      \\
+3 & Gehen Sie nun davon aus, dass Primitive nicht unterteilt werden und kein Mailboxing verwendet wird. Dann wird jedes Primitiv in jedem Fall höchstens einmal auf einen Schnitt mit dem Strahl getestet. & ~       & ~      & x       & ~      \\\bottomrule
+\end{tabular}
+
+\subsection*{Teilaufgabe 5b}
+
+\begin{itemize}
+    \item Am wenigsten aufwendig (1): Gitter
+    \item (2): kd-Baum mit Objekt Median
+    \item (3): kd-Baum mit Surface Area Heuristic
+\end{itemize}
 
 \section*{Aufgabe 6}
 \subsection*{Teilaufgabe 6a}
