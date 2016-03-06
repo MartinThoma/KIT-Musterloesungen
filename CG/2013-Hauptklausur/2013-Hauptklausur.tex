@@ -184,14 +184,48 @@ entsprechend dieser auf die Textur der betreffenden Würfelfläche zu.
     \item (3): kd-Baum mit Surface Area Heuristic
 \end{itemize}
 
-\section*{Aufgabe 6}
+\section*{Aufgabe 6: Prozedurale Modellierung}
 \subsection*{Teilaufgabe 6a}
-TODO
+\textit{Nennen Sie drei Vorteile (Stichpunkte) von prozeduralen Texturen!}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item Geringerer Speicheraufwand
+    \item Natürliche Strukturen lassen sich leicht beschreiben
+    \item Beliebige Vergrößerungen sind möglich (TODO: War das so gewünscht?)
+\end{enumerate}
+
+Nachteile:
+
+\begin{itemize}
+    \item Hoher Rechenaufwand
+\end{itemize}
+
+\clearpage
 \subsection*{Teilaufgabe 6b}
-TODO
+\textit{Im folgenden Beispiel sollen Sie Sphere-Tracing für Distanzfelder
+illustrieren. Das Distanzfeld in dieser Szene beschreibt die grauen Körper. Der
+Strahl, der auf Schnitt getestet werden soll, beginnt am Punkt \textbf{A} in
+Richtung von Punkt \textbf{B}, wo er auch endet. Zeichnen Sie die Schritte
+entlang des Strahls ein!}
+
+\includegraphics*[width=0.8\linewidth, keepaspectratio]{2a.png}
+
+TODO: Einzeichnen
+
+\clearpage
 \subsection*{Teilaufgabe 6c}
+\textit{Sie sollen nun Sphere-Tracing in der OpenGL Shading Language
+programmieren. Dabei soll der nächste Schnittpunkt eines Strahls mit der
+Szenengeometrie gefunden werden. Als Abbruchkriterium für die Suche dient die
+Distanz \texttt{tMax}. Ein Schnittpunkt ist gefunden, wenn die Distanzfunktion
+einen kleineren Wert als epsilon liefert. In diesem Fall soll die Funktion
+\texttt{sphereTrace} den Wert true und den Schnittpunkt pos zurückliefern. Die
+Anzahl der Sphere-Tracing-Schritte wird immer in steps zurückgegeben. Ihnen
+steht die Distanzfunktion \texttt{float DF( vec3 x )} zur Verfügung.}
+
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=spheretracing.frag]{glsl}{spheretracing.frag}
 
+\clearpage
 \section*{Aufgabe 7}
 \subsection*{Teilaufgabe 7a}
 TODO
