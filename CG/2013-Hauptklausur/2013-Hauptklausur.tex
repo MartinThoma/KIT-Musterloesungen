@@ -60,7 +60,7 @@ wobei die Winkel von der Oberflächennormale aus gemessen werden. $n_1, n_2$
 sind Materialkonstanten.
 
 \clearpage
-\section*{Aufgabe 2}
+\section*{Aufgabe 2: Beleuchtung, Licht und Wahrnehmung}
 \subsection*{Teilaufgabe 2a}
 \textit{Ergänzen Sie die Skizze und zeichnen Sie die 4~Vektoren ein, die im
 Phong-Beleuchtungsmodell für die Beleuchtungsberechnung benötigt werden!
@@ -102,7 +102,7 @@ Ein großes $n$ führt dazu, dass \textbf{Glanzlichter} kleiner, aber intensiver
 werden. Die reflektion wird \enquote{perfekter}.
 
 \subsection*{Teilaufgabe 2d}
-\begin{tabular}{cp{12cm}ll}\toprule
+\begin{tabular}{cp{12cm}cc}\toprule
 \# & Aussage                                                                                                                                      & Wahr & Falsch \\\midrule
 1  & Zu drei gewählten Primärfarben gibt es immer Spektralfarben, die durch die Kombination dieser drei Farben nicht realisierbar sind.           & x    & ~      \\
 2  & Menschen können geringe Helligkeitsunterschiede im Bereich niedriger Lichtintensität besser wahrnehmen als im Bereich hoher Lichtintensität. & x    & ~      \\
@@ -111,12 +111,31 @@ werden. Die reflektion wird \enquote{perfekter}.
 \end{tabular}
 
 
-\section*{Aufgabe 3}
+\section*{Aufgabe 3: Transformationen}
 \subsection*{Teilaufgabe 3a}
-TODO
+\textit{Gegeben sind Vektoren in homogenen Koordinaten. Kreuzen Sie jeweils an,
+ob es sich um einen Punkt oder eine Richtung handelt. Geben Sie außerdem die
+dazugehörigen kartesischen Koordinaten an.}
+
+Ein Punkt hat als letzte Komponente einen Wert $\neq 0$, eine Richtung hat dort
+$= 0$.
+
+\begin{table}
+    \begin{tabular}{lccl}
+    Vektor                                  & Punkt       & Richtung    & Kartesische Koordinaten \\
+    $\begin{pmatrix}1,2,3,1\end{pmatrix}$   & \CheckedBox & $\square$   & $(1,2,3)$               \\
+    $\begin{pmatrix}1,2,3,0.1\end{pmatrix}$ & \CheckedBox & $\square$   & $(1,2,30)$              \\
+    $\begin{pmatrix}1,2,3,0\end{pmatrix}$   & $\square$   & \CheckedBox & $(1,2,3)$               \\
+    \end{tabular}
+\end{table}
 
 \subsection*{Teilaufgabe 3b}
-TODO
+Korrekt sind:
+\begin{enumerate}
+    \item dreht die x-Achse in Richtung y-Achse
+    \item Scherung um Faktor a
+    \item erhält die Parallelität von Linien (bei den anderen beiden ist die Scherung ein Gegenbeispiel)
+\end{enumerate}
 
 \section*{Aufgabe 4}
 \subsection*{Teilaufgabe 4a}
