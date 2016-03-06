@@ -9,15 +9,18 @@
 \usepackage{hyperref}
 \usepackage{parskip}
 \usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
-\usepackage{nicefrac}
-\usepackage{csquotes}
+\usepackage{nicefrac}  % for \nicefrac{1}{3}
+\usepackage{csquotes}  % for \enquote{what you want to quote}
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
-
 \usepackage{minted} % needed for the inclusion of source code
+
+% for \begin{enumerate}[label=(\Alph*)], see http://tex.stackexchange.com/a/129960/5645
+\usepackage{enumitem}
 
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
+\usepackage{wasysym}  % For \CheckedBox
 \usepackage{microtype}
 
 \begin{document}
@@ -56,24 +59,57 @@ Snelliussches Brechungsgesetz. Es lautet
 wobei die Winkel von der Oberflächennormale aus gemessen werden. $n_1, n_2$
 sind Materialkonstanten.
 
+\clearpage
 \section*{Aufgabe 2}
 \subsection*{Teilaufgabe 2a}
-\begin{figure}[h]
-    \centering
-    \includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
-    \caption{Whatever}
-    \label{fig:1a}
-\end{figure}
-TODO
+\textit{Ergänzen Sie die Skizze und zeichnen Sie die 4~Vektoren ein, die im
+Phong-Beleuchtungsmodell für die Beleuchtungsberechnung benötigt werden!
+Verwenden Sie für die Skizze die Betrachterposition $B_1$ und den
+Oberflächenpunkt $x_1$}
+
+\includegraphics*[width=0.8\linewidth, keepaspectratio]{2a.png}
+
+Die 4 Vektoren sind:
+
+\begin{itemize}
+    \item View-Vektor $V$
+    \item Normale $N$,
+    \item Licht-Vektor $L$ und
+    \item Reflektionsvektor $R_L$
+\end{itemize}
+
+\[I = \underbrace{k_a \cdot I_L}_{\text{ambient}} + \underbrace{k_d \cdot I_L \cdot (N \cdot L)}_{\text{diffus}} + \underbrace{k_s \cdot I_L (R_L \cdot V)^n}_{\text{spekular}}\]
 
 \subsection*{Teilaufgabe 2b}
-TODO
+\textit{Der Wert welcher Komponente(n) des Phong-Beleuchtungsmodells verändert
+bzw. verändern sich, wenn in der obigen Situation\dots}
+
+\begin{enumerate}[label=(\roman*)]
+    \item \textit{\dots der Punkt $x_2$ statt $x_1$ betrachtet wird?}\\
+          $L, R_L, V$: Spekular und diffus
+    \item \textit{\dots die Szene aus der Position $B_2$ statt $B_1$ betrachtet wird?}\\
+          $V$: diffus
+\end{enumerate}
 
 \subsection*{Teilaufgabe 2c}
-TODO
+\textit{In welcher Komponente taucht der sogenannte Phong-Exponent auf und
+welchen Einfluss hat er auf die Erscheinung einer Oberfläche? Wie ändert sich
+das Aussehen, wenn der Phong-Exponent größer gewählt wird?}
+
+Diffuse Komponente
+
+Ein großes $n$ führt dazu, dass \textbf{Glanzlichter} kleiner, aber intensiver
+werden. Die reflektion wird \enquote{perfekter}.
 
 \subsection*{Teilaufgabe 2d}
-TODO
+\begin{tabular}{cp{12cm}ll}\toprule
+\# & Aussage                                                                                                                                      & Wahr & Falsch \\\midrule
+1  & Zu drei gewählten Primärfarben gibt es immer Spektralfarben, die durch die Kombination dieser drei Farben nicht realisierbar sind.           & x    & ~      \\
+2  & Menschen können geringe Helligkeitsunterschiede im Bereich niedriger Lichtintensität besser wahrnehmen als im Bereich hoher Lichtintensität. & x    & ~      \\
+3  & Es gibt keinen linearen Zusammenhang zwischem dem CIE-XYZ- und dem RGB-Modell.                                                               & ~    & x      \\
+4  & Gammakorrektur ist nur bei Röhrenmonitoren notwendig.                                                                                        & ~    & x      \\\bottomrule
+\end{tabular}
+
 
 \section*{Aufgabe 3}
 \subsection*{Teilaufgabe 3a}
