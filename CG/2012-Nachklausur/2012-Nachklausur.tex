@@ -293,9 +293,16 @@ Fragment Shader berechnet anhand dessen die Texturierung der Primitive
 \subsection*{Teilaufgabe 7a}
 
 \begin{tikzpicture}
-\draw (0,0) node[circle, draw]{} -- (2,2) node[circle, draw]{} -- (3.5,0) node[circle, draw]{} -- (6,-2) node[circle,draw]{} -- (9,1) node[circle,draw]{};
-\draw ($(0,0)!0.5!(2,2)$) -- ($(2,2)!0.5!(3.5,0)$) node[midway,circle, draw,label = $a(\frac{1}{2})$] {};
-\draw ($(3.5,0)!0.5!(6,-2)$)  -- ($(6,-2)!0.5!(9,1)$) node[midway,circle, draw,label = $b(\frac{1}{2})$] {};
+\tikzstyle{point}=[circle,inner sep=0pt,minimum size=0.1cm,fill=black, draw]
+\draw (0.0,0) node[point]{} --
+      (2.0,2) node[point]{} --
+      (3.5,0) node[point]{} --
+      (6.0,-2) node[point]{} --
+      (9.0,1) node[point]{};
+\draw ($(0.0, 0)!0.5!(2.0, 2)$) --
+      ($(2.0, 2)!0.5!(3.5, 0)$) node[midway,point,label=below:$a(\frac{1}{2})$] {};
+\draw ($(3.5, 0)!0.5!(6.0,-2)$)  --
+      ($(6.0,-2)!0.5!(9.0, 1)$) node[midway,point,label=$b(\frac{1}{2})$] {};
 \end{tikzpicture}
 
 Tangenten an den Randpunkten zeigen auf den nächsten Punkt. 2fach stetig diffbar (runde Kurve, keine Ecken, keine Unterbrechungen). Kurve liegt innerhalb der konvexen Hülle der Kontrollpunkte.
