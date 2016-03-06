@@ -1,0 +1,65 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\setlist{noitemsep}
+\usepackage[binary-units=true]{siunitx}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
+\usepackage{nicefrac}  % for \nicefrac{1}{3}
+\usepackage{csquotes}  % for \enquote{what you want to quote}
+\usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
+\usepackage{minted} % needed for the inclusion of source code
+
+% for \begin{enumerate}[label=(\Alph*)], see http://tex.stackexchange.com/a/129960/5645
+\usepackage{enumitem}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\usepackage{wasysym}  % For \CheckedBox
+\usepackage{microtype}
+
+\begin{document}
+\selectlanguage{ngerman}
+\title{2015 Nachklausur (WS 2014/15)}
+
+\setcounter{section}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 1: Farben und Farbwahrnehmung}
+vgl. Hauptklausur 2014
+\subsection*{Teilaufgabe 1a}
+\textit{Tragen Sie die Farben Grün, Rot, Gelb, Orange, Cyan, Magenta in die
+        entsprechenden Felder im Chromatizitätsdiagramm ein.}
+
+\includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
+
+\subsection*{Teilaufgabe 1b}
+\textit{Welcher der Farbeindrücke aus Aufgabe a) lässt sich nicht durch monochromatisches Licht
+erzeugen?}
+
+Alles auf der Purple line. Also insbesondere \textcolor{magenta}{\textbf{Magenta}}.
+
+\subsection*{Teilaufgabe 1c}
+\textit{Die Farbräume $xyY$ und $XYZ$ sind eng verwandt. Wie ist der
+mathematische Zusammenhang zwischen der Chromatizität $(x, y)$ und der
+passenden Farbe $(X, Y, Z)$?}
+
+\begin{align}
+    x &= \frac{X}{X + Y + Z}\\
+    y &= \frac{Y}{X + Y + Z}
+\end{align}
+
+\subsection*{Teilaufgabe 1d}
+\textit{Ordnen Sie diese Räume aufsteigend nach der Größe ihres für den
+Menschen sichtbaren Gamut.}
+
+$(2) < (3) < (1)$, also\\
+
+RGB $<$ Raum aller Farben die durch 100 monochromatische Leuchtdioden
+darstellbar sind $<$ XYZ
+
+\end{document}
