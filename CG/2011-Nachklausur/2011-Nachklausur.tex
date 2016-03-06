@@ -246,10 +246,13 @@ Screendoor-Transparency stellt transparente Objekte mittels Blending dar. & $\sq
 \section*{Aufgabe 7: OpenGL}
 \subsection*{Teilaufgabe 7a: Blending}
 \subsection*{Teilaufgabe 7a (1)}
-\begin{align}
-    c' &= (1 - 0.5) \cdot (0,0,1,0.5) + 0.5 \cdot (0,0,0,0) = (0,0,0.5,0.25)\\
-    c  &= (1 - 0.5) \cdot (1,0,0,0.5) + 0.5 \cdot (0,0,0.5,0.25) = (0.5,0,0.25, \nicefrac{3}{8})
-\end{align}
+
+Es erfolgt kein Blending. Durch den aktivierten Tiefentest wird der rote Würfel
+nicht beachtet, da er hinter dem blauen Ball liegt. Daher:
+
+\texttt{color(P) = (0.0, 0.0, 1.0, 0.5)}
+
+siehe \enquote{OpenGL Teil 2 und 3}, Folie 88.
 
 \subsection*{Teilaufgabe 7a (2)}
 \begin{align}
@@ -264,12 +267,19 @@ Function-Pipeline von OpenGL ausgeführt werden:}
 Die Fixed Function Pipeline kann nur Gouraud oder Flat Shading. Das heißt, die
 Beleuctung wird pro Vertex in Kamera Koordinaten berechnet. Dementsprechend:
 \begin{enumerate}
-    \item Model-View-Transformation anwenden
-    \item Projektionstransformation anwenden
-    \item Beleuchtungsberechnung
-    \item Texturierung
-    \item Tiefentest
+    \item Model-View-Transformation anwenden (1)
+    \item Projektionstransformation anwenden (4)
+    \item Beleuchtungsberechnung (5)
+    \item Texturierung (3)
+    \item Tiefentest (2)
 \end{enumerate}
+
+Leider sind wir uns bei dieser Lösung ziemlich unsicher (siehe \href{https://github.com/MartinThoma/KIT-Musterloesungen/issues/22}{GitHub issue(s)}).
+
+\begin{itemize}
+    \item Beleuchtungsberechnung in Kamerakoordinaten nach der
+          Modelview-Transformation (Folie 39 $\Rightarrow$ Erst (1), dann (5))
+\end{itemize}
 
 \subsection*{Teilaufgabe 7c}
 Zwischen 2 und 3, da die Rasterisierung nur für Dreiecke erfolgen soll, die
