@@ -178,10 +178,13 @@ Der Aufbau-Algorithmus ist adaptiv und passt die Datenstruktur deshalb automatis
 Die Datenstruktur wird durch einen Binärbaum repräsentiert.                                             & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\
 Objekte werden bei der Traversierung potentiell mehrfach von demselben Strahl geschnitten.              & $\square$     & \CheckedBox      & \CheckedBox      & $\square$     \\
 Bei der Traversierung wird leerer Raum effizient übersprungen.                                          & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox  \\
-Der Raum wird durch die Datenstruktur immer achsenparallel unterteilt.                                  & $\square$     & \CheckedBox      & \CheckedBox      & $\square$   \\
+Der Raum wird durch die Datenstruktur immer achsenparallel unterteilt.\footnotemark                     & \CheckedBox   & \CheckedBox      & \CheckedBox      & $\square$   \\
 Bei der Konstruktion kann die Surface-Area-Heuristik sinnvoll eingesetzt werden.                        & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\\bottomrule
 \end{tabular}
 
+\footnotetext{Da der BVH hier AABBs verwendet, sind diese natürlich achsenparallel. Die Frage ist, wie \enquote{unterteilt} zu verstehen ist. BVHs und Ocgtrees decken --- im Gegensatz zu kD-Bäumen --- nicht den gesamten Raum ab. Bzw. nur indirekt.}
+
+\clearpage
 \section*{Aufgabe 6: Clipping}
 \subsection*{Teilaufgabe 6a}
 \textit{Mit welchen Kanten der Clipping-Region wird die Strecke $\overline{P_{1}P_{2}}$ beim Cohen-Sutherland-
