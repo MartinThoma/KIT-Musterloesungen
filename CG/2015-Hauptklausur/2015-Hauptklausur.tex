@@ -228,9 +228,10 @@ TODO: Bitte kontrollieren!
 \# & Aussage                                                                                                                                                                                       & AABB           & OBB           & Kugel \\\midrule
 1  & Der Hüllkörper kann einen beliebig orientierten Würfel optimal, also ohne freien Raum umschliessen.                                                                                           &$\square$       & \CheckedBox   & $\square$     \\
 2  & Es gibt orthonormale Transformationen des eingeschlossenen Objektes, die das Volumen des optimalen Hüllkörpers verändern.                                                                     & \CheckedBox    & $\square$     & $\square$     \\
-3  & Es gibt affine Transformationen des  eingeschlossenen Objektes, die das Volumen des Hüllkörpers verändern.                                                                                    & \CheckedBox    & $\square$     & $\square$     \\
+3  & Es gibt affine Transformationen des  eingeschlossenen Objektes, die das Volumen des Hüllkörpers verändern.\footnotemark                                                                       & \CheckedBox    & \CheckedBox   & \CheckedBox   \\
 4  & Gegegeben sind zwei Objektmengen und zu jeder Menge ihr optimaler Hüllkörper. Der Aufwand, den optimalen Hüllkörper für alle Objekte zu bestimmen, ist unabhängig von der Anzahl der Objekte. & \CheckedBox    & $\square$     & \CheckedBox     \\\bottomrule
 \end{tabular}
+\footnotetext{Skalierung. Allerdings gibt es nur für AABBs affine transformationen, welche $\frac{V_\text{Hüllkörper} - V_\text{Objekt}}{V_\text{Hüllkörper}}$ verändert.}
 
 \section*{Aufgabe 6: Texturen}
 \subsection*{Teilaufgabe 6a}
