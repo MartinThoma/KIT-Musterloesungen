@@ -376,8 +376,8 @@ eine korrekte Darstellung des Hauses zu erhalten?}
     \begin{tabular}{lllll}
     \toprule
     Sortierung     & keine & vorne nach hinten & hinten nach vorne & Begründung \\\midrule
-    ZeichneWände   & TODO  & TODO              & TODO              & TODO       \\
-    ZeichneFenster & TODO  & TODO              & TODO              & TODO       \\\bottomrule
+    ZeichneWände   & X  & -  & -  & Tiefentest ist für Sichtbarkeit zuständig      \\
+    ZeichneFenster & -  & -  & X  & Blending ist i.A. nicht kommutativ       \\\bottomrule
     \end{tabular}
 \end{table}
 
@@ -385,8 +385,8 @@ eine korrekte Darstellung des Hauses zu erhalten?}
 \begin{table}[H]
     \begin{tabular}{lllllll}\toprule
     Sortierung     & Tiefentest & EQUAL & LESS & GREATER & Tiefe schreiben & Blending \\\midrule
-    ZeichneWände   & TODO       & TODO  & TODO & TODO    & TODO            & TODO    \\
-    ZeichneFenster & TODO       & TODO  & TODO & TODO    & TODO            & TODO   \\\bottomrule
+    ZeichneWände   & X       & -  & X & -    & X & -    \\
+    ZeichneFenster & X       & -  & X & -    & - & X   \\\bottomrule
     \end{tabular}
 \end{table}
 
