@@ -258,12 +258,17 @@ Screendoor-Transparency stellt transparente Objekte mittels Blending dar. & $\sq
 \end{align}
 
 \subsection*{Teilaufgabe 7b}
+\textit{Bringen Sie die folgende Operationen in die richtige Reihenfolge, wie sie in der Fixed-
+Function-Pipeline von OpenGL ausgeführt werden:}
+
+Die Fixed Function Pipeline kann nur Gouraud oder Flat Shading. Das heißt, die
+Beleuctung wird pro Vertex in Kamera Koordinaten berechnet. Dementsprechend:
 \begin{enumerate}
     \item Model-View-Transformation anwenden
     \item Projektionstransformation anwenden
-    \item Tiefentest
-    \item Texturierung
     \item Beleuchtungsberechnung
+    \item Texturierung
+    \item Tiefentest
 \end{enumerate}
 
 \subsection*{Teilaufgabe 7c}
