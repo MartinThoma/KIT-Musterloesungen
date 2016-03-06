@@ -52,14 +52,14 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>7. Hauptklausur 2014</td>
-            <td>Draft</td>
-            <td>14</td>
+            <td>Draft: OpenGL und Blending fehlt</td>
+            <td>24</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>8. Nachklausur 2014</td>
             <td>Draft</td>
-            <td>20</td>
+            <td>10</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
