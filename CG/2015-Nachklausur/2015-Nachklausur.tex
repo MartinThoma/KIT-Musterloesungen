@@ -252,7 +252,13 @@ vgl. geometrische Interpretation (Kaptiel 2, Folie 43)
 \end{itemize}
 
 \subsection*{Teilaufgabe 6d}
-TODO
+\textit{Welche texturbezogenen Lösungen bietet OpenGL an, um die Artefakte aus
+Aufgabe c) zu reduzieren? Erklären Sie stichpunktartig, wie sie funktionieren!}
+
+Mipmaping: speichere orignale Textur in 0.~Stufe, dann halbiere pro Stufe die
+Textur in jeder Dimension Anisotrope Texturfilterung (RIPs): Vorfilterungen
+unabhängig jeder Achse RIPs bzw. Anisotrope Filterung ist anscheinend keine
+Kernfunktionalität von OpenGL, aber durch Extensions unterstützt.
 
 \subsection*{Teilaufgabe 6e}
 Unter trilinearer Texturfilterung versteht man eine bilineare Interpolation
