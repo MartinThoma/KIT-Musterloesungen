@@ -175,15 +175,16 @@ Zur Beschleunigung der Schnittpunktberechnung bei Szenen mit vielen Objekten /
 Primitiven.
 
 \subsection*{Teilaufgabe 5b}
-\begin{tabular}{p{8cm}llll}\toprule
-Aussage                                                                                                 & BVH           & Octree           & Gitter           & BSP \\\midrule
-Der Aufbau-Algorithmus ist adaptiv und passt die Datenstruktur deshalb automatisch an die Geometrie an. & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox   \\
-Die Datenstruktur wird durch einen Binärbaum repräsentiert.                                             & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\
-Objekte werden bei der Traversierung potentiell mehrfach von demselben Strahl geschnitten.              & $\square$     & \CheckedBox      & \CheckedBox      & $\square$     \\
-Bei der Traversierung wird leerer Raum effizient übersprungen.                                          & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox  \\
-Der Raum wird durch die Datenstruktur immer achsenparallel unterteilt.\footnotemark                     & \CheckedBox   & \CheckedBox      & \CheckedBox      & $\square$   \\
-Bei der Konstruktion kann die Surface-Area-Heuristik sinnvoll eingesetzt werden.                        & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\\bottomrule
+\begin{tabular}{cp{8cm}llll}\toprule
+\# & Aussage                                                                                                 & BVH           & Octree           & Gitter           & BSP \\\midrule
+ 1 & Der Aufbau-Algorithmus ist adaptiv und passt die Datenstruktur deshalb automatisch an die Geometrie an. & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox   \\
+ 2 & Die Datenstruktur wird durch einen Binärbaum repräsentiert.                                             & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\
+ 3 & Objekte werden bei der Traversierung potentiell mehrfach von demselben Strahl geschnitten.              & $\square$     & \CheckedBox      & \CheckedBox      & \CheckedBox\footnotemark   \\
+ 4 & Bei der Traversierung wird leerer Raum effizient übersprungen.                                          & \CheckedBox   & \CheckedBox      & $\square$        & \CheckedBox  \\
+ 5 & Der Raum wird durch die Datenstruktur immer achsenparallel unterteilt.\footnotemark                     & \CheckedBox   & \CheckedBox      & \CheckedBox      & $\square$   \\
+ 6 & Bei der Konstruktion kann die Surface-Area-Heuristik sinnvoll eingesetzt werden.                        & \CheckedBox   & $\square$        & $\square$        & \CheckedBox   \\\bottomrule
 \end{tabular}
+\footnotetext{\href{https://github.com/MartinThoma/KIT-Musterloesungen/issues/55}{github.com/MartinThoma/KIT-Musterloesungen/issues/55}}
 
 \footnotetext{Da der BVH hier AABBs verwendet, sind diese natürlich achsenparallel. Die Frage ist, wie \enquote{unterteilt} zu verstehen ist. BVHs und Ocgtrees decken --- im Gegensatz zu kD-Bäumen --- nicht den gesamten Raum ab. Bzw. nur indirekt.}
 
