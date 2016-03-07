@@ -54,10 +54,7 @@ In Bild 2, da dort der Winkel des Strahls auf die Oberfläche flacher ist.
 \textit{Wie nennt man das physikalische Gesetz oder Prinzip, welches den
 Zusammenhang zwischen Einfallswinkel und Reflektivität beschreibt?}
 
-Snelliussches Brechungsgesetz. Es lautet
-\[n_1 \cdot \sin(\theta_1) = n_1 \cdot \sin(\theta_2)\]
-wobei die Winkel von der Oberflächennormale aus gemessen werden. $n_1, n_2$
-sind Materialkonstanten.
+"Fresnelsche Formel" (gibt die Aufteilung zwischen Transmission und Reflexion in Abhängigkeit des Winkels an)
 
 \clearpage
 \section*{Aufgabe 2: Beleuchtung, Licht und Wahrnehmung}
@@ -88,7 +85,7 @@ bzw. verändern sich, wenn in der obigen Situation\dots}
     \item \textit{\dots der Punkt $x_2$ statt $x_1$ betrachtet wird?}\\
           $L, R_L, V$: Spekular und diffus
     \item \textit{\dots die Szene aus der Position $B_2$ statt $B_1$ betrachtet wird?}\\
-          $V$: diffus
+          $V$: Spekular (Glanzlichter sind abhängig vom Winkel zwischen V und R_L)
 \end{enumerate}
 
 \subsection*{Teilaufgabe 2c}
@@ -96,7 +93,7 @@ bzw. verändern sich, wenn in der obigen Situation\dots}
 welchen Einfluss hat er auf die Erscheinung einer Oberfläche? Wie ändert sich
 das Aussehen, wenn der Phong-Exponent größer gewählt wird?}
 
-Diffuse Komponente
+Spekulare Komponente
 
 Ein großes $n$ führt dazu, dass \textbf{Glanzlichter} kleiner, aber intensiver
 werden. Die reflektion wird \enquote{perfekter}.
@@ -124,7 +121,7 @@ $= 0$.
     \begin{tabular}{lccl}
     Vektor                                  & Punkt       & Richtung    & Kartesische Koordinaten \\
     $\begin{pmatrix}1,2,3,1\end{pmatrix}$   & \CheckedBox & $\square$   & $(1,2,3)$               \\
-    $\begin{pmatrix}1,2,3,0.1\end{pmatrix}$ & \CheckedBox & $\square$   & $(1,2,30)$              \\
+    $\begin{pmatrix}1,2,3,0.1\end{pmatrix}$ & \CheckedBox & $\square$   & $(10,20,30)$            \\
     $\begin{pmatrix}1,2,3,0\end{pmatrix}$   & $\square$   & \CheckedBox & $(1,2,3)$               \\
     \end{tabular}
 \end{table}
@@ -133,9 +130,9 @@ $= 0$.
 \subsection*{Teilaufgabe 3b}
 Korrekt sind:
 \begin{enumerate}
-    \item dreht die x-Achse in Richtung y-Achse
+    \item dreht die y-Achse in Richtung z-Achse
     \item Scherung um Faktor a
-    \item erhält die Parallelität von Linien (bei den anderen beiden ist die Scherung ein Gegenbeispiel)
+    \item ist teilverhältnistreu; erhält die Parallelität von Linien
 \end{enumerate}
 
 \section*{Aufgabe 4: Texturen und Texture-Mapping}
@@ -172,8 +169,8 @@ entsprechend dieser auf die Textur der betreffenden Würfelfläche zu.
 \begin{tabular}{cp{8cm}llll}\toprule
 \#& Aussage                                                                                                                                                                                                & BVH     & Octree & kD-Baum & Gitter \\\midrule
 1 & Die Struktur eignet sich gut in Fällen, in denen Primitive gehäuft auftreten und große Leerräume zwischen den Häufungen existieren.                                                                    & x       & x      & ~       & ~      \\
-2 & In einer Hierarchieebene können sich die Zellen der Struktur überlappen.                                                                                                                               & ~       & ~      & ~       & ~      \\
-3 & Gehen Sie nun davon aus, dass Primitive nicht unterteilt werden und kein Mailboxing verwendet wird. Dann wird jedes Primitiv in jedem Fall höchstens einmal auf einen Schnitt mit dem Strahl getestet. & ~       & ~      & x       & ~      \\\bottomrule
+2 & In einer Hierarchieebene können sich die Zellen der Struktur überlappen.                                                                                                                               & x       & ~      & ~       & ~      \\
+3 & Gehen Sie nun davon aus, dass Primitive nicht unterteilt werden und kein Mailboxing verwendet wird. Dann wird jedes Primitiv in jedem Fall höchstens einmal auf einen Schnitt mit dem Strahl getestet. & x       & ~      & ~       & ~      \\\bottomrule
 \end{tabular}
 
 \subsection*{Teilaufgabe 5b}
@@ -228,9 +225,40 @@ steht die Distanzfunktion \texttt{float DF( vec3 x )} zur Verfügung.}
 \clearpage
 \section*{Aufgabe 7}
 \subsection*{Teilaufgabe 7a}
-TODO
+\textit{i) Indexliste(n) für Primitivtyp GL_TRIANGLE_STRIP}
+
+p1: (1, 2, 3, 4, 5, 6, 7, 8)
+
+benötigt 1 Primitiv
+
+
+\textit{ii) Indexliste(n) für Primitivtyp GL_TRIANGLE_FAN}
+
+p1: (3, 2, 1, 4, 5)
+
+p2: (6, 4, 5, 7, 8)
+
+benötigt 2 Primitive
+
+
 \subsection*{Teilaufgabe 7b}
-TODO
+\begin{tabular}{cp{8cm}lll}\toprule
+\#& Aufgabe    
+            &  Vertex-Shader     & Geometry-Shader   &   Fragment-Shader \\\midrule
+1 & Den Primitivtyp von GL_POINT auf GL_TRIANGE ändern.
+            & ~                  & x                 & ~     \\
+2 & Die Projektionstransformation auf Vertizes anwenden und das Ergebnis in gl_Position speichern.
+            & x                  & ~                 & ~     \\
+3 & Die Fragmentfarbe ausgeben.
+            & ~                  & ~                 & x     \\
+4 & \texttt{uniform}-Variablen schreiben.
+            & ~                  & ~                 & ~     \\
+5 & Das Beleuchtungsmodell auswerten, wenn \textit{Phong-Shading} verwendet wird.
+            & ~                  & ~                 & x     \\
+6 & Aus Texturen lesen.
+            & x                  & x                 & x     \\\bottomrule
+\end{tabular}
+
 
 \section*{Aufgabe 8}
 \subsection*{Teilaufgabe 8a}
