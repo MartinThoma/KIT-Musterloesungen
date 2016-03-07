@@ -236,15 +236,16 @@ TODO: Bitte kontrollieren!
 \section*{Aufgabe 6: Texturen}
 \subsection*{Teilaufgabe 6a}
 
-\begin{tabular}{cp{8cm}lll}\toprule
+\begin{tabular}{cp{8cm}llp{4cm}}\toprule
 \#   & Aussage                                                                                                                                                                        & Wahr         & Falsch      & Kommentar \\\midrule
 I1   & Das Filtern von Texturen wird üblicherweise bei der Minification und der Magnification angewandt, um Aliasing-Artefakte zu vermeiden                                           & $\square$    & \CheckedBox & Nur Magnification \\
 I2   & Das Filtern von Texturen benötigt bei Verfahren ohne Vorfilterung mehr Zugriffe auf den Texturspeicher als einfaches Auslesen.                                                 & TODO         & TODO        & ~         \\
 II1  & Mipmapping bekämpft das Aliasing-Problem bei der Unterabtastung von Texturen.                                                                                                  & \CheckedBox  & $\square$   & ~         \\
-II2  & Mipmapping berücksichtigt anisotrope Footprints.                                                                                                                               & TODO         & TODO        & ~         \\
-III1 & Bei Einsatz von Summed-Area-Tables kann man mit nur vier Texturzugriffen die Summe über eine kreisförmige Fläche berechnen.                                                   & $\square$    & \CheckedBox & ~         \\
+II2  & Mipmapping berücksichtigt anisotrope Footprints.                                                                                                                               & $\square$\   & \CheckedBox & Vorfilterung ist isotrop\footnotemark \\
+III1 & Bei Einsatz von Summed-Area-Tables kann man mit nur vier Texturzugriffen die Summe über eine kreisförmige Fläche berechnen.                                                    & $\square$    & \CheckedBox & ~         \\
 III2 & Bei Einsatz von Summed-Area-Tables benötigt man im Allgemeinen mehr Bits zur Repräsentation der enthaltenen Werte als bei gewöhnlichen Texturen mit dem gleichen Wertebereich. & \CheckedBox  & $\square$   & ~         \\\bottomrule
 \end{tabular}
+\footnotetext{Schwer zu sagen, was der Aufgabensteller hier mit \emph{berücksichtigt} meint. Mip-Maps mit Speicherbedarf~$\frac{4}{3}$ sind grundsätzlich isotrop, aber in der Praxis kann durch \emph{Kombination von Abtastungen verschiedener Mip-Map Stufen} anisotrope Filterung erreicht werden. (Vgl. Foliensatz~04, Seite~58/60)}
 
 \clearpage
 \subsection*{Teilaufgabe 6b}
@@ -323,10 +324,14 @@ Tiefenpuffer deaktiviert?}
 TODO
 
 \subsection*{Teilaufgabe 8c}
-\textit{Zunächst werden nur Feuerpartikel gerendert. Konfigurieren Sie OpenGL
-so, dass die Feuerpartikel Licht in Richtung des Betrachters emittieren!}
+\textit{Statt Feuerpartikel werden nun Rauchpartikel gerendert, die Licht
+absorbieren. Die Partikel sind hierzu bereits von hinten nach vorne sortiert.
+Ändern Sie das Blending entsprechend!}
 
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=8a.cpp]{cpp}{8c.cpp}
+TODO!?
+
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=8c.cpp]{cpp}{8c.cpp}
+
 \clearpage
 \subsection*{Teilaufgabe 8d}
 \textit{Ihnen fällt auf, dass sich Rauch und Feuer nicht korrekt zusammenfügen, wenn Sie erst
