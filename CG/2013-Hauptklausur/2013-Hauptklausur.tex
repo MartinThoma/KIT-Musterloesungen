@@ -54,7 +54,8 @@ In Bild 2, da dort der Winkel des Strahls auf die Oberfläche flacher ist.
 \textit{Wie nennt man das physikalische Gesetz oder Prinzip, welches den
 Zusammenhang zwischen Einfallswinkel und Reflektivität beschreibt?}
 
-"Fresnelsche Formel" (gibt die Aufteilung zwischen Transmission und Reflexion in Abhängigkeit des Winkels an)
+Die \textbf{Fresnelsche Formeln} beschreiben die Beziehung zwischen
+Transmission und Reflexion in Abhängigkeit des Winkels.
 
 \clearpage
 \section*{Aufgabe 2: Beleuchtung, Licht und Wahrnehmung}
@@ -85,7 +86,7 @@ bzw. verändern sich, wenn in der obigen Situation\dots}
     \item \textit{\dots der Punkt $x_2$ statt $x_1$ betrachtet wird?}\\
           $L, R_L, V$: Spekular und diffus
     \item \textit{\dots die Szene aus der Position $B_2$ statt $B_1$ betrachtet wird?}\\
-          $V$: Spekular (Glanzlichter sind abhängig vom Winkel zwischen V und R_L)
+          $V$: Spekular (Glanzlichter sind abhängig vom Winkel zwischen $V$ und $R_L$)
 \end{enumerate}
 
 \subsection*{Teilaufgabe 2c}
@@ -225,14 +226,14 @@ steht die Distanzfunktion \texttt{float DF( vec3 x )} zur Verfügung.}
 \clearpage
 \section*{Aufgabe 7}
 \subsection*{Teilaufgabe 7a}
-\textit{i) Indexliste(n) für Primitivtyp GL_TRIANGLE_STRIP}
+\textit{i) Indexliste(n) für Primitivtyp \texttt{GL\_TRIANGLE\_STRIP}}
 
 p1: (1, 2, 3, 4, 5, 6, 7, 8)
 
 benötigt 1 Primitiv
 
 
-\textit{ii) Indexliste(n) für Primitivtyp GL_TRIANGLE_FAN}
+\textit{ii) Indexliste(n) für Primitivtyp \texttt{GL\_TRIANGLE\_FAN}}
 
 p1: (3, 2, 1, 4, 5)
 
@@ -245,9 +246,9 @@ benötigt 2 Primitive
 \begin{tabular}{cp{8cm}lll}\toprule
 \#& Aufgabe    
             &  Vertex-Shader     & Geometry-Shader   &   Fragment-Shader \\\midrule
-1 & Den Primitivtyp von GL_POINT auf GL_TRIANGE ändern.
+1 & Den Primitivtyp von \texttt{GL\_POINT} auf \texttt{GL\_TRIANGLE} ändern.
             & ~                  & x                 & ~     \\
-2 & Die Projektionstransformation auf Vertizes anwenden und das Ergebnis in gl_Position speichern.
+2 & Die Projektionstransformation auf Vertizes anwenden und das Ergebnis in \texttt{gl\_Position} speichern.
             & x                  & ~                 & ~     \\
 3 & Die Fragmentfarbe ausgeben.
             & ~                  & ~                 & x     \\
