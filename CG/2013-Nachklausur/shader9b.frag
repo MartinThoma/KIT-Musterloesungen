@@ -20,5 +20,5 @@ void main(void)
 	} else {
 		c = 2;
 	}
-	color = toonShader(c);
+	color = toonShade(c);
 }
