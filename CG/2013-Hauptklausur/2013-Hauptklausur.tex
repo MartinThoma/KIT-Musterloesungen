@@ -169,7 +169,7 @@ entsprechend dieser auf die Textur der betreffenden Würfelfläche zu.
 \begin{tabular}{cp{8cm}llll}\toprule
 \#& Aussage                                                                                                                                                                                                & BVH     & Octree & kD-Baum & Gitter \\\midrule
 1 & Die Struktur eignet sich gut in Fällen, in denen Primitive gehäuft auftreten und große Leerräume zwischen den Häufungen existieren.                                                                    & x       & x      & ~       & ~      \\
-2 & In einer Hierarchieebene können sich die Zellen der Struktur überlappen.                                                                                                                               & ~       & ~      & ~       & ~      \\
+2 & In einer Hierarchieebene können sich die Zellen der Struktur überlappen.                                                                                                                               & x       & ~      & ~       & ~      \\
 3 & Gehen Sie nun davon aus, dass Primitive nicht unterteilt werden und kein Mailboxing verwendet wird. Dann wird jedes Primitiv in jedem Fall höchstens einmal auf einen Schnitt mit dem Strahl getestet. & ~       & ~      & x       & ~      \\\bottomrule
 \end{tabular}
 
