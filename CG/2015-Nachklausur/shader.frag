@@ -8,10 +8,10 @@ out vec3 color; // Ausgabefarbe des Fragments
 void main(void)
 {
     // Die Normale wird aus der Normal Map ausgelesen...
-    vec3 normal = normalize(texture(nMap, tc).xyz);
+    vec3 normal = texture(nMap, tc).xyz;
 
     // ... und mithilfe der gegebenen Matrizen in Weltkoordinaten transformiert.
-    vec3 normal_wc = matO2W * normal;
+    vec3 normal_wc = normalize(matO2W * normal);
 
     // Die Ausgabefarbe wird durch diffuse Reflexion mit dem
     // Reflexionskoeffizienten kd und der Environment Map bestimmt.
