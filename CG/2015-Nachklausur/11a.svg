@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="-14.442197"
-     inkscape:cy="9.326353"
+     inkscape:zoom="5.6"
+     inkscape:cx="70.626253"
+     inkscape:cy="33.583492"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -101,6 +101,10 @@
        position="110.49497,36.019537"
        orientation="1,0"
        id="guide4149" />
+    <sodipodi:guide
+       position="100.35714,29.999999"
+       orientation="0,1"
+       id="guide4151" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -129,10 +133,10 @@
        inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 70,972.56016 c 20,10 60,10 60,60.00004"
+       d="M 69.821429,972.38159 C 90.000003,982.54062 110,1002.5602 109.82143,1032.3816"
        id="path22"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccc"
+       sodipodi:nodetypes="cc"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
   </g>
