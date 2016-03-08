@@ -23,7 +23,7 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>2. Nachklausur 2011</td>
             <td>Draft</td>
-            <td>21</td>
+            <td>19</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -41,37 +41,37 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>5. Hauptklausur 2013</td>
             <td>Draft</td>
-            <td>11</td>
+            <td>10</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>6. Nachklausur 2013</td>
-            <td>Draft</td>
-            <td>1</td>
+            <td>Completed, but not checked</td>
+            <td>0</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>7. Hauptklausur 2014</td>
             <td>Draft: OpenGL und Blending fehlt</td>
-            <td>24</td>
+            <td>22</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>8. Nachklausur 2014</td>
             <td>Draft</td>
-            <td>10</td>
+            <td>6</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>9. Hauptklausur 2015</td>
             <td>Draft</td>
-            <td>32</td>
+            <td>25</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>10. Nachklausur 2015</td>
             <td>Draft</td>
-            <td>9</td>
+            <td>2</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
