@@ -121,8 +121,6 @@ Zur Kontrolle:
 \end{align}
 
 
-
-
 \subsection*{Teilaufgabe 3b: Koordinatensysteme}
 \begin{align}
     z' &= E - C\\
@@ -170,7 +168,7 @@ Die Gesamttrasformationsmatrix ist also $V = R \cdot T$.
 \begin{figure}[h]
     \centering
     \includegraphics*[width=0.8\linewidth, keepaspectratio]{reflection-angles.png}
-    \caption{Situationsskizze. $r_l$ ist senkrecht auf $L$ in $P$.}
+    \caption{Situationsskizze. $r_l$ ist die reflektion von $L$ an $n$ in $P$.}
     \label{fig:situation-4a}
 \end{figure}
 
@@ -212,21 +210,24 @@ Es gilt also folgendes Gleichungssystem zu lösen:
 \end{align}
 
 \subsection*{Teilaufgabe 5b}
-Die Normalen der Vertices eines Dreiecksnetzes können wie folgt berechnet werden:
+Die Normalen der Vertices eines Dreiecksnetzes können wie folgt berechnet
+werden:
 
 \begin{enumerate}
     \item Berechne Normale jedes Dreiecks
-    \item Für jeden Vertex wird nun die Summe der Normalen der angrenzenden Dreiecke gebildet.
-    \item Die Vertex-Normalen werden normalisiert, indem sie durch ihre Länge geteilt werden.
+    \item Für jeden Vertex wird nun die Summe der Normalen der angrenzenden
+          Dreiecke gebildet.
+    \item Die Vertex-Normalen werden normalisiert, indem sie durch ihre Länge
+          geteilt werden.
 \end{enumerate}
 
 \subsection*{Teilaufgabe 5c}
 Gouraud-Shading berechnet die Werte (z.B. Farbe) an den Eckpunkten der Dreiecke
-und interpoliert die Werte im inneren der Dreieck mithilfe der Eckpunktwerte.
+und interpoliert die Werte im Inneren der Dreieck mithilfe der Eckpunktwerte.
 
-Phong-Shading nutzt die normalen an den Eckpunkten zur interpolation von
-Normalen innerhalb des Dreiecks. Diese werden für weitere Beleuchtungsberechnungen
-verwendet.
+Phong-Shading nutzt die Normalen an den Eckpunkten zur interpolation von
+Normalen innerhalb des Dreiecks. Diese werden für weitere
+Beleuchtungsberechnungen verwendet.
 
 Insbesondere bei Glanzlichtern kann dies einen Unterschied machen. Beim
 Gouraud-Shading können Glanzlichter verloren gehen.
@@ -235,7 +236,7 @@ Gouraud-Shading können Glanzlichter verloren gehen.
 Gouraud-Shading im Vergleich zu Phong-Shading
 \begin{itemize}
     \item Vorteil: Schnellere Berechnung
-    \item Nachteil: Schlechtere Ergebnisse
+    \item Nachteil: Schlechtere Ergebnisse (z.B. Mach'scher Bandeffekt)
 \end{itemize}
 
 
@@ -263,10 +264,15 @@ vgl. geometrische Interpretation (Kaptiel 2, Folie 43)
 \textit{Welche texturbezogenen Lösungen bietet OpenGL an, um die Artefakte aus
 Aufgabe c) zu reduzieren? Erklären Sie stichpunktartig, wie sie funktionieren!}
 
-Mipmaping: speichere orignale Textur in 0.~Stufe, dann halbiere pro Stufe die
-Textur in jeder Dimension Anisotrope Texturfilterung (RIPs): Vorfilterungen
-unabhängig jeder Achse RIPs bzw. Anisotrope Filterung ist anscheinend keine
-Kernfunktionalität von OpenGL, aber durch Extensions unterstützt.
+\begin{itemize}
+    \item \textbf{Mipmaping}: Speichere orignale Textur in 0.~Stufe, dann
+          halbiere pro Stufe die Textur in jeder Dimension.
+    \item \textbf{Anisotrope Texturfilterung (RIPs)}: Vorfilterungen unabhängig
+          jeder Achse RIPs bzw. Anisotrope Filterung ist anscheinend keine
+          Kernfunktionalität von OpenGL, wird aber durch Extensions
+          unterstützt.
+\end{itemize}
+
 
 \subsection*{Teilaufgabe 6e}
 Unter trilinearer Texturfilterung versteht man eine bilineare Interpolation
