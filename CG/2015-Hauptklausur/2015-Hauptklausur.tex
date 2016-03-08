@@ -333,7 +333,14 @@ so, dass die Feuerpartikel Licht in Richtung des Betrachters emittieren!}
 \textit{Warum ist der Tiefentest aktiviert? Warum ist Schreiben in den
 Tiefenpuffer deaktiviert?}
 
-TODO
+\begin{itemize}
+    \item Tiefentest ist aktiviert, weil Feuer teilweise von Rauch verdeckt der
+          weiter vorne im Bild ist.
+    \item Tiefenpuffer deaktiviert, weil sich Rauch konstant verändert, d.h.
+          Puffern bringt nichts da nur falsche Werte enthalten wären und
+          deshalb immer neu berechnet werden muss
+\end{itemize}
+
 
 \subsection*{Teilaufgabe 8c}
 \textit{Statt Feuerpartikel werden nun Rauchpartikel gerendert, die Licht
