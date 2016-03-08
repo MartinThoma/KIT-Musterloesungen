@@ -268,23 +268,23 @@ $\lambda_3 = \triangle(x, x_1, x_2)$
 Dreiecksnetz weiter unterteilen (Tesselieren)
 \subsection*{Teilaufgabe 8c}
 
-i)
-
-$n=\langle x_1-x_2, x_3-x_2\rangle$
-
-$f=\langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)$
-
-ii)
-
-$c'_i = c_i \langle n_i, L \rangle^+$
-
-$f = \lambda_1 c'_1 + \lambda_2 c'_2 + \lambda_3 c'_3$
-
-iii)
-
-$n = \lambda_1 n_1 + \lambda_2 n_2 + \lambda_3 n_3$
-
-$f=\langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)$
+\begin{enumerate}[label=(\roman*)]
+    \item Flat shading
+        \begin{align}
+        n &= \langle x_1-x_2, x_3-x_2\rangle\\
+        f &= \langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
+        \end{align}
+    \item Gouraud-Shading
+        \begin{align}
+        c'_i &= c_i \langle n_i, L \rangle^+\\
+        f &= \lambda_1 c'_1 + \lambda_2 c'_2 + \lambda_3 c'_3
+        \end{align}
+    \item Phong-Shading
+        \begin{align}
+        n &= \lambda_1 n_1 + \lambda_2 n_2 + \lambda_3 n_3\\
+        f &=\langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
+        \end{align}
+\end{enumerate}
 
 \section*{Aufgabe 9}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=keyframing.vert]{glsl}{keyframing.vert}
