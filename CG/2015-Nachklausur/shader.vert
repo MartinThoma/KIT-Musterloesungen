@@ -12,8 +12,7 @@ void main(void)
 {
     vec3 data = texelFetch(treeInstanceData, gl_InstanceID, 0);
 
-    // Aufgabe beginnt hier:
-
+    // <solution>
 	// Höhe aus Höhenkarte auslesen
 	float height = texture(heightMap, data.xy * rcpHMS).r;
 
@@ -27,6 +26,7 @@ void main(void)
 	// Die Normale bleibt gleich
 	wnrm = NRM;
 
-	// Transformation der Position von Welt- in Clipkoordinaten 
+	// Transformation der Position von Welt- in Clipkoordinaten
     gl_Position = VP * vec4(wpos, 1.);
+    // </solution>
 }
