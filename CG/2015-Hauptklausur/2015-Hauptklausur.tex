@@ -162,14 +162,25 @@ Clip-Space:}
 \textit{Wie lauten die Normalized Device Coordinates der Punkte $\mathbf{p}_0$
 und $\mathbf{p}_0$?}
 
-TODO
+\begin{align}
+    \mathbf{p}_0^{NDC} &= \begin{pmatrix}-\nicefrac{1}{10}\\\nicefrac{1}{10}\\\nicefrac{1}{2}\end{pmatrix} &
+    \mathbf{p}_1^{NDC} &= \begin{pmatrix}-\nicefrac{1}{10}\\\nicefrac{1}{10}\\3\end{pmatrix}
+\end{align}
+
+Siehe \texttt{OpenGL (Teil 1)}, Folie 24.
 
 \subsubsection*{Teilaufgabe 4a (ii)}
 \textit{Warum sollte man dieses Liniensegment vor der Normalisierungstransformation
 (Dehomogenisierung) clippen?}
 
-TODO
+Man sollte vor der Normalisierungstransformation clippen, weil vor der
+Dehomogenisierung $x=w$ gilt. Nach dem Dehomogenisieren müssen Tiefenwerte
+betrachtet werden um problematische Fälle zu erkennen ($w=0$ möglich, dann
+Division durch 0?)
 
+Siehe Foliensatz \texttt{06}, Folie 39--41.
+
+\clearpage
 \subsection*{Teilaufgabe 4b}
 \textit{Die folgende Abbildung zeigt ein Quadrat in 2D vor (links) und nach einer Scherung
 (rechts).}
