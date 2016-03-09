@@ -13,5 +13,5 @@ glEnable(GL_BLEND);  // (6) Aktiviere Blending
 // (7) Sortiere alle transparenten Dreiecksnetze anhand ihrer Bounding-Boxen
 //     und zeichne sie in der Reihenfolge von hinten nach vorne
 
-glDisable(GL_BLEND);  // Deaktiviere Blending
-glDisable(GL_DEPTH_TEST);  // Deaktiviere Tiefentest
+glDisable(GL_BLEND);  // (8) Deaktiviere Blending
+glDisable(GL_DEPTH_TEST);  // (9) Deaktiviere Tiefentest
