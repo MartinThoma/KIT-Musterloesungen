@@ -16,4 +16,35 @@ $$A \Sigma A^T = 5 - c$$ und damit
 $$V \sim \mathcal{N}(0, 5 - c)$$
 
 \subsection*{Teilaufgabe c}
-?
+Unabhängige Zufallsvariablen sind immer unkorreliert. Es muss also $Cov(U, V) = 0$
+gelten, damit $U$ und $V$ unabhängig sein können.
+
+\begin{align}
+    Cov(U, V) &= E((U - EU) (V - EV))\\
+              &= E((X_1 + k X_1 - 1 - k) (X_1 - X_2))\\
+              &= E(X_1^2 + k X_1^2 - X_1 - k X_1 - X_1 X_2 - k X_1 X_2 + X_2 + k X_2)\\
+              &= (k+1) E(X_1^2) - (k+1) E(X_1) - (k+1) E(X_1 X_2) + (k+1) E(X_2)\\
+              &= (k+1) E(X_1^2) - (k+1) - (k+1) E(X_1 X_2) + (k+1)\\
+              &= (k+1) E(X_1^2) - (k+1) E(X_1 X_2)\\
+              &= (k+1) - (k+1) E(X_1 X_2)\\
+              &= (k+1) (1 - E(X_1 X_2))
+\end{align}
+
+$E(X_1^2) = 1$, da $X_1^2 \sim \chi_1^2$
+
+Für $k= -1$ sind $U$ und $V$ also unkorreliert, aber sicher nicht unabhängig,
+da sie identisch sind.
+
+Die Dichte der multivariaten Normalverteilung lautet
+\[f_X(x)=\frac{1}{ \sqrt{(2\pi)^p \det(\Sigma)} } \exp \left(-\frac{1}{2}({\mathbf x}-{\boldsymbol\mu})^\mathrm{T}{\boldsymbol\Sigma}^{-1}({\mathbf x}-{\boldsymbol\mu}) \right)\]
+
+in diesem Fall also
+\[f_{X_1, X_2}(\mathbf x) = \frac{1}{ \sqrt{4\pi^2 (4 - c^2))} } \exp \left(-\frac{1}{2}({\mathbf x}-\begin{pmatrix}1\\1\end{pmatrix})^\mathrm{T}\begin{pmatrix}\frac{-4}{c^2 - 4} & \frac{c}{c^2 - 4}\\\frac{c}{c^2 - 4} & \frac{1}{c^2 - 4}\end{pmatrix}({\mathbf x}-\begin{pmatrix}1\\1\end{pmatrix}) \right)\]
+
+daher gilt
+
+\begin{align}
+    E(X_1 X_2) &= \int_{\mathbb{R}} \int_{\mathbb{R}} x y f_{X_1, X_2}(x, y) \mathrm{d} y \mathrm{d} x
+\end{align}
+
+ TODO
