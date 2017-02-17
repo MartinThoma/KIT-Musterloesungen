@@ -1,0 +1,37 @@
+\documentclass[a4paper]{article}
+\usepackage{amssymb, amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[pdftex]{hyperref}       % links im text
+\usepackage{enumitem}       % for advanced numbering of lists
+\usepackage{braket}         % for \Set{}
+\usepackage{parskip}
+\usepackage{lastpage}
+
+\allowdisplaybreaks
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\title{Statistik Klausur 2014/2015 - Musterlösung}
+\makeatletter
+\AtBeginDocument{
+	\hypersetup{
+	  pdfauthor   = {Martin Thoma},
+	  pdfkeywords = {Statistik, KIT, Klausur},
+	  pdftitle    = {\@title}
+  	}
+	\pagestyle{fancy}
+	\lhead{\@title}
+	\rhead{Seite \thepage{} von \pageref{LastPage}}
+}
+\makeatother
+
+\usepackage{fancyhdr}
+\fancyfoot[C]{}
+
+\begin{document}
+    \include{Aufgabe6}
+    \include{Loesung6}
+\end{document}

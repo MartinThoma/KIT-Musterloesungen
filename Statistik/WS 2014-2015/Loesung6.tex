@@ -1,0 +1,19 @@
+\section*{Lösung}
+\subsection*{Teilaufgabe a}
+Die Kovarianz zweier Zufallsvariablen $X$ und $Y$ ist definiert als
+\[Cov(X, Y) := E((X - EX) (Y - EY))\]
+Für die Kovarianz zweier Zufallsvariablen gilt die Cauchy-Schwarz-Ungleichung:
+\[|Cov(X, Y)| \leq \sqrt{V(X) V(Y)}\]
+und daher $|c| \leq \sqrt{1 \cdot 4} = 2$. Also $c \in [-2, 2]$.
+
+Der Korrelationskoeffizient ist definiert als
+\[\rho(X, Y) := \frac{Cov(X, Y)}{V(X) V(Y)}\]
+Es gilt $\rho(X, Y) \in [-1, 1]$ aufgrund der Cauchy-Schwarz-Ungleichung.
+
+\subsection*{Teilaufgabe b}
+Sei $A = \begin{pmatrix}1 & -1\end{pmatrix}$. Dann gilt $V = A X$ und daher
+$$A \Sigma A^T = 5 - c$$ und damit
+$$V \sim \mathcal{N}(0, 5 - c)$$
+
+\subsection*{Teilaufgabe c}
+?
