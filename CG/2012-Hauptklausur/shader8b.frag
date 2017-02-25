@@ -1,7 +1,7 @@
 # version 140
 
 // <solution>
-// TODO
+in vec4 color;
 // </solution>
 
 out vec4 out_color ; // Ausgabefarbe bestimmt unter Verwendung
@@ -9,7 +9,6 @@ out vec4 out_color ; // Ausgabefarbe bestimmt unter Verwendung
 void main ( void )
 {
     // <solution>
-    // TODO
-    out_color = computeLighting(position, normal, lightPos, kd, I);
+    out_color = color;
     // </solution>
 }

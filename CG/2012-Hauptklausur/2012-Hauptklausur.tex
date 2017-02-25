@@ -33,18 +33,18 @@
 \subsection*{Teilaufgabe 1a}
 \textit{Eine Grafikkarte ist an ein Anzeigegerät mit einem Gamma-Wert von 2.0
 angeschlossen und muss eine entsprechende Gamma-Korrektur durchführen.
-Berechnen Sie den Intensitätswert , den die Grafikkarte an das Anzeigegerät
+Berechnen Sie den Intensitätswert, den die Grafikkarte an das Anzeigegerät
 senden muss, um eine Ausgabe mit der Hälfte der Maximalintensität zu erreichen.
 (Der Wertebereich der Koeffzienten reicht von 0 bis zur
  Maximalintensität~1.0.)}
 
 Es gilt
 
-\[I_{\text{out}} = I_{\text{in}}^\gamma\]
+\[I_{\text{out}} = {I_{\text{in}}}^\gamma\]
 
 für $I_{\text{out}} = \nicefrac{1}{2}$ und $\gamma = 2$ muss also gelten:
 
-\[I_{\text{in}} = \frac{1}{\sqrt{2}}\]
+\[\frac{1}{2} = {I_{in}}^2 \Leftrightarrow I_{\text{in}} = \frac{1}{\sqrt{2}}\]
 
 
 \subsection*{Teilaufgabe 1b}
@@ -69,7 +69,7 @@ HSV (oder HSI, HSL). Dann wird einfach der V-Wert (I-Wert, L-Wert) erhöht.
     \item Grundfarbwert anhand eines Beleuchtungsmodells (z.B. Phong) bestimmen
     \item Reflektionsstrahl verschießen und ermittelten Farbwert auf Farbwert
           im Punkt addieren.
-    \item Refraktionsstrahl verschießen.
+    \item Transmissionsstrahl verschießen.
 \end{enumerate}
 
 \subsection*{Teilaufgabe 2b}
@@ -142,8 +142,8 @@ Matrixstack
 
 \section*{Aufgabe 4: Texturen}
 \subsection*{Teilaufgabe 4a}
-\textit{Was ist eine Environment-Map?}
-
+\textit{Was ist eine Environment-Map?}\\
+\textbf{tl;dr} Ein Bild der Umgebung als Textur.\\
 Eine Environment-Map ist eine Textur zur Darstellung reflektierender Objekte
 mit Spiegelung von Umgebung ohne geometrische Repräsentation.
 
@@ -155,7 +155,7 @@ bestimmt werden, ohne aufwendiges Ray-Tracing zu betreiben.
 \textit{Welche Annahmen trifft man dabei?}
 
 Die Umgebung ist weit genug entfernt, sodass die Position keine Rolle spielt.
-Es wird nur die Blickrichtung verwendet.
+Es wird nur die Reflektionsrichtung verwendet.
 
 \subsection*{Teilaufgabe 4b}
 \textit{Welches Problem beim Texture-Mapping löst Mip-Mapping? Erklären Sie kurz die Idee!}
@@ -163,8 +163,8 @@ Es wird nur die Blickrichtung verwendet.
 Mip-Mapping ist eine Vorfilterung der Textur um Aliasing-Artefakten vorzubeugen.
 Aliasing tritt durch Unterabtastung des Bildsignals auf.
 
-Man erzeugt Mip-Maps durch \enquote{zusammenfassen} von jeweilse $2 \times 2$
-Texeln. Es werden solange neue Mip-Map-Stufen generiert, bis man eine Mip-Map
+Man erzeugt Mip-Maps durch Mittelung über jeweils $2 \times 2$
+Texel. Es werden solange neue Mip-Map-Stufen generiert, bis man eine Mip-Map
 erzeugt hat, die nur noch aus einem Texel besteht.
 
 \subsection*{Teilaufgabe 4c: Bilineare Interpolation}
@@ -183,9 +183,9 @@ den in der Darstellung gegebenen Zylinder umschließen können.}
 
 \begin{enumerate*}[label=(\Alph*)]
     \item Slabs
-    \item OBB (Orientierte Bounding Box)
-    \item AABB
-    \item Kugel
+    \item OBB (Oriented Bounding Box)
+    \item AABB (Axis-Aligned Bounding Box)
+    \item Bounding Sphere
 \end{enumerate*}
 
 
@@ -269,6 +269,7 @@ Neues Liniensegment:
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=7b.cpp]{cpp}{7b.cpp}
 
 \section*{Aufgabe 8: OpenGL-Shading-Language}
+\textit{Kommentar: Es ist möglich alle Parameter für computeLighting zum Fragment-Shader durchzureichen, m.E. aber nicht notwendig. Code ist angelehnt an die VL-Folien.}
 \subsection*{Teilaufgabe 8a: Vertex-Shader}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader8a.vert]{glsl}{shader8a.vert}
 
@@ -301,7 +302,8 @@ kennengelernt haben.}
 \subsection*{Teilaufgabe 9c}
 Kubische Splines sind 2-mal stetig differenzierbar. Damit es immer noch ein
 kubischer Spline ist, müssen die Punkte $b_1, b_2, b_3, c_1, c_2$ angepasst
-werden.
+werden.\\
+\textit{Kommentar: Die Kontrollpunkte ändern sich nicht, lediglich die beiden Abschnitte $b_0 - b_3$ und $c_0 - c_3$ des Splines ändern sich. Weitere Abschnitte der Kurve ändern sich aufgrund der Tangentenbedingung nicht.}
 
 
 \end{document}
