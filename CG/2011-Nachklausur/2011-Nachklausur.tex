@@ -206,10 +206,10 @@ werden müssen. (TODO: Stimmt das?)
 
 \subsection*{Teilaufgabe 5c}
 \begin{align}
-    a_{max} &= 1,\;\;\; a_{min} = 0\\
-    a_{min} &= \max(a_{min}, a_s) = \nicefrac{1}{3}\\
-    a_s &= \frac{\text{WEC}_{y_\text{min}}(P_1)}{\text{WEC}_{y_\text{min}}(P_0) - \text{WEC}_{y_\text{min}}(P_1)} = \nicefrac{4}{6} = \nicefrac{2}{3}\\
-    a_{max} &= \min(a_{max}, a_s) = \nicefrac{2}{3}
+    \alpha_{max} &= 1,\;\;\; \alpha_{min} = 0\\
+    \alpha_{min} &= \max(\alpha_{min}, \alpha_s) = \nicefrac{1}{3}\\
+    \alpha_s &= \frac{\text{WEC}_{y_\text{min}}(P_1)}{\text{WEC}_{y_\text{min}}(P_0) - \text{WEC}_{y_\text{min}}(P_1)} = \nicefrac{4}{6} = \nicefrac{2}{3}\\
+    \alpha_{max} &= \min(\alpha_{max}, \alpha_s) = \nicefrac{2}{3}
 \end{align}
 
 Das neue Liniensegment ist somit $(P_0 + \nicefrac{1}{3} \cdot (P_1- P_0), P_1 - \nicefrac{2}{3} \cdot (P_1- P_0))$.
@@ -218,7 +218,10 @@ Das neue Liniensegment ist somit $(P_0 + \nicefrac{1}{3} \cdot (P_1- P_0), P_1 -
 \subsection*{Teilaufgabe 6a}
 \textit{Was ist der Unterschied zwischen Gouraud- und Phong-Shading bei der Schattierung eines Dreiecks mit einem Rasterisierungsverfahren?}
 
-TODO
+\begin{itemize}
+	\item \textbf{Gouraud:} Beleuchtungsberechnung nur an den Eckpunkten mit gemittelter Normale der angrenzenden Facetten
+	\item \textbf{Phong:} Beleuchtungsberechnung pro Fragment mit interpolierter Normale
+\end{itemize}
 
 \subsection*{Teilaufgabe 6b}
 \textit{Was versteht man unter einem Accumulation-Buffer, wie Sie ihn von OpenGL kennen?}
@@ -230,7 +233,7 @@ Redineringschritte.
 
 \begin{itemize}
     \item Bewegungsunschärfe
-    \item TODO
+    \item Tiefenunschärfe
 \end{itemize}
 
 \subsection*{Teilaufgabe 6c}
@@ -292,12 +295,12 @@ im Viewfrustum liegen.
 \subsection*{Teilaufgabe 8a}
 \begin{tabular}{p{8cm}p{1.5cm}p{1.5cm}p{1.5cm}}\toprule
 Operation                          & Vertex-Shader & Fragment-Shader & Weder noch \\\midrule
-Model-View-Transformation anwenden & $\square$     & $\square$       & $\square$ TODO\\ % \CheckedBox
-Tiefentest                         & $\square$     & $\square$       & $\square$ TODO\\
-Texturierung                       & $\square$     & $\square$       & $\square$ TODO\\
-Projektionstransformation anwenden & $\square$     & $\square$       & $\square$ TODO\\
-Beleuchtungsberechnung             & $\square$     & $\square$       & $\square$ TODO\\
-Clipping                           & $\square$     & $\square$       & $\square$ TODO\\\bottomrule
+Model-View-Transformation anwenden & \CheckedBox   & $\square$       & $\square$ \\ % \CheckedBox
+Tiefentest                         & $\square$     & $\square$       & \CheckedBox \\
+Texturierung                       & $\square$     & \CheckedBox     & $\square$ \\
+Projektionstransformation anwenden & \CheckedBox   & $\square$       & $\square$ \\
+Beleuchtungsberechnung             & $\square$     & \CheckedBox     & $\square$ \\
+Clipping                           & $\square$     & $\square$       & \CheckedBox \\\bottomrule
 \end{tabular}
 
 \subsection*{Teilaufgabe 8b}
