@@ -191,7 +191,7 @@ keine Rolle spielt und ausschließlich die Blickrichtung wichtig ist.
 
 \begin{align}
     \text{WEC}_{x_\text{min}}(P_0) &= -3-0 =-3 & \text{WEC}_{x_\text{min}}(P_1) &= 6-0 =6\\
-    \text{WEC}_{x_\text{max}}(P_0) &= 10+3 =13 & \text{WEC}_{x_\text{max}}(P_1) &= 6-6 =0\\
+    \text{WEC}_{x_\text{max}}(P_0) &= 10+3 =13 & \text{WEC}_{x_\text{max}}(P_1) &= 10-6 =4\\
     \text{WEC}_{y_\text{min}}(P_0) &= 4-0 = 4 & \text{WEC}_{y_\text{min}}(P_1) &= -2-0 =-2\\
     \text{WEC}_{y_\text{max}}(P_0) &= 6-4 = 2 & \text{WEC}_{y_\text{max}}(P_1) &= 6+2 =8
 \end{align}
@@ -206,10 +206,10 @@ werden müssen. (TODO: Stimmt das?)
 
 \subsection*{Teilaufgabe 5c}
 \begin{align}
-    a_{max} &= 1,\;\;\; a_{min} = 0\\
-    a_{min} &= \max(a_{min}, a_s) = \nicefrac{1}{3}\\
-    a_s &= \frac{\text{WEC}_{y_\text{min}}(P_1)}{\text{WEC}_{y_\text{min}}(P_0) - \text{WEC}_{y_\text{min}}(P_1)} = \nicefrac{4}{6} = \nicefrac{2}{3}\\
-    a_{max} &= \min(a_{max}, a_s) = \nicefrac{2}{3}
+    \alpha_{max} &= 1,\;\;\; \alpha_{min} = 0\\
+    \alpha_{min} &= \max(\alpha_{min}, \alpha_s) = \nicefrac{1}{3}\\
+    \alpha_s &= \frac{\text{WEC}_{y_\text{min}}(P_1)}{\text{WEC}_{y_\text{min}}(P_0) - \text{WEC}_{y_\text{min}}(P_1)} = \nicefrac{4}{6} = \nicefrac{2}{3}\\
+    \alpha_{max} &= \min(\alpha_{max}, \alpha_s) = \nicefrac{2}{3}
 \end{align}
 
 Das neue Liniensegment ist somit $(P_0 + \nicefrac{1}{3} \cdot (P_1- P_0), P_1 - \nicefrac{2}{3} \cdot (P_1- P_0))$.
@@ -218,7 +218,10 @@ Das neue Liniensegment ist somit $(P_0 + \nicefrac{1}{3} \cdot (P_1- P_0), P_1 -
 \subsection*{Teilaufgabe 6a}
 \textit{Was ist der Unterschied zwischen Gouraud- und Phong-Shading bei der Schattierung eines Dreiecks mit einem Rasterisierungsverfahren?}
 
-TODO
+\begin{itemize}
+	\item \textbf{Gouraud:} Beleuchtungsberechnung nur an den Eckpunkten mit gemittelter Normale der angrenzenden Facetten
+	\item \textbf{Phong:} Beleuchtungsberechnung pro Fragment mit interpolierter Normale
+\end{itemize}
 
 \subsection*{Teilaufgabe 6b}
 \textit{Was versteht man unter einem Accumulation-Buffer, wie Sie ihn von OpenGL kennen?}
@@ -230,7 +233,7 @@ Redineringschritte.
 
 \begin{itemize}
     \item Bewegungsunschärfe
-    \item TODO
+    \item Tiefenunschärfe
 \end{itemize}
 
 \subsection*{Teilaufgabe 6c}
@@ -260,7 +263,7 @@ siehe \enquote{OpenGL Teil 2 und 3}, Folie 88.
 \subsection*{Teilaufgabe 7a (2)}
 \begin{align}
     c' &= 1 \cdot (0,0,1,0.5) + 0.5 \cdot (0,0,0,0) = (0,0,1,0.5)\\
-    c  &= 1 \cdot (1,0,0,0.5) + 0.5 \cdot (0,0,1,0.25) = (1,0,0.5, \nicefrac{3}{4})
+    c  &= 1 \cdot (1,0,0,0.5) + 0.5 \cdot (0,0,1,0.5) = (1,0,0.5,0.75)
 \end{align}
 
 \subsection*{Teilaufgabe 7b}
@@ -292,12 +295,12 @@ im Viewfrustum liegen.
 \subsection*{Teilaufgabe 8a}
 \begin{tabular}{p{8cm}p{1.5cm}p{1.5cm}p{1.5cm}}\toprule
 Operation                          & Vertex-Shader & Fragment-Shader & Weder noch \\\midrule
-Model-View-Transformation anwenden & $\square$     & $\square$       & $\square$ TODO\\ % \CheckedBox
-Tiefentest                         & $\square$     & $\square$       & $\square$ TODO\\
-Texturierung                       & $\square$     & $\square$       & $\square$ TODO\\
-Projektionstransformation anwenden & $\square$     & $\square$       & $\square$ TODO\\
-Beleuchtungsberechnung             & $\square$     & $\square$       & $\square$ TODO\\
-Clipping                           & $\square$     & $\square$       & $\square$ TODO\\\bottomrule
+Model-View-Transformation anwenden & \CheckedBox   & $\square$       & $\square$ \\ % \CheckedBox
+Tiefentest                         & $\square$     & $\square$       & \CheckedBox \\
+Texturierung                       & $\square$     & \CheckedBox     & $\square$ \\
+Projektionstransformation anwenden & \CheckedBox   & $\square$       & $\square$ \\
+Beleuchtungsberechnung             & $\square$     & \CheckedBox     & $\square$ \\
+Clipping                           & $\square$     & $\square$       & \CheckedBox \\\bottomrule
 \end{tabular}
 
 \subsection*{Teilaufgabe 8b}
