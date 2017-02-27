@@ -1,0 +1,1 @@
+* NK WS 2013/2014, A5 f: Das Bestimmtheitsmaße ist definiert als R^2 = 1 - RSS / TSS.
