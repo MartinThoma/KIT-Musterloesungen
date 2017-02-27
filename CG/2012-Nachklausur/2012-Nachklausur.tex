@@ -106,14 +106,14 @@ da die Vertices näher an den Punkten liegen, für die interpoliert wird
     \item
     \begin{itemize}
         \item Rot-Wert nach (1): $1$
-        \item Rot-Wert nach (2): $\overbrace{0.5}^{\mathclap{\text{SRC\_ALPHA}}} \cdot \underbrace{1.0}_{\mathclap{\text{SRC\_COLOR}}} + \overbrace{(1-0.5)}^{\mathclap{\text{1-SRC\_ALPHA}}} \cdot \underbrace{0.2}_{\mathclap{\text{DST\_COLOR}}} = 0.6$\vspace{2.5pt}
-        \item Rot-Wert nach (3): $0.5\cdot0.6+0.5\cdot0.4=0.5$
+        \item Rot-Wert nach (2): $\overbrace{0.5}^{\mathclap{\text{SRC\_ALPHA}}} \cdot \underbrace{0.2}_{\mathclap{\text{SRC\_COLOR}}} + \overbrace{(1-0.5)}^{\mathclap{\text{1-SRC\_ALPHA}}} \cdot \underbrace{1.0}_{\mathclap{\text{DST\_COLOR}}} = 0.6$\vspace{2.5pt}
+        \item Rot-Wert nach (3): $0.5\cdot0.4+0.5\cdot0.6=0.5$
     \end{itemize}
     \item
     \begin{itemize}
         \item Rot-Wert nach (1): $1$
-        \item Rot-Wert nach (2): $0.5\cdot1.0+0.5\cdot0.4=0.7$
-        \item Rot-Wert nach (3): $0.5\cdot0.7+0.5\cdot0.2=0.45$
+        \item Rot-Wert nach (2): $0.5\cdot0.4+0.5\cdot1.0=0.7$
+        \item Rot-Wert nach (3): $0.5\cdot0.2+0.5\cdot0.7=0.45$
     \end{itemize}
     \item \textit{Welche Konsequenzen hat dies für das Zeichnen von sich
                   überlappenden semi-transparenten Objekten?}\\
