@@ -60,7 +60,7 @@ $\theta = \arcsin \frac{\eta_1}{\eta_0}$
 \subsection*{Teilaufgabe 2a}
 \begin{itemize}
     \item Bild 1: Nicht mögliche Kombination aus Bild~2 und Bild~3.
-    \item Bild 2: Komplett spekular
+    \item Bild 2: Nur spekular (glossy)
     \item Bild 3: Entspricht einem Glanzlicht in Richtung $N$, aber das ist nur
                   in Richtung $R_L$ möglich.
     \item Bild 4: Komplett diffus.
@@ -375,13 +375,22 @@ oder nicht benutzt haben.}
 Analog zu (11.2).
 
 \subsection*{Teilaufgabe 11.4}
-\begin{tabular}{cp{8cm}ll}\toprule
-~ & Aussage                                                                                                                                                          & Wahr & Falsch \\\midrule
-1 & Um eine Szene mit opaken und semitransparenten Objek-ten mit OpenGL möglichst korrekt zu zeichnen, muss man die opaken nach den transparenten Objekten zeichnen. & $\square$      & \CheckedBox      \\
-2 & Der Alpha-Test erlaubt es, Fragmente anhand ihres Alpha-Wertes zu verwerfen, ohne den Tiefenpuffer zu modifizieren.                                              & \CheckedBox    & $\square$        \\
-3 & Alpha-Clipping ist eine Fragmentoperation und findet zwischen Alpha-Test und Alpha-Blending statt.                                                               & $\square$      & \CheckedBox      \\
-4 & Der Blendingoperator definiert durch \texttt{glBlendEquation(GL\_FUNC\_ADD)} und \texttt{glBlendFunc(GL\_SRC\_ALPHA, GL\_SRC\_ALPHA)} ist kommutativ.            & $\square$      & \CheckedBox        \\\bottomrule
+\begin{tabular}{cp{8cm}lll}\toprule
+~ & Aussage                                                                                                                                                          &
+ Wahr & Falsch & Begründung \\\midrule
+1 & Um eine Szene mit opaken und semitransparenten Objek-ten mit OpenGL möglichst korrekt zu zeichnen, muss man die opaken nach den transparenten Objekten zeichnen. &
+ $\square$      & \CheckedBox   &   \\
+2 & Der Alpha-Test erlaubt es, Fragmente anhand ihres Alpha-Wertes zu verwerfen, ohne den Tiefenpuffer zu modifizieren.                                              &
+ \CheckedBox    & $\square$     &   \\
+3 & Alpha-Clipping ist eine Fragmentoperation und findet zwischen Alpha-Test und Alpha-Blending statt.                                                               &
+ $\square$      & \CheckedBox   &   \\
+4 & Der Blendingoperator definiert durch \texttt{glBlendEquation(GL\_FUNC\_ADD)} und \texttt{glBlendFunc(GL\_SRC\_ALPHA, GL\_SRC\_ALPHA)} ist kommutativ.            &
+ \CheckedBox    & $\square$     &  1) \\\bottomrule
 \end{tabular}
+\\[3pt]
+1)
+COLOR = SRC\_ALPHA $\cdot$ SRC\_COLOR + SRC\_ALPHA $\cdot$ DST\_COLOR $\Leftrightarrow$ \\
+COLOR = SRC\_ALPHA $\cdot$ DST\_COLOR + SRC\_ALPHA $\cdot$ SRC\_COLOR
 
 \section*{Aufgabe 12: Bézierkurven}
 \subsection*{Teilaufgabe 12a}
@@ -398,7 +407,7 @@ Analog zu (11.2).
 Kurve & Ja           & Nein           & Begründung                                      \\\midrule
 1     & $\square$    & \CheckedBox    & Kurve verlässt konvexe Hülle der Kontrollpunkte \\
 2     & \CheckedBox  & $\square$      & ~                                               \\
-3     & $\square$    & \CheckedBox    & Tangentenkriterium verletzt                     \\
+3     & $\square$    & \CheckedBox    & Tangentenbedingung verletzt                     \\
 4     & \CheckedBox  & $\square$      &                                                 \\\bottomrule
 \end{tabular}
 

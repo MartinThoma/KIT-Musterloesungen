@@ -133,38 +133,40 @@ Alpha-Testing werden dahinterliegende Objekte gezeichnet.
 
 \subsection*{Teilaufgabe 2c}
 \begin{itemize}
-    \item Rufe \texttt{DrawScene} auf, Setze Source- und Destination-Faktor auf
-          1/Anzahl Lichtquellen,
-    \item verschiebe Lichtquelle,
-    \item rufe \texttt{DrawScene} auf (Blending der Ergebnisse),
-    \item setze Source auf 2/Anzahl,
-    \item verschiebe Lichtquelle,
-    \item rufe DrawScene auf (Blending der Ergebnisse),
-    \item usw. bis alle Lichtquellen durch sind
+    \item Rufe \texttt{DrawScene} auf. Aktiviere Blending und stelle es folgendermaßen ein:
+ \begin{minted}{C}
+ glBlendEquation(GL_FUNC_ADD);
+ glBlendFunc(GL_CONSTANT_ALPHA, GL_ONE); // Addiere das Bild mit konstantem Alpha
+ glBlendColor (1.0, 1.0, 1.0, 1.0/n); // n = Anzahl Lichtquellen
+ \end{minted}
+    \item wähle erste Lichtquelle
+    \item zeichne das Bild mithilfe der Shader auf und führe das Blending auf dem Ergebnis aus
+    \item wechsele zur nächsten Lichtquelle
+    \item zeichne das Bild mithilfe der Shader auf und führe das Blending auf dem Ergebnis aus
+    \item fahre fort bis alle Lichtquellen durch sind
 \end{itemize}
 
 \section*{Aufgabe 3: Texturierung}
 \subsection*{Teilaufgabe 3a: Mip-Maps}
 \begin{enumerate}[label=(\roman*)]
     \item \textit{Welches Problem löst Mip-Mapping?}\\
-          Das Aliasing-Problem bei Minification.
+          Hilft gegen Aliasing, das durch Unterabtastung bei der Verkleinerung entsteht.
     \item \textit{Was für Vorbereitungen werden für eine Textur getroffen?}\\
-          Man berechnet Mipmap-Stufen, indem die Höhe und Breite der Textur
+          Man berechnet Mipmap-Stufen, indem die Pixel interpoliert und die Höhe und Breite der Textur
           jeweils halbiert wird.
     \item \textit{Wie erfolgt der Zugriff auf die Textur}?\\
-          Texelgröße($n$) $\leq$ Größe des Pixelfootprints auf der Textur $<$ Texelgröße($n+1$)
+          Texelgröße($n$) $\leq$ Größe des Pixelfootprints auf der Textur $<$ Texelgröße($n+1$), es werden also zwei benachbarte Mip-Map-Stufen bilinear im Pixelfootprint und das Ergebnis linear interpoliert.
 \end{enumerate}
 
 \subsection*{Teilaufgabe 3b: Environment-Maps}
 \textit{Erläutern Sie kurz, wofür Environment-Mapping verwendet wird.}
 
-Darstellung reflektierender Objekte mit Spiegelung von Umgebung ohne
+Darstellung reflektierender Objekte mit Spiegelungen von der Umgebung ohne
 geometrische Repräsentation.
 
 \textit{Welche grundlegende Annahme wird dabei gemacht?}
 
-Die Umgebung ist weit genug entfernt, sodass die Position keine Rolle spielt
-und nur die Richtung genommen werden muss.
+Die Umgebung ist weit genug entfernt, sodass die Richtung des reflektierten Strahls ausreicht und die Position ignoriert werden kann.
 
 \subsection*{Teilaufgabe 3c}
 \begin{tikzpicture}
@@ -238,8 +240,8 @@ Median ist gleich gut wie SAH wenn Primitive gleichmäßig verteilt
 sind.
 
 \subsection*{Teilaufgabe 4d}
-Erster Schnittpunkt mit einem Primitiv wird an Gitterzellen weitergegeben.
-Vorteil: man muss das gleiche Objekt nicht mehrfach schneiden.
+Idee: Führe Schnitttest nur einmal durch und markiere das Objekt als getestet. 
+Vorteil: Vermeidet mehrfache Schnitttests mit einem Objekt. (s. Kapitel 5, Folie 57)
 
 \clearpage
 \section*{Aufgabe 5}

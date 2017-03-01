@@ -118,14 +118,12 @@ dazugehörigen kartesischen Koordinaten an.}
 Ein Punkt hat als letzte Komponente einen Wert $\neq 0$, eine Richtung hat dort
 $= 0$.
 
-\begin{table}
-    \begin{tabular}{lccl}
-    Vektor                                  & Punkt       & Richtung    & Kartesische Koordinaten \\
-    $\begin{pmatrix}1,2,3,1\end{pmatrix}$   & \CheckedBox & $\square$   & $(1,2,3)$               \\
-    $\begin{pmatrix}1,2,3,0.1\end{pmatrix}$ & \CheckedBox & $\square$   & $(10,20,30)$            \\
-    $\begin{pmatrix}1,2,3,0\end{pmatrix}$   & $\square$   & \CheckedBox & $(1,2,3)$               \\
-    \end{tabular}
-\end{table}
+\begin{tabular}{lccl}
+Vektor                                  & Punkt       & Richtung    & Kartesische Koordinaten \\
+$\begin{pmatrix}1,2,3,1\end{pmatrix}$   & \CheckedBox & $\square$   & $(1,2,3)$               \\
+$\begin{pmatrix}1,2,3,0.1\end{pmatrix}$ & \CheckedBox & $\square$   & $(10,20,30)$            \\
+$\begin{pmatrix}1,2,3,0\end{pmatrix}$   & $\square$   & \CheckedBox & $(1,2,3)$               \\
+\end{tabular}
 
 \clearpage
 \subsection*{Teilaufgabe 3b}
@@ -228,7 +226,7 @@ steht die Distanzfunktion \texttt{float DF( vec3 x )} zur Verfügung.}
 \subsection*{Teilaufgabe 7a}
 \textit{i) Indexliste(n) für Primitivtyp \texttt{GL\_TRIANGLE\_STRIP}}
 
-p1: (1, 2, 3, 4, 5, 6, 7, 8)
+p1: (2, 1, 3, 4, 5, 6, 7, 8)
 
 benötigt 1 Primitiv
 
@@ -255,7 +253,7 @@ benötigt 2 Primitive
 4 & \texttt{uniform}-Variablen schreiben.
             & ~                  & ~                 & ~     \\
 5 & Das Beleuchtungsmodell auswerten, wenn \textit{Phong-Shading} verwendet wird.
-            & ~                  & ~                 & x     \\
+            & x                  & ~                 & x     \\
 6 & Aus Texturen lesen.
             & x                  & x                 & x     \\\bottomrule
 \end{tabular}
@@ -271,7 +269,7 @@ Dreiecksnetz weiter unterteilen (Tesselieren)
 \begin{enumerate}[label=(\roman*)]
     \item Flat shading
         \begin{align}
-        n &= \langle x_1-x_2, x_3-x_2\rangle\\
+        n &= (x_1-x_2) \times (x_3-x_2)\\
         f &= \langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
         \end{align}
     \item Gouraud-Shading
@@ -291,10 +289,12 @@ Dreiecksnetz weiter unterteilen (Tesselieren)
 
 \section*{Aufgabe 10}
 \subsection*{Teilaufgabe 10a}
+\textit{Kommentar: "'glDepthMask (GL\_TRUE)"' nicht benötigt, da bereits gesetzt.}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
 
 \subsection*{Teilaufgabe 10b}
-TODO
+Da die Dreiecke nicht sortiert wurden, werden überlappende (semi-) transparente Dreiecke u.U. falsch herum überlagert (blended), also die Dreiecke, die hintendran liegen über die, die vornedran sind. Aufgrund der Nicht-Kommutativität des Blendings kommt es so zu einem verfälschten Ergebnis.\\
+\textit{TODO: überprüfen, leider kaum Informationen auf den Folien..}
 
 \subsection*{Teilaufgabe 10c}
 TODO
