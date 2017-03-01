@@ -8,15 +8,16 @@ float DF( vec3 x ) { ... }
 
 // Implementieren Sie Sphere Tracing in dieser Funktion.
 bool sphereTrace( out vec3 pos, out int steps ) {
-	pos = A;
 	steps = 0;
-	float t = 0.;
+	float t = 0.0;
 	while (t < tMax) {
+		pos = A + t * D;
 		float d = DF(pos);
-		pos += d * D;
 		if (abs(d) < epsilon) {
 			return true;
 		}
+		t += d;
+		steps++;
 	}
 	return false;
 }

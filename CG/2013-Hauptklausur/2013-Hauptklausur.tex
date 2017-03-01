@@ -102,10 +102,10 @@ werden. Die reflektion wird \enquote{perfekter}.
 \subsection*{Teilaufgabe 2d}
 \begin{tabular}{cp{12cm}cc}\toprule
 \# & Aussage                                                                                                                                      & Wahr & Falsch \\\midrule
-1  & Zu drei gewählten Primärfarben gibt es immer Spektralfarben, die durch die Kombination dieser drei Farben nicht realisierbar sind.           & x    & ~      \\
-2  & Menschen können geringe Helligkeitsunterschiede im Bereich niedriger Lichtintensität besser wahrnehmen als im Bereich hoher Lichtintensität. & x    & ~      \\
-3  & Es gibt keinen linearen Zusammenhang zwischem dem CIE-XYZ- und dem RGB-Modell.                                                               & ~    & x      \\
-4  & Gammakorrektur ist nur bei Röhrenmonitoren notwendig.                                                                                        & ~    & x      \\\bottomrule
+1  & Zu drei gewählten Primärfarben gibt es immer Spektralfarben, die durch die Kombination dieser drei Farben nicht realisierbar sind.           & \CheckedBox & \Square     \\
+2  & Menschen können geringe Helligkeitsunterschiede im Bereich niedriger Lichtintensität besser wahrnehmen als im Bereich hoher Lichtintensität. & \CheckedBox & \Square     \\
+3  & Es gibt keinen linearen Zusammenhang zwischem dem CIE-XYZ- und dem RGB-Modell.                                                               & \Square     & \CheckedBox \\
+4  & Gammakorrektur ist nur bei Röhrenmonitoren notwendig.                                                                                        & \Square     & \CheckedBox \\\bottomrule
 \end{tabular}
 
 
@@ -167,9 +167,12 @@ entsprechend dieser auf die Textur der betreffenden Würfelfläche zu.
 \subsection*{Teilaufgabe 5a}
 \begin{tabular}{cp{8cm}llll}\toprule
 \#& Aussage                                                                                                                                                                                                & BVH     & Octree & kD-Baum & Gitter \\\midrule
-1 & Die Struktur eignet sich gut in Fällen, in denen Primitive gehäuft auftreten und große Leerräume zwischen den Häufungen existieren.                                                                    & x       & x      & ~       & ~      \\
-2 & In einer Hierarchieebene können sich die Zellen der Struktur überlappen.                                                                                                                               & x       & ~      & ~       & ~      \\
-3 & Gehen Sie nun davon aus, dass Primitive nicht unterteilt werden und kein Mailboxing verwendet wird. Dann wird jedes Primitiv in jedem Fall höchstens einmal auf einen Schnitt mit dem Strahl getestet. & x       & ~      & ~       & ~      \\\bottomrule
+1 & Die Struktur eignet sich gut in Fällen, in denen Primitive gehäuft auftreten und große Leerräume zwischen den Häufungen existieren. 
+& \CheckedBox & \CheckedBox & \Square     & \Square     \\
+2 & In einer Hierarchieebene können sich die Zellen der Struktur überlappen.
+& \CheckedBox & \Square     & \Square     & \Square     \\
+3 & Gehen Sie nun davon aus, dass Primitive nicht unterteilt werden und kein Mailboxing verwendet wird. Dann wird jedes Primitiv in jedem Fall höchstens einmal auf einen Schnitt mit dem Strahl getestet.
+& \CheckedBox & \Square     & \Square     & \Square     \\\bottomrule
 \end{tabular}
 
 \subsection*{Teilaufgabe 5b}
@@ -245,23 +248,23 @@ benötigt 2 Primitive
 \#& Aufgabe    
             &  Vertex-Shader     & Geometry-Shader   &   Fragment-Shader \\\midrule
 1 & Den Primitivtyp von \texttt{GL\_POINT} auf \texttt{GL\_TRIANGLE} ändern.
-            & ~                  & x                 & ~     \\
+            & \Square            & \CheckedBox       & \Square     \\
 2 & Die Projektionstransformation auf Vertizes anwenden und das Ergebnis in \texttt{gl\_Position} speichern.
-            & x                  & ~                 & ~     \\
+            & \CheckedBox        & \CheckedBox       & \Square     \\
 3 & Die Fragmentfarbe ausgeben.
-            & ~                  & ~                 & x     \\
+            & \Square            & \Square           & \CheckedBox \\
 4 & \texttt{uniform}-Variablen schreiben.
-            & ~                  & ~                 & ~     \\
+            & \Square            & \Square           & \Square     \\
 5 & Das Beleuchtungsmodell auswerten, wenn \textit{Phong-Shading} verwendet wird.
-            & x                  & ~                 & x     \\
+            & \Square            & \Square           & \CheckedBox \\
 6 & Aus Texturen lesen.
-            & x                  & x                 & x     \\\bottomrule
+            & \CheckedBox        & \CheckedBox       & \CheckedBox \\\bottomrule
 \end{tabular}
 
 
 \section*{Aufgabe 8}
 \subsection*{Teilaufgabe 8a}
-$\lambda_3 = \triangle(x, x_1, x_2)$
+\[\lambda_3 = \frac{\triangle(\mathbf{x}, \mathbf{x}_1, \mathbf{x}_2)}{\triangle(\mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3)}\]
 \subsection*{Teilaufgabe 8b}
 Dreiecksnetz weiter unterteilen (Tesselieren)
 \subsection*{Teilaufgabe 8c}
@@ -269,18 +272,18 @@ Dreiecksnetz weiter unterteilen (Tesselieren)
 \begin{enumerate}[label=(\roman*)]
     \item Flat shading
         \begin{align}
-        n &= (x_1-x_2) \times (x_3-x_2)\\
-        f &= \langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
+        \mathbf{n} &= (\mathbf{x}_1 - \mathbf{x}_2) \times (\mathbf{x}_3 - \mathbf{x}_2)\\
+        \mathbf{f} &= \langle \tfrac{\mathbf{n}}{|\mathbf{n}|} , \mathbf{L} \rangle^+ \cdot (\lambda_1 \mathbf{c}_1 + \lambda_2 \mathbf{c}_2 + \lambda_3 \mathbf{c}_3)
         \end{align}
     \item Gouraud-Shading
         \begin{align}
-        c'_i &= c_i \langle n_i, L \rangle^+\\
-        f &= \lambda_1 c'_1 + \lambda_2 c'_2 + \lambda_3 c'_3
+        \mathbf{c}'_i &= \mathbf{c}_i \langle \mathbf{n}_i, \mathbf{L} \rangle^+ \quad (i \in \{1, 2, 3\})\\
+        \mathbf{f} &= \lambda_1 \mathbf{c}'_1 + \lambda_2 \mathbf{c}'_2 + \lambda_3 \mathbf{c}'_3
         \end{align}
     \item Phong-Shading
         \begin{align}
-        n &= \lambda_1 n_1 + \lambda_2 n_2 + \lambda_3 n_3\\
-        f &=\langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
+        \mathbf{n} &= \lambda_1 \mathbf{n}_1 + \lambda_2 \mathbf{n}_2 + \lambda_3 \mathbf{n}_3\\
+        \mathbf{f} &= \langle \mathbf{n} , \mathbf{L} \rangle^+ \cdot (\lambda_1 \mathbf{c}_1 + \lambda_2 \mathbf{c}_2 + \lambda_3 \mathbf{c}_3)
         \end{align}
 \end{enumerate}
 
@@ -289,15 +292,21 @@ Dreiecksnetz weiter unterteilen (Tesselieren)
 
 \section*{Aufgabe 10}
 \subsection*{Teilaufgabe 10a}
-\textit{Kommentar: "'glDepthMask (GL\_TRUE)"' nicht benötigt, da bereits gesetzt.}
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
 
 \subsection*{Teilaufgabe 10b}
-Da die Dreiecke nicht sortiert wurden, werden überlappende (semi-) transparente Dreiecke u.U. falsch herum überlagert (blended), also die Dreiecke, die hintendran liegen über die, die vornedran sind. Aufgrund der Nicht-Kommutativität des Blendings kommt es so zu einem verfälschten Ergebnis.\\
-\textit{TODO: überprüfen, leider kaum Informationen auf den Folien..}
+\textit{Beschreiben Sie kurz, welche Probleme auftreten.}
+
+Dreiecke, die von anderen Dreiecken verdeckt sind, werden aufgrund des Tiefentests auch an den Stellen nicht gezeichnet, wo ein davor liegendes Dreieck transparent ist. (Um ein korrektes Ergebnis zu erhalten, müssten zunächst das Schreiben in den Tiefenpuffer mittels \mintinline{glsl}{glDepthMask(GL_FALSE);} deaktiviert werden und dann die Dreiecke sortiert von hinten nach vorne gezeichnet werden.)
 
 \subsection*{Teilaufgabe 10c}
-TODO
+\textit{Welche Technik bzw. Funktionalität setzt man in OpenGL üblicherweise ein, um die Probleme aus der vorherigen Aufgabe zu vermeiden?}
+
+Alpha-Testing
+
+\textit{In welchem Typ von OpenGL-Shader kann diese Funktionalität implementiert werden und wie lautet der entsprechende Befehl?}
+
+im Fragment-Shader: \mintinline{glsl}{if (gl_FragColor.a < 1.0) discard;}
 
 \section*{Aufgabe 11: Bézierkurven}
 \subsection*{Teilaufgabe 11a}
