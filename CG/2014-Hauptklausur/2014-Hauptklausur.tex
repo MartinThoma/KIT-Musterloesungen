@@ -245,7 +245,8 @@ Inklusive Schnittests der AABB Hüllkörper:\vspace{-3pt}
 
 \section*{Aufgabe 8: OpenGL-Primitive}
 \begin{itemize}
-    \item[(a)] \texttt{GL\_TRIANGLE\_STRIP}: Ganz links ist (1), (2) ist rechts unten davon, (3) ist rechts oben von (1). Dann im Zick-Zack-Muster weiter.
+    \item[(a)] \texttt{GL\_TRIANGLE\_STRIP}: Ganz links ist (1), (2) ist rechts unten davon, (3) ist rechts oben von (1). Dann im Zick-Zack-Muster weiter. \\
+    Oder mit minimaler Anzahl Vertices: \texttt{GL\_TRIANGLE\_FAN} mit (1) beim "'inneren"' Knick, (2) rechts-unterhalb davon, (3) rechts-oberhalb usw. bis (8) links davon.
     \item[(b)] \texttt{GL\_TRIANGLE\_FAN}: Der mittlere Knoten ist (1), dann wird von ganz links gegen den Uhrzeigersinn nummeriert.
 \end{itemize}
 
@@ -259,13 +260,13 @@ Inklusive Schnittests der AABB Hüllkörper:\vspace{-3pt}
 \end{itemize}
 
 \subsection*{Teilaufgabe 9a (II)}
-\texttt{glBlendFunc(TODO, TODO)}
+\texttt{glBlendFunc(GL\_SRC\_ALPHA (2), GL\_ONE\_MINUS\_SRC\_ALPHA (3))} \textit{nicht sicher}
 
 \subsection*{Teilaufgabe 9b}
-\texttt{glBlendFunc(TODO, TODO)}
+\texttt{glBlendFunc(GL\_ONE (1), GL\_ONE (1))}
 
 \subsection*{Teilaufgabe 9c}
-\texttt{glBlendFunc(TODO, TODO)}
+\texttt{glBlendFunc(GL\_ZERO (0), GL\_SRC\_COLOR (6))}
 
 
 \section*{Aufgabe 10: Bézier-Kurven und Bézier-Splines}
