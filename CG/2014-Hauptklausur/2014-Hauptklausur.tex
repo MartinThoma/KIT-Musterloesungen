@@ -162,26 +162,32 @@ TODO
 \subsection*{Teilaufgabe 4d}
 \begin{tabular}{cp{6cm}ccp{5cm}}\toprule
 \# & Aussage  & Wahr & Falsch & Begründung \\\midrule
- 1 & Texturkoordinaten müssen sich immer im Intervall $[0; 1]$ befinden. & $\square$ & $\square$ & ~ \\
- 2 & Texturkoordinaten können als Attribute der Eckpunkte (Vertizes) übergeben werden und werden als solche interpoliert.  & $\square$    & $\square$      & ~          \\
- 3 & Texturkoordinaten müssen für die Darstellung wie Eckpunktkoordinaten der Model-View-Transformation unterzogen werden. & $\square$    & $\square$      & ~          \\\bottomrule
+ 1 & Texturkoordinaten müssen sich immer im Intervall $[0; 1]$ befinden. & $\square$ & \CheckedBox & Koordinaten, die außerhalb liegen, werden je nach Einstellung (Clamp, Repeat, ..) auf Texturkoordinaten abgebildet \\
+ 2 & Texturkoordinaten können als Attribute der Eckpunkte (Vertizes) übergeben werden und werden als solche interpoliert.  & \CheckedBox    & $\square$      & Nicht eindeutig formuliert, aber siehe Kapitel 4, Folie 28          \\
+ 3 & Texturkoordinaten müssen für die Darstellung wie Eckpunktkoordinaten der Model-View-Transformation unterzogen werden. & $\square$    & \CheckedBox      & Interpolation, s. Kapitel 4, Folie 31          \\\bottomrule
 \end{tabular}
 
 
 \section*{Aufgabe 5: Vorgefilterte Environment-Maps}
 \subsection*{Teilaufgabe 5a}
-TODO
+
+\begin{enumerate}
+	\item Diffuse Beleuchtung (=Reflexion!?): $\textbf{n}$
+	\item Imperfekte Spiegelung: $\textbf{r}$
+\end{enumerate}
+
 \subsection*{Teilaufgabe 5b}
-TODO
+$r = 2 * (v \cdot n)n - v$
 
 \section*{Aufgabe 6: Hierarchische Datenstrukturen}
 \subsection*{Teilaufgabe 6a}
 \includegraphics*[width=0.8\linewidth, keepaspectratio]{6a.png}
-
-\subsection*{Teilaufgabe 6b}
-Inklusive Schnittests der AABB Hüllkörper:
-
+%
+\subsection*{Teilaufgabe 6b}\vspace{-6pt}
+Inklusive Schnittests der AABB Hüllkörper:\vspace{-3pt}
+%
 \begin{enumerate}
+	\itemsep-3pt
     \item 1
     \item 1.1
     \item 1.1.1
@@ -212,20 +218,20 @@ Inklusive Schnittests der AABB Hüllkörper:
  3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird.\footnotemark                 & \CheckedBox & $\square$   & \CheckedBox & $\square$ \\
  4 & Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & $\square$   & $\square$   & $\square$   & \CheckedBox \\\bottomrule
 \end{tabular}
-\footnotetext{vgl. \texttt{05\_ Raumliche Datenstrukturen.pdf}, Folie 98}
+\footnotetext{vgl. \texttt{05\_ Raumliche Datenstrukturen.pdf}, Folie 103}
 
 \section*{Aufgabe 7: Rasterisierung und OpenGL}
 \subsection*{Teilaufgabe 7a}
 \begin{tabular}{cp{8cm}llp{4cm}}\toprule
 \# & Aussage & Wahr & Falsch & Begründung / Quelle \\\midrule
- 1 & In der OpenGL-Pipeline wird View Frustum Clipping vor der perspektivischen Division durchgeführt.                                    & TODO & TODO & TODO \\
- 2 & Vertex-Shader können auf Texturen zugreifen.                                                                                         & TODO & TODO & TODO \\
- 3 & Bei Gouraud-Shading muss man die Normale im Fragment-Shader erneut normalisieren.                                                    & TODO & TODO & TODO \\
+ 1 & In der OpenGL-Pipeline wird View Frustum Clipping vor der perspektivischen Division durchgeführt.                                    & \CheckedBox & $\square$ & Kapitel 6, Folie 45 \\
+ 2 & Vertex-Shader können auf Texturen zugreifen.                                                                                         & \CheckedBox & $\square$ & TODO \\
+ 3 & Bei Gouraud-Shading muss man die Normale im Fragment-Shader erneut normalisieren.                                                    & $\square$ & \CheckedBox & TODO \\
  4 & Gouraud-Shading mit dem Phong-Beleuchtungsmodell kann im Geometry-Shader implementiert werden.                                       & TODO & TODO & TODO \\
- 5 & Phong-Shading kann man alleine mit einem Vertex-Shader und einem Geometry-Shader implementieren; letzterer gibt dann die Farbe aus.  & TODO & TODO & TODO \\
- 6 & Bei beliebig feiner Tessellierung ist kein Unterschied zwischen Gouraud- und Phong-Shading erkennbar.                                & TODO & TODO & TODO \\
+ 5 & Phong-Shading kann man alleine mit einem Vertex-Shader und einem Geometry-Shader implementieren; letzterer gibt dann die Farbe aus.  & $\square$ & \CheckedBox & TODO \\
+ 6 & Bei beliebig feiner Tessellierung ist kein Unterschied zwischen Gouraud- und Phong-Shading erkennbar.                                & \CheckedBox & $\square$ & TODO \\
  7 & Selbst wenn der Tiefentest für ein Fragment fehlschlägt, kann der Stencil-Puffer verändert werden.                                   & TODO & TODO & TODO \\
- 8 & Instanziierung von Geometrie kann man sowohl mit dem Vertex- als auch dem Geometry-Shader durchführen.                               & TODO & TODO & TODO \\\bottomrule
+ 8 & Instanziierung von Geometrie kann man sowohl mit dem Vertex- als auch dem Geometry-Shader durchführen.                               & $\square$ & \CheckedBox & Nur mit dem Geometry-Shader \\\bottomrule
 \end{tabular}
 
 \subsection*{Teilaufgabe 7b}
@@ -233,7 +239,7 @@ Inklusive Schnittests der AABB Hüllkörper:
 
 \begin{itemize}
     \item Dreiecke können nicht sortierbar sein (wenn ein Dreieck ein andere schneidet)
-    \item TODO
+    \item Sortieren ist aufwendig, muss bei Veränderung der Blickrichtung jedesmal neu durchgeführt werden
     \item TODO
 \end{itemize}
 
