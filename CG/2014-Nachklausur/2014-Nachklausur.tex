@@ -40,7 +40,7 @@
 Farbe der Oberfläche im Punkt $P_1$ bestimmt werden kann! Unterstreichen Sie
 dabei die Vektoren, die normiert sein müssen!}
 
-\[I = \sum_{i=1}^2 \overbrace{k_a \cdot I_{L_i}}^{=0} + k_d \cdot I_{L_i} \cdot (\underbrace{N \cdot L_{i}}_{\cos \Theta({L_i})}) + \overbrace{k_s \cdot I_{L_i} \cdot (R_{L_i} \cdot V)^n}^{=0}\]
+\[I = \sum_{i=1}^2 \textcolor{gray}{\overbrace{k_a \cdot I_{L_i}}^{=0}} + k_d \cdot I_{L_i} \cdot (\underbrace{N \cdot L_{i}}_{\cos \Theta({L_i})}) + \textcolor{gray}{\overbrace{k_s \cdot I_{L_i} \cdot (R_{L_i} \cdot V)^n}^{=0}}\]
 
 Normalisierte Vektoren:
 
@@ -101,7 +101,7 @@ viele. Damit sollen zu perfekte Spiegelungen / Transmissionen vermieden werden.
 \textit{Welchen Lichttransport kann man durch Distributed Raytracing berechnen, den
 Whitted-Style Raytracing nicht erfassen kann?}
 
-Siehe Kapitel~2 (Raytracing), Folie 147ff:
+Siehe Kapitel~2 (Raytracing), Folie 107ff:
 
 \begin{itemize}
     \item Kaustiken
@@ -115,7 +115,10 @@ Siehe Kapitel~2 (Raytracing), Folie 147ff:
 Normalen bei einem Dreiecksnetz notwendig sind! Gehen Sie dabei davon aus, dass nur
 die Vertex-Positionen und die Topologie des Netzes gegeben sind!}
 
-TODO
+\begin{itemize}
+	\item Kreuzprodukt über $(P_2-P_1)$ und $(P_3 - P_1)$ für drei Punkte eines Dreiecks
+	\item Normalisieren
+\end{itemize}
 
 \clearpage
 \section*{Aufgabe 3: Farben und Farbwahrnehmung}
@@ -140,7 +143,7 @@ Metamere sind.
     \item Der Farbeindruck einer additiv gemischten Farbe hängt nicht vom Farbeindruck der Ausgangsfarben ab.
     \item[$\Rightarrow$] Falsch. Vgl. Superpositionsprinzip, Kapitel 1, Teil 2, Folie 6.
     \item Farbige Flächen werden unabhängig von ihrer Umgebung vom menschlichen Auge immer gleich wahrgenommen.
-    \item[$\Rightarrow$] Falsch. (TODO: Welche Folie?)
+    \item[$\Rightarrow$] Falsch. (z.B. durch Machsche Bandeffekte)
     \item Der Machsche Bandeffekt ist vor allem bei Phong-Shading ein Problem.
     \item[$\Rightarrow$] Falsch. Machsche Bänder entstehen an den Grenzen von Flächen, die jeweils keine Farbgraduierung haben. Beim Phong Shading gibt es wegen der interpolierten Normalen keine solchen Flächen. Der Effekt tritt z.B. beim Flat Shading auf, ist also vor allem dort problematisch. 
 \end{enumerate}
@@ -290,13 +293,12 @@ Vorteile von Cube-Maps gegenüber Sphere-Maps (\href{https://en.wikipedia.org/wi
 Ein Bild der Umgebung in einer Textur.
 
 \subsubsection*{Teilaufgabe 7b (II)}
-\textit{Nennen Sie ein Anwendungsbeispiel für Environment-Maps!}
+\textit{Nennen Sie ein Anwendungsbeispiel für Environment-Maps!}\\
 Terminator (Reflektion auf dem Terminator im Film, vgl. Kapitel~4, Folie~97)
 
 \subsubsection*{Teilaufgabe 7b (III)}
-\textit{Welche grundlegende Annahme wird bei Environment-Mapping gemacht?}
-Das Environment ist unendlich weit weg (also: nur die Richtung $r$ wird verwendet,
-nicht jedoch der Ausgangspunkt $P$).
+\textit{Welche grundlegende Annahme wird bei Environment-Mapping gemacht?}\\
+Umgebung ist weit entfernt, nur die Richtung $r$ wird verwendet,  Ausgangspunkt $P$ wird ignoriert.
 
 \subsubsection*{Teilaufgabe 7b (IV)}
 \textit{Was bzw. welcher Effekt kann mit vorgefilterten Environment-Maps nicht korrekt dargestellt werden?}
@@ -334,10 +336,10 @@ A B 14 15 C 5 6 11
 \subsection*{Teilaufgabe 8d}
 \begin{tabular}{p{4cm}p{2.2cm}p{2.2cm}p{2.2cm}p{2.2cm}}\toprule
 Aussage                                                                 & BVH             & Octree               & kD-Baum               & Gitter               \\\midrule
-Datenstruktur wird an Geometrie angepasst                               & Ja (Hüllkörper) & Ja (Rekursionstiefe) & Ja (wo Ebenen liegen) & Ja (Rekursionstiefe) \\
-Raum wird immer achsen\-parallel unterteilt                             & Nein            & Ja                   & Ja                    & Ja                   \\
+Datenstruktur wird an Geometrie angepasst                               & Ja (Hüllkörper) & Ja (Rekursionstiefe) & Ja (wo Ebenen liegen) & Nein \\
+Raum wird immer achsen\-parallel unterteilt                             & Nein (nur mit AABBs)            & Ja                   & Ja                    & Ja                   \\
 Datenstruktur ist Binär\-baum\footnotemark                              & Nein            & Nein                 & Ja                    & Nein                 \\
-Speicherplatz der Daten\-struktur ist abhängig von der Anzahl der Primive & Ja            & Ja                   & Ja                    & Ja                   \\
+Speicherplatz der Daten\-struktur ist abhängig von der Anzahl der Primive & Ja            & Ja                   & Ja                    & (Ja) (je nachdem wie gespeichert wird)                  \\
 Bei der Konstruktuion kann die SAH sinnvoll eingesetz werden            & Ja\footnotemark & Nein                 & Ja                    & Nein                 \\\bottomrule
 \end{tabular}
 \footnotetext{Üblicherweise ist ein BVH ein Binärbaum, muss aber nicht so sein.}
@@ -365,15 +367,15 @@ Bei der Konstruktuion kann die SAH sinnvoll eingesetz werden            & Ja\foo
 eine korrekte Darstellung des Hauses zu erhalten?}
 
 \begin{enumerate}
-    \item Lösche Tiefenpuffer
-    \item Zeichne Wände
-    \item Zeichne Fenster
+    \item Lösche Tiefenpuffer (1.)
+    \item Zeichne Wände (3.)
+    \item Zeichne Fenster (2.)
 \end{enumerate}
 
 \subsection*{Teilaufgabe 10b}
 
 \begin{table}[H]
-    \begin{tabular}{lllll}
+    \begin{tabular}{llp{2cm}p{2cm}p{5cm}}
     \toprule
     Sortierung     & keine & vorne nach hinten & hinten nach vorne & Begründung \\\midrule
     ZeichneWände   & X  & -  & -  & Tiefentest ist für Sichtbarkeit zuständig      \\
