@@ -58,9 +58,9 @@ RGB $<$ Raum aller Farben die durch 100 monochromatische Leuchtdioden darstellba
 \subsection*{Teilaufgabe 1e}
 \begin{tabular}{cp{6cm}ccp{5cm}}\toprule
 \#& Aussage  & Wahr & Falsch & Begründung \\\midrule
-1 & Den Weißpunkt eines Farbraums bezeichnet man auch als Tristimulus\-wert. & $\square$ & \CheckedBox & Die RGB-Werte sind die Tristimulus-Werte. Der Weißpunkt heißt pblicherweise $D[\text{Zahl}]$, wobei die Zahl die Temperatur angibt. D65 hat eine Farbtemperatur von ca. 6504K.\\
-2 & Die subjektiv empfundene Stärke von Sinneseindrücken ist proportional zum Logarithmus ihrer Intensität. & \CheckedBox &  $\square$    & ~          \\
-3 & Jeder Farbeindruck für den Menschen kann mit drei Grundgrößen beschrieben werden. & \CheckedBox & $\square$ & 1. Graßmannsches Gesetz \\\bottomrule
+1 & Den Weißpunkt eines Farbraums bezeichnet man auch als Tristimulus\-wert. & \Square   & \CheckedBox & Die RGB-Werte sind die Tristimuluswerte. Der Weißpunkt heißt üblicherweise $D[\text{Zahl}]$, wobei die Zahl die Temperatur angibt. D65 hat eine Farbtemperatur von ca. 6504\,K.\\
+2 & Die subjektiv empfundene Stärke von Sinneseindrücken ist proportional zum Logarithmus ihrer Intensität. & \CheckedBox &  \Square      & ~          \\
+3 & Jeder Farbeindruck für den Menschen kann mit drei Grundgrößen beschrieben werden. & \CheckedBox & \Square   & 1. Graßmannsches Gesetz \\\bottomrule
 \end{tabular}
 
 \section*{Aufgabe 2: Whitted-Style Raytracing}
@@ -80,12 +80,13 @@ RGB $<$ Raum aller Farben die durch 100 monochromatische Leuchtdioden darstellba
 
 \subsection*{Teilaufgabe 2f}
 \begin{align}
-    I_s    &= k_s \cdot I_L \cdot \cos^n \alpha\\
-    \alpha &= r_L \cdot v
+	\mathbf{r}_L &= 2 \cdot \mathbf{n} \cdot (\mathbf{n} \cdot \mathbf{l}) - \mathbf{l}\\
+	\alpha       &= \arccos (\mathbf{r}_L \cdot \mathbf{v})\\
+    I_s          &= k_s \cdot I_L \cdot \cos^n \alpha
 \end{align}
 
-wobei $k_s$ ein Materialparameter und $I_L$ die intensität der Lichtquelle ist.
-$n$ wird der Phong-Exponent genannt (TODO: woher kommt der?)
+wobei $k_s$ ein Materialparameter und $I_L$ die Intensität der Lichtquelle ist.
+$n$ ist der Phong-Exponent des Materials.
 
 \subsection*{Teilaufgabe 2g}
 Snellsches Brechungsgesetz
@@ -99,8 +100,8 @@ Snellsches Brechungsgesetz
 \begin{itemize}
     \item Die Parameter $s_x, s_y$ skalieren in Richtung der $x$ bzw. $y$
           Achse.
-    \item Die Parameter $h_x, h_y$ scheeren in Richtung der $x$ bzw. $y$ Achse.
-    \item Die Parameter $t_x, t_y$ füren eine Translation in $x$ bzw. $y$
+    \item Die Parameter $h_x, h_y$ scheren in Richtung der $x$ bzw. $y$ Achse.
+    \item Die Parameter $t_x, t_y$ führen eine Translation in $x$ bzw. $y$
           Richtung aus.
     \item Die Parameter $a, b, c$ skalieren.
 \end{itemize}
@@ -115,9 +116,9 @@ rotiert um $\theta$ um den Ursprung (gegen den Uhrzeigersinn.)
 \begin{itemize}
     \item Bild 1: Translation um 1 in $x$ und 3 in $y$-Richtung.
     \item Bild 2: Scherung im $-2$ in $y$-Richtung.
-    \item Bild 3: Rotation um $45^\circ$ gegen den Urzeigersinn.
+    \item Bild 3: Rotation um $45^\circ$ gegen den Uhrzeigersinn.
     \item Bild 4: In $x$-Richtung um $\nicefrac{1}{2}$ stauchen, in $y$-Richtung
-                  um 3 Strecken und dann um 4 nach rechts verschieben.
+                  um 3 strecken und dann um 4 nach rechts verschieben.
     \item Bild 5: Projektion auf die zur $x$-Achse parallele Gerade durch $(0, 3)$.
 \end{itemize}
 
@@ -162,9 +163,9 @@ TODO
 \subsection*{Teilaufgabe 4d}
 \begin{tabular}{cp{6cm}ccp{5cm}}\toprule
 \# & Aussage  & Wahr & Falsch & Begründung \\\midrule
- 1 & Texturkoordinaten müssen sich immer im Intervall $[0; 1]$ befinden. & $\square$ & \CheckedBox & Koordinaten, die außerhalb liegen, werden je nach Einstellung (Clamp, Repeat, ..) auf Texturkoordinaten abgebildet \\
- 2 & Texturkoordinaten können als Attribute der Eckpunkte (Vertizes) übergeben werden und werden als solche interpoliert.  & \CheckedBox    & $\square$      & Nicht eindeutig formuliert, aber siehe Kapitel 4, Folie 28          \\
- 3 & Texturkoordinaten müssen für die Darstellung wie Eckpunktkoordinaten der Model-View-Transformation unterzogen werden. & $\square$    & \CheckedBox      & Interpolation, s. Kapitel 4, Folie 31          \\\bottomrule
+ 1 & Texturkoordinaten müssen sich immer im Intervall $[0; 1]$ befinden. & \Square   & \CheckedBox & Koordinaten, die außerhalb liegen, werden je nach Einstellung (Clamp, Repeat, ..) auf Texturkoordinaten abgebildet \\
+ 2 & Texturkoordinaten können als Attribute der Eckpunkte (Vertizes) übergeben werden und werden als solche interpoliert.  & \CheckedBox  & \Square        & Nicht eindeutig formuliert, aber siehe Kapitel 4, Folie 28          \\
+ 3 & Texturkoordinaten müssen für die Darstellung wie Eckpunktkoordinaten der Model-View-Transformation unterzogen werden. & \Square      & \CheckedBox    & Interpolation, s. Kapitel 4, Folie 31          \\\bottomrule
 \end{tabular}
 
 
@@ -172,19 +173,19 @@ TODO
 \subsection*{Teilaufgabe 5a}
 
 \begin{enumerate}
-	\item Diffuse Beleuchtung (=Reflexion!?): $\textbf{n}$
-	\item Imperfekte Spiegelung: $\textbf{r}$
+	\item Diffuse Beleuchtung: $\mathbf{n}$
+	\item Imperfekte Spiegelung: $\mathbf{r}$
 \end{enumerate}
 
 \subsection*{Teilaufgabe 5b}
-$r = 2 * (v \cdot n)n - v$
+$r = 2 \cdot (\mathbf{v} \cdot \mathbf{n}) \cdot \mathbf{n} - \mathbf{v}$
 
 \section*{Aufgabe 6: Hierarchische Datenstrukturen}
 \subsection*{Teilaufgabe 6a}
 \includegraphics*[width=0.8\linewidth, keepaspectratio]{6a.png}
 %
 \subsection*{Teilaufgabe 6b}\vspace{-6pt}
-Inklusive Schnittests der AABB Hüllkörper:\vspace{-3pt}
+Inklusive Schnitttests der AABB-Hüllkörper:\vspace{-3pt}
 %
 \begin{enumerate}
 	\itemsep-3pt
@@ -203,20 +204,20 @@ Inklusive Schnittests der AABB Hüllkörper:\vspace{-3pt}
 \subsection*{Teilaufgabe 6c}
 \begin{tabular}{cp{8cm}ccp{5cm}}\toprule
 \# & Aussage & Wahr & Falsch & Begründung \\\midrule
- 1 & Beim Traversieren eines kD-Baums müssen immer beide Kinder in Betracht gezogen werden.                                                                                                   & $\square$   & \CheckedBox    & vgl. Folie 103\\
- 2 & Das Traversieren einer Hüllkörperhierarchie mit achsenparallelen Boxen (Bounding Volume Hierarchy, BVH) erfordert Mailboxing, um mehrfache Schnitttests mit einem Dreieck zu verhindern. & $\square$   & \CheckedBox    & BVHs fügen Objekte nur in einen Kindknoten ein \\
- 3 & Der Speicheraufwand einer BVH hängt logarithmisch von der Anzahl der Primitive ab.                                                                                                       & $\square$   & \CheckedBox    & Linear, siehe \href{https://github.com/MartinThoma/KIT-Musterloesungen/issues/13#issuecomment-192245468}{github.com/MartinThoma/KIT-Musterloesungen/issues/13}          \\
- 4 & kD-Bäume sind eine Verallgemeinerung von BSP-Bäumen.                                                                                                                                     & $\square$   & \CheckedBox    & Es ist genau anders herum. kD-Bäume müssen Achsenparallele Trennebenen haben, BSP-Bäume jedoch nicht. \\
- 5 & BSP-Bäume sind adaptiv und leiden nicht unter dem \enquote{Teapot in a Stadium}-Problem.                                                                                                 & \CheckedBox & $\square$      & ~          \\
+ 1 & Beim Traversieren eines kD-Baums müssen immer beide Kinder in Betracht gezogen werden.                                                                                                   & \Square     & \CheckedBox    & vgl. Folie 103\\
+ 2 & Das Traversieren einer Hüllkörperhierarchie mit achsenparallelen Boxen (Bounding Volume Hierarchy, BVH) erfordert Mailboxing, um mehrfache Schnitttests mit einem Dreieck zu verhindern. & \Square     & \CheckedBox    & BVHs fügen Objekte nur in einen Kindknoten ein \\
+ 3 & Der Speicheraufwand einer BVH hängt logarithmisch von der Anzahl der Primitive ab.                                                                                                       & \Square     & \CheckedBox    & Linear, siehe \href{https://github.com/MartinThoma/KIT-Musterloesungen/issues/13#issuecomment-192245468}{github.com/MartinThoma/KIT-Musterloesungen/issues/13}          \\
+ 4 & kD-Bäume sind eine Verallgemeinerung von BSP-Bäumen.                                                                                                                                     & \Square     & \CheckedBox    & Es ist genau anders herum. kD-Bäume müssen Achsenparallele Trennebenen haben, BSP-Bäume jedoch nicht. \\
+ 5 & BSP-Bäume sind adaptiv und leiden nicht unter dem \enquote{Teapot in a Stadium}-Problem.                                                                                                 & \CheckedBox & \Square        & ~          \\
 \end{tabular}
 
 \subsection*{Teilaufgabe 6d}
 \begin{tabular}{cp{8cm}cccc}\toprule
 \# & Aussage                                                                                                                                          & BVH         & Octree      & kD-Baum     & Gitter    \\\midrule
- 1 & Die Datenstruktur partitioniert den Raum.                                                                                                        & $\square$   & \CheckedBox & \CheckedBox & \CheckedBox \\
- 2 & Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive.                                                             & $\square$   & $\square$   & $\square$   & \CheckedBox \\
- 3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird.\footnotemark                 & \CheckedBox & $\square$   & \CheckedBox & $\square$ \\
- 4 & Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & $\square$   & $\square$   & $\square$   & \CheckedBox \\\bottomrule
+ 1 & Die Datenstruktur partitioniert den Raum.                                                                                                        & \Square     & \CheckedBox & \CheckedBox & \CheckedBox \\
+ 2 & Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive.                                                             & \Square     & \Square     & \Square     & \CheckedBox \\
+ 3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird.\footnotemark                 & \CheckedBox & \Square     & \CheckedBox & \Square   \\
+ 4 & Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & \Square     & \Square     & \Square     & \CheckedBox \\\bottomrule
 \end{tabular}
 \footnotetext{vgl. \texttt{05\_ Raumliche Datenstrukturen.pdf}, Folie 103}
 
@@ -224,23 +225,31 @@ Inklusive Schnittests der AABB Hüllkörper:\vspace{-3pt}
 \subsection*{Teilaufgabe 7a}
 \begin{tabular}{cp{8cm}llp{4cm}}\toprule
 \# & Aussage & Wahr & Falsch & Begründung / Quelle \\\midrule
- 1 & In der OpenGL-Pipeline wird View Frustum Clipping vor der perspektivischen Division durchgeführt.                                    & \CheckedBox & $\square$ & Kapitel 6, Folie 45 \\
- 2 & Vertex-Shader können auf Texturen zugreifen.                                                                                         & \CheckedBox & $\square$ & TODO \\
- 3 & Bei Gouraud-Shading muss man die Normale im Fragment-Shader erneut normalisieren.                                                    & $\square$ & \CheckedBox & TODO \\
- 4 & Gouraud-Shading mit dem Phong-Beleuchtungsmodell kann im Geometry-Shader implementiert werden.                                       & TODO & TODO & TODO \\
- 5 & Phong-Shading kann man alleine mit einem Vertex-Shader und einem Geometry-Shader implementieren; letzterer gibt dann die Farbe aus.  & $\square$ & \CheckedBox & TODO \\
- 6 & Bei beliebig feiner Tessellierung ist kein Unterschied zwischen Gouraud- und Phong-Shading erkennbar.                                & \CheckedBox & $\square$ & TODO \\
- 7 & Selbst wenn der Tiefentest für ein Fragment fehlschlägt, kann der Stencil-Puffer verändert werden.                                   & TODO & TODO & TODO \\
- 8 & Instanziierung von Geometrie kann man sowohl mit dem Vertex- als auch dem Geometry-Shader durchführen.                               & $\square$ & \CheckedBox & Nur mit dem Geometry-Shader \\\bottomrule
+ 1 & In der OpenGL-Pipeline wird View Frustum Clipping vor der perspektivischen Division durchgeführt.
+   & \CheckedBox & \Square     & Kapitel 6, Folie 45 \\
+ 2 & Vertex-Shader können auf Texturen zugreifen.
+   & \CheckedBox & \Square     & Alle Shader können Texturen verwenden. \\
+ 3 & Bei Gouraud-Shading muss man die Normale im Fragment-Shader erneut normalisieren.
+   & \Square     & \CheckedBox & Normale wird nicht interpoliert \\
+ 4 & Gouraud-Shading mit dem Phong"=Beleuchtungsmodell kann im Geometry-Shader implementiert werden.
+   & \CheckedBox & \Square     & TODO \\
+ 5 & Phong-Shading kann man alleine mit einem Vertex-Shader und einem Geometry-Shader implementieren; letzterer gibt dann die Farbe aus.
+   & \Square     & \CheckedBox & TODO \\
+ 6 & Bei beliebig feiner Tessellierung ist kein Unterschied zwischen Gouraud- und Phong-Shading erkennbar.
+   & \CheckedBox & \Square     & TODO \\
+ 7 & Selbst wenn der Tiefentest für ein Fragment fehlschlägt, kann der Stencil-Puffer verändert werden.
+   & \CheckedBox & \Square     & Kapitel~7, Teil~3, Folie~51 \\
+ 8 & Instanziierung von Geometrie kann man sowohl mit dem Vertex- als auch dem Geometry-Shader durchführen.
+   & \Square     & \CheckedBox & nur mit dem Geometry-Shader \\\bottomrule
 \end{tabular}
 
 \subsection*{Teilaufgabe 7b}
 \textit{Warum zieht man das Tiefenpuffer-Verfahren (Z-Buffering) dem Sortieren von Dreiecken vor? Nennen Sie drei Gründe!}
 
 \begin{itemize}
-    \item Dreiecke können nicht sortierbar sein (wenn ein Dreieck ein andere schneidet)
-    \item Sortieren ist aufwendig, muss bei Veränderung der Blickrichtung jedesmal neu durchgeführt werden
-    \item TODO
+    \item Dreiecke können nicht sortierbar sein (wenn ein Dreieck ein anderes schneidet)
+    \item Sortieren ist aufwendig, muss bei Veränderung der Blickrichtung jedes Mal neu durchgeführt werden
+    \item Unterstützung durch Grafik-Hardware
 \end{itemize}
 
 \section*{Aufgabe 8: OpenGL-Primitive}
@@ -253,20 +262,20 @@ Inklusive Schnittests der AABB Hüllkörper:\vspace{-3pt}
 \section*{Aufgabe 9: OpenGL und Blending}
 \subsection*{Teilaufgabe 9a}
 \subsection*{Teilaufgabe 9a (I)}
-\begin{itemize}
-    \item Die Reihenfolge ist wegen des Tiefenpuffers egal: TODO
-    \item Von hinten nach vorne: TODO
-    \item Von vorne nach hinten: TODO
-\end{itemize}
+\begin{tabular}{ll}
+    Die Reihenfolge ist wegen des Tiefenpuffers egal. & \Square\\
+    Von hinten nach vorne. & \CheckedBox\\
+    Von vorne nach hinten. & \Square
+\end{tabular}
 
 \subsection*{Teilaufgabe 9a (II)}
-\texttt{glBlendFunc(GL\_SRC\_ALPHA (2), GL\_ONE\_MINUS\_SRC\_ALPHA (3))} \textit{nicht sicher}
+\mint{glsl}{glBlendFunc(GL_SRC_ALPHA /*(2)*/, GL_ONE_MINUS_SRC_ALPHA /*(3)*/)}
 
 \subsection*{Teilaufgabe 9b}
-\texttt{glBlendFunc(GL\_ONE (1), GL\_ONE (1))}
+\mint{glsl}{glBlendFunc(GL_ONE /*(1)*/, GL_ONE /*(1)*/)}
 
 \subsection*{Teilaufgabe 9c}
-\texttt{glBlendFunc(GL\_ZERO (0), GL\_SRC\_COLOR (6))}
+\mint{glsl}{glBlendFunc(GL_ZERO /*(0)*/, GL_ONE_MINUS_SRC_COLOR /*(7)*/)}
 
 
 \section*{Aufgabe 10: Bézier-Kurven und Bézier-Splines}
@@ -292,7 +301,7 @@ Inklusive Schnittests der AABB Hüllkörper:\vspace{-3pt}
 \clearpage
 \section*{Aufgabe 11: Wasseroberfläche mit GLSL}
 \subsection*{Teilaufgabe 11a}
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shader.frag}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader.frag]{glsl}{shadera.frag}
 
 \clearpage
 \subsection*{Teilaufgabe 11b}
