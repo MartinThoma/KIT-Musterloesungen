@@ -13,8 +13,7 @@ in vec3 n_k;
 void main()
 {
 	vec3 n = n_k;
-	// Die Kamera ist im Ursprung vec3(0)
-	vec3 v = normalize(-P_k);
+	vec3 v = normalize(-P_k); /* Kamera im Ursprung vec3(0.0) */
 	vec3 l = normalize(L - P_k);
 	vec3 r = reflect( -l, n );
 	float cosAlpha = max(0.0, dot(v, r));

@@ -15,9 +15,14 @@
 
 \usepackage{minted} % needed for the inclusion of source code
 
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc}
+\tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={2mm}}
+
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
+\usepackage{wasysym}  % For \CheckedBox
 \usepackage{microtype}
 
 \begin{document}
@@ -75,7 +80,7 @@ TODO
 \textit{Wie verändert sich die Intensität von $P_2$, wenn er statt von $A_1$
 von $A_2$ betrachtet wird? Begründen Sie Ihre Antwort kurz!}
 
-TODO
+$I$ wird schwächer, da die spekulare Reflexion mit zunehmendem Winkel zwischen $\mathbf{v}$ und $\mathbf{r}_L$ abfällt.
 
 \section*{Aufgabe 2: Raytracing}
 \subsection*{Teilaufgabe 2a}
@@ -96,12 +101,12 @@ TODO
 \textit{Was ist der Unterschied zwischen Distributed Raytracing und Whitted-Style Raytracing?}
 
 Beim Distributed Raytracing wird nicht nur ein Schattenstrahl verschickt, sondern
-viele. Damit sollen zu perfekte Spiegelungen / Transmissionen vermieden werden.
+viele. Damit sollen zu perfekte Spiegelungen/""Transmissionen vermieden werden.
 
 \textit{Welchen Lichttransport kann man durch Distributed Raytracing berechnen, den
 Whitted-Style Raytracing nicht erfassen kann?}
 
-Siehe Kapitel~2 (Raytracing), Folie 107ff:
+Siehe Kapitel~2 (Raytracing), Folie 107\,ff.:
 
 \begin{itemize}
     \item Kaustiken
@@ -145,7 +150,7 @@ Metamere sind.
     \item Farbige Flächen werden unabhängig von ihrer Umgebung vom menschlichen Auge immer gleich wahrgenommen.
     \item[$\Rightarrow$] Falsch. (z.B. durch Machsche Bandeffekte)
     \item Der Machsche Bandeffekt ist vor allem bei Phong-Shading ein Problem.
-    \item[$\Rightarrow$] Falsch. Machsche Bänder entstehen an den Grenzen von Flächen, die jeweils keine Farbgraduierung haben. Beim Phong Shading gibt es wegen der interpolierten Normalen keine solchen Flächen. Der Effekt tritt z.B. beim Flat Shading auf, ist also vor allem dort problematisch. 
+    \item[$\Rightarrow$] Falsch. Machsche Bänder entstehen an den Grenzen von Flächen, die jeweils keine Farbgraduierung haben. Beim Phong-Shading gibt es wegen der interpolierten Normalen keine solchen Flächen. Der Effekt tritt z.\,B. beim Flat-Shading auf, ist also vor allem dort problematisch. 
 \end{enumerate}
 
 \clearpage
@@ -156,7 +161,7 @@ $u \in [0, 1]$ und $B_i^3$ das $i$-te Bernstein-Polynom vom Grad 3 ist.}
 
 \subsubsection*{Teilaufgabe 4a (I)}
 \textit{Werten Sie die Bézier-Kurve zeichnerisch mit dem de-Casteljau-Algorithmus
-an der Stelle $u = \nicefrac{1}{3}$ aus! Markieren Sie den Punkt $\mathbf{b}(\nicefrac{1}{3})$!}
+an der Stelle $u = \frac{1}{3}$ aus! Markieren Sie den Punkt $\mathbf{b}\left(\frac{1}{3}\right)$!}
 
 \begin{figure}[h]
     \centering
@@ -166,7 +171,7 @@ an der Stelle $u = \nicefrac{1}{3}$ aus! Markieren Sie den Punkt $\mathbf{b}(\ni
 \end{figure}
 
 \subsubsection*{Teilaufgabe 4a (II)}
-vgl \cref{fig:4ab}
+vgl. \cref{fig:4ab}
 
 \subsection*{Teilaufgabe 4b}
 Siehe Nachklausur 2015, Aufgabe 11b für eine detailierte Erklärung.
@@ -239,18 +244,43 @@ Mipmap-Pyramide die Texel an, die für eine trilineare Interpolation zur
 Bestimmung des Farbwertes verwendet werden! Begründen Sie kurz Ihre Wahl der
 Mipmap-Stufen!}
 
-\includegraphics*[width=0.8\linewidth, keepaspectratio]{1a.png}
+\begin{tikzpicture}[step=0.5,node font=\small]
+	\draw (0,4) node[anchor=south west] {Stufe~0:};
+	\draw (0,0) grid (4,4);
+	
+	\begin{scope}[shift={(5,2)}]
+	\draw (0,2) node[anchor=south west] {Stufe~1:};
+	\draw (0,0) grid (2,2);
+	\draw node[cross] at (0.25,0.25) {}
+	      node[cross] at (0.25,0.75) {}
+	      node[cross] at (0.75,0.25) {}
+	      node[cross] at (0.75,0.75) {};
+	\end{scope}
+	
+	\begin{scope}[shift={(8,3)}]
+	\draw (0,1) node[anchor=south west] {Stufe~2:};
+	\draw (0,0) grid (1,1);
+	\draw node[cross] at (0.25,0.25) {}
+	      node[cross] at (0.25,0.75) {}
+	      node[cross] at (0.75,0.25) {}
+	      node[cross] at (0.75,0.75) {};
+	\end{scope}
+	
+	\begin{scope}[shift={(10,3.5)}]
+	\draw (0,0.5) node[anchor=south west] {Stufe~3:};
+	\draw (0,0) grid (0.5,0.5);
+	\end{scope}
+\end{tikzpicture}
 
-TODO
-
+Die Größe des Footprints liegt zwischen der Texelgröße der Stufen 1 und 2.
 
 \subsection*{Teilaufgabe 6c}
 \textit{Welchen Vorteil haben Summed-Area-Tables gegenüber Mipmaps bei der Texturfilterung?}
-Die Textur kann mit einem beliebigen rechteckigen Filter in konstanter Zeit gefiltert werden. Kapitel 4, Folie 66.
+
+Die Textur kann mit einem beliebigen rechteckigen Filter in konstanter Zeit gefiltert werden (Kapitel~4, Folie~66).
 
 \subsection*{Teilaufgabe 6d}
-Das Interpolationsschema heißt \textit{Bilineare Interpolation} und funktionert
-wie folgt:
+Das Interpolationsschema heißt \textit{Bilineare Interpolation} und funktioniert wie folgt:
 
 \begin{align}
     t_{12} &= (1-a) \cdot t_1 + a \cdot t_2\\
@@ -272,8 +302,8 @@ Im vorliegenden Fall ist $|r_z|$ am größten, also ist es Fläche~1.
 \textit{Berechnen Sie die Texturkoordinaten des Zugriffs auf der für $\mathbf{r}$ ausgewählten Cube-Map-Seite!}
 
 \begin{align}
-    s &= \nicefrac{1}{2} + \frac{r_x}{2 \cdot r_z} = \frac{1}{4}\\
-    t &= \nicefrac{1}{2} + \frac{r_y}{2 \cdot r_z} = \frac{3}{4}
+    s &= \frac{1}{2} + \frac{r_x}{2 \cdot r_z} = \frac{1}{4}\\
+    t &= \frac{1}{2} + \frac{r_y}{2 \cdot r_z} = \frac{3}{4}
 \end{align}
 
 \subsubsection*{Teilaufgabe 7a (III)}
@@ -293,12 +323,14 @@ Vorteile von Cube-Maps gegenüber Sphere-Maps (\href{https://en.wikipedia.org/wi
 Ein Bild der Umgebung in einer Textur.
 
 \subsubsection*{Teilaufgabe 7b (II)}
-\textit{Nennen Sie ein Anwendungsbeispiel für Environment-Maps!}\\
-Terminator (Reflektion auf dem Terminator im Film, vgl. Kapitel~4, Folie~97)
+\textit{Nennen Sie ein Anwendungsbeispiel für Environment-Maps!}
+
+Berechnung von Reflexion mit Spiegelung der Umgebung ohne geometrische Repräsentation
 
 \subsubsection*{Teilaufgabe 7b (III)}
-\textit{Welche grundlegende Annahme wird bei Environment-Mapping gemacht?}\\
-Umgebung ist weit entfernt, nur die Richtung $r$ wird verwendet,  Ausgangspunkt $P$ wird ignoriert.
+\textit{Welche grundlegende Annahme wird bei Environment-Mapping gemacht?}
+
+Umgebung ist weit entfernt, nur die Richtung $\mathbf{r}$ wird verwendet, der Ausgangspunkt $P$ wird ignoriert.
 
 \subsubsection*{Teilaufgabe 7b (IV)}
 \textit{Was bzw. welcher Effekt kann mit vorgefilterten Environment-Maps nicht korrekt dargestellt werden?}
@@ -339,8 +371,8 @@ Aussage                                                                 & BVH   
 Datenstruktur wird an Geometrie angepasst                               & Ja (Hüllkörper) & Ja (Rekursionstiefe) & Ja (wo Ebenen liegen) & Nein \\
 Raum wird immer achsen\-parallel unterteilt                             & Nein (nur mit AABBs)            & Ja                   & Ja                    & Ja                   \\
 Datenstruktur ist Binär\-baum\footnotemark                              & Nein            & Nein                 & Ja                    & Nein                 \\
-Speicherplatz der Daten\-struktur ist abhängig von der Anzahl der Primive & Ja            & Ja                   & Ja                    & (Ja) (je nachdem wie gespeichert wird)                  \\
-Bei der Konstruktuion kann die SAH sinnvoll eingesetz werden            & Ja\footnotemark & Nein                 & Ja                    & Nein                 \\\bottomrule
+Speicherplatz der Daten\-struktur ist abhängig von der Anzahl der Primitive & Ja            & Ja                   & Ja                    & (Ja) (je nachdem wie gespeichert wird)                  \\
+Bei der Konstruktion kann die SAH sinnvoll eingesetzt werden            & Ja\footnotemark & Nein                 & Ja                    & Nein                 \\\bottomrule
 \end{tabular}
 \footnotetext{Üblicherweise ist ein BVH ein Binärbaum, muss aber nicht so sein.}
 \footnotetext{Foliensatz 5 Folie 98}
@@ -350,14 +382,22 @@ Bei der Konstruktuion kann die SAH sinnvoll eingesetz werden            & Ja\foo
     \begin{tabular}{cp{12cm}ll}
     \toprule
     \# & \textbf{Aussage} & \textbf{Wahr} & \textbf{Falsch} \\\midrule
-    1  & Die Präzision des Tiefenpuffers wird verringert, wenn man die Distanz zwischen Near-Plane und Far-Plane vergrößert.                                    & X &  \\
-    2  & Die OpenGL-Pipeline nutzt den Vertex-Cache beim Zeichnen ohne Index-Puffer. & & X   \\
-    3  & OpenGL-Puffer vom Typ \texttt{GL\_ELEMENT\_ARRAY\_BUFFER} werden für das Rendering mit der Shared-Vertex-Repräsentation verwendet.                            & X &  \\
-    4  & Ein Alpha-Test kann im Fragment-Shader mit dem Befehl \texttt{discard} implementiert werden.                                                                    & X & \\
-    5  & Die OpenGL-Funktion \texttt{glBlendFunc(GL\_SRC\_ALPHA, GL\_ONE\_MINUS\_SRC\_ALPHA)} kann verwendet werden, um additives Blending zu implementieren.           & & X \\
-    6  & Shadow-Mapping benötigt den Stencil-Puffer.                                                                                                             & & X \\
-    7  & Für die Transformation einer Normalen im Vertex-Shader kann immer dieselbe Matrix wie zur Transformation der entsprechenden Vertizes verwendet werden. & & X \\
-    8  & Beim Gouraud-Shading werden die im Vertex-Shader berechneten Farben pro Fragment linear interpoliert.                                                   & X & \\\bottomrule
+    1  & Die Präzision des Tiefenpuffers wird verringert, wenn man die Distanz zwischen Near-Plane und Far-Plane vergrößert.
+       & \CheckedBox & \Square     \\
+    2  & Die OpenGL-Pipeline nutzt den Vertex-Cache beim Zeichnen ohne Index-Puffer.
+       & \Square     & \CheckedBox \\
+    3  & OpenGL-Puffer vom Typ \texttt{GL\_ELEMENT\_ARRAY\_BUFFER} werden für das Rendering mit der Shared-Vertex-Repräsentation verwendet.
+       & \CheckedBox & \Square     \\
+    4  & Ein Alpha-Test kann im Fragment-Shader mit dem Befehl \texttt{discard} implementiert werden.
+       & \CheckedBox & \Square     \\
+    5  & Die OpenGL-Funktion \texttt{glBlendFunc(GL\_SRC\_ALPHA, GL\_ONE\_MINUS\_SRC\_ALPHA)} kann verwendet werden, um additives Blending zu implementieren.
+       & \Square     & \CheckedBox \\
+    6  & Shadow-Mapping benötigt den Stencil-Puffer.
+       & \Square     & \CheckedBox \\
+    7  & Für die Transformation einer Normalen im Vertex-Shader kann immer dieselbe Matrix wie zur Transformation der entsprechenden Vertizes verwendet werden.
+       & \Square     & \CheckedBox \\
+    8  & Beim Gouraud-Shading werden die im Vertex-Shader berechneten Farben pro Fragment linear interpoliert.
+       & \CheckedBox & \Square     \\\bottomrule
     \end{tabular}
 \end{table}
 
@@ -367,9 +407,9 @@ Bei der Konstruktuion kann die SAH sinnvoll eingesetz werden            & Ja\foo
 eine korrekte Darstellung des Hauses zu erhalten?}
 
 \begin{enumerate}
-    \item Lösche Tiefenpuffer (1.)
-    \item Zeichne Wände (3.)
-    \item Zeichne Fenster (2.)
+    \item \texttt{LöscheTiefenPuffer} (1)
+    \item \texttt{ZeichneWände} (3)
+    \item \texttt{ZeichneFenster} (2)
 \end{enumerate}
 
 \subsection*{Teilaufgabe 10b}
@@ -377,18 +417,18 @@ eine korrekte Darstellung des Hauses zu erhalten?}
 \begin{table}[H]
     \begin{tabular}{llp{2cm}p{2cm}p{5cm}}
     \toprule
-    Sortierung     & keine & vorne nach hinten & hinten nach vorne & Begründung \\\midrule
-    ZeichneWände   & X  & -  & -  & Tiefentest ist für Sichtbarkeit zuständig      \\
-    ZeichneFenster & -  & -  & X  & Blending ist i.A. nicht kommutativ       \\\bottomrule
+    Sortierung              & keine       & vorne nach hinten & hinten nach vorne & Begründung \\\midrule
+    \texttt{ZeichneWände}   & \CheckedBox & \Square           & \Square           & Tiefentest sorgt für korrekte Verdeckung \\
+    \texttt{ZeichneFenster} & \Square     & \Square           & \CheckedBox       & Blending ist i.\,A. nicht kommutativ \\\bottomrule
     \end{tabular}
 \end{table}
 
 \subsection*{Teilaufgabe 10c}
 \begin{table}[H]
     \begin{tabular}{lllllll}\toprule
-    Sortierung     & Tiefentest & EQUAL & LESS & GREATER & Tiefe schreiben & Blending \\\midrule
-    ZeichneWände   & X       & -  & X & -    & X & -    \\
-    ZeichneFenster & X       & -  & X & -    & - & X   \\\bottomrule
+    Sortierung              & Tiefentest  & \texttt{EQUAL} & \texttt{LESS} & \texttt{GREATER} & Tiefe schreiben & Blending  \\\midrule
+    \texttt{ZeichneWände}   & \CheckedBox & \Square        & \CheckedBox   & \Square          & \CheckedBox     & \Square    \\
+    \texttt{ZeichneFenster} & \CheckedBox & \Square        & \CheckedBox   & \Square          & \Square         & \CheckedBox \\\bottomrule
     \end{tabular}
 \end{table}
 
