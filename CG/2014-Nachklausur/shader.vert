@@ -14,5 +14,5 @@ out vec3 n_k; // Vertex-Normale in Kamerakoordinaten
 void main() {
     P_k = vec3(matMV * vec4(P, 1.0));
     n_k = vec3(matN * vec4(n_k, 0.0));
-    gl_Position = matP * vec4(P_k, 1.0);
+    gl_Position = matMVP * vec4(P, 1.0);
 }
