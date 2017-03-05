@@ -14,6 +14,7 @@
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 
 \usepackage{minted} % needed for the inclusion of source code
+\usepackage{tikz}
 
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
@@ -179,7 +180,7 @@ Kaptiel 2, Folie 96.
 
 \subsection*{Teilaufgabe 4b}
 Die spekulare Komponente im Phong Beleuchtungsmodell lautet
-\[I_s = k_s \cdot I_L \cdot \cos^n \alpha = k_s \cdot I_L (\mathbf{r}_l \cdot \mathbf{v})^n\]
+\[I_s = k_s \cdot I_L \cdot \cos^e \alpha = k_s \cdot I_L (\mathbf{r}_l \cdot \mathbf{v})^e\]
 
 \subsection*{Teilaufgabe 4c}
 \begin{enumerate}
@@ -192,7 +193,7 @@ Die spekulare Komponente im Phong Beleuchtungsmodell lautet
 
 \section*{Aufgabe 5: Dreiecke und Schattierung}
 \subsection*{Teilaufgabe 5a}
-\textbf{Lösung 1:} $n = \text{normalize}(\text{cross}(P_3-P_1,P_2-P_1))$
+\textbf{Lösung 1:} $\mathbf{n}' = (\mathbf{P}_3 - \mathbf{P}_1) \times (\mathbf{P}_2 - \mathbf{P}_1) \qquad \mathbf{n} = \frac{\mathbf{n}'}{|\mathbf{n}'|}$
 
 \textbf{Lösung 2:}
 Drei Punkte $P_1, P_2, P_3$ definieren eine Ebene. Diese Ebene ist eine Menge
@@ -210,7 +211,7 @@ Es gilt also folgendes Gleichungssystem zu lösen:
 \end{align}
 
 \subsection*{Teilaufgabe 5b}
-Die Normalen der Vertices eines Dreiecksnetzes können wie folgt berechnet
+Die Normalen der Vertizes eines Dreiecksnetzes können wie folgt berechnet
 werden:
 
 \begin{enumerate}
@@ -225,7 +226,7 @@ werden:
 Gouraud-Shading berechnet die Werte (z.B. Farbe) an den Eckpunkten der Dreiecke
 und interpoliert die Werte im Inneren der Dreieck mithilfe der Eckpunktwerte.
 
-Phong-Shading nutzt die Normalen an den Eckpunkten zur interpolation von
+Phong-Shading nutzt die Normalen an den Eckpunkten zur Interpolation von
 Normalen innerhalb des Dreiecks. Diese werden für weitere
 Beleuchtungsberechnungen verwendet.
 
@@ -236,7 +237,7 @@ Gouraud-Shading können Glanzlichter verloren gehen.
 Gouraud-Shading im Vergleich zu Phong-Shading
 \begin{itemize}
     \item Vorteil: Schnellere Berechnung
-    \item Nachteil: Schlechtere Ergebnisse (z.B. Mach'scher Bandeffekt)
+    \item Nachteil: Schlechtere Ergebnisse (z.\,B. Mach'scher Bandeffekt)
 \end{itemize}
 
 
@@ -256,7 +257,7 @@ vgl. geometrische Interpretation (Kaptiel 2, Folie 43)
 
 \subsection*{Teilaufgabe 6c}
 \begin{itemize}
-    \item Magnification; Beipsiele: Unschärfe, harte Kanten, Blockbildung
+    \item Magnification; Beispiele: Unschärfe, harte Kanten, Blockbildung
     \item Minification; Beispiel: Aliasing-Artefakte durch Unterabtastung
 \end{itemize}
 
@@ -265,7 +266,7 @@ vgl. geometrische Interpretation (Kaptiel 2, Folie 43)
 Aufgabe c) zu reduzieren? Erklären Sie stichpunktartig, wie sie funktionieren!}
 
 \begin{itemize}
-    \item \textbf{Mipmaping}: Speichere orignale Textur in 0.~Stufe, dann
+    \item \textbf{Mipmaping}: Speichere originale Textur in 0.~Stufe, dann
           halbiere pro Stufe die Textur in jeder Dimension.
     \item \textbf{Anisotrope Texturfilterung (RIPs)}: Vorfilterungen unabhängig
           jeder Achse RIPs bzw. Anisotrope Filterung ist anscheinend keine
@@ -297,8 +298,8 @@ lineare Interpolation dieser beiden Farben.
 Bilineare Filterung (Kaptiel 4, Folie 38):
 
 \begin{align}
-    a &= \frac{\frac{3}{8} - \frac{1}{4}}{\nicefrac{1}{2}} = \frac{1}{4}\\
-    b &= \frac{\frac{1}{2} - \frac{1}{4}}{\nicefrac{1}{2}} = \frac{1}{2}\\
+    a &= \frac{\frac{3}{8} - \frac{1}{4}}{\frac{1}{2}} = \frac{1}{4}\\
+    b &= \frac{\frac{1}{2} - \frac{1}{4}}{\frac{1}{2}} = \frac{1}{2}\\
     t_{12} &= t_1 + a(t_2 - t_1) = 16 + \frac{1}{4} \cdot (-16) = 12\\
     t_{34} &= (1-a) t_3 + a t_4 = \frac{7}{8} \cdot 0 + \frac{1}{4} \cdot 32 = 8\\
     t &= (1-b) t_{12} + b t_{34} = \frac{1}{2} \cdot 12 + \frac{1}{2} \cdot 8 = 10
@@ -356,7 +357,7 @@ Bisher wissen wir:\nobreak
                                  0 & m_{2,2} & 0\\
                            m_{1,1} & m_{3,2} & 0\end{pmatrix}\]
 
-Es gilt, dass alle Punkte auf der Diagonalen auf $(\nicefrac{1}{2}, \nicefrac{1}{2})$
+Es gilt, dass alle Punkte auf der Diagonalen auf $(\frac{1}{2}, \frac{1}{2})$
 abgebildet werden:
 
 \begin{align}
@@ -473,10 +474,10 @@ Die Anzahl der Schnittests ist:
     \item[3] Ein kD-Baum hat immer achsenparallele Split-Ebenen.
     \item[$\Rightarrow$] Richtig. Siehe Folie 85.
     \item[4] Ein kD-Baum braucht spezielle Vorkehrungen, um redundante
-             Schnitttests mit demselben Dreieck auszuschliessen.
+             Schnitttests mit demselben Dreieck auszuschließen.
     \item[$\Rightarrow$] Richtig. Mailboxing.
     \item[5] Ein Verfahren zur Erzeugung eines kD-Baumes erzeugt auch gültige BSP-Bäume.
-    \item[$\Rightarrow$] Richtig. kD-Bäume sind spezialfälle von BSP-Bäumen.
+    \item[$\Rightarrow$] Richtig. kD-Bäume sind Spezialfälle von BSP-Bäumen.
     \item[6] Reguläre uniforme Gitter leiden nicht unter dem Teapot-in-a-Stadium Problem.
     \item[$\Rightarrow$] Falsch. Das \enquote{Teapot-in-a-Stadium} Problem bezeichnet
     das Problem, dass Resourcen bei regulären Gittern verschwendet werden weil
@@ -531,7 +532,24 @@ Das sieht dann wie folgt aus:
 
 \begin{figure}[h]
     \centering
-    \includegraphics*[width=0.5\linewidth, keepaspectratio]{11a.png}
+    \begin{tikzpicture}[every circle/.style={radius=2pt}]
+    	\draw[help lines] (0,0) grid (12,12);
+    	\draw[thick,->] (0,0) -- (13,0) node[below right] {x};
+    	\draw[thick,->] (0,0) -- (0,13) node[left] {y};
+    	\draw foreach \x in {1,...,11} {(\x,0.2) -- (\x,-0.2) node[below] {\x}};
+    	\draw foreach \y in {1,...,11} {(0.2,\y) -- (-0.2,\y) node[left] {\y}};
+    	
+    	\fill  (2,2) coordinate[label=right:$\mathbf{b}_0$] (b0) circle;
+    	\fill  (3,9) coordinate[label=above:$\mathbf{b}_1$] (b1) circle;
+    	\fill  (5,9) coordinate[label=above:$\mathbf{b}_2$] (b2) circle;
+    	\fill  (7,8) coordinate[label=below left:$\mathbf{b}_3 {=} \mathbf{c}_0$] (b3) circle;
+    	\fill  (9,7) coordinate[label=right:$\mathbf{c}_1$] (c1) circle;
+    	\fill (11,5) coordinate[label=right:$\mathbf{c}_2$] (c2) circle;
+    	\fill (11,2) coordinate[label=right:$\mathbf{c}_3$] (c3) circle;
+    	
+    	\draw      (b0) .. controls (b1) and (b2) .. (b3);
+    	\draw[red] (b3) .. controls (c1) and (c2) .. (c3);
+    \end{tikzpicture}
     \caption{Ergebnisspline.}
     \label{fig:situation-11a}
 \end{figure}
