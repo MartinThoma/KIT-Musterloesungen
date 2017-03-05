@@ -1,2 +1,2 @@
-glBlendEquation(GL_FUNC_ADD);
-glBlendFunc(sfactor=GL_ONE, dfactor=GL_ONE);
+glBlendEquation(GL_FUNC_ADD /*(6)*/);
+glBlendFunc(sfactor = GL_ONE /*(1)*/, dfactor = GL_ONE /*(1)*/);

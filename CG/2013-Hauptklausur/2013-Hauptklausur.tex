@@ -120,9 +120,9 @@ $= 0$.
 
 \begin{tabular}{lccl}
 Vektor                                  & Punkt       & Richtung    & Kartesische Koordinaten \\
-$\begin{pmatrix}1,2,3,1\end{pmatrix}$   & \CheckedBox & $\square$   & $(1,2,3)$               \\
-$\begin{pmatrix}1,2,3,0.1\end{pmatrix}$ & \CheckedBox & $\square$   & $(10,20,30)$            \\
-$\begin{pmatrix}1,2,3,0\end{pmatrix}$   & $\square$   & \CheckedBox & $(1,2,3)$               \\
+$\begin{pmatrix}1,2,3,1\end{pmatrix}$   & \CheckedBox & \Square     & $(1,2,3)$               \\
+$\begin{pmatrix}1,2,3,0.1\end{pmatrix}$ & \CheckedBox & \Square     & $(10,20,30)$            \\
+$\begin{pmatrix}1,2,3,0\end{pmatrix}$   & \Square     & \CheckedBox & $(1,2,3)$               \\
 \end{tabular}
 
 \clearpage
@@ -283,7 +283,7 @@ Dreiecksnetz weiter unterteilen (Tesselieren)
     \item Phong-Shading
         \begin{align}
         \mathbf{n} &= \lambda_1 \mathbf{n}_1 + \lambda_2 \mathbf{n}_2 + \lambda_3 \mathbf{n}_3\\
-        \mathbf{f} &= \langle \mathbf{n} , \mathbf{L} \rangle^+ \cdot (\lambda_1 \mathbf{c}_1 + \lambda_2 \mathbf{c}_2 + \lambda_3 \mathbf{c}_3)
+        \mathbf{f} &= \langle \tfrac{\mathbf{n}}{|\mathbf{n}|} , \mathbf{L} \rangle^+ \cdot (\lambda_1 \mathbf{c}_1 + \lambda_2 \mathbf{c}_2 + \lambda_3 \mathbf{c}_3)
         \end{align}
 \end{enumerate}
 
@@ -297,7 +297,7 @@ Dreiecksnetz weiter unterteilen (Tesselieren)
 \subsection*{Teilaufgabe 10b}
 \textit{Beschreiben Sie kurz, welche Probleme auftreten.}
 
-Dreiecke, die von anderen Dreiecken verdeckt sind, werden aufgrund des Tiefentests auch an den Stellen nicht gezeichnet, wo ein davor liegendes Dreieck transparent ist. (Um ein korrektes Ergebnis zu erhalten, müssten zunächst das Schreiben in den Tiefenpuffer mittels \mintinline{glsl}{glDepthMask(GL_FALSE);} deaktiviert werden und dann die Dreiecke sortiert von hinten nach vorne gezeichnet werden.)
+Dreiecke, die von anderen Dreiecken verdeckt sind, werden aufgrund des Tiefentests auch an den Stellen nicht gezeichnet, wo ein davor liegendes Dreieck transparent ist. (Um ein korrektes Ergebnis zu erhalten, müssten zunächst das Schreiben in den Tiefenpuffer mittels \mintinline{cpp}{glDepthMask(GL_FALSE);} deaktiviert werden und dann die Dreiecke sortiert von hinten nach vorne gezeichnet werden.)
 
 \subsection*{Teilaufgabe 10c}
 \textit{Welche Technik bzw. Funktionalität setzt man in OpenGL üblicherweise ein, um die Probleme aus der vorherigen Aufgabe zu vermeiden?}

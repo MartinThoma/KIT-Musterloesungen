@@ -163,11 +163,11 @@ Clip-Space:}
 und $\mathbf{p}_0$?}
 
 \begin{align}
-    \mathbf{p}_0^{NDC} &= \begin{pmatrix}-\nicefrac{1}{10}\\\nicefrac{1}{10}\\\nicefrac{1}{2}\end{pmatrix} &
-    \mathbf{p}_1^{NDC} &= \begin{pmatrix}-\nicefrac{1}{10}\\\nicefrac{1}{10}\\3\end{pmatrix}
+    \mathbf{p}_0^{NDC} &= \begin{pmatrix}-\frac{1}{10}\\\frac{1}{10}\\\frac{1}{2}\end{pmatrix} &
+    \mathbf{p}_1^{NDC} &= \begin{pmatrix}-\frac{1}{10}\\\frac{1}{10}\\3\end{pmatrix}
 \end{align}
 
-Siehe \texttt{OpenGL (Teil 1)}, Folie 24.
+Siehe OpenGL (Teil 1), Folie 24.
 
 \subsubsection*{Teilaufgabe 4a (ii)}
 \textit{Warum sollte man dieses Liniensegment vor der Normalisierungstransformation
@@ -220,42 +220,53 @@ $$\mathbf{n'} = \frac{N\mathbf{n}}{||N\mathbf{n}||} = \frac{1}{\sqrt{2}}\begin{p
 \textit{Welche der beiden Hierarchien kann von einem Raytracer effizienter
 durchlaufen werden? Begründen Sie dies in Stichpunkten!}
 
-TODO
+BVH~1 (keine Überlappungen der Hüllkörper)
 
 \subsection*{Teilaufgabe 5b}
 \begin{tabular}{cp{8cm}llp{4cm}}\toprule
-\# & Aussage                                                                                                                                     & Wahr           & Falsch           & Kommentar \\\midrule
-1  & Ein kD-Baum kann für $N$ Primitive den Aufwand für Strahlschnitte von $O(N)$ auf $O(\log(N))$ reduzieren.                                   & \CheckedBox    & $\square$        & average case\\
-2  & Die Surface Area Heuristic sorgt dafür, dass beiden Kindknoten gleich viele Primitive zugeteilt werden.                                     & $\square$      & \CheckedBox      & minimale Kosten\\
-3  & Für die Suche der Trennebene (Split Plane) mit Objektmittel (Object Median) ist immer eine vollständige Sortierung der Primitive notwendig. & $\square$      & \CheckedBox      & Sortiert werden die Objektmittelpunkte\\
-4  & Teilen eines Knotens am Objektmittel (Object Median) führt stets zu den effizientesten Hüllkörperhierarchien.                               & $\square$      & \CheckedBox      & SAH\\
-5  & Die Surface Area Heuristic macht die Annahme, dass Strahlen stets außerhalb des zu unterteilenden Hüllkörpers starten.                      & TODO           & TODO             & \\
-6  & Es gibt Szenen, in denen ein kD-Baum keinen Vorteil bringt.                                                                                 & \CheckedBox    & $\square$        & Identische Dreiecke\\\bottomrule
+\# & Aussage                                                                                                                                     & Wahr        & Falsch      & Kommentar \\\midrule
+1  & Ein kD-Baum kann für $N$ Primitive den Aufwand für Strahlschnitte von $O(N)$ auf $O(\log(N))$ reduzieren.                                   & \CheckedBox & \Square     & average case\\
+2  & Die Surface Area Heuristic sorgt dafür, dass beiden Kindknoten gleich viele Primitive zugeteilt werden.                                     & \Square     & \CheckedBox & minimale Kosten\\
+3  & Für die Suche der Trennebene (Split Plane) mit Objektmittel (Object Median) ist immer eine vollständige Sortierung der Primitive notwendig. & \Square     & \CheckedBox & Sortiert werden die Objektmittelpunkte\\
+4  & Teilen eines Knotens am Objektmittel (Object Median) führt stets zu den effizientesten Hüllkörperhierarchien.                               & \Square     & \CheckedBox & SAH\\
+5  & Die Surface Area Heuristic macht die Annahme, dass Strahlen stets außerhalb des zu unterteilenden Hüllkörpers starten.                      & \CheckedBox & \Square     & \\
+6  & Es gibt Szenen, in denen ein kD-Baum keinen Vorteil bringt.                                                                                 & \CheckedBox & \Square     & Identische Dreiecke\\\bottomrule
 \end{tabular}
 
 \subsection*{Teilaufgabe 5c}
-TODO: Bitte kontrollieren!
 
 \begin{tabular}{cp{10cm}lll}\toprule
-\# & Aussage                                                                                                                                                                                       & AABB           & OBB           & Kugel \\\midrule
-1  & Der Hüllkörper kann einen beliebig orientierten Würfel optimal, also ohne freien Raum umschliessen.                                                                                           &$\square$       & \CheckedBox   & $\square$     \\
-2  & Es gibt orthonormale Transformationen des eingeschlossenen Objektes, die das Volumen des optimalen Hüllkörpers verändern.                                                                     & \CheckedBox    & $\square$     & $\square$     \\
-3  & Es gibt affine Transformationen des  eingeschlossenen Objektes, die das Volumen des Hüllkörpers verändern.\footnotemark                                                                       & \CheckedBox    & \CheckedBox   & \CheckedBox   \\
-4  & Gegegeben sind zwei Objektmengen und zu jeder Menge ihr optimaler Hüllkörper. Der Aufwand, den optimalen Hüllkörper für alle Objekte zu bestimmen, ist unabhängig von der Anzahl der Objekte. & \CheckedBox    & $\square$     & \CheckedBox     \\\bottomrule
+\# &Aussage
+   & AABB        & OBB         & Kugel \\\midrule
+1  & Der Hüllkörper kann einen beliebig orientierten Würfel optimal, also ohne freien Raum umschliessen.
+   & \Square     & \CheckedBox & \Square     \\
+2  & Es gibt orthonormale Transformationen des eingeschlossenen Objektes, die das Volumen des optimalen Hüllkörpers verändern.
+   & \CheckedBox & \Square     & \Square     \\
+3  & Es gibt affine Transformationen des  eingeschlossenen Objektes, die das Volumen des Hüllkörpers verändern.\footnotemark
+   & \CheckedBox & \CheckedBox & \CheckedBox \\
+4  & Gegegeben sind zwei Objektmengen und zu jeder Menge ihr optimaler Hüllkörper. Der Aufwand, den optimalen Hüllkörper für alle Objekte zu bestimmen, ist unabhängig von der Anzahl der Objekte. 
+   & \CheckedBox & \Square     & \Square     \\\bottomrule
 \end{tabular}
-\footnotetext{Skalierung. Allerdings gibt es nur für AABBs affine transformationen, welche $\frac{V_\text{Hüllkörper} - V_\text{Objekt}}{V_\text{Hüllkörper}}$ verändert.}
+\footnotetext{Skalierung. Allerdings gibt es nur für AABBs affine Transformationen, welche $\frac{V_\text{Hüllkörper} - V_\text{Objekt}}{V_\text{Hüllkörper}}$ verändert.}
 
 \section*{Aufgabe 6: Texturen}
 \subsection*{Teilaufgabe 6a}
 
 \begin{tabular}{cp{8cm}llp{4cm}}\toprule
-\#   & Aussage                                                                                                                                                                        & Wahr         & Falsch      & Kommentar \\\midrule
-I1   & Das Filtern von Texturen wird üblicherweise bei der Minification und der Magnification angewandt, um Aliasing-Artefakte zu vermeiden                                           & $\square$    & \CheckedBox & Nur Magnification \\
-I2   & Das Filtern von Texturen benötigt bei Verfahren ohne Vorfilterung mehr Zugriffe auf den Texturspeicher als einfaches Auslesen.                                                 & TODO         & TODO        & ~         \\
-II1  & Mipmapping bekämpft das Aliasing-Problem bei der Unterabtastung von Texturen.                                                                                                  & \CheckedBox  & $\square$   & ~         \\
-II2  & Mipmapping berücksichtigt anisotrope Footprints.                                                                                                                               & $\square$\   & \CheckedBox & Vorfilterung ist isotrop\footnotemark \\
-III1 & Bei Einsatz von Summed-Area-Tables kann man mit nur vier Texturzugriffen die Summe über eine kreisförmige Fläche berechnen.                                                    & $\square$    & \CheckedBox & ~         \\
-III2 & Bei Einsatz von Summed-Area-Tables benötigt man im Allgemeinen mehr Bits zur Repräsentation der enthaltenen Werte als bei gewöhnlichen Texturen mit dem gleichen Wertebereich. & \CheckedBox  & $\square$   & ~         \\\bottomrule
+\#   & Aussage
+     & Wahr        & Falsch      & Kommentar \\\midrule
+I1   & Das Filtern von Texturen wird üblicherweise bei der Minification und der Magnification angewandt, um Aliasing-Artefakte zu vermeiden.
+     & \Square     & \CheckedBox & Nur Magnification \\
+I2   & Das Filtern von Texturen benötigt bei Verfahren ohne Vorfilterung mehr Zugriffe auf den Texturspeicher als einfaches Auslesen.
+     & \CheckedBox & \Square     & ~         \\
+II1  & Mipmapping bekämpft das Aliasing-Problem bei der Unterabtastung von Texturen.
+     & \CheckedBox & \Square     & ~         \\
+II2  & Mipmapping berücksichtigt anisotrope Footprints.
+     & \Square     & \CheckedBox & Vorfilterung ist isotrop\footnotemark \\
+III1 & Bei Einsatz von Summed-Area-Tables kann man mit nur vier Texturzugriffen die Summe über eine kreisförmige Fläche berechnen.
+     & \Square     & \CheckedBox & ~         \\
+III2 & Bei Einsatz von Summed-Area-Tables benötigt man im Allgemeinen mehr Bits zur Repräsentation der enthaltenen Werte als bei gewöhnlichen Texturen mit dem gleichen Wertebereich. 
+     & \CheckedBox & \Square     & ~         \\\bottomrule
 \end{tabular}
 \footnotetext{Schwer zu sagen, was der Aufgabensteller hier mit \emph{berücksichtigt} meint. Mip-Maps mit Speicherbedarf~$\frac{4}{3}$ sind grundsätzlich isotrop, aber in der Praxis kann durch \emph{Kombination von Abtastungen verschiedener Mip-Map Stufen} anisotrope Filterung erreicht werden. (Vgl. Foliensatz~04, Seite~58/60)}
 
@@ -313,10 +324,10 @@ und $\lambda_1, \lambda_2, \lambda_3 \geq 0$
 
 \subsection*{Teilaufgabe 7d}
 In den Eckpunkten. Allgemein gilt im $i$-ten Eckpunkt: $\lambda_i = 1$ sowie $\lambda_j = 0 \, (\forall j \neq i)$.
-Somit sind die Berechnungen in diesen Punkten äquivalent, wie man leicht aus den obrigen Formeln entnehmen kann.
+Somit sind die Berechnungen in diesen Punkten äquivalent, wie man leicht aus den obigen Formeln entnehmen kann.
 
 \subsection*{Teilaufgabe 7e}
-Im rechten Fall wird mehr Licht zum betrachter reflektiert.
+Im rechten Fall wird mehr Licht zum Betrachter reflektiert, da hier der Winkel flacher ist.
 
 \subsection*{Teilaufgabe 7f}
 Fresnel-Effekt
@@ -334,11 +345,8 @@ so, dass die Feuerpartikel Licht in Richtung des Betrachters emittieren!}
 Tiefenpuffer deaktiviert?}
 
 \begin{itemize}
-    \item Tiefentest ist aktiviert, weil Feuer teilweise von Rauch verdeckt der
-          weiter vorne im Bild ist.
-    \item Tiefenpuffer deaktiviert, weil sich Rauch konstant verändert, d.h.
-          Puffern bringt nichts da nur falsche Werte enthalten wären und
-          deshalb immer neu berechnet werden muss
+    \item Tiefentest ist aktiviert, weil Feuer durch opake Objekte verdeckt sein könnte.
+    \item Schreiben in den Tiefenpuffer ist deaktiviert, da sonst nur die obersten Partikel gezeichnet würden.
 \end{itemize}
 
 
@@ -346,8 +354,6 @@ Tiefenpuffer deaktiviert?}
 \textit{Statt Feuerpartikel werden nun Rauchpartikel gerendert, die Licht
 absorbieren. Die Partikel sind hierzu bereits von hinten nach vorne sortiert.
 Ändern Sie das Blending entsprechend!}
-
-TODO!?
 
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=8c.cpp]{cpp}{8c.cpp}
 
@@ -359,44 +365,44 @@ Welche Schritte müssen Sie vornehmen, um das Problem zu beheben?}
 
 Den Renderablauf verändern:\\
 \begin{tabular}{cl}
- $\square$ \CheckedBox TODO & Zuerst die Rauchpartikel zeichnen, dann die Feuerpartikel.       \\
- $\square$ \CheckedBox TODO & \texttt{glDepthFunc(GL\_GREATER)}: Zeichenreihenfolge umkehren.           \\
- $\square$ \CheckedBox TODO & Rauchpartikel front-to-back sortieren.                           \\
- $\square$ \CheckedBox TODO & Feuerpartikel und Rauchpartikel zusammen sortieren und zeichnen. \\
+ \Square     & Zuerst die Rauchpartikel zeichnen, dann die Feuerpartikel. \\
+ \Square     & \texttt{glDepthFunc(GL\_GREATER)}: Zeichenreihenfolge umkehren. \\
+ \Square     & Rauchpartikel front-to-back sortieren. \\
+ \CheckedBox & Feuerpartikel und Rauchpartikel zusammen sortieren und zeichnen. \\
 \end{tabular}
 
 OpenGL Blending-Konfigurationen:\\
 \begin{tabular}{cl}
- $\square$ \CheckedBox TODO & \verb+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)+\\
- $\square$ \CheckedBox TODO & \verb+glBlendFunc(GL_FUNC_ADD, GL_ONE)+\\
- $\square$ \CheckedBox TODO & \verb+glBlendFunc(GL_ONE_MINUS_DST_ALPHA, GL_SRC_ALPHA)+\\
- $\square$ \CheckedBox TODO & \verb+glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA)+\\
+ \Square     & \verb+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)+\\
+ \Square     & \verb+glBlendFunc(GL_FUNC_ADD, GL_ONE)+\\
+ \Square     & \verb+glBlendFunc(GL_ONE_MINUS_DST_ALPHA, GL_SRC_ALPHA)+\\
+ \CheckedBox & \verb+glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA)+\\
 \end{tabular}
 
 Den Fragment-Shader verändern:\\
 \begin{tabular}{cl}
- $\square$ \CheckedBox TODO & Alpha-Ausgabewert von Feuerpartikeln auf (1 - Texel-Alpha) setzen.\\
- $\square$ \CheckedBox TODO & Alpha-Ausgabewert von Feuerpartikeln auf 1 setzen.\\
- $\square$ \CheckedBox TODO & Alpha-Ausgabewert von Feuerpartikeln auf 0 setzen.\\
- $\square$ \CheckedBox TODO & Ausgabewerte unverändert beibehalten.\\
+ \Square     & Alpha-Ausgabewert von Feuerpartikeln auf (1 - Texel-Alpha) setzen.\\
+ \Square     & Alpha-Ausgabewert von Feuerpartikeln auf 1 setzen.\\
+ \CheckedBox & Alpha-Ausgabewert von Feuerpartikeln auf 0 setzen.\\
+ \Square     & Ausgabewerte unverändert beibehalten.\\
 \end{tabular}
 
 Vertex-Attribute hinzufügen:\\
 \begin{tabular}{cl}
- $\square$ \CheckedBox TODO & zur feingranularen Anpassung der OpenGL Blending-Konfiguration,\\
- $\square$ \CheckedBox TODO & zur Unterscheidung von Feuer- und Rauchpartikeln,\\
- $\square$ \CheckedBox TODO & zur Einstellung der Zeichenebene.\\
+ \Square     & zur feingranularen Anpassung der OpenGL Blending-Konfiguration,\\
+ \CheckedBox & zur Unterscheidung von Feuer- und Rauchpartikeln,\\
+ \Square     & zur Einstellung der Zeichenebene.\\
 \end{tabular}
 
 \section*{Aufgabe 9: OpenGL}
 \begin{tabular}{cp{8cm}ccp{4cm}}\toprule
-\# & Aussage                                                                                             & Wahr      & Falsch      & Kommentar \\\midrule
-1  & Die Dehomogenisierung wird in der OpenGL-Pipeline nach dem Fragment-Shader durchgeführt.            &           & x           & Dehomogenisierung wird vor Rasterisierung ausgeführt\\
-2  & Die Pipeline-Stufe \enquote{Primitive Assembly} ist programmierbar.                                 &           & x           & Vl 07 Teil 1, Folie 12\\
-3  & Clipping am Sichtvolumen wird von der OpenGL-Pipeline vor dem Fragment-Shader durchgeführt.         & x         &             & \footnotemark\\
-4  & Shader-Programme können den Zustand des OpenGL-Zustandsautomaten (State Machine) verändern.         & TODO      & TODO        & \\
-5  & Die Beleuchtungsberechnung muss im Fragment-Shader immer in Kamera-Koordinaten durchgeführt werden. & TODO      & TODO        & \\
-6  & Texturen können ausschließlich im Fragment-Shader gelesen werden.                                   &           & x           & \footnotemark\\\bottomrule
+\# & Aussage                                                                                             & Wahr        & Falsch      & Kommentar \\\midrule
+1  & Die Dehomogenisierung wird in der OpenGL-Pipeline nach dem Fragment-Shader durchgeführt.            & \Square     & \CheckedBox & Dehomogenisierung wird vor Rasterisierung ausgeführt\\
+2  & Die Pipeline-Stufe \enquote{Primitive Assembly} ist programmierbar.                                 & \Square     & \CheckedBox & Kap.~7, Teil~1, Folie~12\\
+3  & Clipping am Sichtvolumen wird von der OpenGL-Pipeline vor dem Fragment-Shader durchgeführt.         & \CheckedBox & \Square     & \footnotemark\\
+4  & Shader-Programme können den Zustand des OpenGL-Zustandsautomaten (State Machine) verändern.         & \Square     & \CheckedBox & \\
+5  & Die Beleuchtungsberechnung muss im Fragment-Shader immer in Kamera-Koordinaten durchgeführt werden. & \Square     & \CheckedBox & \\
+6  & Texturen können ausschließlich im Fragment-Shader gelesen werden.                                   & \Square     & \CheckedBox & \footnotemark\\\bottomrule
 \end{tabular}
 \footnotetext{\href{https://www.opengl.org/wiki/Rendering_Pipeline_Overview}{www.opengl.org/wiki/Rendering\_Pipeline\_Overview}}
 \footnotetext{Texturen können auch in anderen Shadern gelesen werden, z.B. im Geometry Shader die Textur sample: \href{https://www.opengl.org/wiki/Geometry_Shader_Examples}{www.opengl.org/wiki/Geometry\_Shader\_Examples}}

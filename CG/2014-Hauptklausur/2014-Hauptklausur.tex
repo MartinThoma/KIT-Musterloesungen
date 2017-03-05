@@ -203,21 +203,32 @@ Inklusive Schnitttests der AABB-Hüllkörper:\vspace{-3pt}
 
 \subsection*{Teilaufgabe 6c}
 \begin{tabular}{cp{8cm}ccp{5cm}}\toprule
-\# & Aussage & Wahr & Falsch & Begründung \\\midrule
- 1 & Beim Traversieren eines kD-Baums müssen immer beide Kinder in Betracht gezogen werden.                                                                                                   & \Square     & \CheckedBox    & vgl. Folie 103\\
- 2 & Das Traversieren einer Hüllkörperhierarchie mit achsenparallelen Boxen (Bounding Volume Hierarchy, BVH) erfordert Mailboxing, um mehrfache Schnitttests mit einem Dreieck zu verhindern. & \Square     & \CheckedBox    & BVHs fügen Objekte nur in einen Kindknoten ein \\
- 3 & Der Speicheraufwand einer BVH hängt logarithmisch von der Anzahl der Primitive ab.                                                                                                       & \Square     & \CheckedBox    & Linear, siehe \href{https://github.com/MartinThoma/KIT-Musterloesungen/issues/13#issuecomment-192245468}{github.com/MartinThoma/KIT-Musterloesungen/issues/13}          \\
- 4 & kD-Bäume sind eine Verallgemeinerung von BSP-Bäumen.                                                                                                                                     & \Square     & \CheckedBox    & Es ist genau anders herum. kD-Bäume müssen Achsenparallele Trennebenen haben, BSP-Bäume jedoch nicht. \\
- 5 & BSP-Bäume sind adaptiv und leiden nicht unter dem \enquote{Teapot in a Stadium}-Problem.                                                                                                 & \CheckedBox & \Square        & ~          \\
+\# & Aussage
+   & Wahr        & Falsch      & Begründung \\\midrule
+ 1 & Beim Traversieren eines kD-Baums müssen immer beide Kinder in Betracht gezogen werden.
+   & \Square     & \CheckedBox & vgl. Folie~103\\
+ 2 & Das Traversieren einer Hüllkörperhierarchie mit achsenparallelen Boxen (Bounding Volume Hierarchy, BVH) erfordert Mailboxing, um mehrfache Schnitttests mit einem Dreieck zu verhindern.
+   & \Square     & \CheckedBox & BVHs fügen Objekte nur in einen Kindknoten ein. \\
+ 3 & Der Speicheraufwand einer BVH hängt logarithmisch von der Anzahl der Primitive ab.
+   & \Square     & \CheckedBox & Linear, siehe \href{https://github.com/MartinThoma/KIT-Musterloesungen/issues/13#issuecomment-192245468}{github.com/MartinThoma/KIT-Musterloesungen/issues/13} \\
+ 4 & kD-Bäume sind eine Verallgemeinerung von BSP-Bäumen.
+   & \Square     & \CheckedBox & Es ist genau anders herum. kD-Bäume müssen Achsenparallele Trennebenen haben, BSP-Bäume jedoch nicht. \\
+ 5 & BSP-Bäume sind adaptiv und leiden nicht unter dem \enquote{Teapot in a Stadium}-Problem.
+   & \CheckedBox & \Square     & ~ \\
 \end{tabular}
 
 \subsection*{Teilaufgabe 6d}
 \begin{tabular}{cp{8cm}cccc}\toprule
-\# & Aussage                                                                                                                                          & BVH         & Octree      & kD-Baum     & Gitter    \\\midrule
- 1 & Die Datenstruktur partitioniert den Raum.                                                                                                        & \Square     & \CheckedBox & \CheckedBox & \CheckedBox \\
- 2 & Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive.                                                             & \Square     & \Square     & \Square     & \CheckedBox \\
- 3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird.\footnotemark                 & \CheckedBox & \Square     & \CheckedBox & \Square   \\
- 4 & Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. & \Square     & \Square     & \Square     & \CheckedBox \\\bottomrule
+\# & Aussage
+   & BVH         & Octree      & kD-Baum     & Gitter      \\\midrule
+ 1 & Die Datenstruktur partitioniert den Raum.
+   & \Square     & \CheckedBox & \CheckedBox & \CheckedBox \\
+ 2 & Der Aufwand für den Aufbau der Datenstruktur ist linear in der Anzahl der Primitive.
+   & \Square     & \Square     & \Square     & \CheckedBox \\
+ 3 & Eine effizientere Traversierung wird erreicht, wenn die Surface Area Heuristic bei der Konstruktion verwendet wird.\footnotemark
+   & \CheckedBox & \Square     & \CheckedBox & \Square     \\
+ 4 & Die Datenstruktur eignet sich am besten für Szenen, in denen die Geometrie gleichmäßig verteilt ist und kaum leere Zwischenräume vorhanden sind. 
+   & \Square     & \Square     & \Square     & \CheckedBox \\\bottomrule
 \end{tabular}
 \footnotetext{vgl. \texttt{05\_ Raumliche Datenstrukturen.pdf}, Folie 103}
 
@@ -226,7 +237,7 @@ Inklusive Schnitttests der AABB-Hüllkörper:\vspace{-3pt}
 \begin{tabular}{cp{8cm}llp{4cm}}\toprule
 \# & Aussage & Wahr & Falsch & Begründung / Quelle \\\midrule
  1 & In der OpenGL-Pipeline wird View Frustum Clipping vor der perspektivischen Division durchgeführt.
-   & \CheckedBox & \Square     & Kapitel 6, Folie 45 \\
+   & \CheckedBox & \Square     & Kapitel~6, Folie~45 \\
  2 & Vertex-Shader können auf Texturen zugreifen.
    & \CheckedBox & \Square     & Alle Shader können Texturen verwenden. \\
  3 & Bei Gouraud-Shading muss man die Normale im Fragment-Shader erneut normalisieren.
@@ -269,13 +280,13 @@ Inklusive Schnitttests der AABB-Hüllkörper:\vspace{-3pt}
 \end{tabular}
 
 \subsection*{Teilaufgabe 9a (II)}
-\mint{glsl}{glBlendFunc(GL_SRC_ALPHA /*(2)*/, GL_ONE_MINUS_SRC_ALPHA /*(3)*/)}
+\mint{cpp}{glBlendFunc(GL_SRC_ALPHA /*(2)*/, GL_ONE_MINUS_SRC_ALPHA /*(3)*/)}
 
 \subsection*{Teilaufgabe 9b}
-\mint{glsl}{glBlendFunc(GL_ONE /*(1)*/, GL_ONE /*(1)*/)}
+\mint{cpp}{glBlendFunc(GL_ONE /*(1)*/, GL_ONE /*(1)*/)}
 
 \subsection*{Teilaufgabe 9c}
-\mint{glsl}{glBlendFunc(GL_ZERO /*(0)*/, GL_ONE_MINUS_SRC_COLOR /*(7)*/)}
+\mint{cpp}{glBlendFunc(GL_ZERO /*(0)*/, GL_ONE_MINUS_SRC_COLOR /*(7)*/)}
 
 
 \section*{Aufgabe 10: Bézier-Kurven und Bézier-Splines}
