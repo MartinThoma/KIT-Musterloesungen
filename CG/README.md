@@ -53,19 +53,19 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>7. Hauptklausur 2014</td>
             <td>Draft: OpenGL und Blending fehlt</td>
-            <td>22</td>
+            <td>6</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>8. Nachklausur 2014</td>
             <td>Draft</td>
-            <td>6</td>
+            <td>2</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>9. Hauptklausur 2015</td>
             <td>Draft</td>
-            <td>25</td>
+            <td>0</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
