@@ -21,3 +21,8 @@ korrektur-gelesen habt, dann schreibt mir doch bitte eine E-Mail, in der steht
 welche Version (z.B. bae5d05c67191192941ef7b36109aef4e4dd0e07 von Klausur1.pdf)
 ihr korrektur gelesen habt und wo ihr denkt Fehler zu sehen. Diese können wir
 dann gemeinsam besprechen korrigieren.
+
+Materialien
+===========
+[martin-thoma.com/numerik-klausur](https://martin-thoma.com/numerik-klausur/) beinhaltet
+alles an Materialien, was ich habe.

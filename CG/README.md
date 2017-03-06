@@ -64,7 +64,7 @@ abfotografieren hilft ja auch schon.
         </tr>
         <tr>
             <td>9. Hauptklausur 2015</td>
-            <td>Draft</td>
+            <td>Completed, but not checked</td>
             <td>0</td>
             <td>&nbsp;</td>
         </tr>
@@ -76,3 +76,9 @@ abfotografieren hilft ja auch schon.
         </tr>
     </tbody>
 </table>
+
+
+## Material
+
+[martin-thoma.com/cg-klausur](https://martin-thoma.com/cg-klausur/) beinhaltet
+alles an Materialien, was ich habe.
