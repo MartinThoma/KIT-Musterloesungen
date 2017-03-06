@@ -8,4 +8,4 @@ genommen wird, in dem das Semester startet.
 | Fach              | Klausuren | TODOs |
 | ----------------- | --------- | ----- |
 | Echtzeitsysteme   | 5         | 164   |
-| Computer Graphics | 10        | 115   |
+| Computer Graphics | 10        |  33   |

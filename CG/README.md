@@ -23,13 +23,13 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>2. Nachklausur 2011</td>
             <td>Draft</td>
-            <td>19</td>
+            <td>7</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>3. Hauptklausur 2012</td>
             <td>Draft</td>
-            <td>5</td>
+            <td>2</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -41,7 +41,7 @@ abfotografieren hilft ja auch schon.
         <tr>
             <td>5. Hauptklausur 2013</td>
             <td>Draft</td>
-            <td>10</td>
+            <td>2</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
