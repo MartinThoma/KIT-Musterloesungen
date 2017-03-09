@@ -1,0 +1,235 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\setlist{noitemsep}
+\usepackage[binary-units=true]{siunitx}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage[nameinlink,noabbrev,ngerman]{cleveref} % has to be after hyperref
+\usepackage{csquotes}  % for \enquote{what you want to quote}
+\usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
+\usepackage{minted} % needed for the inclusion of source code
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% for \begin{itemize}[label=(\Alph*)], see http://tex.stackexchange.com/a/129960/5645
+\usepackage{enumitem}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\usepackage{wasysym}  % For \CheckedBox
+\usepackage{microtype}
+
+\begin{document}
+\selectlanguage{ngerman}
+\title{2016 Nachklausur (SS 2016)}
+
+\setcounter{section}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 1}
+\subsection*{Teilaufgabe 1a}
+Der Gamut ist der Raum aller vom Monitor darstellbaren Farben.
+
+\subsection*{Teilaufgabe 1b}
+\begin{tabular}{p{7cm}cccc}\toprule
+	\textbf{Aussage}                                                          & \textbf{RGB} & \textbf{CMY} & \textbf{HSV} & \textbf{CIE xyY}\\\midrule
+	Der Farbraum ist additiv.                                                 & \CheckedBox  & \Square      & \Square      & \Square         \\
+	Der Farbraum ist subtraktiv.                                              & \Square      & \CheckedBox  & \Square      & \Square         \\
+	Der Farbraum trennt Helligkeit von Farbe.                                 & \Square      & \Square      & \CheckedBox  & \CheckedBox     \\
+	Der Farbraum kann alle für den Menschen sichtbaren Farben repräsentieren. & \Square      & \Square      & \Square      & \CheckedBox     \\
+	Der Farbraum wird nativ auf Peripheriegeräten verwendet.                  & \CheckedBox  & \CheckedBox  & \Square      & \Square         \\\bottomrule
+\end{tabular}
+
+\subsection*{Teilaufgabe 1c}
+Nein (negative Energieabstrahlung nicht möglich)
+
+\section*{Aufgabe 2}
+\subsection*{Teilaufgabe 2a}
+TODO
+
+\subsection*{Teilaufgabe 2b}
+TODO
+
+\subsection*{Teilaufgabe 2c}
+\begin{tabular}{cp{12cm}ll}\toprule
+	~ & \textbf{Aussage} & \textbf{Wahr} & \textbf{Falsch} \\\midrule
+	1 & Wenn ein Lichtstrahl aus einem optisch dichteren Medium in ein optisch dünneres Medium übergeht, kann Totalreflexion auftreten.
+	  & \CheckedBox & \Square     \\
+	2 & Die Zeitkomplexität von Whitted-style Raytracing ist polynomial in der Rekursionstiefe.
+	  & \Square     & \CheckedBox \\
+	3 & Es gibt eine Klasse von Materialien, die beim Whitted-style Raytracing mehrere Sekundärstrahlen per Schnittpunkt erzeugen.
+	  & \CheckedBox & \Square     \\
+	4 & Der Whitted-style Raytracer überprüft die direkte Beleuchtung eines Oberflächenpunktes mithilfe von Schattenstrahlen.
+	  & \CheckedBox & \Square     \\
+	5 & Whitted-style Raytracing konvergiert immer zum physikalisch korrekten Ergebnis.
+	  & \Square     & \CheckedBox \\
+	6 & Whitted-style Raytracing ist das Bildsyntheseverfahren, das auf der GPU in Hardware implementiert ist.
+	  & \Square     & \CheckedBox \\\bottomrule
+\end{tabular}
+
+\section*{Aufgabe 3}
+\subsection*{Teilaufgabe 3a}
+TODO
+
+\subsection*{Teilaufgabe 3b}
+TODO
+
+\subsection*{Teilaufgabe 3c}
+e, f, f, f, h
+
+\subsection*{Teilaufgabe 3d}
+\begin{tabular}{p{7cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}}\toprule
+	\textbf{Aussage}                                                                                     & \textbf{BVH} & \textbf{kD-Baum} & \textbf{Gitter} & \textbf{Keine} \\\midrule
+	Primitive können in mehr als einem Blattknoten/einer Gitterzelle vorhanden sein.                     & \CheckedBox  & \CheckedBox      & \CheckedBox     & \Square        \\
+	Die Datenstruktur kann zur Beschleunigung von Nachbarschaftssuchen verwendet werden.                 & \Square      & \Square          & \CheckedBox     & \Square        \\
+	Die Datenstruktur eignet sich besonders für Szenen, in denen die Geometrie gleichmäßig verteilt ist. & \Square      & \Square          & \CheckedBox     & \Square        \\
+	Der Aufbau-Algorithmus passt die Datenstruktur an die Normalen der Geometrie an.                     & \Square      & \Square          & \Square         & \CheckedBox    \\\bottomrule
+\end{tabular}
+
+\subsection*{Teilaufgabe 3e}
+\begin{tabular}{cp{12cm}ll}\toprule
+	~ & \textbf{Aussage} & \textbf{Wahr} & \textbf{Falsch} \\\midrule
+	1 & Die Surface Area Heuristic minimiert die Anzahl der Primitive, die sich in der Beschleunigungsstruktur befinden.
+	  & \Square     & \CheckedBox \\
+	2 & Der Aufbau einer BVH mithilfe der Surface Area Heuristic ist im Allgemeinen aufwändiger als der Aufbau mittels Objektmittel-Methode (object median).
+	  & \CheckedBox & \Square     \\
+	3 & BSP-Bäume sind kD-Bäume mit achsparallelen Unterteilungsebenen.
+	  & \Square     & \CheckedBox \\
+	4 & Die Objektmittel-Methode (object median) kann beim Erstellen von BVH und kD-Baum verwendet werden.
+	  & \CheckedBox & \Square     \\
+	5 & Die Raummittel-Methode (spatial median) kann beim Erstellen von BVH und kD-Baum verwendet werden.
+	  & \CheckedBox & \Square     \\
+	6 & Eine optimale objektorientierte Box (OOBBs) hat höchstens das Volumen der entsprechenden achsenparallelen Box (AABB).
+	  & \CheckedBox & \Square     \\\bottomrule
+\end{tabular}
+
+\section*{Aufgabe 4}
+\subsection*{Teilaufgabe 4a}
+\[c = \lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3\]
+
+\subsection*{Teilaufgabe 4b}
+Die interpolierte Normale muss erneut normalisiert werden.
+
+\subsection*{Teilaufgabe 4c}
+\begin{itemize}
+	\item $\lambda_1 = \frac{2}{3}$
+	\item $\lambda_2 = 0$
+	\item $\lambda_3 = \frac{1}{3}$
+\end{itemize}
+
+\subsection*{Teilaufgabe 4d}
+Das Phong-Beleuchtungsmodell kann für alle Verfahren eingesetzt werden.
+
+
+\section*{Aufgabe 5}
+\subsection*{Teilaufgabe 5a}
+\[c_{BL}(T_p) = 0.4 \cdot (100 \cdot 0.1) + 0.8 \cdot (100 \cdot 0.9) = 4 + 72 = 76\]
+
+\subsection*{Teilaufgabe 5b}
+\begin{tikzpicture}[every circle/.style={radius=2pt}]
+	\fill (0,0.0) coordinate[label=left: $P_1$] (P1) circle;
+	\fill (3,3.0) coordinate[label=above:$P_2$] (P2);
+	\fill (7,1.5) coordinate[label=right:$P_3$] (P3) circle;
+	
+	\fill[gray] ($(P1)!0.5!(P2)$) -- (P2) -- ($(P2)!0.5!(P3)$) -- ($(P1)!0.5!(P3)$);
+	\fill (P2) circle;
+	\draw (P1) -- (P2) -- (P3) -- (P1);
+\end{tikzpicture}
+
+\subsection*{Teilaufgabe 5c (i)}
+Stufe 1 (1 Texel): $\frac{1}{4} \cdot 0 + \frac{1}{4} \cdot 100 + \frac{1}{4} \cdot 0 + \frac{1}{4} \cdot 100 = 50$
+
+\subsection*{Teilaufgabe 5c (ii)}
+\[c_{MM}(T_p) = \frac{1}{2} \cdot 50 + \frac{1}{2} \cdot 76 = 25 + 38 = 63\]
+
+\subsection*{Teilaufgabe 5c (iii)}
+\begin{tabular}{lcccc}\toprule
+	\textbf{Fall} & \textbf{Nearest} & \textbf{Bilinear} & \textbf{Mip-Map-Nearest} & \textbf{Mip-Map-Trilinear} \\\midrule
+	Minification  & \Square          & \Square           & \Square                  & \CheckedBox                \\
+	Magnification & \Square          & \CheckedBox       & \Square                  & \Square                    \\\bottomrule
+\end{tabular}
+
+\section*{Aufgabe 6}
+\subsection*{Teilaufgabe 6a}
+\begin{tabular}{ll}
+	\verb|GL_TRIANGLES|      & 0,1,3,0,2,3,1,2,3 \\
+	\verb|GL_TRIANGLE_STRIP| & 0,1,3,2,0         \\
+	\verb|GL_TRIANGLE_FAN|   & 3,1,0,2,1         \\
+\end{tabular}
+
+\subsection*{Teilaufgabe 6b}
+Vertex-Shader $\rightarrow$ Geometry-Shader $\rightarrow$ Fragment-Shader
+
+\section*{Aufgabe 7}
+\subsection*{Teilaufgabe 7a}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader7a.frag, mathescape]{glsl}{shader7a.frag}
+
+\subsection*{Teilaufgabe 7b}
+TODO
+
+\section*{Aufgabe 8}
+\subsection*{Teilaufgabe 8a}
+TODO
+
+\subsection*{Teilaufgabe 8b}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=blending.cpp]{cpp}{blending.cpp}
+
+\subsection*{Teilaufgabe 8c}
+\mint{cpp}|glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);|
+
+\subsection*{Teilaufgabe 8d}
+\mint{cpp}|glBlendFunc(GL_ONE, GL_ONE);|
+
+\section*{Aufgabe 9}
+\subsection*{Teilaufgabe 9a}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader9a.frag]{glsl}{shader9a.frag}
+
+\subsection*{Teilaufgabe 9b}
+\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=shader9b.frag]{glsl}{shader9b.frag}
+
+\section*{Aufgabe 10}
+\subsection*{Teilaufgabe 10a}
+\begin{flalign*}
+&  (1 - u^2) \mathbf{b}_0 + 2u (1 - u) \mathbf{b}_1 + u^2 \mathbf{b}_2\\
+&= (1 - 2u + u^2) \mathbf{b}_0 + (2u - 2u^2) \mathbf{b}_1 + u^2 \mathbf{b}_2\\
+&= \mathbf{b}_0 u^2 - 2 \mathbf{b}_1 u^2 + \mathbf{b}_2 u^2 - 2 \mathbf{b}_0 u + 2 \mathbf{b}_1 u + \mathbf{b}_0\\
+&= (\underbrace{\mathbf{b}_0 - 2 \mathbf{b}_1 + \mathbf{b}_2}_{= \mathbf{a}_2}) u^2 + (\underbrace{2 \mathbf{b}_1 - 2 \mathbf{b}_0}_{= \mathbf{a}_1}) u + \underbrace{\mathbf{b}_0}_{= \mathbf{a}_0}
+\end{flalign*}
+
+\subsection*{Teilaufgabe 10b}
+\begin{tikzpicture}[scale=0.75,every circle/.style={radius=2pt}]
+\draw[help lines] (0,0) grid (15,15);
+\draw[thick,->] (0,0) -- (16,0) node[below right] {x};
+\draw[thick,->] (0,0) -- (0,16) node[left] {y};
+\draw foreach \x in {1,...,14} {(\x,0.2) -- (\x,-0.2) node[below] {\x}};
+\draw foreach \y in {1,...,14} {(0.2,\y) -- (-0.2,\y) node[left] {\y}};
+
+\fill  (2,2)  coordinate[label=left: $\mathbf{b}_0$] (b0) circle;
+\fill  (6,2)  coordinate[label=below:$\mathbf{b}_1$] (b1) circle;
+\fill (14,14) coordinate[label=right:$\mathbf{b}_2$] (b2) circle;
+\fill (14,2)  coordinate[label=right:$\mathbf{b}_3$] (b3) circle;
+
+\begin{scope}[red]
+	\draw[dashed] (b0) -- (b1) -- (b2) -- (b3);
+	\fill ($(b0)!0.5!(b1)$) coordinate[label=below:     $\mathbf{b}_0^0$] (b00) circle;
+	\fill ($(b1)!0.5!(b2)$) coordinate[label=above left:$\mathbf{b}_1^0$] (b10) circle;
+	\fill ($(b2)!0.5!(b3)$) coordinate[label=right:     $\mathbf{b}_2^0$] (b20) circle;
+	
+	\draw[dotted] (b00) -- (b10) -- (b20);
+	\fill ($(b00)!0.5!(b10)$) coordinate[label=above left:$\mathbf{b}_0^1$] (b01) circle;
+	\fill ($(b10)!0.5!(b20)$) coordinate[label=above:     $\mathbf{b}_1^1$] (b11) circle;
+\end{scope}
+
+\draw[dotted] (b01) -- (b11);
+\fill ($(b01)!0.5!(b11)$) coordinate[label=below right:$\mathbf{b}\left(\frac{1}{2}\right)$] circle;
+
+\draw (b0) .. controls (b1) and (b2) .. (b3);
+\end{tikzpicture}
+
+
+\end{document}
