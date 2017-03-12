@@ -1,7 +1,7 @@
 uniform samplerCube tEnv;         // Environment-Map
 uniform samplerCube tEnvFiltered; // vorgefilterte Environment-Map
-uniform sampler2D tRC;            // RGB-Textur, die r_c enthält
-uniform sampler2D tKD;            // RGB-Textur, die k_d enthält
+uniform sampler2D tRC;            // RGB-Textur, die $r_c$ enthält
+uniform sampler2D tKD;            // RGB-Textur, die $k_d$ enthält
 
 in vec3 v;  // interpolierter View-Vektor (zur Kamera hin) in Weltkoordinaten
 in vec3 n;  // interpolierte Normale in Weltkoordinaten
