@@ -14,6 +14,9 @@
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 \usepackage{minted} % needed for the inclusion of source code
 
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
 % for \begin{enumerate}[label=(\Alph*)], see http://tex.stackexchange.com/a/129960/5645
 \usepackage{enumitem}
 
@@ -438,7 +441,34 @@ $\varphi(x) = A x + t$ eine affine Funktion. Dann gilt:
 \[\varphi(F(u)) = \sum_{i=0}^n B_i^n \varphi(\mathbf{b}_i)\]
 
 \subsection*{Teilaufgabe 12b}
-\includegraphics*[width=\linewidth, keepaspectratio]{12b.png}
+\begin{tikzpicture}[scale=0.75,every circle/.style={radius=2pt}]
+\draw[help lines] (0,0) grid (15,15);
+\draw[thick,->] (0,0) -- (16,0) node[below right] {x};
+\draw[thick,->] (0,0) -- (0,16) node[left] {y};
+\draw foreach \x in {1,...,14} {(\x,0.2) -- (\x,-0.2) node[below] {\x}};
+\draw foreach \y in {1,...,14} {(0.2,\y) -- (-0.2,\y) node[left] {\y}};
+
+\fill  (2,2)  coordinate[label=left: $\mathbf{b}_0$] (b0) circle;
+\fill  (2,14) coordinate[label=left: $\mathbf{b}_1$] (b1) circle;
+\fill (10,2)  coordinate[label=below:$\mathbf{b}_2$] (b2) circle;
+\fill (14,2)  coordinate[label=right:$\mathbf{b}_3$] (b3) circle;
+
+\begin{scope}[red]
+	\draw[dashed] (b0) -- (b1) -- (b2) -- (b3);
+	\fill ($(b0)!0.5!(b1)$) coordinate[label=left:       $\mathbf{b}_0^0$] (b00) circle;
+	\fill ($(b1)!0.5!(b2)$) coordinate[label=above right:$\mathbf{b}_1^0$] (b10) circle;
+	\fill ($(b2)!0.5!(b3)$) coordinate[label=below:      $\mathbf{b}_2^0$] (b20) circle;
+	
+	\draw[dotted] (b00) -- (b10) -- (b20);
+	\fill ($(b00)!0.5!(b10)$) coordinate[label=above:      $\mathbf{b}_0^1$] (b01) circle;
+	\fill ($(b10)!0.5!(b20)$) coordinate[label=above right:$\mathbf{b}_1^1$] (b11) circle;
+\end{scope}
+
+\draw[dotted] (b01) -- (b11);
+\fill ($(b01)!0.5!(b11)$) coordinate[label=below left:$\mathbf{b}\left(\frac{1}{2}\right)$] circle;
+
+\draw (b0) .. controls (b1) and (b2) .. (b3);
+\end{tikzpicture}
 
 \subsection*{Teilaufgabe 12c}
 \textit{Geben Sie an, ob es sich bei den folgenden Kurven mit gegebenem
