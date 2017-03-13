@@ -73,11 +73,46 @@ TODO
 \end{tabular}
 
 \section*{Aufgabe 3}
-\subsection*{Teilaufgabe 3a}
-TODO
-
-\subsection*{Teilaufgabe 3b}
-TODO
+\subsection*{Teilaufgabe 3ab}
+\begin{tikzpicture}[scale=0.9,every label/.style={red,font=\small}]
+	\draw[help lines] (0,0) grid (16,16);
+	\draw (0,0) rectangle (16,16);
+	\foreach \x in {4,8,12} {
+		\draw (\x, -0.2) -- (\x, +0.2);
+		\draw (\x, 15.8) -- (\x, 16.2);
+	};
+	\foreach \y in {4,8,12} {
+		\draw (-0.2, \y) -- (+0.2, \y);
+		\draw (15.8, \y) -- (16.2, \y);
+	};
+	
+	\node[label= 93:1] at  (5.1,14.9) (a) {a};
+	\node[label=180:3] at  (6.9,13.4) (b) {b};
+	\node[label=  0:1] at  (9.1,14.7) (c) {c};
+	\node[label=-50:1] at (11.1,13.0) (d) {d};
+	\node[label=-35:1] at  (1.8,9.6)  (e) {e};
+	\node[label= 95:4] at  (5.6,6.2)  (f) {f};
+	\node[label=-90:1] at  (7.5,4.4)  (g) {g};
+	\node[label=-90:1] at (10.7,2.3)  (h) {h};
+	
+	\draw  (4.8,15.8) --  (5.8,14.7) --  (4.6,14.2) -- cycle;
+	\draw  (5.3,12.4) --  (7.6,12.4) --  (7.6,15.6) -- cycle;
+	\draw  (8.4,14.2) --  (9.3,14.4) --  (9.3,15.6) -- cycle;
+	\draw (10.2,12.4) -- (11.8,12.9) -- (11.1,13.6) -- cycle;
+	\draw  (0.2,8.3)  --  (2.9,8.3)  --  (2.4,11.3) -- cycle;
+	\draw  (4.3,5.2)  --  (7.4,5.6)  --  (5.3,7.2)  -- cycle;
+	\draw  (7.1,4.2)  --  (7.9,4.2)  --  (7.6,4.9)  -- cycle;
+	\draw  (9.8,2.0)  -- (11.0,3.2)  -- (11.6,0.9)  -- cycle;
+	
+	\begin{scope}[red]
+		\draw[step=4] (0.2,0.2) grid (15.8,15.8);
+		\draw  (4,14) -- (12,14);
+		\draw  (6,12) --  (6,16);
+		\draw (10,12) -- (10,16);
+		\draw[step=2] (4,4) grid (8,8);
+		\draw[step=1] (6,4) grid (8,6);
+	\end{scope}
+\end{tikzpicture}
 
 \subsection*{Teilaufgabe 3c}
 e, f, f, f, h
