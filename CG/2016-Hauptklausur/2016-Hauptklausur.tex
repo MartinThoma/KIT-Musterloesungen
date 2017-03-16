@@ -13,7 +13,9 @@
 \usepackage{csquotes}  % for \enquote{what you want to quote}
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 \usepackage{minted} % needed for the inclusion of source code
+
 \usepackage{tikz}
+\usetikzlibrary{intersections}
 
 % for \begin{enumerate}[label=(\Alph*)], see http://tex.stackexchange.com/a/129960/5645
 \usepackage{enumitem}
@@ -48,7 +50,32 @@ Die Chrominanzinformation kann daher verlustbehafteter komprimiert werden, ohne 
 
 \section*{Aufgabe 2}
 \subsection*{Teilaufgabe 2a}
-TODO
+\begin{tikzpicture}
+	\begin{scope}[shift={(0.7,6.4)},rotate=-25]
+		\node[above left] at (0.8,1) {Kamera};
+		\fill[gray] (0.8,0) coordinate (cam) ellipse[x radius=0.2,y radius=0.8];
+		\draw[thick] (1,-1) -- (0,0) -- (1,1);
+	\end{scope}
+
+	\draw (11.5,9) coordinate[label={[yshift=0.7cm]above:Punktlicht}] (light) circle[radius=0.3]
+		+(-0.3, 0.3) -- +(-0.6, 0.6) +(0.0, 0.4) -- +(0.0, 0.7) +(0.3, 0.3) -- +(0.6, 0.6)
+		+(-0.4, 0.0) -- +(-0.7, 0.0)                            +(0.4, 0.0) -- +(0.7, 0.0)
+		+(-0.3,-0.3) -- +(-0.6,-0.6) +(0.0,-0.4) -- +(0.0,-0.7) +(0.3,-0.3) -- +(0.6,-0.6);
+
+	\node[rectangle,draw,fill=gray,anchor=south west,minimum width=14cm, minimum height=6mm] (Sp1) at (0,0) {Spiegel};
+	\node[rectangle,draw,fill=gray,anchor=north west,minimum width=9.8cm,minimum height=7mm,rotate=90] (Sp2) at (14,0) {Spiegel};
+	\node[rectangle,draw,fill=gray,anchor=north west,minimum width=5.7cm,minimum height=8mm,rotate=90] (D) at (8.3,4.1) {Diffuse Oberfläche};
+	\node[rectangle,draw,fill=gray!40,anchor=south west,minimum height=5.5cm,minimum width=2.5cm,align=center,text height=-2cm] (G) at (3.5,1.8) {Glas \\ $\eta > 1$};
+	
+	\coordinate (TR) at (12,0.6);
+	\path[name path=P] (cam) -- +(-30:5cm);
+	\path[name path=T] (TR)  -- +(150:10cm);
+	\path[name path=Gleft]  (G.north west) -- (G.south west);
+	\path[name path=Gright] (G.north east) -- (G.south east);
+	\path[name intersections={of=P and Gleft}];	 \coordinate (PT) at (intersection-1);
+	\path[name intersections={of=T and Gright}]; \coordinate (TT) at (intersection-1);
+	\draw[red] (cam) to[edge label=P] (PT) to[edge label'=T] (TT) to[edge label'=T] (TR) to[edge label=R] (14,1.6) to[edge label'=R] (9.1,4.4) to[edge label=S] (light);
+\end{tikzpicture}
 
 \subsection*{Teilaufgabe 2b}
 \[\mathbf{d}' = \mathbf{d}\]
