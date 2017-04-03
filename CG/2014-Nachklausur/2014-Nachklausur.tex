@@ -16,6 +16,7 @@
 \usepackage{minted} % needed for the inclusion of source code
 
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \usetikzlibrary{shapes.misc}
 \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={2mm}}
 
@@ -164,17 +165,40 @@ $u \in [0, 1]$ und $B_i^3$ das $i$-te Bernstein-Polynom vom Grad 3 ist.}
 an der Stelle $u = \frac{1}{3}$ aus! Markieren Sie den Punkt $\mathbf{b}\left(\frac{1}{3}\right)$!}
 
 \begin{figure}[h]
-    \centering
-    \includegraphics*[width=0.8\linewidth, keepaspectratio]{4ab.png}
-    \caption{Skizze zu Aufgabe 4a und 4b}
-    \label{fig:4ab}
+	\centering
+	\begin{tikzpicture}[every circle/.style={radius=2pt}]
+		\draw   (0,0)   coordinate[label=below right:$\mathbf{b}_0$ {=} $\mathbf{c}_0$] (b0) circle;
+		\draw (1.2,5.1) coordinate[label=above:$\mathbf{b}_1$] (b1) circle;
+		\draw (7.2,6.3) coordinate[label=above:$\mathbf{b}_2$] (b2) circle;
+		\draw (12 ,0.5) coordinate[label=below right:$\mathbf{b}_3$ {=} $\mathbf{d}_3$] (b3) circle;
+
+		\begin{scope}[red]
+			\draw[green] (b0) -- (b1) -- (b2) -- (b3);
+			\begin{scope}[fill=green]
+				\filldraw ($(b0)!1/3!(b1)$) coordinate[label=below right:$\mathbf{c}_1$] (b00) circle;
+				\fill ($(b1)!1/3!(b2)$) coordinate (b01) circle;
+				\filldraw ($(b2)!1/3!(b3)$) coordinate[label=below left: $\mathbf{d}_2$] (b02) circle;
+			\end{scope}
+
+			\draw[blue] (b00) -- (b01) -- (b02);
+			\begin{scope}[fill=blue]
+				\filldraw ($(b00)!1/3!(b01)$) coordinate[label=below right:$\mathbf{c}_2$] (b10) circle;
+				\filldraw ($(b01)!1/3!(b02)$) coordinate[label=below      :$\mathbf{d}_1$] (b11) circle;
+			\end{scope}
+
+			\draw (b10) -- (b11);
+			\filldraw ($(b10)!1/3!(b11)$) coordinate[label=below right:$\mathbf{b}\left(\frac{1}{3}\right)$ {=} $\mathbf{c}_3$ {=} $\mathbf{d}_0$] circle;
+		\end{scope}
+	\end{tikzpicture}
+	\caption{Skizze zu Aufgabe 4a und 4b}
+	\label{fig:4ab}
 \end{figure}
 
 \subsubsection*{Teilaufgabe 4a (II)}
 vgl. \cref{fig:4ab}
 
 \subsection*{Teilaufgabe 4b}
-Siehe Nachklausur 2015, Aufgabe 11b für eine detailierte Erklärung.
+Siehe Nachklausur 2015, Aufgabe 11b für eine detaillierte Erklärung.
 
 \begin{enumerate}
     \item Nein, da die Kontrollpunkte auf den Ecken eines Rechtecks liegen,
@@ -247,6 +271,7 @@ Mipmap-Stufen!}
 \begin{tikzpicture}[step=0.5,node font=\small]
 	\draw (0,4) node[anchor=south west] {Stufe~0:};
 	\draw (0,0) grid (4,4);
+	\filldraw[fill=gray,semitransparent] (0.35,0.65) -- (1.85,0.35) -- (1.85,1.85) -- (0.2,1.7) -- cycle;
 	
 	\begin{scope}[shift={(5,2)}]
 	\draw (0,2) node[anchor=south west] {Stufe~1:};

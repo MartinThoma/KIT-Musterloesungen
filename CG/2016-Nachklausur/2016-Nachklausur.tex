@@ -49,11 +49,33 @@ Der Gamut ist der Raum aller vom Monitor darstellbaren Farben.
 Nein (negative Energieabstrahlung nicht möglich)
 
 \section*{Aufgabe 2}
+\newcommand\raytracingscene{
+	\node[above left] at (0.8,1) {Kamera};
+	\fill[gray] (0.8,0) ellipse[x radius=0.2,y radius=0.8];
+	\draw[thick] (1,-1) -- (0,0) -- (1,1);
+	
+	\node[fill=gray,rectangle,anchor=north west,rotate=90,minimum width=2.3cm,minimum height=0.8cm] (diffus1) at (3.5,-0.7) {diffus};
+	\node[fill=gray,rectangle,anchor=north west,rotate=90,minimum width=5.1cm,minimum height=0.8cm] (diffus2) at (7.0,1.6)  {diffus};
+	\node[fill=gray,rectangle,anchor=north west,rotate=45,minimum width=2.2cm,draw] (spiegelnd) at (5.5,-3.5) {spiegelnd};
+	
+	\draw (10.2,0.7) coordinate[label={[xshift=0.7cm]right:Punktlicht}] (light) circle[radius=0.3]
+		+(-0.3, 0.3) -- +(-0.6, 0.6) +(0.0, 0.4) -- +(0.0, 0.7) +(0.3, 0.3) -- +(0.6, 0.6)
+		+(-0.4, 0.0) -- +(-0.7, 0.0)                            +(0.4, 0.0) -- +(0.7, 0.0)
+		+(-0.3,-0.3) -- +(-0.6,-0.6) +(0.0,-0.4) -- +(0.0,-0.7) +(0.3,-0.3) -- +(0.6,-0.6);
+}
 \subsection*{Teilaufgabe 2a}
-TODO
+\begin{tikzpicture}
+	\raytracingscene
+	\draw[red] (0.8,0) to[edge label'=P] (spiegelnd.150) to[edge label'=R] (diffus1.-150) to[edge label=S] (light);
+\end{tikzpicture}
 
 \subsection*{Teilaufgabe 2b}
-TODO
+\begin{tikzpicture}
+	\raytracingscene
+	\draw[red] (0.8,0) to[edge label=P] (diffus2.110) to[edge label=R] (diffus1.south) to[edge label=S] (light);
+\end{tikzpicture}
+
+keine Verfolgung von Reflektionsstrahlen an diffusen Oberflächen (indirekte Beleuchtung)
 
 \subsection*{Teilaufgabe 2c}
 \begin{tabular}{cp{12cm}ll}\toprule
