@@ -16,5 +16,5 @@ void main()
     if (distance(C0, P) > R && distance(C1, P) > R)
         discard;
 
-    outColor = color;
+    outColor = inColor;
 }
