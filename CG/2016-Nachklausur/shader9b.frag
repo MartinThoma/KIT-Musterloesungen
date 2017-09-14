@@ -30,6 +30,6 @@ vec3 computeColor(
         return terrainColor(P, n);
     }
 
-    vec3 r = 2 * n * dot(-d, n) + d;
+    vec3 r = reflect(d, n); //Oder: 2 * n * dot(-d, n) + d;
     return waterColor(n, d, skyColor(r), computeColor(P, d));
 }
