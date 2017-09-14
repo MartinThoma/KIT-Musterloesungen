@@ -285,26 +285,42 @@ daneben die Textur:}
 Textur eine Auflösung von $2048\times1024$ hat? (Mipmap-Stufe 0 hat die größte Auflösung).
 Begründen Sie Ihre Antwort!}
 
-Texturgröße:
+Berechnen des Pixel-Footprints:
 \begin{align}
-    0.005 \cdot 2048 &= 10.24\\
     0.01 \cdot 1024 &= 10.24\\
-    \Rightarrow 10.24 \cdot 10.24 &= 104.8576
+    0.005 \cdot 2048 = 0.01 \cdot 1024 &= 10.24
 \end{align}
 
-Stufen:
-\begin{enumerate}
-    \item $1024 \times 512$
-    \item $512 \times 256$
-    \item $256 \times 128$
-    \item $128 \times 64$
-    \item $64 \times 32$
-    \item $32 \times 16$
-    \item $16 \times 8 = 128$
-    \item $8 \times 4 = 32$
+$\Rightarrow$ Der Pixel-Footprint beträgt $10.24 \times 10.24$ Texel.
+
+Die bilineare Interpolation interpoliert zwischen den vier Texeln, die um den Pixel herumliegen, dessen Farbwert ermittelt werden soll. Sie benutzt also einen $2 \times 2$--Filter für die Interpolation. Dasselbe gilt für die trilineare Interpolation, die die bilineare Interpolation lediglich um die Interpolation zwischen zwei Mipmap-Stufen erweitert. Aufgrund des $2 \times 2$--Filters müssen alle Mipmaps quadratisch sein. Ihre Längen (und Breiten) müssen außerdem 2er-Potenzen sein.
+
+Damit lauten die Mipmap-Stufen:
+\begin{enumerate}[start=0]
+    \item Stufe: $1024 \times 1024$
+    \item Stufe: $512 \times 512$
+    \item Stufe: $256 \times 256$
+    \item Stufe: $128 \times 128$
+    \item Stufe: $64 \times 64$
+    \item Stufe: $32 \times 32$
+    \item Stufe: $16 \times 16$
+    \item Stufe: $8 \times 8$
+    \item Stufe: $4 \times 4$
+    \item Stufe: $2 \times 2$
+    \item Stufe: $1 \times 1$
 \end{enumerate}
 
-Es werden also die Stufen 7 und 8 verwendet.
+Der Pixel-Footprint $10.24 \times 10.24$ liegt zwischen $16 \times 16$ und $8 \times 8$. Somit wird zwischen den Mipmap-Stufen 6 und 7 interpoliert.
+
+Für die Breite der Textur würden $1024 + 512 = 1536$ Texel eigentlich ausreichen. Da die Länge und Breite der Textur ebenfalls 2er-Potenzen sein müssen, wird die Textur in der Breite mittels Padding auf die nächsthöhere 2er-Potenz $2048$ aufgefüllt.
+
+Alternativer Lösungsweg:
+
+Ein Pixel bedeckt in der vertikalen Richtung $\frac{10.24}{1024} = \frac{1}{100}$ der Textur und in der horizontalen Richtung $\frac{10.24}{2048} = \frac{1}{200}$ der Textur.
+
+Anschließend wird $f_{max} = \max(\frac{1}{100},\frac{1}{200}) = \frac{1}{100}$ ermittelt und $\log_2(\frac{1}{f_{max}}) = \log_2(\frac{1}{\frac{1}{100}}) = \log_2(100) \sim 6.64$ berechnet.
+
+Man gelangt zum selben Ergebnis wie oben: es wird zwischen den beiden Mipmap-Stufen 6 und 7 interpoliert.
 
 \clearpage
 \section*{Aufgabe 7: Beleuchtung}
