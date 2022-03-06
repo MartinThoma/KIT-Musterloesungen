@@ -17,7 +17,7 @@ vec3 bezier3(float s, // Parameter s in [0;1)
     result += b0 * (1. - s) * (1. - s) * (1. - u) * 1.;
     result += b1 * (1. - s) * (1. - s) * u * 3.;
     result += b2 * (1. - s) * s * s * 3.;
-    result += b3 * s * s * s * 3.;
+    result += b3 * s * s * s * 1.;
     return result;
 }
 
