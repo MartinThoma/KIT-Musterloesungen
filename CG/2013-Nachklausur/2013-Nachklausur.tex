@@ -39,6 +39,7 @@
     \caption{Reflexionsstrahl, Schattenstrahlen und Transmissionstrahl}
     \label{fig:1a}
 \end{figure}
+Anmerkung: da es sich um perfekte Spiegel handelt, sind die eingezeichneten Schattenstrahlen unnötig.
 
 \subsection*{Teilaufgabe 1b}
 \textit{Wie nennt man das physikalische Gesetz oder Prinzip, welches die Richtungsänderung
@@ -253,7 +254,7 @@ und nur die Richtung genommen werden muss.
 \begin{tabular}{p{9cm}llll}\toprule
 Aussage                                                                                                                    & BVH & Octree & kD-Baum & Gitter \\\midrule
 Die Raumunterteilung kann mit Hilfe der Surface Area Heuristic durchgeführt werden.                                        & \CheckedBox   & $\square$        & \CheckedBox       & $\square$        \\
-Die Anzahl der Schnitttests mit Primitiven kann durch Mailboxing weiter reduziert werden.                                  & \CheckedBox   & \CheckedBox      & $\square$         & \CheckedBox      \\
+Die Anzahl der Schnitttests mit Primitiven kann durch Mailboxing weiter reduziert werden.                                  & \CheckedBox   & $\square$        & \CheckedBox       & \CheckedBox      \\
 Die Raumunterteilung ist geschickt für Szenen mit einer Geometrie, die dem sogenannten Teapot-in-a-Stadium-Problem ähnelt. & \CheckedBox   & \CheckedBox      & \CheckedBox       & $\square$        \\
 Der Datenstruktur liegt ein Binärbaum zugrunde.                                                                            & \CheckedBox   & $\square$        & \CheckedBox       & $\square$        \\\bottomrule
 \end{tabular}
@@ -315,16 +316,16 @@ Punkt $\mathbf{x}$ berechnet wird.}
 
 \subsection*{Teilaufgabe 7c}
 \begin{align}
-    \lambda_1^\Delta &= \nicefrac{1}{3}  & \lambda_3^\Delta &= \nicefrac{1}{3}\\
-    \lambda_4^\Delta &= \nicefrac{1}{3}
+    \lambda_1^\Delta &= \nicefrac{1}{6}  & \lambda_3^\Delta &= \nicefrac{1}{6}\\
+    \lambda_4^\Delta &= \nicefrac{2}{3}
 \end{align}
 
-\[c' = \nicefrac{1}{3} \cdot c_1 + \nicefrac{1}{3} \cdot c_3 + \nicefrac{1}{3} \cdot c_4 \neq c\]
+\[c' = \nicefrac{1}{6} \cdot c_1 + \nicefrac{1}{6} \cdot c_3 + \nicefrac{2}{3} \cdot c_4 \neq c\]
 
 \section*{Aufgabe 8: OpenGL und OpenGL-Shader}
 \begin{tabular}{cp{8cm}cc}\toprule
     ~  & Aussage                                                                                                                  & Wahr & Falsch \\\midrule
-    1  & Beleuchtung mit Schattenberechnung kann bei OpenGL mit Hilfe von \texttt{glEnable(GL\_LIGHTING | GL\_SHADOWS)} aktiviert werden.  & \CheckedBox    & $\square$        \\
+    1  & Beleuchtung mit Schattenberechnung kann bei OpenGL mit Hilfe von \texttt{glEnable(GL\_LIGHTING | GL\_SHADOWS)} aktiviert werden.  & $\square$      & \CheckedBox      \\
     2  & Der Vertex-Cache funktioniert nicht mit indizierten Vertizes.                                                            & $\square$      & \CheckedBox      \\
     3  & Im Fragment-Shader kann auf benachbarte Fragmente zugegriffen werden.                                                    & $\square$      & \CheckedBox      \\
     4  & Im Fragment-Shader kann man die Tiefe eines Fragments verändern.                                                         & \CheckedBox    & $\square$        \\
@@ -335,6 +336,8 @@ Punkt $\mathbf{x}$ berechnet wird.}
     9  & Der Fragment-Shader ist in der OpenGL-Pipeline vor den Fragment-Operationen und nach dem Geometrie-Shader.               & \CheckedBox    & $\square$        \\
     10 & Beim Tiefenpuffer-Verfahren ist die Reihenfolge des Zeichnens auch bei opaken Primitiven wichtig für die Korrektheit.    & $\square$      & \CheckedBox      \\\bottomrule
 \end{tabular}
+
+Bemerkung zu 1: falsch, da \texttt{GL\_SHADOWS} nicht existiert (\url{https://www.opengl.org/sdk/docs/man/html/glEnable.xhtml})
 
 \clearpage
 \section*{Aufgabe 9: Toon-Shading in OpenGL}
@@ -385,12 +388,13 @@ Analog zu (11.2).
 3 & Alpha-Clipping ist eine Fragmentoperation und findet zwischen Alpha-Test und Alpha-Blending statt.                                                               &
  $\square$      & \CheckedBox   &   \\
 4 & Der Blendingoperator definiert durch \texttt{glBlendEquation(GL\_FUNC\_ADD)} und \texttt{glBlendFunc(GL\_SRC\_ALPHA, GL\_SRC\_ALPHA)} ist kommutativ.            &
- \CheckedBox    & $\square$     &  1) \\\bottomrule
+ $\square$      & \CheckedBox   &  1) \\\bottomrule
 \end{tabular}
 \\[3pt]
 1)
-COLOR = SRC\_ALPHA $\cdot$ SRC\_COLOR + SRC\_ALPHA $\cdot$ DST\_COLOR $\Leftrightarrow$ \\
-COLOR = SRC\_ALPHA $\cdot$ DST\_COLOR + SRC\_ALPHA $\cdot$ SRC\_COLOR
+Da GL\_SRC\_ALPHA den Alpha-Wert des Quell-Fragments multipliziert und das 
+beim Tauschen von Quell- und Ziel-Fragment nicht berücksichtigt wird, ist der
+Operator nicht kommutativ.
 
 \section*{Aufgabe 12: Bézierkurven}
 \subsection*{Teilaufgabe 12a}
