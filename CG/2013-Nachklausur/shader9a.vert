@@ -7,8 +7,10 @@ uniform mat4 V;     // View-Matrix.
 uniform mat4 P;     // Projection-Matrix.
 
 void main(void) {
-	posWorld = M * position;
-	normal = transpose(inverse(M)) * normal;
+	vec4 posWorld4 = M * position;
+	gl_Position = P * V * posWorld4;
 
-	gl_Position = P * (V * posWorld);
+	posWorld = posWorld4.xyz / posWorld4.w;
+	normWorld = normalize((transpose(inverse(M)) * normal).xyz);
+
 }
